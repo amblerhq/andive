@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="260" height="200" viewBox="0 0 260 200">
+    <g fill="none" fill-rule="evenodd">
+        <g transform="translate(41 15)">
+            <circle cx="89" cy="85" r="85" fill="#65BFCF" fill-rule="nonzero" opacity=".4"/>
+            <path fill="#65BFCF" fill-rule="nonzero" d="M28.4 12.7V10h-1.8v2.7H24v1.7h2.6v2.7h1.8v-2.7h2.7v-1.7zM4.4 25.7V23H2.6v2.7H0v1.8h2.6v2.6h1.8v-2.6H7v-1.8zM162.4 155.6V153h-1.8v2.6H158v1.8h2.6v2.6h1.8v-2.6h2.6v-1.8zM71.3 51v-7.3-.6c.3-2.9 2.8-5.2 5.8-5.2h24.5c3 0 5.5 2.3 5.8 5.2V51h5.8v-7.3c0-.4 0-.8-.1-1.2-.6-5.9-5.6-10.5-11.6-10.5H77c-6 0-11 4.6-11.6 10.5 0 .4-.1.8-.1 1.2V51h6z"/>
+            <path fill="#5E48AF" fill-rule="nonzero" d="M136.5 49H42.1c-8.3 0-15.1 6.4-16 14.4h126.3c-.7-8-7.6-14.4-15.9-14.4z"/>
+            <path fill="#5E48AF" d="M42.1 130.6h94.4c8.3 0 15.1-6.4 16-14.4H26.2c.8 8 7.7 14.4 15.9 14.4z"/>
+            <path fill="#FFF" fill-rule="nonzero" d="M152.6 65.1c0-.5 0-1.1-.1-1.6H26.2c-.1.5-.1 1.1-.1 1.6v49.4c0 .5 0 1.1.1 1.6h126.3c.1-.5.1-1.1.1-1.6V65.1z"/>
+            <circle cx="89.3" cy="89.8" r="18.2" fill="#65BFCF" fill-rule="nonzero"/>
+            <path fill="#FFF" fill-rule="nonzero" d="M97.7 85.9h-4.6v-4.6c0-2-1.6-3.7-3.5-3.7h-.8c-1.9 0-3.5 1.7-3.5 3.7v4.6h-4.6c-2 0-3.7 1.6-3.7 3.5v.8c0 1.9 1.7 3.5 3.7 3.5h4.6v4.6c0 2 1.6 3.7 3.5 3.7h.8c1.9 0 3.5-1.7 3.5-3.7v-4.7h4.6c2 0 3.7-1.6 3.7-3.5v-.8c0-1.8-1.6-3.4-3.7-3.4z"/>
+        </g>
+    </g>
+</svg>

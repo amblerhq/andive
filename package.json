@@ -1,0 +1,57 @@
+{
+  "name": "@ambler/andive",
+  "version": "0.0.13",
+  "description": "Ambler UI library",
+  "main": "dist/index.js",
+  "files": [
+    "dist/**/*.js",
+    "img/*"
+  ],
+  "repository": "git@github.com:amblerhq/ambler.git",
+  "author": "Ambler team",
+  "license": "MIT",
+  "scripts": {
+    "dev": "start-storybook",
+    "build": "babel src -d dist --ignore \"src/**/*.stories.js\",\"src/**/*.test.js\"",
+    "prepublish": "yarn build",
+    "share": "yarn build-storybook && now storybook-static && now alias ${now} andive.ambler.fr"
+  },
+  "devDependencies": {
+    "@babel/cli": "7.2.3",
+    "@babel/core": "7.4.0",
+    "@babel/preset-env": "7.4.2",
+    "@babel/preset-react": "7.0.0",
+    "@storybook/addon-storysource": "5.0.5",
+    "@storybook/react": "5.0.6",
+    "@storybook/theming": "5.0.6",
+    "babel-eslint": "10.0.1",
+    "babel-loader": "8.0.5",
+    "babel-plugin-inline-react-svg": "1.0.1",
+    "eslint": "5.15.3",
+    "eslint-config-prettier": "4.1.0",
+    "eslint-plugin-prettier": "3.0.1",
+    "eslint-plugin-react": "7.12.4",
+    "lodash.range": "3.2.0",
+    "moment": "2.24.0",
+    "prettier": "1.16.4",
+    "react": "16.8.6",
+    "react-copy-to-clipboard": "5.0.1",
+    "react-dom": "16.8.6",
+    "react-helmet": "5.2.0",
+    "styled-components": "4.2.0"
+  },
+  "peerDependencies": {
+    "moment": "^2.24.0",
+    "react": "^16.8.5",
+    "react-dom": "^16.8.5",
+    "react-helmet": "^5.2.0",
+    "styled-components": "^4.2.0"
+  },
+  "dependencies": {
+    "@rehooks/component-size": "1.0.2",
+    "prop-types": "15.7.2",
+    "react-pose": "4.0.8",
+    "resize-observer-polyfill": "1.5.1",
+    "use-interval": "1.1.0"
+  }
+}
