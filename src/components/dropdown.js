@@ -14,10 +14,21 @@ const Dropdown = styled.div`
  
 `
 
-function DropdownComponent({item, disabled, fullWidth, label, options, optionFormat, value, onChange, icon, ...props}) {
+function DropdownComponent({
+  placeholder,
+  disabled,
+  fullWidth,
+  label,
+  options,
+  optionFormat,
+  value,
+  onChange,
+  icon,
+  ...props
+}) {
   const ItemText = disabled ? Body3 : Body2
   const selectProps = {
-    label,
+    label: placeholder,
     value,
     onChange,
     options,
@@ -27,14 +38,14 @@ function DropdownComponent({item, disabled, fullWidth, label, options, optionFor
 
   return (
     <Dropdown fullWidth={fullWidth} {...props}>
-      <ItemText>{item}</ItemText>
+      <ItemText>{label}</ItemText>
       {disabled ? <Body3>—</Body3> : <Select {...selectProps} />}
     </Dropdown>
   )
 }
 
 DropdownComponent.propTypes = {
-  item: PropTypes.string.isRequired,
+  placeholder: PropTypes.string.isRequired,
   disabled: PropTypes.bool,
   fullWidth: PropTypes.bool,
   ...Select.propTypes
