@@ -11,6 +11,8 @@ export const baselineCss = css`
 
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
+
+  fill: transparent;
 `
 
 const BaselineCSS = createGlobalStyle`
