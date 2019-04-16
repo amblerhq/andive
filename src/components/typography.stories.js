@@ -2,7 +2,7 @@ import React from 'react'
 import {storiesOf} from '@storybook/react'
 
 import Showcase from '../stories/showcase'
-import {H1, H2, Body1, Body2, ButtonTextPrimary, ButtonTextSecondary, Body3, Body4} from './typography'
+import {H1, H2, Body1, Body2, ButtonTextPrimary, ButtonTextSecondary, ActionText, Body3, Body4} from './typography'
 
 storiesOf('Typography', module).add('Library', () => {
   const demoText = 'Le dernier arrivé est fan de Phil Collins'
@@ -31,6 +31,9 @@ storiesOf('Typography', module).add('Library', () => {
       </Showcase>
       <Showcase compact legend={'ButtonTextSecondary'}>
         <ButtonTextSecondary style={{background: 'white'}}>{demoText}</ButtonTextSecondary>
+      </Showcase>
+      <Showcase compact legend={'ActionText'}>
+        <ActionText style={{background: 'white'}}>{demoText}</ActionText>
       </Showcase>
     </>
   )

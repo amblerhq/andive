@@ -2,10 +2,10 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
-import {actionCss, body3Css} from './typography'
+import {actionTextCss, body3Css} from './typography'
 
 const Link = styled.div`
-  ${props => (props.invert ? body3Css : actionCss)}
+  ${props => (props.invert ? body3Css : actionTextCss)}
 
   width: ${props => (props.fullWidth ? '100%' : 'auto')};
   padding: 8px;

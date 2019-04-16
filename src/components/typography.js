@@ -134,11 +134,15 @@ export const ButtonTextSecondary = styled.div`
 
 // Action
 
-export const actionCss = css`
+export const actionTextCss = css`
   font-family: ${fontFamily};
   font-weight: ${fontWeights.regular};
   font-size: 16px;
   line-height: 22px;
   min-height: 24px;
   color: ${berryBlue};
+`
+
+export const ActionText = styled.div`
+  ${actionTextCss}
 `
