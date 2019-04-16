@@ -2,11 +2,23 @@ import React, {useState, useEffect} from 'react'
 import {storiesOf} from '@storybook/react'
 
 import Button from './button'
+import * as palette from '../constants/palette'
 import Showcase from '../stories/showcase'
 
-import icons from './icons'
+import AmbulanceIcon from './icons/ambulance'
+import VslIcon from './icons/vsl'
+import BariatricIcon from './icons/bariatric'
+import TpmrIcon from './icons/tpmr'
 
-function TimedIcon({interval, children}) {
+import EditIcon from './icons/edit'
+import LogoutIcon from './icons/logout'
+import ArrowIcon from './icons/arrow'
+import NewIcon from './icons/new'
+import AddressIcon from './icons/address'
+
+const icons = [AmbulanceIcon, VslIcon, BariatricIcon, TpmrIcon]
+
+function TimedIcon({interval, color, children}) {
   const [index, setIndex] = useState(0)
 
   useEffect(() => {
@@ -23,37 +35,102 @@ function TimedIcon({interval, children}) {
 
   const Icon = icons[index % icons.length]
 
-  return children(<Icon />)
+  return children(<Icon color={color} inline />)
 }
 
 storiesOf('Button', module)
   .add('Default', () => (
-    <Showcase>
-      <Button label={'Je suis fan'} />
-    </Showcase>
+    <>
+      <Showcase>
+        <Button label={'Je suis fan'} />
+      </Showcase>
+      <Showcase>
+        <Button label={'Enregistrer mes changements'} />
+      </Showcase>
+    </>
   ))
   .add('Primary', () => (
     <Showcase>
-      <Button primary label={'Je suis fan'} />
+      <Button variant="primary" label={'Je suis fan'} />
     </Showcase>
   ))
+  .add('Flat', () => {
+    return (
+      <Showcase>
+        <Button variant="flat" label={'Je suis fan'} />
+      </Showcase>
+    )
+  })
   .add('Invert', () => (
-    <Showcase invert>
-      <Button invert label={'Je suis fan'} />
-    </Showcase>
+    <>
+      <Showcase invert>
+        <Button invert label={'Je suis fan'} />
+      </Showcase>
+      <Showcase invert>
+        <Button invert variant="primary" label={'Je suis fan'} />
+      </Showcase>
+      <Showcase invert>
+        <Button invert variant="flat" label={'Je suis fan'} />
+      </Showcase>
+    </>
   ))
-  .add('Invert primary', () => (
-    <Showcase invert>
-      <Button invert primary label={'Je suis fan'} />
-    </Showcase>
+  .add('With right icon', () => (
+    <>
+      <Showcase>
+        <TimedIcon color={palette.lightBeetrootPurple}>
+          {icon => <Button label={'VSL / Taxi'} rightIcon={icon} />}
+        </TimedIcon>
+      </Showcase>
+      <Showcase>
+        <Button label={'Commander'} rightIcon={<AddressIcon inline color={palette.white} />} variant="primary" />
+      </Showcase>
+      <Showcase>
+        <TimedIcon color={palette.berryBlue}>
+          {icon => <Button label={'VSL / Taxi'} rightIcon={icon} variant="flat" />}
+        </TimedIcon>
+      </Showcase>
+      <Showcase>
+        <Button label={'Nouvelle commande'} rightIcon={<ArrowIcon inline color={palette.berryBlue} />} variant="flat" />
+      </Showcase>
+    </>
   ))
-  .add('With icon', () => (
-    <Showcase>
-      <TimedIcon>{icon => <Button label={'VSL / Taxi'} icon={icon} />}</TimedIcon>
-    </Showcase>
+  .add('With icon left', () => (
+    <>
+      <Showcase>
+        <TimedIcon color={palette.lightBeetrootPurple}>
+          {icon => <Button label={'VSL / Taxi'} leftIcon={icon} />}
+        </TimedIcon>
+      </Showcase>
+      <Showcase>
+        <Button label={'Commander'} leftIcon={<NewIcon inline color={palette.white} />} variant="primary" />
+      </Showcase>
+      <Showcase>
+        <TimedIcon color={palette.berryBlue}>
+          {icon => <Button label={'VSL / Taxi'} leftIcon={icon} variant="flat" />}
+        </TimedIcon>
+      </Showcase>
+      <Showcase>
+        <Button label={'Editer la commande'} leftIcon={<EditIcon inline color={palette.berryBlue} />} variant="flat" />
+      </Showcase>
+      <Showcase invert>
+        <Button
+          label={'Déconnexion'}
+          leftIcon={<LogoutIcon inline color={palette.lightGrey} />}
+          variant="flat"
+          textColor={palette.lightGrey}
+        />
+      </Showcase>
+    </>
   ))
-  .add('With long text', () => (
-    <Showcase>
-      <Button label={'Enregistrer mes changements'} />
-    </Showcase>
-  ))
+  .add('As link', () => {
+    return (
+      <Showcase>
+        <Button
+          href={'#'}
+          variant="link"
+          label={'Commander'}
+          rightIcon={<NewIcon inline color={palette.berryBlue} />}
+        />
+      </Showcase>
+    )
+  })
