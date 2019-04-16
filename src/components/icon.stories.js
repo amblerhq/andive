@@ -15,22 +15,35 @@ import ArrowIcon from './icons/arrow'
 import LogoutIcon from './icons/logout'
 import HistoricIcon from './icons/historic'
 import MedicalFacilityIcon, {MedicalFacilitySvg} from './icons/medical-facility'
-import AddressIcon from './icons/address'
+import AddressIcon, {AddressSvg} from './icons/address'
 import CheckIcon from './icons/check'
 import UncheckIcon from './icons/uncheck'
+import NewIcon from './icons/new'
 
 import Icon from './icon'
 import Showcase from '../stories/showcase'
+import * as palette from '../constants/palette'
 
 const Icons = styled.div`
   display: flex;
   flex-wrap: wrap;
 `
 
-const Spacing = styled.div`
-  flex: 1;
-  flex-basis: 100%;
-`
+const icons = [
+  AmbulanceIcon,
+  VslIcon,
+  TpmrIcon,
+  BariatricIcon,
+  CloseIcon,
+  ArrowIcon,
+  LogoutIcon,
+  HistoricIcon,
+  MedicalFacilityIcon,
+  AddressIcon,
+  NewIcon
+]
+
+const blueIcons = [SeatedIcon, LyingIcon, EditIcon, CheckIcon, UncheckIcon, BackIcon]
 
 storiesOf('Icon', module)
   .add('Default', () => (
@@ -47,65 +60,55 @@ storiesOf('Icon', module)
       </Icon>
     </Showcase>
   ))
+  .add('Colored', () => (
+    <Icons>
+      <Showcase variant="squared" legend={'berryBlue'}>
+        <AddressIcon color={palette.berryBlue} />
+      </Showcase>
+      <Showcase variant="squared" legend={'radishRed'}>
+        <AddressIcon color={palette.radishRed} />
+      </Showcase>
+      <Showcase variant="squared" legend={'lettuceGreen'}>
+        <AddressIcon color={palette.lettuceGreen} />
+      </Showcase>
+      <Showcase variant="squared" invert legend={'potatoYellow'}>
+        <AddressIcon color={palette.potatoYellow} />
+      </Showcase>
+      <Showcase variant="squared" invert legend={'potatoYellow'}>
+        <AddressIcon color={palette.white} />
+      </Showcase>
+    </Icons>
+  ))
   .add('Inline', () => (
-    <Showcase variant="squared">
-      <Icon inline>
-        <MedicalFacilitySvg />
+    <Showcase>
+      {"En concert à l'Olympiade"}
+      <Icon inline color={palette.radishRed}>
+        <AddressSvg />
       </Icon>
+      dès 2020 !
     </Showcase>
   ))
   .add('Library', () => {
     return (
-      <Icons>
-        <Showcase variant="squared" legend="Ambulance">
-          <AmbulanceIcon />
-        </Showcase>
-        <Showcase variant="squared" legend="VSL">
-          <VslIcon />
-        </Showcase>
-        <Showcase variant="squared" legend="TPMR">
-          <TpmrIcon />
-        </Showcase>
-        <Showcase variant="squared" legend="Bariatric">
-          <BariatricIcon />
-        </Showcase>
-        <Showcase variant="squared" legend="Lying">
-          <LyingIcon />
-        </Showcase>
-        <Showcase variant="squared" legend="Seated">
-          <SeatedIcon />
-        </Showcase>
-        <Showcase variant="squared" legend="MedicalFacility">
-          <MedicalFacilityIcon />
-        </Showcase>
-        <Spacing />
-        <Showcase variant="squared" legend="Edit">
-          <EditIcon />
-        </Showcase>
-        <Showcase variant="squared" legend="Back">
-          <BackIcon />
-        </Showcase>
-        <Showcase variant="squared" legend="Close">
-          <CloseIcon />
-        </Showcase>
-        <Showcase variant="squared" legend="Arrow">
-          <ArrowIcon />
-        </Showcase>
-        <Showcase variant="squared" legend="Logout">
-          <LogoutIcon />
-        </Showcase>
-        <Showcase variant="squared" legend="Address">
-          <AddressIcon />
-        </Showcase>
-        <Showcase variant="squared" legend="Historic">
-          <HistoricIcon />
-        </Showcase>
-        <Showcase variant="squared" legend="Check">
-          <CheckIcon />
-        </Showcase>
-        <Showcase variant="squared" legend="Uncheck">
-          <UncheckIcon />
-        </Showcase>
-      </Icons>
+      <>
+        <Icons>
+          {icons.map((Icon, index) => {
+            return (
+              <Showcase key={index} variant="squared" size={160} legend={Icon.name}>
+                <Icon color={palette.darkGrey} />
+              </Showcase>
+            )
+          })}
+        </Icons>
+        <Icons>
+          {blueIcons.map((Icon, index) => {
+            return (
+              <Showcase key={index} variant="squared" size={160} legend={Icon.name}>
+                <Icon />
+              </Showcase>
+            )
+          })}
+        </Icons>
+      </>
     )
   })

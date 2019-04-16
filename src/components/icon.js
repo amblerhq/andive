@@ -1,8 +1,21 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled, {css} from 'styled-components'
 import PropTypes from 'prop-types'
 
-const IconRoot = styled.div`
+const SvgRoot = styled.div`
+  ${props =>
+    props.color &&
+    css`
+      svg,
+      path,
+      g {
+        stroke: ${props => props.color};
+        fill: transparent;
+      }
+    `}
+`
+
+const IconRoot = styled(SvgRoot)`
   position: relative;
 
   width: 32px;
@@ -19,16 +32,16 @@ const IconWrapper = styled.div`
   left: calc(50% - ${props => props.size / 2}px);
 `
 
-const Icon = ({circle, circleColor, children, iconProps, inline, ...props}) => {
+const Icon = ({circle, circleColor, color, children, iconProps, inline, ...props}) => {
   const size = children.props.width
 
   if (inline) {
-    return React.cloneElement(children, {color: 'white', ...(iconProps || props || {})})
+    return <SvgRoot color={color}>{React.cloneElement(children, {...(iconProps || props || {})})}</SvgRoot>
   }
 
   return (
-    <IconRoot circleColor={circleColor} circle={circle} {...props}>
-      <IconWrapper size={size}>{React.cloneElement(children, {color: 'white', ...(iconProps || {})})}</IconWrapper>
+    <IconRoot circleColor={circleColor} circle={circle} color={color} {...props}>
+      <IconWrapper size={size}>{React.cloneElement(children, {...(iconProps || {})})}</IconWrapper>
     </IconRoot>
   )
 }
@@ -37,6 +50,7 @@ Icon.propTypes = {
   children: PropTypes.node.isRequired,
   circle: PropTypes.bool,
   circleColor: PropTypes.string,
+  color: PropTypes.string,
   iconProps: PropTypes.object,
   inline: PropTypes.bool
 }
