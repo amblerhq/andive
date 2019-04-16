@@ -22,7 +22,7 @@ function stickyAppBar({sticky}) {
 }
 
 const AppBar = styled.div`
-  height: 72px;
+  height: 64px;
   width: 100%;
 
   background-color: #fff;
@@ -30,11 +30,18 @@ const AppBar = styled.div`
   ${stickyAppBar}
 `
 
+const AppBarFootprint = styled.div`
+  height: 64px;
+`
+
 export default function AppBarComponent({children, sticky, ...props}) {
   return (
-    <AppBar sticky={sticky} {...props}>
-      {children}
-    </AppBar>
+    <>
+      {sticky && <AppBarFootprint />}
+      <AppBar sticky={sticky} {...props}>
+        {children}
+      </AppBar>
+    </>
   )
 }
 

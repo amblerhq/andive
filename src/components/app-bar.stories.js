@@ -4,7 +4,7 @@ import {storiesOf} from '@storybook/react'
 import range from 'lodash.range'
 
 import Showcase from '../stories/showcase'
-import {H1} from './typography'
+import {H1, Body3} from './typography'
 import AppBar from './app-bar'
 
 import Link from './link'
@@ -13,7 +13,11 @@ import LogoutIcon from './icons/logout'
 import LogoSvg from '../../img/logo.svg'
 
 function RandomPageContent() {
-  return range(42).map(i => <Showcase key={i} variant="compact" />)
+  return range(42).map(i => (
+    <Showcase key={i} variant="compact">
+      <Body3>{i}</Body3>
+    </Showcase>
+  ))
 }
 
 const Title = styled(H1)`
@@ -36,7 +40,7 @@ storiesOf('AppBar', module)
   .add('Sticky', () => (
     <>
       <AppBar sticky>
-        <Container style={{justifyContent: 'center', alignItems: 'center'}}>
+        <Container style={{alignItems: 'center'}}>
           <H1>Détail de la commande</H1>
         </Container>
       </AppBar>
@@ -47,7 +51,7 @@ storiesOf('AppBar', module)
   .add('Relative', () => (
     <>
       <AppBar>
-        <Container style={{justifyContent: 'center', alignItems: 'center'}}>
+        <Container style={{alignItems: 'center'}}>
           <H1>Détail de la commande</H1>
         </Container>
       </AppBar>
