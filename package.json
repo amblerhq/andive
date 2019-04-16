@@ -1,6 +1,6 @@
 {
   "name": "@ambler/andive",
-  "version": "0.0.14",
+  "version": "0.0.15",
   "description": "Ambler UI library",
   "main": "dist/index.js",
   "files": [
@@ -14,7 +14,7 @@
     "dev": "start-storybook",
     "build": "babel src -d dist --ignore \"src/**/*.stories.js\",\"src/**/*.test.js\"",
     "prepublish": "yarn build",
-    "share": "yarn build-storybook && now storybook-static"
+    "share": "yarn build-storybook && cd storybook-static && now && now alias ${now} andive.ambler.fr"
   },
   "devDependencies": {
     "@babel/cli": "7.2.3",
