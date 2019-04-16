@@ -115,11 +115,6 @@ export default function ToastContainer() {
 
   useInterval(tick, 250, true)
 
-  let Icon = null
-  if (toastValue && toastValue.icon) {
-    Icon = toastValue.icon
-  }
-
   return (
     <ToastContainerRoot>
       <PoseGroup>
@@ -127,8 +122,7 @@ export default function ToastContainer() {
           <Toast key="toast" height={toastHeight} style={{backgroundColor: typeToColor(toastValue.type)}}>
             <ToastComponent>
               {toastValue.message}
-              {/* TODO: Customize icon color, need white here */}
-              {Icon && <Icon />}
+              {toastValue && toastValue.icon}
             </ToastComponent>
           </Toast>
         )}

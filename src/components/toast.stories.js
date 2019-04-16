@@ -33,6 +33,6 @@ storiesOf('Toast', module)
   ))
   .add('With icon', () => (
     <Showcase>
-      <Button onClick={() => toastSuccess('Je suis fan', AmbulanceIcon)} label="Click me" />
+      <Button onClick={() => toastError('Je suis fan', <AmbulanceIcon color={'white'} inline />)} label="Click me" />
     </Showcase>
   ))
