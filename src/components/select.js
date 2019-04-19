@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
+
 import {berryBlue} from '../constants/palette'
 import {body1Css} from './typography'
 
@@ -13,8 +14,6 @@ const Select = styled.div`
 `
 
 const SelectTag = styled.select`
-  width: 100%;
-
   cursor: pointer;
   -webkit-appearance: none;
 
@@ -23,7 +22,7 @@ const SelectTag = styled.select`
   border: 0;
   border-radius: 0;
   margin: 0;
-  padding-right: ${props => (props.hasIcon ? '16px' : '0px')};
+  margin-right: ${props => (props.hasIcon ? '16px' : '0px')};
 
   background: transparent;
 
@@ -35,7 +34,7 @@ const iconStyle = {
   pointerEvents: 'none',
   position: 'absolute',
   top: 'calc(50% - 8px)',
-  left: 'calc(100% - 16px)'
+  right: 0
 }
 
 function SelectComponent({label, options, optionFormat, value, onChange, icon, ...props}) {

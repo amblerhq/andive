@@ -95,7 +95,7 @@ storiesOf('Icon', module)
           {icons.map((Icon, index) => {
             return (
               <Showcase key={index} variant="squared" size={160} legend={Icon.name}>
-                <Icon color={palette.darkGrey} />
+                <Icon color={palette.radishRed} />
               </Showcase>
             )
           })}

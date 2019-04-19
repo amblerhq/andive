@@ -1,9 +1,17 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled, {css} from 'styled-components'
 import PropTypes from 'prop-types'
 
 import {baselineCss} from './baseline'
-import {white, lightBeetrootPurple, berryBlue} from '../constants/palette'
+import {
+  white,
+  lightBeetrootPurple,
+  ligthBeetrootPurpleAlpha,
+  berryBlue,
+  lightGrey,
+  ligthGreyAlpha,
+  ligthGrey
+} from '../constants/palette'
 import {ButtonTextPrimary, ButtonTextSecondary, ActionText} from './typography'
 
 const ResetButton = styled.button`
@@ -30,6 +38,15 @@ const DefaultButton = styled(ResetButton)`
   box-shadow: 0 2px 5px 0 rgba(5, 71, 82, 0.2);
 
   padding: 16px 24px;
+
+  ${props =>
+    props.disabled &&
+    css`
+      background-color: ${({invert}) => (invert ? lightBeetrootPurple : lightGrey)};
+      border: 1px solid ${({invert}) => (invert ? ligthGreyAlpha(0.5) : ligthBeetrootPurpleAlpha(0.5))};
+      cursor: not-allowed;
+      box-shadow: none;
+    `}
 `
 
 const PrimaryButton = styled(ResetButton)`
@@ -41,6 +58,15 @@ const PrimaryButton = styled(ResetButton)`
   box-shadow: 0 2px 5px 0 rgba(5, 71, 82, 0.2);
 
   padding: 16px 24px;
+
+  ${props =>
+    props.disabled &&
+    css`
+      background: ${({invert}) => (invert ? ligthGreyAlpha(0.5) : ligthBeetrootPurpleAlpha(0.5))};
+      border: 1px solid ${({invert}) => (invert ? ligthGreyAlpha(0.5) : ligthBeetrootPurpleAlpha(0.5))};
+      cursor: not-allowed;
+      box-shadow: none;
+    `}
 `
 
 const LinkButton = styled.a`
@@ -61,30 +87,36 @@ const LinkButton = styled.a`
 
 const FlatButton = styled(ResetButton)`
   color: ${({invert}) => (invert ? white : berryBlue)};
+
+  ${props =>
+    props.disabled &&
+    css`
+      cursor: not-allowed;
+    `}
 `
 
-function textStyle(leftIcon, rightIcon, variant, invert, textColor) {
+function textStyle(leftIcon, rightIcon, variant, invert, color) {
   return {
     paddingRight: rightIcon && 8,
     paddingLeft: leftIcon && 8,
-    color: textColor
-      ? textColor
-      : invert &&
-        (() => {
-          switch (variant) {
-            case 'primary':
-              return lightBeetrootPurple
-            case 'flat':
-              return white
-            default:
-              return white
-          }
-        })()
+    color
   }
 }
 
-export default function Button({label, rightIcon, leftIcon, onClick, variant, invert, textColor, href, ...props}) {
-  if ((variant === 'link' && !href) || (href && variant !== 'link')) {
+export default function Button({
+  label,
+  rightIcon,
+  leftIcon,
+  onClick,
+  variant,
+  invert,
+  textColor,
+  href,
+  disabled,
+  loading, // cursor: progress
+  ...props
+}) {
+  if (href && variant !== 'link') {
     throw new Error('Button variant "link" cannot be used without "href"')
   }
 
@@ -113,24 +145,59 @@ export default function Button({label, rightIcon, leftIcon, onClick, variant, in
     }
   })()
 
+  const color = (() => {
+    if (disabled) {
+      switch (variant) {
+        case 'primary':
+          return invert ? ligthBeetrootPurpleAlpha(0.5) : ligthGrey
+        case 'flat':
+        case 'link':
+          return invert ? ligthGreyAlpha(0.5) : ligthBeetrootPurpleAlpha(0.5)
+        default:
+          return invert ? ligthGreyAlpha(0.5) : ligthBeetrootPurpleAlpha(0.5)
+      }
+    }
+
+    if (textColor) {
+      return textColor
+    }
+
+    if (invert) {
+      switch (variant) {
+        case 'primary':
+          return lightBeetrootPurple
+        case 'flat':
+          return white
+        default:
+          return white
+      }
+    }
+  })()
+
+  const iconStyle = {}
+
+  if (disabled) {
+    iconStyle.color = color
+  }
+
   return (
     <ButtonComponent
-      onClick={!href ? onClick : undefined}
-      href={href}
+      onClick={!href && !disabled ? onClick : undefined}
+      href={!disabled && href}
       primary={variant === 'primary'}
       invert={invert}
+      disabled={disabled}
       {...props}
     >
-      {leftIcon}
-      <ButtonLabel style={textStyle(leftIcon, rightIcon, variant, invert, textColor)}>{label}</ButtonLabel>
-      {rightIcon}
+      {leftIcon && React.cloneElement(leftIcon, iconStyle)}
+      <ButtonLabel style={textStyle(leftIcon, rightIcon, variant, invert, color)}>{label}</ButtonLabel>
+      {rightIcon && React.cloneElement(rightIcon, iconStyle)}
     </ButtonComponent>
   )
 }
 
 Button.propTypes = {
-  /** Set the button text. Can be another react component (ex: LabelIcon) */
-  label: PropTypes.string.isRequired,
+  label: PropTypes.string,
   rightIcon: PropTypes.node,
   leftIcon: PropTypes.node,
   onClick: PropTypes.func,
@@ -139,5 +206,6 @@ Button.propTypes = {
   variant: PropTypes.oneOf(['primary', 'flat', 'link']),
   /** Inverse button colors to display on beetrootPurple background */
   invert: PropTypes.bool,
-  textColor: PropTypes.string
+  textColor: PropTypes.string,
+  disabled: PropTypes.bool
 }

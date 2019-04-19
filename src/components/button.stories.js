@@ -134,3 +134,50 @@ storiesOf('Button', module)
       </Showcase>
     )
   })
+  .add('Disabled', () => {
+    return (
+      <>
+        <Showcase>
+          <Button label={'Commander'} rightIcon={<NewIcon inline color={palette.lightBeetrootPurple} />} disabled />
+        </Showcase>
+        <Showcase>
+          <Button variant="primary" label={'Commander'} rightIcon={<NewIcon inline color={palette.white} />} disabled />
+        </Showcase>
+        <Showcase>
+          <Button
+            variant="flat"
+            label={'Commander'}
+            rightIcon={<NewIcon inline color={palette.berryBlue} />}
+            disabled
+          />
+        </Showcase>
+      </>
+    )
+  })
+  .add('Invert disabled', () => {
+    return (
+      <>
+        <Showcase invert>
+          <Button invert disabled label={'Commander'} rightIcon={<NewIcon inline color={palette.white} />} />
+        </Showcase>
+        <Showcase invert>
+          <Button
+            invert
+            disabled
+            variant="primary"
+            label={'Commander'}
+            rightIcon={<NewIcon inline color={palette.lightBeetrootPurple} />}
+          />
+        </Showcase>
+        <Showcase invert>
+          <Button
+            invert
+            disabled
+            variant="flat"
+            label={'Commander'}
+            rightIcon={<NewIcon inline color={palette.white} />}
+          />
+        </Showcase>
+      </>
+    )
+  })

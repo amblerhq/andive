@@ -124,9 +124,6 @@ export const Icon = IconComponent
 import InputComponent from './components/input'
 export const Input = InputComponent
 
-import LinkComponent from './components/link'
-export const Link = LinkComponent
-
 import RideStatusBarComponent from './components/ride-status-bar'
 export const RideStatusBar = RideStatusBarComponent
 

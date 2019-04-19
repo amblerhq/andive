@@ -6,18 +6,26 @@ import range from 'lodash.range'
 import Showcase from '../stories/showcase'
 import {H1, Body3} from './typography'
 import AppBar from './app-bar'
+import Button from './button'
 
-import Link from './link'
 import BackIcon from './icons/back'
 import LogoutIcon from './icons/logout'
+import AmbulanceIcon from './icons/ambulance'
+import VslIcon from './icons/vsl'
 import LogoSvg from '../../img/logo.svg'
+import {mediumGrey} from '../constants/palette'
 
 function RandomPageContent() {
-  return range(42).map(i => (
-    <Showcase key={i} variant="compact">
-      <Body3>{i}</Body3>
-    </Showcase>
-  ))
+  return (
+    <>
+      <div style={{height: 16}} />
+      {range(42).map(i => (
+        <Showcase key={i} variant="compact">
+          <Body3>{i}</Body3>
+        </Showcase>
+      ))}
+    </>
+  )
 }
 
 const Title = styled(H1)`
@@ -26,33 +34,20 @@ const Title = styled(H1)`
 `
 
 const Container = styled.div`
-  height: 100%;
-  max-width: 1108px;
+  min-height: 64px;
+  padding: 0 16px;
 
   display: flex;
-
   flex-flow: row nowrap;
-  padding: 0 16px;
-  margin: 0 16px;
+  align-items: center;
 `
 
 storiesOf('AppBar', module)
-  .add('Sticky', () => (
-    <>
-      <AppBar sticky>
-        <Container style={{alignItems: 'center'}}>
-          <H1>Détail de la commande</H1>
-        </Container>
-      </AppBar>
-
-      <RandomPageContent />
-    </>
-  ))
-  .add('Relative', () => (
+  .add('Default', () => (
     <>
       <AppBar>
-        <Container style={{alignItems: 'center'}}>
-          <H1>Détail de la commande</H1>
+        <Container>
+          <Title>Détail de la commande</Title>
         </Container>
       </AppBar>
 
@@ -61,9 +56,9 @@ storiesOf('AppBar', module)
   ))
   .add('With icon', () => (
     <>
-      <AppBar sticky>
-        <Container style={{alignItems: 'center'}}>
-          <BackIcon style={{marginLeft: 24}} />
+      <AppBar>
+        <Container>
+          <Button variant="flat" leftIcon={<BackIcon inline />} style={{marginLeft: 24}} />
           <Title>Détails de la commande</Title>
         </Container>
       </AppBar>
@@ -72,12 +67,47 @@ storiesOf('AppBar', module)
   ))
   .add('App header', () => (
     <>
-      <AppBar sticky>
-        <Container style={{justifyContent: 'space-between', alignItems: 'center'}}>
+      <AppBar>
+        <Container style={{justifyContent: 'space-between'}}>
           <LogoSvg width={135} height={35} />
-          <Link extend={<a href="https://www.ambler.fr" />} icon={<LogoutIcon inline />} label={'Déconnexion'} invert />
+          <Button
+            variant="link"
+            href="https://www.ambler.fr"
+            textColor={mediumGrey}
+            leftIcon={<LogoutIcon inline color={mediumGrey} />}
+            label={'Déconnexion'}
+          />
         </Container>
       </AppBar>
       <RandomPageContent />
     </>
   ))
+  .add('With scrolling section', () => {
+    return (
+      <>
+        <AppBar>
+          <Container style={{justifyContent: 'space-between'}}>
+            <LogoSvg width={135} height={35} />
+            <Button
+              variant="link"
+              href="https://www.ambler.fr"
+              textColor={mediumGrey}
+              leftIcon={<LogoutIcon inline color={mediumGrey} />}
+              label={'Déconnexion'}
+            />
+          </Container>
+          <AppBar.Sticky height={72} fadeOffset={128}>
+            <marquee direction="right">
+              <Container style={{height: 72}}>
+                <div style={{transform: 'rotateY(180deg)'}}>💨</div>
+                <AmbulanceIcon />
+                <div style={{width: '100vw'}} />
+                <div style={{transform: 'rotateY(180deg)'}}>💨</div> <VslIcon />
+              </Container>
+            </marquee>
+          </AppBar.Sticky>
+        </AppBar>
+        <RandomPageContent />
+      </>
+    )
+  })

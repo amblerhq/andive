@@ -6,6 +6,9 @@ import 'resize-observer-polyfill'
 import {fontFamily} from './typography'
 
 export const baselineCss = css`
+  margin: 0;
+  padding: 0;
+
   box-sizing: border-box;
   font-family: ${fontFamily};
 

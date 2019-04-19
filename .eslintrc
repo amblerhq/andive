@@ -1,5 +1,8 @@
 {
-    "plugins": ["react", "prettier"],
+    "plugins": [
+        "react",
+        "prettier"
+    ],
     "parser": "babel-eslint",
     "parserOptions": {
         "ecmaFeatures": {
@@ -7,9 +10,14 @@
         }
     },
     "env": {
-        "node": true
+        "node": true,
+        "browser": true
     },
-    "extends": ["eslint:recommended", "plugin:react/recommended", "plugin:prettier/recommended"],
+    "extends": [
+        "eslint:recommended",
+        "plugin:react/recommended",
+        "plugin:prettier/recommended"
+    ],
     "settings": {
         "react": {
             "version": "16.8"
@@ -19,16 +27,16 @@
         "prettier/prettier": [
             "error",
             {
-              "printWidth": 120,
-              "tabWidth": 2,
-              "singleQuote": true,
-              "trailingComma": "none",
-              "bracketSpacing": false,
-              "semi": false,
-              "useTabs": false,
-              "parser": "babylon",
-              "jsxBracketSameLine": false
+                "printWidth": 120,
+                "tabWidth": 2,
+                "singleQuote": true,
+                "trailingComma": "none",
+                "bracketSpacing": false,
+                "semi": false,
+                "useTabs": false,
+                "parser": "babylon",
+                "jsxBracketSameLine": false
             }
-          ]
+        ]
     }
 }

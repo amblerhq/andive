@@ -8,6 +8,8 @@ import {body2Css} from '../components/typography'
 const Card = styled.div`
   box-sizing: border-box;
   padding: ${props => (props.compact ? '32px 8px 8px 8px' : '24px 16px 16px 16px')};
+  margin: 8px;
+
   min-height: ${props => (props.compact ? 64 : 128)}px;
 
   display: flex;

@@ -28,7 +28,7 @@ function loadStories() {
   require('../src/components/illustration.stories')
   require('../src/components/input.stories')
   require('../src/components/info.stories')
-  require('../src/components/link.stories')
+  require('../src/components/loader.stories')
   require('../src/constants/palette.stories')
   require('../src/components/ride-status.stories')
   require('../src/components/select.stories')
