@@ -13,6 +13,7 @@ import {
   ligthGrey
 } from '../constants/palette'
 import {ButtonTextPrimary, ButtonTextSecondary, ActionText} from './typography'
+import Loader from './loader'
 
 const ResetButton = styled.button`
   ${baselineCss}
@@ -47,6 +48,14 @@ const DefaultButton = styled(ResetButton)`
       cursor: not-allowed;
       box-shadow: none;
     `}
+
+  ${props =>
+    props.loading &&
+    css`
+      padding: 0;
+      min-width: 56px;
+      cursor: progress;
+    `}
 `
 
 const PrimaryButton = styled(ResetButton)`
@@ -67,6 +76,14 @@ const PrimaryButton = styled(ResetButton)`
       cursor: not-allowed;
       box-shadow: none;
     `}
+
+  ${props =>
+    props.loading &&
+    css`
+      padding: 0;
+      min-width: 56px;
+      cursor: progress;
+    `}
 `
 
 const LinkButton = styled.a`
@@ -83,6 +100,12 @@ const LinkButton = styled.a`
   align-items: center;
 
   color: ${({invert}) => (invert ? white : berryBlue)};
+
+  ${props =>
+    props.loading &&
+    css`
+      cursor: progress;
+    `}
 `
 
 const FlatButton = styled(ResetButton)`
@@ -92,6 +115,12 @@ const FlatButton = styled(ResetButton)`
     props.disabled &&
     css`
       cursor: not-allowed;
+    `}
+
+  ${props =>
+    props.loading &&
+    css`
+      cursor: progress;
     `}
 `
 
@@ -113,7 +142,7 @@ export default function Button({
   textColor,
   href,
   disabled,
-  loading, // cursor: progress
+  loading,
   ...props
 }) {
   if (href && variant !== 'link') {
@@ -180,18 +209,41 @@ export default function Button({
     iconStyle.color = color
   }
 
+  const loaderColor = (() => {
+    if (!loading) {
+      return
+    }
+
+    switch (variant) {
+      case 'primary':
+        return invert ? lightBeetrootPurple : white
+      case 'flat':
+      case 'link':
+        return invert ? white : berryBlue
+      default:
+        return invert ? white : lightBeetrootPurple
+    }
+  })()
+
   return (
     <ButtonComponent
-      onClick={!href && !disabled ? onClick : undefined}
-      href={!disabled && href}
+      onClick={!href && !disabled && !loading ? onClick : undefined}
+      href={!disabled && !loading && href}
       primary={variant === 'primary'}
       invert={invert}
       disabled={disabled}
+      loading={loading}
       {...props}
     >
-      {leftIcon && React.cloneElement(leftIcon, iconStyle)}
-      <ButtonLabel style={textStyle(leftIcon, rightIcon, variant, invert, color)}>{label}</ButtonLabel>
-      {rightIcon && React.cloneElement(rightIcon, iconStyle)}
+      {loading ? (
+        <Loader inline color={loaderColor} />
+      ) : (
+        <>
+          {leftIcon && React.cloneElement(leftIcon, iconStyle)}
+          <ButtonLabel style={textStyle(leftIcon, rightIcon, variant, invert, color)}>{label}</ButtonLabel>
+          {rightIcon && React.cloneElement(rightIcon, iconStyle)}
+        </>
+      )}
     </ButtonComponent>
   )
 }
@@ -207,5 +259,6 @@ Button.propTypes = {
   /** Inverse button colors to display on beetrootPurple background */
   invert: PropTypes.bool,
   textColor: PropTypes.string,
-  disabled: PropTypes.bool
+  disabled: PropTypes.bool,
+  loading: PropTypes.bool
 }

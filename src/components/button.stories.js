@@ -181,3 +181,45 @@ storiesOf('Button', module)
       </>
     )
   })
+  .add('Loading', () => {
+    return (
+      <>
+        <Showcase>
+          <Button label={'Commander'} rightIcon={<NewIcon inline color={palette.lightBeetrootPurple} />} loading />
+        </Showcase>
+        <Showcase>
+          <Button variant="primary" label={'Commander'} rightIcon={<NewIcon inline color={palette.white} />} loading />
+        </Showcase>
+        <Showcase>
+          <Button variant="flat" label={'Commander'} rightIcon={<NewIcon inline color={palette.berryBlue} />} loading />
+        </Showcase>
+      </>
+    )
+  })
+  .add('Invert loading', () => {
+    return (
+      <>
+        <Showcase invert>
+          <Button invert loading label={'Commander'} rightIcon={<NewIcon inline color={palette.white} />} />
+        </Showcase>
+        <Showcase invert>
+          <Button
+            invert
+            loading
+            variant="primary"
+            label={'Commander'}
+            rightIcon={<NewIcon inline color={palette.lightBeetrootPurple} />}
+          />
+        </Showcase>
+        <Showcase invert>
+          <Button
+            invert
+            loading
+            variant="flat"
+            label={'Commander'}
+            rightIcon={<NewIcon inline color={palette.white} />}
+          />
+        </Showcase>
+      </>
+    )
+  })
