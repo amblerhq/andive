@@ -49,7 +49,7 @@ function useScrollEffect(effect, deps) {
 
 // To avoid passing unwanted props to the DOM we filter `fadeOffset` and `height` here.
 // eslint-disable-next-line
-function Sticky({children, fadeOffet, height, ...props}) {
+function Sticky({children, height, fadeOffset, ...props}) {
   return React.cloneElement(children, props)
 }
 

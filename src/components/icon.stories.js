@@ -36,6 +36,8 @@ const icons = [
   VslIcon,
   TpmrIcon,
   BariatricIcon,
+  SeatedIcon,
+  LyingIcon,
   CloseIcon,
   RightArrowIcon,
   LeftArrowIcon,
@@ -47,7 +49,7 @@ const icons = [
   NewIcon
 ]
 
-const blueIcons = [SeatedIcon, LyingIcon, EditIcon, CheckIcon, UncheckIcon, BackIcon]
+const blueIcons = [EditIcon, CheckIcon, UncheckIcon, BackIcon]
 
 storiesOf('Icon', module)
   .add('All', () => {

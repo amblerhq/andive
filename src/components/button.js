@@ -6,10 +6,10 @@ import {baselineCss} from './baseline'
 import {
   white,
   lightBeetrootPurple,
-  ligthBeetrootPurpleAlpha,
+  lightBeetrootPurpleAlpha,
   berryBlue,
-  ligthGreyAlpha,
-  ligthGrey
+  lightGreyAlpha,
+  lightGrey
 } from '../constants/palette'
 import {ButtonTextPrimary, ButtonTextSecondary, ActionText} from './typography'
 import Loader from './loader'
@@ -42,8 +42,8 @@ const DefaultButton = styled(ResetButton)`
   ${props =>
     props.disabled &&
     css`
-      background-color: ${({invert}) => (invert ? lightBeetrootPurple : ligthGrey)};
-      border: 1px solid ${({invert}) => (invert ? ligthGreyAlpha(0.5) : ligthBeetrootPurpleAlpha(0.5))};
+      background-color: ${({invert}) => (invert ? lightBeetrootPurple : lightGrey)};
+      border: 1px solid ${({invert}) => (invert ? lightGreyAlpha(0.5) : lightBeetrootPurpleAlpha(0.5))};
       cursor: not-allowed;
       box-shadow: none;
     `}
@@ -70,8 +70,8 @@ const PrimaryButton = styled(ResetButton)`
   ${props =>
     props.disabled &&
     css`
-      background: ${({invert}) => (invert ? ligthGreyAlpha(0.5) : ligthBeetrootPurpleAlpha(0.5))};
-      border: 1px solid ${({invert}) => (invert ? ligthGreyAlpha(0.5) : ligthBeetrootPurpleAlpha(0.5))};
+      background: ${({invert}) => (invert ? lightGreyAlpha(0.5) : lightBeetrootPurpleAlpha(0.5))};
+      border: 1px solid ${({invert}) => (invert ? lightGreyAlpha(0.5) : lightBeetrootPurpleAlpha(0.5))};
       cursor: not-allowed;
       box-shadow: none;
     `}
@@ -177,12 +177,12 @@ export default function Button({
     if (disabled) {
       switch (variant) {
         case 'primary':
-          return invert ? ligthBeetrootPurpleAlpha(0.5) : ligthGrey
+          return invert ? lightBeetrootPurpleAlpha(0.5) : lightGrey
         case 'flat':
         case 'link':
-          return invert ? ligthGreyAlpha(0.5) : ligthBeetrootPurpleAlpha(0.5)
+          return invert ? lightGreyAlpha(0.5) : lightBeetrootPurpleAlpha(0.5)
         default:
-          return invert ? ligthGreyAlpha(0.5) : ligthBeetrootPurpleAlpha(0.5)
+          return invert ? lightGreyAlpha(0.5) : lightBeetrootPurpleAlpha(0.5)
       }
     }
 
