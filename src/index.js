@@ -150,6 +150,9 @@ export const toastInfo = toastActions.toastInfo
 import ModalComponent from './components/modal'
 export const Modal = ModalComponent
 
+import LoaderComponent from './components/loader'
+export const Loader = LoaderComponent
+
 import * as TypographyComponents from './components/typography'
 export const Typography = TypographyComponents
 
