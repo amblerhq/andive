@@ -29,6 +29,7 @@ function loadStories() {
   require('../src/components/input.stories')
   require('../src/components/info.stories')
   require('../src/components/loader.stories')
+  require('../src/components/modal.stories')
   require('../src/constants/palette.stories')
   require('../src/components/ride-status.stories')
   require('../src/components/select.stories')

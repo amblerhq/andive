@@ -147,6 +147,9 @@ export const toastWarning = toastActions.toastWarning
 export const toastError = toastActions.toastError
 export const toastInfo = toastActions.toastInfo
 
+import ModalComponent from './components/modal'
+export const Modal = ModalComponent
+
 import * as TypographyComponents from './components/typography'
 export const Typography = TypographyComponents
 
