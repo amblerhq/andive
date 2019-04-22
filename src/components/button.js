@@ -227,7 +227,7 @@ export default function Button({
   return (
     <ButtonComponent
       onClick={!href && !disabled && !loading ? onClick : undefined}
-      href={!disabled && !loading && href}
+      href={!disabled && !loading ? href : undefined}
       primary={variant === 'primary'}
       invert={invert}
       disabled={disabled}
