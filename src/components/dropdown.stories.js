@@ -59,10 +59,10 @@ storiesOf('Dropdown', module)
     return (
       <Showcase>
         <Dropdown
-          label={'1 ou 2 ?'}
-          placeholder={'Choisir un chiffre'}
-          options={[1, 2]}
-          optionFormat={opt => (opt === 1 ? 'Un' : 'Deux')}
+          label={'Fan ou pas ?'}
+          placeholder={'Fais ton choix'}
+          options={['0', '1']}
+          optionFormat={opt => (opt === '0' ? 'Non' : 'Oui')}
           icon={<ArrowDownIcon inline />}
           style={{background: 'white'}}
         />

@@ -45,7 +45,7 @@ const Container = styled.div`
 storiesOf('AppBar', module)
   .add('Default', () => (
     <>
-      <AppBar>
+      <AppBar height={64}>
         <Container>
           <Title>Détail de la commande</Title>
         </Container>
@@ -56,7 +56,7 @@ storiesOf('AppBar', module)
   ))
   .add('With icon', () => (
     <>
-      <AppBar>
+      <AppBar height={64}>
         <Container>
           <Button variant="flat" leftIcon={<BackIcon inline />} style={{marginLeft: 24}} />
           <Title>Détails de la commande</Title>
@@ -67,7 +67,7 @@ storiesOf('AppBar', module)
   ))
   .add('App header', () => (
     <>
-      <AppBar>
+      <AppBar height={64}>
         <Container style={{justifyContent: 'space-between'}}>
           <LogoSvg width={135} height={35} />
           <Button
@@ -85,7 +85,7 @@ storiesOf('AppBar', module)
   .add('With scrolling section', () => {
     return (
       <>
-        <AppBar>
+        <AppBar height={64}>
           <Container style={{justifyContent: 'space-between'}}>
             <LogoSvg width={135} height={35} />
             <Button
