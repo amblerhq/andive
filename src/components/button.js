@@ -8,7 +8,6 @@ import {
   lightBeetrootPurple,
   ligthBeetrootPurpleAlpha,
   berryBlue,
-  lightGrey,
   ligthGreyAlpha,
   ligthGrey
 } from '../constants/palette'
@@ -43,7 +42,7 @@ const DefaultButton = styled(ResetButton)`
   ${props =>
     props.disabled &&
     css`
-      background-color: ${({invert}) => (invert ? lightBeetrootPurple : lightGrey)};
+      background-color: ${({invert}) => (invert ? lightBeetrootPurple : ligthGrey)};
       border: 1px solid ${({invert}) => (invert ? ligthGreyAlpha(0.5) : ligthBeetrootPurpleAlpha(0.5))};
       cursor: not-allowed;
       box-shadow: none;

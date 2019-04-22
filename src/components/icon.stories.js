@@ -11,7 +11,9 @@ import LyingIcon from './icons/lying'
 import EditIcon from './icons/edit'
 import BackIcon from './icons/back'
 import CloseIcon from './icons/close'
-import ArrowIcon from './icons/arrow'
+import RightArrowIcon from './icons/arrow-right'
+import LeftArrowIcon from './icons/arrow-left'
+import DownArrowIcon from './icons/arrow-down'
 import LogoutIcon from './icons/logout'
 import HistoricIcon from './icons/historic'
 import MedicalFacilityIcon, {MedicalFacilitySvg} from './icons/medical-facility'
@@ -35,7 +37,9 @@ const icons = [
   TpmrIcon,
   BariatricIcon,
   CloseIcon,
-  ArrowIcon,
+  RightArrowIcon,
+  LeftArrowIcon,
+  DownArrowIcon,
   LogoutIcon,
   HistoricIcon,
   MedicalFacilityIcon,
@@ -46,6 +50,31 @@ const icons = [
 const blueIcons = [SeatedIcon, LyingIcon, EditIcon, CheckIcon, UncheckIcon, BackIcon]
 
 storiesOf('Icon', module)
+  .add('All', () => {
+    return (
+      <>
+        <Icons>
+          {icons.map((Icon, index) => {
+            return (
+              <Showcase key={index} variant="squared" size={160} legend={Icon.name}>
+                <Icon color={palette.lightBeetrootPurple} />
+              </Showcase>
+            )
+          })}
+        </Icons>
+        <Icons>
+          {blueIcons.map((Icon, index) => {
+            return (
+              <Showcase key={index} variant="squared" size={160} legend={Icon.name}>
+                <Icon />
+              </Showcase>
+            )
+          })}
+        </Icons>
+      </>
+    )
+  })
+
   .add('Default', () => (
     <Showcase variant="squared">
       <Icon>
@@ -88,27 +117,3 @@ storiesOf('Icon', module)
       dès 2020 !
     </Showcase>
   ))
-  .add('Library', () => {
-    return (
-      <>
-        <Icons>
-          {icons.map((Icon, index) => {
-            return (
-              <Showcase key={index} variant="squared" size={160} legend={Icon.name}>
-                <Icon color={palette.radishRed} />
-              </Showcase>
-            )
-          })}
-        </Icons>
-        <Icons>
-          {blueIcons.map((Icon, index) => {
-            return (
-              <Showcase key={index} variant="squared" size={160} legend={Icon.name}>
-                <Icon />
-              </Showcase>
-            )
-          })}
-        </Icons>
-      </>
-    )
-  })

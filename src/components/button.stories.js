@@ -12,7 +12,7 @@ import TpmrIcon from './icons/tpmr'
 
 import EditIcon from './icons/edit'
 import LogoutIcon from './icons/logout'
-import ArrowIcon from './icons/arrow'
+import ArrowIcon from './icons/arrow-right'
 import NewIcon from './icons/new'
 import AddressIcon from './icons/address'
 

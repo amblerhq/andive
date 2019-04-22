@@ -1,17 +1,10 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg width="22px" height="16px" viewBox="0 0 22 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: Sketch 50.2 (55047) - http://www.bohemiancoding.com/sketch -->
-    <title>Group Copy 2</title>
-    <desc>Created with Sketch.</desc>
-    <defs></defs>
-    <g id="V0-DESKTOP-COMMANDER-OK" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="Create-Route-02-Copy-36" transform="translate(-358.000000, -232.000000)">
-            <g id="Group-Copy-2" transform="translate(359.000000, 232.000000)">
-                <path d="M1.6,3.5025641 C0.8,2.7025641 0.8,1.40512821 1.6,0.6 C2.4,-0.2 3.6974359,-0.2 4.5025641,0.6 C5.3025641,1.4 5.3025641,2.6974359 4.5025641,3.5025641 C3.7025641,4.3025641 2.4,4.3025641 1.6,3.5025641 Z" id="Path" fill="#708C91"></path>
-                <rect id="Rectangle-4" fill="#708C91" transform="translate(8.425048, 7.701978) rotate(40.000000) translate(-8.425048, -7.701978) " x="3.59004805" y="5.77197768" width="9.67000008" height="3.8599999" rx="1.92999995"></rect>
-                <rect id="Rectangle-5" fill="#708C91" x="9.71794872" y="8" width="10.96" height="2.9000001"></rect>
-                <path d="M0,5.61172161 C3.003663,9.56776557 6.22710623,14.1098901 8.57142857,14.1098901 C10.1343101,14.1098901 13.9194927,14.1098901 19.9269762,14.1098901" id="Path-4" stroke="#708C91" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-            </g>
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+    <g fill="none" fill-rule="evenodd">
+        <rect width="2868" height="2882" x="-283" y="-299" fill="#FFF" rx="50"/>
+        <g stroke="#054752" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="7.5" cy="5.5" r="1.5"/>
+            <path d="M8 9l1.343 5.993h7.023L19.343 18"/>
+            <path d="M5 9l2.052 9h7.958"/>
         </g>
     </g>
 </svg>
