@@ -14,8 +14,11 @@ export const AmbulanceIcon = AmbulanceIconComponent
 import ArrowDownIconComponent from './components/icons/arrow-down'
 export const ArrowDownIcon = ArrowDownIconComponent
 
-import ArrowIconComponent from './components/icons/arrow'
-export const ArrowIcon = ArrowIconComponent
+import ArrowRightIconComponent from './components/icons/arrow-right'
+export const ArrowRightIcon = ArrowRightIconComponent
+
+import ArrowLeftIconComponent from './components/icons/arrow-left'
+export const ArrowLeftIcon = ArrowLeftIconComponent
 
 import BackIconComponent from './components/icons/back'
 export const BackIcon = BackIconComponent
