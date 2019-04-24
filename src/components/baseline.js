@@ -1,7 +1,6 @@
 import React from 'react'
 import {css, createGlobalStyle} from 'styled-components'
 import {Helmet} from 'react-helmet'
-import 'resize-observer-polyfill'
 
 import {fontFamily} from './typography'
 
