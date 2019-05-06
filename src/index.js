@@ -26,6 +26,9 @@ export const BackIcon = BackIconComponent
 import BariatricIconComponent from './components/icons/bariatric'
 export const BariatricIcon = BariatricIconComponent
 
+import CancelIconComponent from './components/icons/cancel'
+export const CancelIcon = CancelIconComponent
+
 import CheckIconComponent from './components/icons/check'
 export const CheckIcon = CheckIconComponent
 
@@ -34,6 +37,9 @@ export const CloseIcon = CloseIconComponent
 
 import EditIconComponent from './components/icons/edit'
 export const EditIcon = EditIconComponent
+
+import FlagIconComponent from './components/icons/flag'
+export const FlagIcon = FlagIconComponent
 
 import HistoricIconComponent from './components/icons/historic'
 export const HistoricIcon = HistoricIconComponent

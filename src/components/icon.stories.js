@@ -21,6 +21,8 @@ import AddressIcon, {AddressSvg} from './icons/address'
 import CheckIcon from './icons/check'
 import UncheckIcon from './icons/uncheck'
 import NewIcon from './icons/new'
+import CancelIcon from './icons/cancel'
+import FlagIcon from './icons/flag'
 
 import Icon from './icon'
 import Showcase from '../stories/showcase'
@@ -46,7 +48,9 @@ const icons = [
   HistoricIcon,
   MedicalFacilityIcon,
   AddressIcon,
-  NewIcon
+  NewIcon,
+  CancelIcon,
+  FlagIcon
 ]
 
 const blueIcons = [EditIcon, CheckIcon, UncheckIcon, BackIcon]
