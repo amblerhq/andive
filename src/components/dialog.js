@@ -5,10 +5,7 @@ import styled from 'styled-components'
 import {Body1} from './typography'
 
 const Dialog = styled(Body1)`
-  display: block;
-
   padding: 8px;
-  width: 300px;
 
   text-align: center;
 `
