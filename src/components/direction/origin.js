@@ -4,6 +4,7 @@ import PropTypes from 'prop-types'
 
 import Info from '../info'
 import {darkGrey} from '../../constants/palette'
+import {body1Css} from '../typography'
 import {baselineCss} from '../baseline'
 
 function useElementRect(ref) {
@@ -31,14 +32,14 @@ const Origin = styled.div`
   ${baselineCss}
 
   position: relative;
-  padding-left: 32px;
+  padding-left: ${props => (props.time ? 101 : 32)}px;
 `
 
 const OriginIcon = styled.div`
   ${baselineCss}
 
   position: absolute;
-  left: 0;
+  left: ${props => (props.time ? 69 : 0)}px;
   top: 0;
 
   width: 32px;
@@ -70,21 +71,38 @@ const OriginRoad = styled.div`
   height: ${props => props.height - 16}px;
 
   left: calc(50% - 2px);
-  top: 18px;
+  top: 16px;
 
   background: ${darkGrey};
 `
 
-function OriginComponent({name, address, ...props}) {
+const Time = styled.div`
+  ${baselineCss}
+  ${body1Css}
+
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 69px;
+  height: 38px;
+
+  padding: 8px;
+
+  text-align: right;
+`
+
+function OriginComponent({name, address, time, ...props}) {
   let ref = useRef(null)
   let size = useElementRect(ref)
 
   return (
-    <Origin {...props}>
-      <OriginIcon>
-        <OriginPoint />
+    <Origin time={time} {...props}>
+      <OriginIcon time={time}>
         <OriginRoad height={size ? size.height : 46} />
+        <OriginPoint />
       </OriginIcon>
+      {time && <Time>{time}</Time>}
       <Info ref={ref}>
         <Info.Label label={name} />
         <Info.Item item={address} />
@@ -95,7 +113,8 @@ function OriginComponent({name, address, ...props}) {
 
 OriginComponent.propTypes = {
   name: PropTypes.string.isRequired,
-  address: PropTypes.string.isRequired
+  address: PropTypes.string.isRequired,
+  time: PropTypes.string
 }
 
 export default OriginComponent

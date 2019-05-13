@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import PropTypes from 'prop-types'
 
 import Info from '../info'
+import {body1Css} from '../typography'
 import {darkGrey} from '../../constants/palette'
 import {baselineCss} from '../baseline'
 
@@ -10,14 +11,14 @@ const Destination = styled.div`
   ${baselineCss}
 
   position: relative;
-  padding-left: 32px;
+  padding-left: ${props => (props.time ? 101 : 32)}px;
 `
 
 const DestinationIcon = styled.div`
   ${baselineCss}
 
   position: absolute;
-  left: 0;
+  left: ${props => (props.time ? 69 : 0)}px;
   top: 0;
 
   width: 32px;
@@ -54,13 +55,30 @@ const DestinationRoad = styled.div`
   background: ${darkGrey};
 `
 
-function DestinationComponent({name, address, ...props}) {
+const Time = styled.div`
+  ${baselineCss}
+  ${body1Css}
+
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 69px;
+  height: 38px;
+
+  padding: 8px;
+
+  text-align: right;
+`
+
+function DestinationComponent({name, address, time, ...props}) {
   return (
-    <Destination {...props}>
-      <DestinationIcon>
+    <Destination time={time} {...props}>
+      <DestinationIcon time={time}>
         <DestinationRoad />
         <DestinationPoint />
       </DestinationIcon>
+      {time && <Time>{time}</Time>}
       <Info>
         <Info.Label label={name} />
         <Info.Item item={address} />
@@ -71,7 +89,8 @@ function DestinationComponent({name, address, ...props}) {
 
 DestinationComponent.propTypes = {
   name: PropTypes.string.isRequired,
-  address: PropTypes.string.isRequired
+  address: PropTypes.string.isRequired,
+  time: PropTypes.string
 }
 
 export default DestinationComponent
