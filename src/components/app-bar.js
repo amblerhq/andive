@@ -5,21 +5,19 @@ import styled, {css} from 'styled-components'
 import {darkGreyAlpha} from '../constants/palette'
 import {ZIndexes} from '../constants/enum'
 
-function stickyAppBar({sticky, stickyHeight, fade}) {
-  if (!sticky) {
-    return ''
+function stickyAppBar({sticky, scrollable, stickyHeight, fade}) {
+  if (sticky || scrollable) {
+    return css`
+      position: fixed;
+      top: 0;
+      left: 0;
+      min-height: ${stickyHeight}px;
+
+      z-index: ${ZIndexes.FIXED};
+
+      box-shadow: 0 ${2}px ${5}px 0 ${darkGreyAlpha(fade * 0.2)};
+    `
   }
-
-  return css`
-    position: fixed;
-    top: 0;
-    left: 0;
-    min-height: ${stickyHeight}px;
-
-    z-index: ${ZIndexes.FIXED};
-
-    box-shadow: 0 ${2}px ${5}px 0 ${darkGreyAlpha(fade * 0.2)};
-  `
 }
 
 const AppBar = styled.div`
@@ -58,7 +56,7 @@ Sticky.propTypes = {
   fadeOffset: PropTypes.number
 }
 
-export function AppBarComponent({children, height = 64, ...props}) {
+export function AppBarComponent({children, fadeOffset = 1, height = 64, scrollable = false, ...props}) {
   const [sticky, setSticky] = useState(false)
   const [fade, setFade] = useState(0)
 
@@ -70,21 +68,29 @@ export function AppBarComponent({children, height = 64, ...props}) {
 
   useScrollEffect(() => {
     if (stickyChild) {
-      const isSticky = window.scrollY > height
-      setSticky(isSticky)
+      setSticky(window.scrollY > height)
+    }
 
-      if (!stickyChild.props.fadeOffset) {
-        setFade(1)
-      } else {
-        setFade(isSticky ? Math.min((window.scrollY - height) / stickyChild.props.fadeOffset, 1) : 0)
-      }
+    if (stickyChild && !stickyChild.props.fadeOffset) {
+      setFade(fadeOffset)
+    } else {
+      const fadeOffsetReference = (stickyChild && stickyChild.props.fadeOffset) || fadeOffset
+      const origin = scrollable ? 0 : height
+      setFade(sticky || scrollable ? Math.min((window.scrollY - origin) / fadeOffsetReference, 1) : 0)
     }
   })
 
   return (
     <>
-      {sticky && <AppBarFootprint baseHeight={height} stickyHeight={stickyHeight} />}
-      <AppBar sticky={sticky} fade={fade} baseHeight={height} stickyHeight={stickyHeight} {...props}>
+      {(scrollable || sticky) && <AppBarFootprint baseHeight={height} stickyHeight={stickyHeight || 0} />}
+      <AppBar
+        sticky={sticky}
+        scrollable={scrollable}
+        fade={fade}
+        baseHeight={height}
+        stickyHeight={stickyHeight}
+        {...props}
+      >
         {!sticky && baseChild}
         {stickyChild}
       </AppBar>
@@ -94,7 +100,9 @@ export function AppBarComponent({children, height = 64, ...props}) {
 
 AppBarComponent.propTypes = {
   children: PropTypes.node,
-  height: PropTypes.number.isRequired
+  height: PropTypes.number.isRequired,
+  fadeOffset: PropTypes.number,
+  scrollable: PropTypes.bool
 }
 
 AppBarComponent.Sticky = Sticky

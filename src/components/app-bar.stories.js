@@ -82,6 +82,25 @@ storiesOf('AppBar', module)
       <RandomPageContent />
     </>
   ))
+  .add('With scrolling', () => {
+    return (
+      <>
+        <AppBar height={64} scrollable fadeOffset={128}>
+          <Container style={{justifyContent: 'space-between'}}>
+            <LogoSvg width={135} height={35} />
+            <Button
+              variant="link"
+              href="https://www.ambler.fr"
+              textColor={mediumGrey}
+              leftIcon={<LogoutIcon inline color={mediumGrey} />}
+              label={'Déconnexion'}
+            />
+          </Container>
+        </AppBar>
+        <RandomPageContent />
+      </>
+    )
+  })
   .add('With scrolling section', () => {
     return (
       <>
