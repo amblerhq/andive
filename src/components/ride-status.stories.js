@@ -63,6 +63,21 @@ storiesOf('RideStatus', module)
       </Showcase>
     )
   })
+  .add('With wrapping text', () => {
+    return (
+      <Showcase style={{background: '#eee', height: 200}}>
+        <div style={{width: 150, height: 64}}>
+          <RideStatus
+            primary="Dernier arrivé c'est pas moi"
+            secondary="En attente de la confirmation..."
+            secondaryItalic
+            color={warning}
+            style={{background: 'white'}}
+          />
+        </div>
+      </Showcase>
+    )
+  })
   .add('Bar only', () => {
     return (
       <Showcase style={{background: '#eee'}}>

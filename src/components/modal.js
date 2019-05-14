@@ -20,14 +20,12 @@ const Modal = posed(styled.div`
   z-index: ${ZIndexes.MODALS};
 `)({
   enter: {
-    y: 0,
     opacity: 1,
     transition: {
       type: 'tween'
     }
   },
   exit: {
-    y: props => props.height,
     opacity: 0,
     transition: {
       type: 'tween'

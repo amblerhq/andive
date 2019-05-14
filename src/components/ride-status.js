@@ -11,7 +11,7 @@ const RideStatus = styled.div`
   ${baselineCss}
 
   width: 100%;
-  height: 64px;
+  min-height: 64px;
 
   padding: 8px 8px 8px 24px;
 
@@ -26,6 +26,7 @@ const InlineStatusBar = styled(RideStatusBar)`
   position: absolute;
   top: 0;
   left: 0;
+  height: calc(100% - 16px);
 `
 
 const PrimaryStatus = styled(Body2)``
