@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
-import {Body2} from '../typography'
+import {Body1} from '../typography'
 import {baselineCss} from '../baseline'
 
 const LabelIcon = styled.div`
@@ -17,7 +17,7 @@ const LabelIcon = styled.div`
   align-items: center;
 `
 
-const Label = styled(Body2)`
+const Label = styled(Body1)`
   padding-left: 8px;
 `
 
