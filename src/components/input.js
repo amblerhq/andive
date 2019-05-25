@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 
 import {body1Css, body3Css} from './typography'
 import CloseIcon from '../components/icons/close'
-import {darkGrey, berryBlue, error} from '../constants/palette'
+import {darkGrey, mediumGrey, berryBlue, error} from '../constants/palette'
 
 const InputRoot = styled.div`
   width: ${props => (props.fullWidth ? '100%' : 'auto')};
@@ -30,6 +30,13 @@ const Input = styled.input`
 
   ::placeholder {
     ${body3Css};
+  }
+
+  border: 1px solid transparent;
+
+  :focus {
+    border: 1px solid ${mediumGrey};
+    background-color: white;
   }
 `
 
