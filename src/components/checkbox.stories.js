@@ -1,32 +1,108 @@
-import React, {useState} from 'react'
+import React, {useState, useCallback, useEffect} from 'react'
 import {storiesOf} from '@storybook/react'
 
 import Checkbox from './checkbox'
+import CheckboxGroup from './checkbox-group'
+
 import Showcase from '../stories/showcase'
 
 function ControlledCheckbox(props) {
-  const [value, setValue] = useState(false)
+  const [checked, setChecked] = useState(false)
 
-  function onClick() {
-    setValue(!value)
-  }
+  const onChange = useCallback(() => {
+    setChecked(prev => !prev)
+  })
 
-  return <Checkbox label="Bariatrique" value={value} onClick={onClick} {...props} />
+  return (
+    <div style={{background: 'white'}}>
+      <Checkbox label="Bariatrique" checked={checked} onChange={onChange} {...props} />
+      <div style={{padding: 8}}>checked: {checked ? 'true' : 'false'}</div>
+    </div>
+  )
+}
+
+// eslint-disable-next-line react/prop-types
+function CheckboxGroupStory({radio}) {
+  const [values, setValues] = useState({a: true})
+
+  return (
+    <div style={{background: 'white', width: 300}}>
+      <CheckboxGroup
+        value={values}
+        onChange={values_ => {
+          setValues(values_)
+        }}
+        radio={radio}
+      >
+        <Checkbox label="A" name="a" style={{background: 'white'}} />
+        <Checkbox label="B" name="b" style={{background: 'white'}} />
+        <Checkbox label="C" name="c" style={{background: 'white'}} />
+      </CheckboxGroup>
+      <pre style={{padding: 8}}>values: {JSON.stringify(values, null, 2)}</pre>
+    </div>
+  )
+}
+
+function UpdateableCheckboxGroupStory() {
+  const [values, setValues] = useState({a: true})
+
+  useEffect(() => {
+    let int = setInterval(() => {
+      const newValues = ['a', 'b', 'c']
+        .filter(() => Math.random() > 0.5)
+        .reduce((values, val) => ({...values, [val]: true}), {})
+      setValues(newValues)
+    }, 1500)
+    return () => {
+      clearInterval(int)
+    }
+  }, [])
+
+  return (
+    <div style={{background: 'white', width: 300}}>
+      <CheckboxGroup
+        value={values}
+        onChange={values_ => {
+          setValues(values_)
+        }}
+      >
+        <Checkbox label="A" name="a" style={{background: 'white'}} />
+        <Checkbox label="B" name="b" style={{background: 'white'}} />
+        <Checkbox label="C" name="c" style={{background: 'white'}} />
+      </CheckboxGroup>
+      <pre style={{padding: 8}}>values: {JSON.stringify(values, null, 2)}</pre>
+    </div>
+  )
 }
 
 storiesOf('Checkbox', module)
   .add('False', () => (
     <Showcase>
-      <Checkbox label="Bariatrique" value={false} style={{background: 'white'}} />
+      <Checkbox label="Bariatrique" checked={false} onChange={() => null} style={{background: 'white'}} />
     </Showcase>
   ))
   .add('True', () => (
     <Showcase>
-      <Checkbox label="Bariatrique" value={true} style={{background: 'white'}} />
+      <Checkbox label="Bariatrique" checked={true} onChange={() => null} style={{background: 'white'}} />
     </Showcase>
   ))
   .add('Controlled', () => (
     <Showcase>
       <ControlledCheckbox style={{background: 'white'}} />
+    </Showcase>
+  ))
+  .add('Checkbox Group', () => (
+    <Showcase>
+      <CheckboxGroupStory />
+    </Showcase>
+  ))
+  .add('Checkbox Group / Updated from above', () => (
+    <Showcase>
+      <UpdateableCheckboxGroupStory />
+    </Showcase>
+  ))
+  .add('Radio Group', () => (
+    <Showcase>
+      <CheckboxGroupStory radio />
     </Showcase>
   ))
