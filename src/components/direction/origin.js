@@ -1,45 +1,24 @@
-import React, {useRef, useState, useEffect, useCallback} from 'react'
-import styled from 'styled-components'
+import React, {useRef} from 'react'
+import styled, {css} from 'styled-components'
 import PropTypes from 'prop-types'
 
-import Info from '../info'
+import useElementRect from '../../lib/use-element-rect'
 import {darkGrey} from '../../constants/palette'
-import {body1Css} from '../typography'
+import {Body1} from '../typography'
 import {baselineCss} from '../baseline'
-
-function useElementRect(ref) {
-  const [rect, setRect] = useState(null)
-
-  const onResize = useCallback(() => {
-    if (ref.current) {
-      setRect(() => ref.current.getBoundingClientRect())
-    }
-  }, [ref.current])
-
-  useEffect(() => {
-    window.addEventListener('resize', onResize)
-    onResize()
-
-    return () => {
-      window.removeEventListener('resize', onResize)
-    }
-  }, [onResize])
-
-  return rect
-}
 
 const Origin = styled.div`
   ${baselineCss}
 
   position: relative;
-  padding-left: ${props => (props.time ? 101 : 32)}px;
+  padding-left: ${props => (props.label ? 101 : 32)}px;
 `
 
 const OriginIcon = styled.div`
   ${baselineCss}
 
   position: absolute;
-  left: ${props => (props.time ? 69 : 0)}px;
+  left: ${props => (props.label ? 69 : 0)}px;
   top: 0;
 
   width: 32px;
@@ -54,8 +33,8 @@ const OriginPoint = styled.div`
   width: 8px;
   height: 8px;
 
-  left: calc(50% - 4px);
-  top: 12px;
+  left: calc(50% - 12px);
+  top: ${props => (props.offsetY ? props.offsetY - 4 : 4)}px;
 
   border-radius: 50%;
 
@@ -67,54 +46,71 @@ const OriginRoad = styled.div`
 
   position: absolute;
 
+  left: calc(50% - 10px);
   width: 4px;
-  height: ${props => props.height - 16}px;
 
-  left: calc(50% - 2px);
-  top: 16px;
+  ${props => {
+    if (props.offsetY) {
+      return css`
+        top: ${props => props.offsetY + 4}px;
+        height: ${props => props.height - (props.offsetY + 4)}px;
+      `
+    }
+
+    // Old use-case. Should be removed.
+    return css`
+      top: 8px;
+      height: ${props => props.height - 8}px;
+    `
+  }}
 
   background: ${darkGrey};
 `
 
-const Time = styled.div`
+const AsideLabel = styled(Body1)`
   ${baselineCss}
-  ${body1Css}
 
   position: absolute;
-  top: 0;
+  top: ${props => (props.offsetY ? props.offsetY - 20 : -8)}px;
   left: 0;
 
-  width: 69px;
-  height: 38px;
+  width: 61px;
+  min-height: 38px;
 
   padding: 8px;
 
   text-align: right;
 `
 
-function OriginComponent({name, address, time, ...props}) {
-  let ref = useRef(null)
-  let size = useElementRect(ref)
+function OriginComponent({label, children, ...props}) {
+  const ref = useRef(null)
+  const pointRef = useRef(null)
+  const size = useElementRect(ref)
+  const pointSize = useElementRect(pointRef)
+
+  // Basic math: To get the center of the pointRef element we just:
+  const offsetY = (pointSize && size && pointSize.y - size.y + pointSize.height / 2) || 0
 
   return (
-    <Origin time={time} {...props}>
-      <OriginIcon time={time}>
-        <OriginRoad height={size ? size.height : 46} />
-        <OriginPoint />
+    <Origin label={label} {...props}>
+      <OriginIcon label={label} size={size ? size.height : 46}>
+        <OriginRoad height={size ? size.height : 46} offsetY={offsetY} />
+        <OriginPoint offsetY={offsetY} />
       </OriginIcon>
-      {time && <Time>{time}</Time>}
-      <Info ref={ref}>
-        <Info.Label label={name} />
-        <Info.Item item={address} />
-      </Info>
+      {label && <AsideLabel offsetY={offsetY}>{label}</AsideLabel>}
+      {children && (
+        <>
+          {typeof children === 'function' && children(ref, pointRef)}
+          {typeof children !== 'function' && <div ref={ref}>{children}</div>}
+        </>
+      )}
     </Origin>
   )
 }
 
 OriginComponent.propTypes = {
-  name: PropTypes.string.isRequired,
-  address: PropTypes.string.isRequired,
-  time: PropTypes.string
+  label: PropTypes.string,
+  children: PropTypes.oneOfType([PropTypes.node, PropTypes.func])
 }
 
 export default OriginComponent

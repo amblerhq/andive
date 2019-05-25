@@ -7,21 +7,23 @@ import Origin from './origin'
 import Destination from './destination'
 
 const Direction = styled.div`
-  width: ${props => (props.fullWidth ? '100%' : 'auto')};
+  min-width: ${props => (props.fullWidth ? '100%' : 'auto')};
+
+  padding: 8px;
 `
 
-function DirectionComponent({children, time, fullWidth, ...props}) {
+function DirectionComponent({children, label, fullWidth, ...props}) {
   return (
     <Direction fullWidth={fullWidth} {...props}>
-      {time && (
+      {label && (
         <Info>
-          <Info.Label label={time} />
+          <Info.Label label={label} />
         </Info>
       )}
       {React.Children.map(children, child => {
         const childProps = {}
-        if (time) {
-          childProps.time = ' '
+        if (label) {
+          childProps.label = ' '
         }
         return React.cloneElement(child, childProps)
       })}
@@ -31,7 +33,7 @@ function DirectionComponent({children, time, fullWidth, ...props}) {
 
 DirectionComponent.propTypes = {
   children: PropTypes.node,
-  time: PropTypes.string,
+  label: PropTypes.string,
   fullWidth: PropTypes.bool
 }
 

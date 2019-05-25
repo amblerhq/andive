@@ -3,11 +3,9 @@ import {storiesOf} from '@storybook/react'
 import range from 'lodash.range'
 import styled from 'styled-components'
 
-import Showcase from '../stories/showcase'
-import {Body3} from './typography'
+import {Typography, Modal, Button, palette} from '../index'
 
-import Modal from './modal'
-import Button from './button'
+import Showcase from '../stories/showcase'
 
 const Center = styled.div`
   display: flex;
@@ -24,7 +22,7 @@ function RandomPageContent() {
     <>
       {range(42).map(i => (
         <Showcase key={i} variant="compact">
-          <Body3>{i}</Body3>
+          <Typography.Body2 color={palette.mediumGrey}>{i}</Typography.Body2>
         </Showcase>
       ))}
     </>

@@ -1,8 +1,8 @@
-import React from 'react'
+import React, {forwardRef} from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 
-import {body1Css, body3Css} from './typography'
+import {body1Css, body2Css} from './typography'
 import CloseIcon from '../components/icons/close'
 import {darkGrey, mediumGrey, berryBlue, error} from '../constants/palette'
 
@@ -29,7 +29,8 @@ const Input = styled.input`
   ${body1Css};
 
   ::placeholder {
-    ${body3Css};
+    ${body2Css};
+    color: ${mediumGrey};
   }
 
   border: 1px solid transparent;
@@ -66,12 +67,15 @@ const Icon = styled.div`
  *  - An error message that is displayed when present.
  *  - An onClear handle called when the right hand-side <CloseIcon /> is clicked.
  */
-export default function InputComponent({value, onChange, onClear, error, fullWidth, icon, ...props}) {
+const InputComponent = forwardRef(function InputComponent(
+  {value, onChange, onClear, error, fullWidth, icon, ...props},
+  ref
+) {
   const canClear = !!(onChange && value && value.length > 0)
   const hasIcon = !!icon
 
   return (
-    <InputRoot fullWidth={fullWidth}>
+    <InputRoot ref={ref} fullWidth={fullWidth}>
       <Input value={value} onChange={onChange} canClear={canClear} hasIcon={hasIcon} error={error} {...props} />
       {hasIcon && <Icon>{icon}</Icon>}
       {canClear && (
@@ -82,7 +86,7 @@ export default function InputComponent({value, onChange, onClear, error, fullWid
       {error && <Error>{error}</Error>}
     </InputRoot>
   )
-}
+})
 
 InputComponent.propTypes = {
   /** input value */
@@ -98,3 +102,5 @@ InputComponent.propTypes = {
   /** render left icon */
   icon: PropTypes.node
 }
+
+export default InputComponent

@@ -3,17 +3,10 @@ import styled from 'styled-components'
 import {storiesOf} from '@storybook/react'
 import range from 'lodash.range'
 
-import Showcase from '../stories/showcase'
-import {H1, Body3} from './typography'
-import AppBar from './app-bar'
-import Button from './button'
+import {AppBar, Button, BackIcon, LogoutIcon, AmbulanceIcon, VslIcon, Typography, palette} from '../index'
 
-import BackIcon from './icons/back'
-import LogoutIcon from './icons/logout'
-import AmbulanceIcon from './icons/ambulance'
-import VslIcon from './icons/vsl'
+import Showcase from '../stories/showcase'
 import LogoSvg from '../../img/logo.svg'
-import {mediumGrey} from '../constants/palette'
 
 function RandomPageContent() {
   return (
@@ -21,14 +14,14 @@ function RandomPageContent() {
       <div style={{height: 16}} />
       {range(42).map(i => (
         <Showcase key={i} variant="compact">
-          <Body3>{i}</Body3>
+          <Typography.Body2 color={palette.mediumGrey}>{i}</Typography.Body2>
         </Showcase>
       ))}
     </>
   )
 }
 
-const Title = styled(H1)`
+const Title = styled(Typography.H1)`
   width: 100%;
   text-align: center;
 `
@@ -73,8 +66,8 @@ storiesOf('AppBar', module)
           <Button
             variant="link"
             href="https://www.ambler.fr"
-            textColor={mediumGrey}
-            leftIcon={<LogoutIcon inline color={mediumGrey} />}
+            textColor={palette.mediumGrey}
+            leftIcon={<LogoutIcon inline color={palette.mediumGrey} />}
             label={'Déconnexion'}
           />
         </Container>
@@ -91,8 +84,8 @@ storiesOf('AppBar', module)
             <Button
               variant="link"
               href="https://www.ambler.fr"
-              textColor={mediumGrey}
-              leftIcon={<LogoutIcon inline color={mediumGrey} />}
+              textColor={palette.mediumGrey}
+              leftIcon={<LogoutIcon inline color={palette.mediumGrey} />}
               label={'Déconnexion'}
             />
           </Container>
@@ -110,8 +103,8 @@ storiesOf('AppBar', module)
             <Button
               variant="link"
               href="https://www.ambler.fr"
-              textColor={mediumGrey}
-              leftIcon={<LogoutIcon inline color={mediumGrey} />}
+              textColor={palette.mediumGrey}
+              leftIcon={<LogoutIcon inline color={palette.mediumGrey} />}
               label={'Déconnexion'}
             />
           </Container>

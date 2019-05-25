@@ -1,59 +1,282 @@
 import React from 'react'
 import {storiesOf} from '@storybook/react'
 
+import {Typography, palette} from '../index'
 import Direction from './direction'
+import Input from './input'
 import Showcase from '../stories/showcase'
 
 storiesOf('Direction', module)
   .add('Origin', () => (
-    <Showcase>
-      <Direction style={{background: 'white'}}>
-        <Direction.Origin name="Ambler" address="24 Quai charles pasqua, Levalois-Perret" />
-      </Direction>
-    </Showcase>
+    <>
+      <Showcase legend="children as PropTypes.node">
+        <Direction style={{background: 'white'}}>
+          <Direction.Origin>
+            <div>
+              <Typography.Body1>Ambler</Typography.Body1>
+              <Typography.Body2 color={palette.mediumGrey}>24 Quai charles pasqua, Levalois-Perret</Typography.Body2>
+            </div>
+          </Direction.Origin>
+        </Direction>
+      </Showcase>
+      <Showcase legend="children as PropTypes.func">
+        <Direction style={{background: 'white'}}>
+          <Direction.Origin>
+            {(ref, pointRef) => {
+              return (
+                <div ref={ref}>
+                  <Typography.Body1 ref={pointRef}>Ambler</Typography.Body1>
+                  <Typography.Body2 color={palette.mediumGrey}>
+                    24 Quai charles pasqua, Levalois-Perret
+                  </Typography.Body2>
+                </div>
+              )
+            }}
+          </Direction.Origin>
+        </Direction>
+      </Showcase>
+    </>
   ))
-  .add('Origin with time', () => (
-    <Showcase>
-      <Direction style={{background: 'white'}}>
-        <Direction.Origin name="Ambler" address="24 Quai charles pasqua, Levalois-Perret" time={'11:27'} />
-      </Direction>
-    </Showcase>
+  .add('Origin with label', () => (
+    <>
+      <Showcase legend="children as PropTypes.node">
+        <Direction style={{background: 'white'}}>
+          <Direction.Origin label={'11:27'}>
+            <div>
+              <Typography.Body1>Ambler</Typography.Body1>
+              <Typography.Body2 color={palette.mediumGrey}>24 Quai charles pasqua, Levalois-Perret</Typography.Body2>
+            </div>
+          </Direction.Origin>
+        </Direction>
+      </Showcase>
+      <Showcase legend="children as PropTypes.func">
+        <Direction style={{background: 'white'}}>
+          <Direction.Origin label={'11:27'}>
+            {(ref, pointRef) => {
+              return (
+                <div ref={ref}>
+                  <Typography.Body1 ref={pointRef}>Ambler</Typography.Body1>
+                  <Typography.Body2 color={palette.mediumGrey}>
+                    24 Quai charles pasqua, Levalois-Perret
+                  </Typography.Body2>
+                </div>
+              )
+            }}
+          </Direction.Origin>
+        </Direction>
+      </Showcase>
+    </>
   ))
   .add('Destination', () => (
-    <Showcase>
-      <Direction style={{background: 'white'}}>
-        <Direction.Destination name="Phil" address="Appart de Phil, Dives-sur-mer" />
-      </Direction>
-    </Showcase>
+    <>
+      <Showcase legend="children as PropTypes.node">
+        <Direction style={{background: 'white'}}>
+          <Direction.Destination>
+            <div>
+              <Typography.Body1>Phil</Typography.Body1>
+              <Typography.Body2 color={palette.mediumGrey}>Appart de Phil, Dives-sur-mer</Typography.Body2>
+            </div>
+          </Direction.Destination>
+        </Direction>
+      </Showcase>
+      <Showcase legend="children as PropTypes.func">
+        <Direction style={{background: 'white'}}>
+          <Direction.Destination>
+            {(ref, pointRef) => {
+              return (
+                <div ref={ref}>
+                  <Typography.Body1 ref={pointRef}>Phil</Typography.Body1>
+                  <Typography.Body2 color={palette.mediumGrey}>Appart de Phil, Dives-sur-mer</Typography.Body2>
+                </div>
+              )
+            }}
+          </Direction.Destination>
+        </Direction>
+      </Showcase>
+    </>
   ))
-  .add('Destination with time', () => (
-    <Showcase>
-      <Direction style={{background: 'white'}}>
-        <Direction.Destination name="Phil" address="Appart de Phil, Dives-sur-mer" time={'~14:10'} />
-      </Direction>
-    </Showcase>
+  .add('Destination with label', () => (
+    <>
+      <Showcase legend="children as PropTypes.node">
+        <Direction style={{background: 'white'}}>
+          <Direction.Destination label={'~14:10'}>
+            <div>
+              <Typography.Body1>Phil</Typography.Body1>
+              <Typography.Body2 color={palette.mediumGrey}>Appart de Phil, Dives-sur-mer</Typography.Body2>
+            </div>
+          </Direction.Destination>
+        </Direction>
+      </Showcase>
+      <Showcase legend="children as PropTypes.func">
+        <Direction style={{background: 'white'}}>
+          <Direction.Destination label={'~14:10'}>
+            {(ref, pointRef) => {
+              return (
+                <div ref={ref}>
+                  <Typography.Body1 ref={pointRef}>Phil</Typography.Body1>
+                  <Typography.Body2 color={palette.mediumGrey}>Appart de Phil, Dives-sur-mer</Typography.Body2>
+                </div>
+              )
+            }}
+          </Direction.Destination>
+        </Direction>
+      </Showcase>
+    </>
   ))
   .add('Trip', () => (
+    <>
+      <Showcase legend="children as PropTypes.node">
+        <Direction style={{background: 'white'}}>
+          <Direction.Origin>
+            <Typography.Body1>Ambler</Typography.Body1>
+            <Typography.Body2 color={palette.mediumGrey}>24 Quai charles pasqua, Levalois-Perret</Typography.Body2>
+          </Direction.Origin>
+          <Direction.Destination>
+            <Typography.Body1>Phil</Typography.Body1>
+            <Typography.Body2 color={palette.mediumGrey}>Appart de Phil, Dives-sur-mer</Typography.Body2>
+          </Direction.Destination>
+        </Direction>
+      </Showcase>
+      <Showcase legend="children as PropTypes.func">
+        <Direction style={{background: 'white'}}>
+          <Direction.Origin>
+            {(ref, pointRef) => {
+              return (
+                <div ref={ref}>
+                  <Typography.Body1 ref={pointRef}>Ambler</Typography.Body1>
+                  <Typography.Body2 color={palette.mediumGrey}>
+                    24 Quai charles pasqua, Levalois-Perret
+                  </Typography.Body2>
+                  <div style={{height: 8}} />
+                </div>
+              )
+            }}
+          </Direction.Origin>
+          <Direction.Destination>
+            {(ref, pointRef) => {
+              return (
+                <div ref={ref}>
+                  <div style={{height: 8}} />
+                  <Typography.Body1 ref={pointRef}>Phil</Typography.Body1>
+                  <Typography.Body2 color={palette.mediumGrey}>Appart de Phil, Dives-sur-mer</Typography.Body2>
+                </div>
+              )
+            }}
+          </Direction.Destination>
+        </Direction>
+      </Showcase>
+    </>
+  ))
+  .add('Trip with label', () => (
+    <>
+      <Showcase legend="children as PropTypes.node">
+        <Direction style={{background: 'white'}}>
+          <Direction.Origin label={'~14:10'}>
+            <Typography.Body1>Ambler</Typography.Body1>
+            <Typography.Body2 color={palette.mediumGrey}>24 Quai charles pasqua, Levalois-Perret</Typography.Body2>
+          </Direction.Origin>
+          <Direction.Destination label={'~14:10'}>
+            <Typography.Body1>Phil</Typography.Body1>
+            <Typography.Body2 color={palette.mediumGrey}>Appart de Phil, Dives-sur-mer</Typography.Body2>
+          </Direction.Destination>
+        </Direction>
+      </Showcase>
+      <Showcase legend="children as PropTypes.func">
+        <Direction style={{background: 'white'}}>
+          <Direction.Origin label={'~14:10'}>
+            {(ref, pointRef) => {
+              return (
+                <div ref={ref}>
+                  <Typography.Body1 ref={pointRef}>Ambler</Typography.Body1>
+                  <Typography.Body2 color={palette.mediumGrey}>
+                    24 Quai charles pasqua, Levalois-Perret
+                  </Typography.Body2>
+                  <div style={{height: 8}} />
+                </div>
+              )
+            }}
+          </Direction.Origin>
+          <Direction.Destination label={'~14:10'}>
+            {(ref, pointRef) => {
+              return (
+                <div ref={ref}>
+                  <div style={{height: 8}} />
+                  <Typography.Body1 ref={pointRef}>Phil</Typography.Body1>
+                  <Typography.Body2 color={palette.mediumGrey}>Appart de Phil, Dives-sur-mer</Typography.Body2>
+                </div>
+              )
+            }}
+          </Direction.Destination>
+        </Direction>
+      </Showcase>
+    </>
+  ))
+  .add('Trip with shared label', () => (
     <Showcase>
-      <Direction style={{background: 'white'}}>
-        <Direction.Origin name="Ambler" address="24 Quai charles pasqua, Levalois-Perret" />
-        <Direction.Destination name="Phil" address="Appart de Phil, Dives-sur-mer" />
+      <Direction label={'Heure inconnue'} style={{background: 'white'}}>
+        <Direction.Origin>
+          <Typography.Body1>Ambler</Typography.Body1>
+          <Typography.Body2 color={palette.mediumGrey}>24 Quai charles pasqua, Levalois-Perret</Typography.Body2>
+        </Direction.Origin>
+        <Direction.Destination>
+          <Typography.Body1>Phil</Typography.Body1>
+          <Typography.Body2 color={palette.mediumGrey}>Appart de Phil, Dives-sur-mer</Typography.Body2>
+        </Direction.Destination>
       </Direction>
     </Showcase>
   ))
-  .add('Trip with time', () => (
-    <Showcase>
-      <Direction style={{background: 'white'}}>
-        <Direction.Origin name="Ambler" address="24 Quai charles pasqua, Levalois-Perret" time={'12:25'} />
-        <Direction.Destination name="Phil" address="Appart de Phil, Dives-sur-mer" time={'~14:30'} />
-      </Direction>
-    </Showcase>
-  ))
-  .add('Trip with shared time', () => (
-    <Showcase>
-      <Direction time={'Heure inconnue'} style={{background: 'white'}}>
-        <Direction.Origin name="Ambler" address="24 Quai charles pasqua, Levalois-Perret" />
-        <Direction.Destination name="Phil" address="Appart de Phil, Dives-sur-mer" />
-      </Direction>
-    </Showcase>
+  .add('Direction with any children', () => (
+    <>
+      <Showcase>
+        <Direction label={'Heure inconnue'} style={{background: 'white'}}>
+          <Direction.Origin>Salut !</Direction.Origin>
+          <Direction.Destination>Au revoir !</Direction.Destination>
+        </Direction>
+      </Showcase>
+      <Showcase>
+        <Direction style={{background: 'white'}}>
+          <Direction.Origin>
+            {(originRef, pointRef) => {
+              return (
+                <div ref={originRef}>
+                  <Input
+                    ref={pointRef}
+                    label="Adresse"
+                    placeholder="Adresse d'origine"
+                    value=""
+                    onChange={() => null}
+                  />
+                  <div style={{height: 8}} />
+                  <div style={{paddingLeft: 32}}>
+                    <Input label="Origin" placeholder="Service" value="" onChange={() => null} />
+                  </div>
+                  <div style={{height: 8}} />
+                </div>
+              )
+            }}
+          </Direction.Origin>
+          <Direction.Destination>
+            {(ref, pointRef) => {
+              return (
+                <div ref={ref}>
+                  <div style={{height: 8}} />
+                  <Input
+                    ref={pointRef}
+                    label="Adresse"
+                    placeholder="Adresse d'origine"
+                    value=""
+                    onChange={() => null}
+                  />
+                  <div style={{height: 8}} />
+                  <div style={{paddingLeft: 32}}>
+                    <Input label="Origin" placeholder="Service" value="" onChange={() => null} />
+                  </div>
+                  <div style={{height: 8}} />
+                </div>
+              )
+            }}
+          </Direction.Destination>
+        </Direction>
+      </Showcase>
+    </>
   ))

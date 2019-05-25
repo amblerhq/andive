@@ -29,9 +29,6 @@ export const BariatricIcon = BariatricIconComponent
 import CancelIconComponent from './components/icons/cancel'
 export const CancelIcon = CancelIconComponent
 
-import CheckIconComponent from './components/icons/check'
-export const CheckIcon = CheckIconComponent
-
 import CloseIconComponent from './components/icons/close'
 export const CloseIcon = CloseIconComponent
 
@@ -62,8 +59,17 @@ export const SeatedIcon = SeatedIconComponent
 import TpmrIconComponent from './components/icons/tpmr'
 export const TpmrIcon = TpmrIconComponent
 
-import UncheckIconComponent from './components/icons/uncheck'
-export const UncheckIcon = UncheckIconComponent
+import CheckboxOnIconComponent from './components/icons/checkbox-on'
+export const CheckboxOnIcon = CheckboxOnIconComponent
+
+import CheckboxOffIconComponent from './components/icons/checkbox-off'
+export const CheckboxOffIcon = CheckboxOffIconComponent
+
+import RadioOnIconComponent from './components/icons/radio-on'
+export const RadioOnIcon = RadioOnIconComponent
+
+import RadioOffIconComponent from './components/icons/radio-off'
+export const RadioOffIcon = RadioOffIconComponent
 
 import VslIconComponent from './components/icons/vsl'
 export const VslIcon = VslIconComponent

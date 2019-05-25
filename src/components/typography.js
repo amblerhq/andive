@@ -1,6 +1,6 @@
 import styled, {css} from 'styled-components'
 
-import {berryBlue, darkGrey, mediumGrey, lightBeetrootPurple} from '../constants/palette'
+import {berryBlue, darkGrey, lightBeetrootPurple} from '../constants/palette'
 
 export const fontWeights = {
   regular: 400,
@@ -9,6 +9,20 @@ export const fontWeights = {
 }
 
 export const fontFamily = 'Asap'
+
+// Every Typography component accept override through
+// this unified interface.
+// We could simply use the "style" props but this is better
+// to convey intention from the product and not just an
+// edge-case -- one time -- style override.
+function interpolateCss(baseCss) {
+  return ({color, textTransform, fontStyle}) => css`
+    ${baseCss}
+    ${color && `color: ${color};`}
+    ${textTransform && `text-transform: ${textTransform};`}
+    ${fontStyle && `font-style: ${fontStyle};`}
+  `
+}
 
 // H1
 
@@ -21,8 +35,10 @@ export const h1Css = css`
   color: ${darkGrey};
 `
 
-export const H1 = styled.div`
-  ${h1Css}
+export const H1 = styled.div.attrs({
+  'data-andive-type': 'typography'
+})`
+  ${interpolateCss(h1Css)}
 `
 
 // H2
@@ -30,15 +46,16 @@ export const H1 = styled.div`
 export const h2Css = css`
   font-family: ${fontFamily};
   font-weight: ${fontWeights.semiBold};
-  text-transform: uppercase;
   font-size: 18px;
   line-height: 22px;
   min-height: 24px;
   color: ${darkGrey};
 `
 
-export const H2 = styled.div`
-  ${h2Css}
+export const H2 = styled.div.attrs({
+  'data-andive-type': 'typography'
+})`
+  ${interpolateCss(h2Css)}
 `
 
 // Body1
@@ -52,8 +69,10 @@ export const body1Css = css`
   color: ${darkGrey};
 `
 
-export const Body1 = styled.div`
-  ${body1Css}
+export const Body1 = styled.div.attrs({
+  'data-andive-type': 'typography'
+})`
+  ${interpolateCss(body1Css)}
 `
 
 // Body2
@@ -67,37 +86,10 @@ export const body2Css = css`
   color: ${darkGrey};
 `
 
-export const Body2 = styled.div`
-  ${body2Css}
-`
-
-// Body3
-
-export const body3Css = css`
-  font-family: ${fontFamily};
-  font-weight: ${fontWeights.regular};
-  font-size: 16px;
-  min-height: 24px;
-  color: ${mediumGrey};
-`
-
-export const Body3 = styled.div`
-  ${body3Css}
-`
-
-// Body4
-
-export const body4Css = css`
-  font-family: ${fontFamily};
-  font-weight: ${fontWeights.regular};
-  font-size: 16px;
-  color: ${darkGrey};
-  min-height: 24px;
-  font-style: italic;
-`
-
-export const Body4 = styled.div`
-  ${body4Css}
+export const Body2 = styled.div.attrs({
+  'data-andive-type': 'typography'
+})`
+  ${interpolateCss(body2Css)}
 `
 
 // ButtonTextPrimary
@@ -112,8 +104,10 @@ export const buttonTextPrimaryCss = css`
   color: #ffffff;
 `
 
-export const ButtonTextPrimary = styled.div`
-  ${buttonTextPrimaryCss}
+export const ButtonTextPrimary = styled.div.attrs({
+  'data-andive-type': 'typography'
+})`
+  ${interpolateCss(buttonTextPrimaryCss)}
 `
 
 // ButtonTextSecondary
@@ -128,8 +122,10 @@ export const buttonTextSecondaryCss = css`
   color: ${lightBeetrootPurple};
 `
 
-export const ButtonTextSecondary = styled.div`
-  ${buttonTextSecondaryCss}
+export const ButtonTextSecondary = styled.div.attrs({
+  'data-andive-type': 'typography'
+})`
+  ${interpolateCss(buttonTextSecondaryCss)}
 `
 
 // Action
@@ -143,6 +139,18 @@ export const actionTextCss = css`
   color: ${berryBlue};
 `
 
-export const ActionText = styled.div`
-  ${actionTextCss}
+export const ActionText = styled.div.attrs({
+  'data-andive-type': 'typography'
+})`
+  ${interpolateCss(actionTextCss)}
 `
+
+export const isTypography = elementRef => {
+  if (!elementRef || !elementRef.current) {
+    return false
+  }
+
+  // To keep things simple and have Body1, Body2, etc components easily comparable here,
+  // we add a data attribute to identify andive components for specific behaviours.
+  return elementRef.current.getAttribute('data-andive-type') === 'typography'
+}

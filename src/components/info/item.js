@@ -1,10 +1,15 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import {Body3} from '../typography'
+import {Body2} from '../typography'
+import {mediumGrey} from '../../constants/palette'
 
 function Item({item, ...props}) {
-  return <Body3 {...props}>{item}</Body3>
+  return (
+    <Body2 color={mediumGrey} {...props}>
+      {item}
+    </Body2>
+  )
 }
 
 Item.propTypes = {

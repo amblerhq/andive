@@ -1,8 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
-import {Body2, Body3} from './typography'
 
+import {mediumGrey} from '../constants/palette'
+import {Body2} from './typography'
 import Select from './select'
 import {baselineCss} from './baseline'
 
@@ -26,7 +27,7 @@ function DropdownComponent({
   icon,
   ...props
 }) {
-  const ItemText = disabled ? Body3 : Body2
+  const color = disabled && mediumGrey
   const selectProps = {
     label: placeholder,
     value,
@@ -38,8 +39,8 @@ function DropdownComponent({
 
   return (
     <Dropdown fullWidth={fullWidth} {...props}>
-      <ItemText>{label}</ItemText>
-      {disabled ? <Body3>—</Body3> : <Select {...selectProps} />}
+      <Body2 color={color}>{label}</Body2>
+      {disabled ? <Body2 color={mediumGrey}>—</Body2> : <Select {...selectProps} />}
     </Dropdown>
   )
 }
