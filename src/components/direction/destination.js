@@ -11,7 +11,7 @@ const Destination = styled.div`
   ${baselineCss}
 
   position: relative;
-  padding-left: ${props => (props.label ? 101 : 32)}px;
+  padding-left: ${props => (props.label ? 24 + 61 : 24)}px;
 `
 
 const DestinationIcon = styled.div`
@@ -21,7 +21,7 @@ const DestinationIcon = styled.div`
   left: ${props => (props.label ? 69 : 0)}px;
   top: 0;
 
-  width: 32px;
+  width: 24px;
   height: 100%;
 `
 
@@ -74,7 +74,7 @@ const AsideLabel = styled(Body1)`
   top: ${props => (props.offsetY ? props.offsetY - 16 : -10)}px;
   left: 0;
 
-  width: 61px;
+  width: 69px;
   min-height: 38px;
 
   padding: 8px;

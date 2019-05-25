@@ -11,7 +11,7 @@ const Origin = styled.div`
   ${baselineCss}
 
   position: relative;
-  padding-left: ${props => (props.label ? 101 : 32)}px;
+  padding-left: ${props => (props.label ? 24 + 61 : 24)}px;
 `
 
 const OriginIcon = styled.div`
@@ -21,7 +21,7 @@ const OriginIcon = styled.div`
   left: ${props => (props.label ? 69 : 0)}px;
   top: 0;
 
-  width: 32px;
+  width: 24px;
   height: 100%;
 `
 
@@ -52,8 +52,8 @@ const OriginRoad = styled.div`
   ${props => {
     if (props.offsetY) {
       return css`
-        top: ${props => props.offsetY + 4}px;
-        height: ${props => props.height - (props.offsetY + 4)}px;
+        top: ${props => props.offsetY}px;
+        height: ${props => props.height - props.offsetY}px;
       `
     }
 
@@ -74,7 +74,7 @@ const AsideLabel = styled(Body1)`
   top: ${props => (props.offsetY ? props.offsetY - 20 : -8)}px;
   left: 0;
 
-  width: 61px;
+  width: 69px;
   min-height: 38px;
 
   padding: 8px;
