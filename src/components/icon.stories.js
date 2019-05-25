@@ -19,8 +19,12 @@ import HistoricIcon from './icons/historic'
 import MedicalFacilityIcon, {MedicalFacilitySvg} from './icons/medical-facility'
 import AddressIcon, {AddressSvg} from './icons/address'
 import CheckIcon from './icons/check'
+import CheckboxOn from './icons/checkbox-on'
+import CheckboxOff from './icons/checkbox-off'
 import UncheckIcon from './icons/uncheck'
 import NewIcon from './icons/new'
+import RadioOn from './icons/radio-on'
+import RadioOff from './icons/radio-off'
 import CancelIcon from './icons/cancel'
 import FlagIcon from './icons/flag'
 
@@ -53,7 +57,7 @@ const icons = [
   FlagIcon
 ]
 
-const blueIcons = [EditIcon, CheckIcon, UncheckIcon, BackIcon]
+const blueIcons = [EditIcon, BackIcon, RadioOn, RadioOff, CheckboxOn, CheckboxOff]
 
 storiesOf('Icon', module)
   .add('All', () => {
