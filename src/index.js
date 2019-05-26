@@ -121,6 +121,9 @@ export const Button = ButtonComponent
 import CheckboxComponent from './components/checkbox'
 export const Checkbox = CheckboxComponent
 
+import CheckboxGroupComponent from './components/checkbox-group'
+export const CheckboxGroup = CheckboxGroupComponent
+
 import DialogTitleComponent from './components/dialog-title'
 export const DialogTitle = DialogTitleComponent
 
