@@ -12,7 +12,7 @@ const InputRoot = styled.div`
   padding: 8px;
 `
 
-const Input = styled.input`
+const inputCss = ({error, canClear, hasIcon, disabled}) => css`
   box-sizing: border-box;
   border: none;
   outline: none;
@@ -20,10 +20,10 @@ const Input = styled.input`
   width: 100%;
   height: 56px;
   border-radius: 16px;
-  background-color: ${props => (props.error ? `${error}44` : '#ededed')};
-  color: ${props => (props.error ? error : darkGrey)}
+  background-color: ${error ? `${error}44` : '#ededed'};
+  color: ${error ? error : darkGrey}
 
-  padding: 16px ${props => (props.canClear ? 48 : 16)}px 16px ${props => (props.hasIcon ? '64px' : '16px')};
+  padding: 16px ${canClear ? 48 : 16}px 16px ${hasIcon ? '64px' : '16px'};
 
   caret-color: ${berryBlue};
 
@@ -41,12 +41,20 @@ const Input = styled.input`
     background-color: white;
   }
 
-  ${props =>
-    props.disabled &&
+  ${disabled &&
     css`
       color: ${mediumGrey};
       background-color: ${lightGrey};
     `}
+`
+
+const Input = styled.input`
+  ${inputCss}
+`
+
+const TextArea = styled.textarea`
+  ${inputCss}
+  resize: none;
 `
 
 const Close = styled.div`
@@ -76,15 +84,16 @@ const Icon = styled.div`
  *  - An onClear handle called when the right hand-side <CloseIcon /> is clicked.
  */
 const InputComponent = forwardRef(function InputComponent(
-  {value, onChange, onClear, error, fullWidth, icon, disabled, ...props},
+  {value, onChange, onClear, error, fullWidth, icon, disabled, textarea, ...props},
   ref
 ) {
   const canClear = !!(onChange && value && value.length > 0)
   const hasIcon = !!icon
+  const TextField = textarea ? TextArea : Input
 
   return (
     <InputRoot ref={ref} fullWidth={fullWidth}>
-      <Input
+      <TextField
         value={value}
         onChange={onChange}
         canClear={canClear}
@@ -117,7 +126,10 @@ InputComponent.propTypes = {
   fullWidth: PropTypes.bool,
   /** render left icon */
   icon: PropTypes.node,
-  disabled: PropTypes.bool
+  /** disable the text field */
+  disabled: PropTypes.bool,
+  /** must render a <textarea /> */
+  textarea: PropTypes.bool
 }
 
 export default InputComponent

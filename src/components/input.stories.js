@@ -112,9 +112,36 @@ function WithIconStory() {
   )
 }
 
+function AsTextAreaStory() {
+  const [value, setValue] = useState('')
+
+  function onChange(ev) {
+    setValue(ev.target.value)
+  }
+
+  function onClear() {
+    setValue('')
+  }
+
+  return (
+    <Showcase>
+      <div style={{width: 300, background: 'white'}}>
+        <Input
+          style={{height: 128}}
+          placeholder="Commentaire..."
+          value={value}
+          onChange={onChange}
+          onClear={onClear}
+          textarea
+        />
+      </div>
+    </Showcase>
+  )
+}
 storiesOf('Input', module)
   .add('Default', () => <DefaultStory />)
   .add('With clear', () => <WithClearStory />)
   .add('With error', () => <WithErrorStory />)
   .add('With disabled', () => <WithDisabledStory />)
   .add('With icon', () => <WithIconStory />)
+  .add('As text area', () => <AsTextAreaStory />)
