@@ -12,7 +12,7 @@ const InputRoot = styled.div`
   padding: 8px;
 `
 
-const inputCss = ({error, canClear, hasIcon, disabled}) => css`
+const inputCss = ({error: error_, canClear, hasIcon, disabled}) => css`
   box-sizing: border-box;
   border: none;
   outline: none;
@@ -20,8 +20,8 @@ const inputCss = ({error, canClear, hasIcon, disabled}) => css`
   width: 100%;
   height: 56px;
   border-radius: 16px;
-  background-color: ${error ? `${error}44` : '#ededed'};
-  color: ${error ? error : darkGrey}
+  background-color: ${error_ ? `${error}44` : '#ededed'};
+  color: ${error_ ? error : darkGrey}
 
   padding: 16px ${canClear ? 48 : 16}px 16px ${hasIcon ? '64px' : '16px'};
 
@@ -84,7 +84,7 @@ const Icon = styled.div`
  *  - An onClear handle called when the right hand-side <CloseIcon /> is clicked.
  */
 const InputComponent = forwardRef(function InputComponent(
-  {value, onChange, onClear, error, fullWidth, icon, disabled, textarea, ...props},
+  {value, onChange, onClear, error: error_, fullWidth, icon, disabled, textarea, ...props},
   ref
 ) {
   const canClear = !!(onChange && value && value.length > 0)
@@ -98,7 +98,7 @@ const InputComponent = forwardRef(function InputComponent(
         onChange={onChange}
         canClear={canClear}
         hasIcon={hasIcon}
-        error={error}
+        error={error_}
         disabled={disabled}
         {...props}
       />
@@ -108,7 +108,7 @@ const InputComponent = forwardRef(function InputComponent(
           <CloseIcon inline />
         </Close>
       )}
-      {error && <Error>{error}</Error>}
+      {error_ && <Error>{error_}</Error>}
     </InputRoot>
   )
 })
