@@ -14,8 +14,8 @@ function DefaultStory() {
   }
 
   return (
-    <Showcase style={{background: 'white'}}>
-      <div style={{width: 300}}>
+    <Showcase>
+      <div style={{width: 300, background: 'white'}}>
         <Input placeholder={'Adresse de départ...'} value={value} onChange={onChange} />
       </div>
     </Showcase>
@@ -34,8 +34,8 @@ function WithClearStory() {
   }
 
   return (
-    <Showcase style={{background: 'white'}}>
-      <div style={{width: 300}}>
+    <Showcase>
+      <div style={{width: 300, background: 'white'}}>
         <Input placeholder={'Date de naissance'} value={value} onChange={onChange} onClear={onClear} />
       </div>
     </Showcase>
@@ -62,15 +62,15 @@ function WithErrorStory() {
   }
 
   return (
-    <Showcase style={{background: 'white'}}>
-      <div style={{width: 300}}>
+    <Showcase>
+      <div style={{width: 300, background: 'white'}}>
         <Input placeholder="Numéro de téléphone" value={value} onChange={onChange} error={error} />
       </div>
     </Showcase>
   )
 }
 
-function WithFocusStory() {
+function WithDisabledStory() {
   const [value, setValue] = useState('07/12/1993')
 
   function onChange(ev) {
@@ -78,9 +78,35 @@ function WithFocusStory() {
   }
 
   return (
-    <Showcase style={{background: 'white'}}>
-      <div style={{width: 300}}>
-        <Input placeholder="Numéro de téléphone" value={value} onChange={onChange} />
+    <Showcase>
+      <div style={{width: 300, background: 'white'}}>
+        <Input disabled placeholder="Numéro de téléphone" value={value} onChange={onChange} />
+      </div>
+    </Showcase>
+  )
+}
+
+function WithIconStory() {
+  const [value, setValue] = useState('Bariatrique')
+
+  function onChange(ev) {
+    setValue(ev.target.value)
+  }
+
+  function onClear() {
+    setValue('')
+  }
+
+  return (
+    <Showcase>
+      <div style={{width: 300, background: 'white'}}>
+        <Input
+          icon={<BariatricIcon circle circleColor={'white'} />}
+          placeholder="Type de véhicule"
+          value={value}
+          onChange={onChange}
+          onClear={onClear}
+        />
       </div>
     </Showcase>
   )
@@ -90,15 +116,5 @@ storiesOf('Input', module)
   .add('Default', () => <DefaultStory />)
   .add('With clear', () => <WithClearStory />)
   .add('With error', () => <WithErrorStory />)
-  .add('With focus', () => <WithFocusStory />)
-  .add('With icon', () => (
-    <Showcase style={{background: 'white'}}>
-      <Input
-        icon={<BariatricIcon circle circleColor={'white'} />}
-        placeholder={'Numéro de téléphone'}
-        value={'Bariatrique'}
-        onChange={() => {}}
-        onClear={() => {}}
-      />
-    </Showcase>
-  ))
+  .add('With disabled', () => <WithDisabledStory />)
+  .add('With icon', () => <WithIconStory />)

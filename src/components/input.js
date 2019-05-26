@@ -1,14 +1,15 @@
 import React, {forwardRef} from 'react'
-import styled from 'styled-components'
+import styled, {css} from 'styled-components'
 import PropTypes from 'prop-types'
 
 import {body1Css, body2Css} from './typography'
 import CloseIcon from '../components/icons/close'
-import {darkGrey, mediumGrey, berryBlue, error} from '../constants/palette'
+import {darkGrey, lightGrey, mediumGrey, berryBlue, error} from '../constants/palette'
 
 const InputRoot = styled.div`
   width: ${props => (props.fullWidth ? '100%' : 'auto')};
   position: relative;
+  padding: 8px;
 `
 
 const Input = styled.input`
@@ -39,12 +40,19 @@ const Input = styled.input`
     border: 1px solid ${mediumGrey};
     background-color: white;
   }
+
+  ${props =>
+    props.disabled &&
+    css`
+      color: ${mediumGrey};
+      background-color: ${lightGrey};
+    `}
 `
 
 const Close = styled.div`
   position: absolute;
-  left: calc(100% - 32px);
-  top: 16px;
+  left: calc(100% - 40px);
+  top: 24px;
 
   cursor: pointer;
 `
@@ -58,8 +66,8 @@ const Error = styled.div`
 const Icon = styled.div`
   position: absolute;
 
-  left: 16px;
-  top: 12px;
+  left: 24px;
+  top: 20px;
 `
 
 /** This input component is intended to be used the controlled way, by always - at least - passing (value, onChange).
@@ -68,7 +76,7 @@ const Icon = styled.div`
  *  - An onClear handle called when the right hand-side <CloseIcon /> is clicked.
  */
 const InputComponent = forwardRef(function InputComponent(
-  {value, onChange, onClear, error, fullWidth, icon, ...props},
+  {value, onChange, onClear, error, fullWidth, icon, disabled, ...props},
   ref
 ) {
   const canClear = !!(onChange && value && value.length > 0)
@@ -76,9 +84,17 @@ const InputComponent = forwardRef(function InputComponent(
 
   return (
     <InputRoot ref={ref} fullWidth={fullWidth}>
-      <Input value={value} onChange={onChange} canClear={canClear} hasIcon={hasIcon} error={error} {...props} />
+      <Input
+        value={value}
+        onChange={onChange}
+        canClear={canClear}
+        hasIcon={hasIcon}
+        error={error}
+        disabled={disabled}
+        {...props}
+      />
       {hasIcon && <Icon>{icon}</Icon>}
-      {canClear && (
+      {canClear && !disabled && (
         <Close onClick={onClear}>
           <CloseIcon inline />
         </Close>
@@ -100,7 +116,8 @@ InputComponent.propTypes = {
   /** should fill the parent width */
   fullWidth: PropTypes.bool,
   /** render left icon */
-  icon: PropTypes.node
+  icon: PropTypes.node,
+  disabled: PropTypes.bool
 }
 
 export default InputComponent
