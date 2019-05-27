@@ -234,7 +234,7 @@ storiesOf('Direction', module)
         </Direction>
       </Showcase>
       <Showcase>
-        <Direction style={{background: 'white'}}>
+        <Direction style={{background: 'white'}} nopadding>
           <Direction.Origin>
             {(originRef, pointRef) => {
               return (
@@ -246,11 +246,10 @@ storiesOf('Direction', module)
                     value=""
                     onChange={() => null}
                   />
-                  <div style={{height: 8}} />
                   <div style={{paddingLeft: 32}}>
                     <Input label="Origin" placeholder="Service" value="" onChange={() => null} />
                   </div>
-                  <div style={{height: 8}} />
+                  <div style={{height: 32}} />
                 </div>
               )
             }}
@@ -259,7 +258,6 @@ storiesOf('Direction', module)
             {(ref, pointRef) => {
               return (
                 <div ref={ref}>
-                  <div style={{height: 8}} />
                   <Input
                     ref={pointRef}
                     label="Adresse"
@@ -267,11 +265,9 @@ storiesOf('Direction', module)
                     value=""
                     onChange={() => null}
                   />
-                  <div style={{height: 8}} />
                   <div style={{paddingLeft: 32}}>
                     <Input label="Origin" placeholder="Service" value="" onChange={() => null} />
                   </div>
-                  <div style={{height: 8}} />
                 </div>
               )
             }}

@@ -8,13 +8,12 @@ import Destination from './destination'
 
 const Direction = styled.div`
   min-width: ${props => (props.fullWidth ? '100%' : 'auto')};
-
-  padding: 8px;
+  padding: ${props => (props.nopadding ? '0 0 0 8px' : '8px')};
 `
 
-function DirectionComponent({children, label, fullWidth, ...props}) {
+function DirectionComponent({children, label, fullWidth, nopadding, ...props}) {
   return (
-    <Direction fullWidth={fullWidth} {...props}>
+    <Direction fullWidth={fullWidth} nopadding={nopadding} {...props}>
       {label && (
         <Info>
           <Info.Label label={label} />
@@ -34,7 +33,8 @@ function DirectionComponent({children, label, fullWidth, ...props}) {
 DirectionComponent.propTypes = {
   children: PropTypes.node,
   label: PropTypes.string,
-  fullWidth: PropTypes.bool
+  fullWidth: PropTypes.bool,
+  nopadding: PropTypes.bool
 }
 
 DirectionComponent.Origin = Origin
