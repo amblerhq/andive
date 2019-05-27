@@ -21,3 +21,14 @@ storiesOf('Select', module)
       />
     </Showcase>
   ))
+  .add('With error', () => (
+    <Showcase style={{background: '#eee'}}>
+      <Select
+        label="Téléphone"
+        options={['Choissez une date...', 'Arrivée à destination à...']}
+        icon={<ArrowDownIcon inline />}
+        style={{background: 'white'}}
+        error="Requis"
+      />
+    </Showcase>
+  ))

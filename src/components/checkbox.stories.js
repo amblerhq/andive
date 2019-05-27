@@ -43,6 +43,40 @@ function CheckboxGroupStory({radio}) {
   )
 }
 
+function CheckboxGroupWithErrorStory() {
+  const [values, setValues] = useState({a: true})
+  const [error, setError] = useState('')
+
+  function validate(values_) {
+    if (Object.keys(values_).filter(key => values_[key]).length < 2) {
+      setError('Choissiez au moins 2 options')
+    } else {
+      setError('')
+    }
+  }
+
+  useEffect(() => {
+    validate(values)
+  }, [values])
+
+  return (
+    <div style={{background: 'white', width: 300}}>
+      <CheckboxGroup
+        value={values}
+        onChange={values_ => {
+          setValues(values_)
+        }}
+        error={error}
+      >
+        <Checkbox label="A" name="a" style={{background: 'white'}} />
+        <Checkbox label="B" name="b" style={{background: 'white'}} />
+        <Checkbox label="C" name="c" style={{background: 'white'}} />
+      </CheckboxGroup>
+      <pre style={{padding: 8}}>values: {JSON.stringify(values, null, 2)}</pre>
+    </div>
+  )
+}
+
 function UpdateableCheckboxGroupStory() {
   const [values, setValues] = useState({a: true})
 
@@ -94,6 +128,11 @@ storiesOf('Checkbox', module)
   .add('Checkbox Group', () => (
     <Showcase>
       <CheckboxGroupStory />
+    </Showcase>
+  ))
+  .add('Checkbox Group with error', () => (
+    <Showcase>
+      <CheckboxGroupWithErrorStory />
     </Showcase>
   ))
   .add('Checkbox Group / Updated from above', () => (

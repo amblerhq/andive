@@ -1,9 +1,18 @@
 import React, {createContext, useEffect, useState, useCallback, useMemo} from 'react'
 import PropTypes from 'prop-types'
+import styled from 'styled-components'
+
+import {error} from '../constants/palette'
+import {Body2} from './typography'
 
 export const CheckboxGroupContext = createContext(null)
 
-function CheckboxGroup({children, onChange, value, radio, ...props}) {
+const Error = styled(Body2)`
+  color: ${error};
+  padding: 4px 8px 8px 8px;
+`
+
+function CheckboxGroup({children, onChange, value, radio, error, ...props}) {
   const [values, setValues] = useState(value)
 
   useEffect(() => {
@@ -44,6 +53,7 @@ function CheckboxGroup({children, onChange, value, radio, ...props}) {
   return (
     <div {...props}>
       <CheckboxGroupContext.Provider value={contextValue}>{children}</CheckboxGroupContext.Provider>
+      {error && <Error>{error}</Error>}
     </div>
   )
 }
@@ -52,7 +62,8 @@ CheckboxGroup.propTypes = {
   children: PropTypes.node,
   value: PropTypes.object.isRequired,
   onChange: PropTypes.func.isRequired,
-  radio: PropTypes.bool
+  radio: PropTypes.bool,
+  error: PropTypes.string
 }
 
 export default CheckboxGroup

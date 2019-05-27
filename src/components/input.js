@@ -2,7 +2,7 @@ import React, {forwardRef} from 'react'
 import styled, {css} from 'styled-components'
 import PropTypes from 'prop-types'
 
-import {body1Css, body2Css} from './typography'
+import {body1Css, body2Css, Body2} from './typography'
 import CloseIcon from '../components/icons/close'
 import {darkGrey, lightGrey, mediumGrey, berryBlue, error} from '../constants/palette'
 
@@ -65,10 +65,9 @@ const Close = styled.div`
   cursor: pointer;
 `
 
-const Error = styled.div`
-  padding: 8px;
+const Error = styled(Body2)`
+  padding: 4px 8px 8px 8px;
   color: ${error};
-  min-height: 24px;
 `
 
 const Icon = styled.div`

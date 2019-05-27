@@ -2,8 +2,8 @@ import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 
-import {berryBlue} from '../constants/palette'
-import {body1Css} from './typography'
+import {berryBlue, error} from '../constants/palette'
+import {body1Css, Body2} from './typography'
 
 const Select = styled.div`
   display: flex;
@@ -30,6 +30,11 @@ const SelectTag = styled.select`
   color: ${berryBlue};
 `
 
+const Error = styled(Body2)`
+  color: ${error};
+  padding-top: 4px;
+`
+
 const iconStyle = {
   pointerEvents: 'none',
   position: 'absolute',
@@ -37,23 +42,26 @@ const iconStyle = {
   right: 0
 }
 
-function SelectComponent({label, options, optionFormat, value, onChange, icon, ...props}) {
+function SelectComponent({label, options, optionFormat, value, onChange, icon, error, ...props}) {
   const hasIcon = !!icon
 
   return (
-    <Select {...props}>
-      <SelectTag value={value} onChange={onChange} hasIcon={hasIcon}>
-        <option value="" disabled>
-          {label}
-        </option>
-        {options.map((option, index) => (
-          <option key={option} name={option} value={option}>
-            {optionFormat ? optionFormat(option, index) : option}
+    <div {...props}>
+      <Select>
+        <SelectTag value={value} onChange={onChange} hasIcon={hasIcon}>
+          <option value="" disabled>
+            {label}
           </option>
-        ))}
-      </SelectTag>
-      {hasIcon && React.cloneElement(icon, {style: iconStyle})}
-    </Select>
+          {options.map((option, index) => (
+            <option key={option} name={option} value={option}>
+              {optionFormat ? optionFormat(option, index) : option}
+            </option>
+          ))}
+        </SelectTag>
+        {hasIcon && React.cloneElement(icon, {style: iconStyle})}
+      </Select>
+      {error && <Error>{error}</Error>}
+    </div>
   )
 }
 
@@ -63,7 +71,8 @@ SelectComponent.propTypes = {
   optionFormat: PropTypes.func,
   icon: PropTypes.node,
   value: PropTypes.string,
-  onChange: PropTypes.func
+  onChange: PropTypes.func,
+  error: PropTypes.string
 }
 
 export default SelectComponent
