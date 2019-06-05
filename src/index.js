@@ -112,6 +112,10 @@ export const Info = InfoComponent
 import AppBarComponent from './components/app-bar'
 export const AppBar = AppBarComponent
 
+import AutocompleteComponent, {Suggestion as SuggestionComponent} from './components/autocomplete'
+export const Autocomplete = AutocompleteComponent
+export const AutocompleteSuggestion = SuggestionComponent
+
 import BaselineComponent from './components/baseline'
 export const Baseline = BaselineComponent
 
