@@ -19,6 +19,7 @@ addDecorator(storyFn => {
 
 function loadStories() {
   require('../src/components/app-bar.stories')
+  require('../src/components/autocomplete.stories')
   require('../src/components/button.stories')
   require('../src/components/checkbox.stories')
   require('../src/components/dialog.stories')

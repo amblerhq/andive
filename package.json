@@ -31,6 +31,7 @@
     "eslint-config-prettier": "4.1.0",
     "eslint-plugin-prettier": "3.0.1",
     "eslint-plugin-react": "7.12.4",
+    "graphql": "14.3.1",
     "lodash.range": "3.2.0",
     "moment": "2.24.0",
     "prettier": "1.16.4",
@@ -38,7 +39,8 @@
     "react-copy-to-clipboard": "5.0.1",
     "react-dom": "16.8.6",
     "react-helmet": "5.2.0",
-    "styled-components": "4.2.0"
+    "styled-components": "4.2.0",
+    "urql": "1.0.5"
   },
   "peerDependencies": {
     "moment": "^2.24.0",

@@ -2,7 +2,7 @@ import React, {forwardRef} from 'react'
 import styled, {css} from 'styled-components'
 import PropTypes from 'prop-types'
 
-import {body1Css, body2Css, Body2} from './typography'
+import {body1Css, Body2} from './typography'
 import CloseIcon from '../components/icons/close'
 import {darkGrey, lightGrey, mediumGrey, berryBlue, error} from '../constants/palette'
 
@@ -30,7 +30,7 @@ const inputCss = ({error: error_, canClear, hasIcon, disabled}) => css`
   ${body1Css};
 
   ::placeholder {
-    ${body2Css};
+    ${body1Css};
     color: ${mediumGrey};
   }
 
@@ -103,7 +103,7 @@ const InputComponent = forwardRef(function InputComponent(
       />
       {hasIcon && <Icon>{icon}</Icon>}
       {canClear && !disabled && (
-        <Close onClick={onClear}>
+        <Close onMouseDown={onClear}>
           <CloseIcon inline />
         </Close>
       )}
