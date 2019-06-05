@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import PropTypes from 'prop-types'
 
 import * as palette from '../constants/palette'
+import {ZIndexes} from '../constants/enum'
 import useElementRect from '../lib/use-element-rect'
 import Input from './input'
 import HistoryIcon from './icons/historic'
@@ -77,6 +78,8 @@ const Suggestions = styled.ul`
 
   /* To crop the child suggestion :hover effect */
   overflow: hidden;
+
+  z-index: ${ZIndexes.ABSOLUTE};
 `
 
 const SuggestionLi = styled.li`

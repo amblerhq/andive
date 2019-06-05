@@ -2,8 +2,38 @@ import React from 'react'
 import {storiesOf} from '@storybook/react'
 import {Provider, createClient, useQuery} from 'urql'
 
+import * as palette from '../constants/palette'
 import Showcase from '../stories/showcase'
 import Autocomplete from './autocomplete'
+
+const FakeList = () => (
+  <>
+    <div
+      style={{
+        height: 64,
+        margin: 8,
+        background: palette.lightGrey,
+        borderRadius: 8
+      }}
+    />
+    <div
+      style={{
+        height: 64,
+        margin: 8,
+        background: palette.lightGrey,
+        borderRadius: 8
+      }}
+    />
+    <div
+      style={{
+        height: 64,
+        margin: 8,
+        background: palette.lightGrey,
+        borderRadius: 8
+      }}
+    />
+  </>
+)
 
 const db = [
   {
@@ -62,6 +92,7 @@ function DefaultStory() {
           suggestions={suggestions}
           errorMessage="Vous devez choisir une adresse"
         />
+        <FakeList />
       </div>
     </Showcase>
   )
@@ -92,6 +123,7 @@ function InitialValueStory() {
           suggestions={suggestions}
           errorMessage="Vous devez choisir une adresse"
         />
+        <FakeList />
       </div>
     </Showcase>
   )
@@ -132,6 +164,7 @@ function WithFavoritesStory() {
           favorites={favorites}
           errorMessage="Vous devez choisir une adresse"
         />
+        <FakeList />
       </div>
     </Showcase>
   )
@@ -206,6 +239,7 @@ function WithGraphqlQueryStory() {
           suggestions={suggestions}
           errorMessage="Vous devez choisir une planète"
         />
+        <FakeList />
       </div>
     </Showcase>
   )
