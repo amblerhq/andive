@@ -91,6 +91,34 @@ function DefaultStory() {
         <pre style={{padding: '4px 24px', overflow: 'auto'}}>{item ? JSON.stringify(item) : 'No selection'}</pre>
         <Autocomplete
           placeholder="Adresse de départ"
+          /* Do not wait for the default "at least 3 characters" to show suggestions. */
+          value={item}
+          onChange={onChange}
+          onSearch={onSearch}
+          suggestions={suggestions}
+        />
+        <FakeList />
+      </div>
+    </Showcase>
+  )
+}
+
+// CustomCanShowSuggestion
+
+function CustomCanShowSuggestionStory() {
+  const [item, setItem] = React.useState(null)
+  const onChange = React.useCallback(value => {
+    setItem(value)
+  })
+  const [suggestions, onSearch] = useSuggestions(item)
+
+  return (
+    <Showcase style={{background: 'white'}}>
+      <div style={{width: 600}}>
+        <pre style={{padding: '4px 24px', overflow: 'auto'}}>{item ? JSON.stringify(item) : 'No selection'}</pre>
+        <Autocomplete
+          placeholder="Adresse de départ"
+          canShowSuggestions={() => true}
           value={item}
           onChange={onChange}
           onSearch={onSearch}
@@ -161,6 +189,7 @@ function WithFavoritesStory() {
         <pre style={{padding: '4px 24px', overflow: 'auto'}}>{item ? JSON.stringify(item) : 'No selection'}</pre>
         <Autocomplete
           placeholder="Adresse de départ"
+          canShowSuggestions={() => true}
           value={item}
           onChange={onChange}
           onSearch={onSearch}
@@ -329,6 +358,7 @@ function WithFreeInputValue() {
 
 storiesOf('Autocomplete', module)
   .add('Default', () => <DefaultStory />)
+  .add('Can show suggestions directly', () => <CustomCanShowSuggestionStory />)
   .add('With initial value', () => <InitialValueStory />)
   .add('With favorites', () => <WithFavoritesStory />)
   .add('With GraphQL query as source', () => (

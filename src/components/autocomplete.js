@@ -105,6 +105,9 @@ const defaultRenderSuggestion = (item, index, length) => {
 }
 
 const defaultRenderInputValue = item => [item.mainText, item.secondaryText].filter(Boolean).join(', ')
+const defaultCanShowSuggestions = (_suggestions, input) => {
+  return input.length >= 3
+}
 
 const AutocompleteComponent = React.forwardRef(function AutocompleteComponent(
   {
@@ -148,6 +151,12 @@ const AutocompleteComponent = React.forwardRef(function AutocompleteComponent(
      * the suggestion list.
      */
     freeInput,
+    /**
+     * Control when to show suggestions according to the search result and the input value. Default behavior is to wait for at
+     * least 3 characters. Still, whatever function you pass, it also checks if the suggestion list has at least 1 element.
+     * To show a list on focus, use the `favorites` prop.
+     */
+    canShowSuggestions = defaultCanShowSuggestions,
     ...props
   },
   ref
@@ -155,7 +164,7 @@ const AutocompleteComponent = React.forwardRef(function AutocompleteComponent(
   const [input, setInput] = React.useState('')
   const [unstable, setUnstable] = React.useState(false)
   const [focus, setFocus] = React.useState(false)
-  const showSuggestions = suggestions && suggestions.length > 0 && input.length >= 3
+  const showSuggestions = suggestions && suggestions.length > 0 && canShowSuggestions(suggestions, input)
   const showFavorites = favorites && favorites.length > 0 && focus && !input
 
   const onUpdate = React.useCallback(
@@ -257,6 +266,7 @@ AutocompleteComponent.propTypes = {
   renderSuggestion: PropTypes.func,
   renderFavorite: PropTypes.func,
   renderInputValue: PropTypes.func,
+  canShowSuggestions: PropTypes.func,
   freeInput: PropTypes.bool
 }
 
