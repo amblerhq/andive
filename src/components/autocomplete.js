@@ -97,46 +97,49 @@ const defaultRenderSuggestion = (item, index, length) => (
 )
 const defaultRenderInputValue = item => [item.mainText, item.secondaryText].filter(Boolean).join(', ')
 
-function AutocompleteComponent({
-  /**
-   * The "value" of the autocomplete is the Object either selected in suggestions or provided by the parent component.
-   */
-  value,
-  /**
-   * The "onChange" function is called when a suggestion is selected. Its the callee responsability to handle the
-   * update of the "value" prop accordingly.
-   */
-  onChange,
-  /**
-   * The "onSearch" method is called with the updated <Input /> content. When a user select a suggestion it is also called
-   * with a "null" value.
-   */
-  onSearch,
-  /**
-   * Customize the JSX rendered for each suggestion item.
-   */
-  renderSuggestion = defaultRenderSuggestion,
-  /**
-   * Customize the JSX rendered for each favorite item.
-   */
-  renderFavorite = defaultRenderSuggestion,
-  /**
-   * Customize how an item is rendered in the input. Should map an Object to a string.
-   */
-  renderInputValue = defaultRenderInputValue,
-  /**
-   * The list of suggestions returns by the data source after "onSearch" has been called. It must always be an array and if
-   * it has no elements then the autocomplete does not display the suggestion div bellow the input.
-   */
-  suggestions,
-  /**
-   * The list of favorites to display when the user click on the autocomplete and the input is empty.
-   */
-  favorites,
-  mapItemToIcon,
-  errorMessage,
-  ...props
-}) {
+const AutocompleteComponent = React.forwardRef(function AutocompleteComponent(
+  {
+    /**
+     * The "value" of the autocomplete is the Object either selected in suggestions or provided by the parent component.
+     */
+    value,
+    /**
+     * The "onChange" function is called when a suggestion is selected. Its the callee responsability to handle the
+     * update of the "value" prop accordingly.
+     */
+    onChange,
+    /**
+     * The "onSearch" method is called with the updated <Input /> content. When a user select a suggestion it is also called
+     * with a "null" value.
+     */
+    onSearch,
+    /**
+     * Customize the JSX rendered for each suggestion item.
+     */
+    renderSuggestion = defaultRenderSuggestion,
+    /**
+     * Customize the JSX rendered for each favorite item.
+     */
+    renderFavorite = defaultRenderSuggestion,
+    /**
+     * Customize how an item is rendered in the input. Should map an Object to a string.
+     */
+    renderInputValue = defaultRenderInputValue,
+    /**
+     * The list of suggestions returns by the data source after "onSearch" has been called. It must always be an array and if
+     * it has no elements then the autocomplete does not display the suggestion div bellow the input.
+     */
+    suggestions,
+    /**
+     * The list of favorites to display when the user click on the autocomplete and the input is empty.
+     */
+    favorites,
+    mapItemToIcon,
+    errorMessage,
+    ...props
+  },
+  ref
+) {
   const [input, setInput] = React.useState('')
   const [unstable, setUnstable] = React.useState(false)
   const [focus, setFocus] = React.useState(false)
@@ -167,6 +170,7 @@ function AutocompleteComponent({
   return (
     <Autocomplete>
       <AutocompleteInput
+        ref={ref}
         icon={mapItemToIcon && value ? mapItemToIcon(value) : null}
         error={showError ? errorMessage : null}
         onChange={ev => {
@@ -229,7 +233,7 @@ function AutocompleteComponent({
       )}
     </Autocomplete>
   )
-}
+})
 
 AutocompleteComponent.propTypes = {
   value: PropTypes.object,
