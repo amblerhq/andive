@@ -4,7 +4,10 @@ import {Provider, createClient, useQuery} from 'urql'
 
 import * as palette from '../constants/palette'
 import Showcase from '../stories/showcase'
-import Autocomplete from './autocomplete'
+import Autocomplete, {Suggestion} from './autocomplete'
+import MedicalFacilityIcon from './icons/medical-facility'
+import AddressIcon from './icons/address'
+import Info from './info'
 
 const FakeList = () => (
   <>
@@ -54,7 +57,7 @@ const db = [
   }
 ]
 
-function useSuggestions(currentValue) {
+function useSuggestions(currentValue, hasRawString = false) {
   const [input, setInput] = React.useState('')
   const onSearch = React.useCallback(value => {
     setInput(value)
@@ -67,7 +70,9 @@ function useSuggestions(currentValue) {
       return []
     }
 
-    return db.filter(item => pattern.test([item.mainText, item.secondaryText].join('.*')))
+    return db
+      .filter(item => pattern.test([item.mainText, item.secondaryText].join('.*')))
+      .map(item => (hasRawString ? item.mainText : item))
   }, [input, currentValue])
 
   return [suggestions, onSearch]
@@ -90,7 +95,6 @@ function DefaultStory() {
           onChange={onChange}
           onSearch={onSearch}
           suggestions={suggestions}
-          errorMessage="Vous devez choisir une adresse"
         />
         <FakeList />
       </div>
@@ -245,6 +249,84 @@ function WithGraphqlQueryStory() {
   )
 }
 
+// With custom suggestion.
+
+function WithCustomSuggestion() {
+  const [item, setItem] = React.useState(null)
+  const onChange = React.useCallback(value => {
+    setItem(value)
+  })
+  const [suggestions, onSearch] = useSuggestions(item)
+
+  const renderSuggestion = React.useCallback((item, index, length) => {
+    const icon = item.mainText.startsWith('Maison') ? <MedicalFacilityIcon circle /> : <AddressIcon circle />
+    return (
+      <Suggestion index={index} length={length} icon={icon}>
+        <Info icon={icon}>
+          <Info.Label label={item.mainText} />
+        </Info>
+      </Suggestion>
+    )
+  })
+
+  return (
+    <Showcase style={{background: 'white'}}>
+      <div style={{width: 600}}>
+        <pre style={{padding: '4px 24px', overflow: 'auto'}}>{item ? JSON.stringify(item) : 'No selection'}</pre>
+        <Autocomplete
+          placeholder="Adresse de départ"
+          value={item}
+          onChange={onChange}
+          onSearch={onSearch}
+          suggestions={suggestions}
+          errorMessage="Vous devez choisir une adresse"
+          renderSuggestion={renderSuggestion}
+        />
+        <FakeList />
+      </div>
+    </Showcase>
+  )
+}
+
+// With custom suggestion.
+
+function WithFreeInputValue() {
+  const [item, setItem] = React.useState('')
+  const onChange = React.useCallback(value => {
+    setItem(value)
+  })
+  const [suggestions, onSearch] = useSuggestions(item, true)
+
+  const renderSuggestion = React.useCallback((item, index, length) => {
+    return (
+      <Suggestion index={index} length={length}>
+        <Info>
+          <Info.Item item={item} />
+        </Info>
+      </Suggestion>
+    )
+  })
+
+  return (
+    <Showcase style={{background: 'white'}}>
+      <div style={{width: 600}}>
+        <pre style={{padding: '4px 24px', overflow: 'auto'}}>{item ? JSON.stringify(item) : 'No selection'}</pre>
+        <Autocomplete
+          placeholder="Adresse de départ"
+          value={item}
+          onChange={onChange}
+          onSearch={onSearch}
+          suggestions={suggestions}
+          renderSuggestion={renderSuggestion}
+          renderInputValue={item => item}
+          freeInput
+        />
+        <FakeList />
+      </div>
+    </Showcase>
+  )
+}
+
 storiesOf('Autocomplete', module)
   .add('Default', () => <DefaultStory />)
   .add('With initial value', () => <InitialValueStory />)
@@ -254,3 +336,5 @@ storiesOf('Autocomplete', module)
       <WithGraphqlQueryStory />
     </Provider>
   ))
+  .add('With custom suggestion', () => <WithCustomSuggestion />)
+  .add('With free input value', () => <WithFreeInputValue />)

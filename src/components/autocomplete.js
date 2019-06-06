@@ -20,30 +20,32 @@ const Divider = styled.div`
 `
 
 const Hover = styled.div`
+  position: relative;
+  z-index: ${ZIndexes.ABSOLUTE};
+
   :hover {
     ::before {
+      z-index: -1;
+      position: absolute;
+      left: -8px;
+      top: -8px;
+
       content: '';
       background: #fafafa;
       width: calc(100% + 16px);
       height: ${props => props.height + 16}px;
-
-      position: absolute;
-      left: -8px;
-      top: -8px;
     }
   }
 `
 
-export function Suggestion({item, index, length, icon}) {
+export function Suggestion({index, length, children}) {
   const ref = React.useRef(null)
   const rect = useElementRect(ref)
+
   return (
     <>
       <Hover height={rect && rect.height}>
-        <Info ref={ref} icon={icon}>
-          <Info.Label label={item.mainText} />
-          {item.secondaryText && <Info.Item item={item.secondaryText} />}
-        </Info>
+        <div ref={ref}>{children}</div>
       </Hover>
       {index !== length - 1 && <Divider />}
     </>
@@ -54,6 +56,7 @@ Suggestion.propTypes = {
   item: PropTypes.object.isRequired,
   index: PropTypes.number.isRequired,
   length: PropTypes.number.isRequired,
+  children: PropTypes.node.isRequired,
   icon: PropTypes.node
 }
 
@@ -92,9 +95,17 @@ const AutocompleteInput = styled(Input)`
   border: 1px solid ${props => (props.unstable ? palette.berryBlue : 'transparent')};
 `
 
-const defaultRenderSuggestion = (item, index, length) => (
-  <Suggestion item={item} index={index} length={length} icon={<HistoryIcon circle />} />
-)
+const defaultRenderSuggestion = (item, index, length) => {
+  return (
+    <Suggestion index={index} length={length} icon={<HistoryIcon circle />}>
+      <Info>
+        <Info.Label label={item.mainText} />
+        {item.secondaryText && <Info.Item item={item.secondaryText} />}
+      </Info>
+    </Suggestion>
+  )
+}
+
 const defaultRenderInputValue = item => [item.mainText, item.secondaryText].filter(Boolean).join(', ')
 
 const AutocompleteComponent = React.forwardRef(function AutocompleteComponent(
@@ -134,8 +145,11 @@ const AutocompleteComponent = React.forwardRef(function AutocompleteComponent(
      * The list of favorites to display when the user click on the autocomplete and the input is empty.
      */
     favorites,
-    mapItemToIcon,
-    errorMessage,
+    /**
+     * When true, any input value is a valid value. Therefore the "onChange" is called as if the user selected an item in
+     * the suggestion list.
+     */
+    freeInput,
     ...props
   },
   ref
@@ -150,7 +164,12 @@ const AutocompleteComponent = React.forwardRef(function AutocompleteComponent(
     nextInput => {
       setInput(nextInput)
       onSearch(nextInput || null)
-      setUnstable(nextInput ? nextInput !== input : false)
+
+      if (freeInput) {
+        onChange(nextInput)
+      } else {
+        setUnstable(nextInput ? nextInput !== input : false)
+      }
     },
     [onSearch, input]
   )
@@ -165,14 +184,10 @@ const AutocompleteComponent = React.forwardRef(function AutocompleteComponent(
     setUnstable(false)
   }, [value])
 
-  const showError = errorMessage && unstable && !focus
-
   return (
     <Autocomplete>
       <AutocompleteInput
         ref={ref}
-        icon={mapItemToIcon && value ? mapItemToIcon(value) : null}
-        error={showError ? errorMessage : null}
         onChange={ev => {
           onUpdate(ev.target.value)
         }}
@@ -202,7 +217,7 @@ const AutocompleteComponent = React.forwardRef(function AutocompleteComponent(
           {suggestions.map((item, index) => {
             return (
               <SuggestionLi
-                key={item.id}
+                key={index}
                 onMouseDown={() => {
                   onChange(item)
                   onSearch(null)
@@ -219,7 +234,7 @@ const AutocompleteComponent = React.forwardRef(function AutocompleteComponent(
           {favorites.map((item, index) => {
             return (
               <SuggestionLi
-                key={item.id}
+                key={index}
                 onMouseDown={() => {
                   onChange(item)
                   onSearch(null)
@@ -244,8 +259,7 @@ AutocompleteComponent.propTypes = {
   renderSuggestion: PropTypes.func,
   renderFavorite: PropTypes.func,
   renderInputValue: PropTypes.func,
-  mapItemToIcon: PropTypes.func,
-  errorMessage: PropTypes.string
+  freeInput: PropTypes.bool
 }
 
 export default AutocompleteComponent
