@@ -53,11 +53,9 @@ export function Suggestion({index, length, children}) {
 }
 
 Suggestion.propTypes = {
-  item: PropTypes.object.isRequired,
   index: PropTypes.number.isRequired,
   length: PropTypes.number.isRequired,
-  children: PropTypes.node.isRequired,
-  icon: PropTypes.node
+  children: PropTypes.node.isRequired
 }
 
 const Autocomplete = styled.div`
