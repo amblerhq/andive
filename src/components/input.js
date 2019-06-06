@@ -105,13 +105,15 @@ const InputComponent = React.forwardRef(function InputComponent(
 
   const handleBlur = React.useCallback(
     ev => {
-      if (inputRef.current && skipNextBlur) {
-        inputRef.current.focus()
-        setSkipNextBlur(false)
-      }
-
-      if (onBlur) {
-        onBlur(ev)
+      if (skipNextBlur) {
+        if (inputRef.current) {
+          inputRef.current.focus()
+          setSkipNextBlur(false)
+        }
+      } else {
+        if (onBlur) {
+          onBlur(ev)
+        }
       }
     },
     [inputRef.current, skipNextBlur]

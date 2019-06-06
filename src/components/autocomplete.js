@@ -69,7 +69,7 @@ const Suggestions = styled.ul`
   position: absolute;
 
   width: calc(100% - 16px);
-  margin: 8px;
+  margin: 0 8px;
   padding: 8px;
 
   background: white;
@@ -249,7 +249,7 @@ const AutocompleteComponent = React.forwardRef(function AutocompleteComponent(
 })
 
 AutocompleteComponent.propTypes = {
-  value: PropTypes.object,
+  value: PropTypes.any,
   onChange: PropTypes.func.isRequired,
   onSearch: PropTypes.func.isRequired,
   suggestions: PropTypes.array.isRequired,
