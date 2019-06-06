@@ -138,6 +138,7 @@ function AsTextAreaStory() {
     </Showcase>
   )
 }
+
 storiesOf('Input', module)
   .add('Default', () => <DefaultStory />)
   .add('With clear', () => <WithClearStory />)

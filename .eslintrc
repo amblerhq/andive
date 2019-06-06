@@ -24,6 +24,7 @@
         }
     },
     "rules": {
+        "react/display-name": "off",
         "prettier/prettier": [
             "error",
             {

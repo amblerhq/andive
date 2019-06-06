@@ -1,4 +1,4 @@
-import React, {forwardRef} from 'react'
+import React from 'react'
 import styled, {css} from 'styled-components'
 import PropTypes from 'prop-types'
 
@@ -82,17 +82,46 @@ const Icon = styled.div`
  *  - An error message that is displayed when present.
  *  - An onClear handle called when the right hand-side <CloseIcon /> is clicked.
  */
-const InputComponent = forwardRef(function InputComponent(
-  {value, onChange, onClear, error: error_, fullWidth, icon, disabled, textarea, ...props},
+const InputComponent = React.forwardRef(function InputComponent(
+  {value, onChange, onClear, error: error_, fullWidth, icon, disabled, textarea, onBlur, ...props},
   ref
 ) {
   const canClear = !!(onChange && value && value.length > 0)
   const hasIcon = !!icon
   const TextField = textarea ? TextArea : Input
+  const inputRef = React.useRef(null)
+  const [skipNextBlur, setSkipNextBlur] = React.useState(false)
+
+  const handleClear = React.useCallback(() => {
+    if (onClear) {
+      onClear()
+    }
+
+    if (inputRef.current) {
+      inputRef.current.focus()
+      setSkipNextBlur(true)
+    }
+  }, [onClear, inputRef.current])
+
+  const handleBlur = React.useCallback(
+    ev => {
+      if (inputRef.current && skipNextBlur) {
+        inputRef.current.focus()
+        setSkipNextBlur(false)
+      }
+
+      if (onBlur) {
+        onBlur(ev)
+      }
+    },
+    [inputRef.current, skipNextBlur]
+  )
 
   return (
     <InputRoot ref={ref} fullWidth={fullWidth}>
       <TextField
+        onBlur={handleBlur}
+        ref={inputRef}
         value={value}
         onChange={onChange}
         canClear={canClear}
@@ -103,7 +132,7 @@ const InputComponent = forwardRef(function InputComponent(
       />
       {hasIcon && <Icon>{icon}</Icon>}
       {canClear && !disabled && (
-        <Close onMouseDown={onClear}>
+        <Close onMouseDown={handleClear}>
           <CloseIcon inline />
         </Close>
       )}
@@ -128,7 +157,8 @@ InputComponent.propTypes = {
   /** disable the text field */
   disabled: PropTypes.bool,
   /** must render a <textarea /> */
-  textarea: PropTypes.bool
+  textarea: PropTypes.bool,
+  onBlur: PropTypes.func
 }
 
 export default InputComponent
