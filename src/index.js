@@ -74,6 +74,9 @@ export const RadioOffIcon = RadioOffIconComponent
 import VslIconComponent from './components/icons/vsl'
 export const VslIcon = VslIconComponent
 
+import QuestionIconComponent from './components/icons/question'
+export const QuestionIcon = QuestionIconComponent
+
 /**
  * Illustrations
  */
