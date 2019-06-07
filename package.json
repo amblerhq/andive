@@ -16,7 +16,7 @@
     "test": "echo test",
     "release": "standard-version",
     "share": "yarn build-storybook && cd storybook-static && now deploy && now alias ${now} andive.ambler.fr",
-    "share:ci": "yarn build-storybook && cd storybook-static && now deploy  --team=ambler --token=$ZEIT_TOKEN && now alias --team=ambler --token=$ZEIT_TOKEN ${now} andive.ambler.fr"
+    "share:ci": "yarn build-storybook && cd storybook-static && now deploy --team=ambler --token=$ZEIT_TOKEN && now alias --team=ambler --token=$ZEIT_TOKEN ${now} andive.ambler.fr"
   },
   "devDependencies": {
     "@babel/cli": "7.4.4",
