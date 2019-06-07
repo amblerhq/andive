@@ -32,6 +32,7 @@ jobs:
       - save_cache:
           paths:
             - node_modules
+            - build
           key: v1-dependencies-{{ checksum "yarn.lock" }}
 
       # run tests!
@@ -46,7 +47,12 @@ jobs:
       - run:
           name: Setup NPM
           command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> ~/.npmrc
-
+      - restore_cache:
+          keys:
+          - v1-dependencies-{{ .Branch }}-{{ checksum "yarn.lock" }}
+          # fallback to using the latest cache if no exact match is found
+          - v1-dependencies-{{ .Branch }}-
+          - v1-dependencies-
       - run:
           name: Push to NPM
           command: npm publish

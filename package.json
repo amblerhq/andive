@@ -14,7 +14,6 @@
     "dev": "start-storybook",
     "build": "babel src -d dist --ignore \"src/**/*.stories.js\",\"src/stories\",\"src/**/*.test.js\"",
     "test": "echo test",
-    "prepublish": "yarn build",
     "release": "standard-version",
     "share": "yarn build-storybook && cd storybook-static && now"
   },
