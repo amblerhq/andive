@@ -1,14 +1,13 @@
-# Javascript Node CircleCI 2.0 configuration file
-#
-# Check https://circleci.com/docs/2.0/language-javascript/ for more details
-#
+# Each job begins with this setup.
+defaults: &defaults
+  docker:
+    - image: circleci/node:8
+  working_directory: ~/repo
+
 version: 2
 jobs:
   build:
-    docker:
-      - image: circleci/node:8
-
-    working_directory: ~/repo
+    <<: *defaults
 
     steps:
       - checkout
@@ -28,6 +27,8 @@ jobs:
             - node_modules
           key: v1-dependencies-{{ checksum "yarn.lock" }}
 
+      - run: yarn build
+
       # run tests!
       - run: yarn test
 
@@ -36,19 +37,36 @@ jobs:
           paths: .
 
   deploy:
-    docker:
-      # specify the version you desire here
-      - image: circleci/node:8
+    <<: *defaults
+
     steps:
+      - attach_workspace:
+          at: .
       - checkout
       - run:
           name: Setup NPM
           command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> ~/.npmrc
-      - attach_workspace:
-          at: .
       - run:
           name: Push to NPM
           command: npm publish
+
+  deploy-storybook:
+    <<: *defaults
+
+    steps:
+      - checkout
+      # Download and cache dependencies
+      - restore_cache:
+          keys:
+          - v1-dependencies-{{ .Branch }}-{{ checksum "yarn.lock" }}
+          # fallback to using the latest cache if no exact match is found
+          - v1-dependencies-{{ .Branch }}-
+          - v1-dependencies-
+      - run: yarn install
+      - run:
+          name: Install Now CLI
+          command: sudo npm install --global --unsafe-perm now
+      - run: yarn share
 
 workflows:
   version: 2
@@ -66,3 +84,12 @@ workflows:
               only: /^v\d+\.\d+\.\d+$/
             branches:
               ignore: /.*/
+      - deploy-storybook:
+          requires:
+            - deploy
+          filters:
+            tags:
+              only: /^v\d+\.\d+\.\d+$/
+            branches:
+              ignore: /.*/
+           
