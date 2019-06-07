@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.43](https://github.com/amblerhq/ambler/compare/v0.0.42...v0.0.43) (2019-06-07)
+
+
+
 ### [0.0.42](https://github.com/amblerhq/ambler/compare/v0.0.40...v0.0.42) (2019-06-07)
 
 
