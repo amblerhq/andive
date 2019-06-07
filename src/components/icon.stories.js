@@ -25,6 +25,7 @@ import RadioOn from './icons/radio-on'
 import RadioOff from './icons/radio-off'
 import CancelIcon from './icons/cancel'
 import FlagIcon from './icons/flag'
+import QuestionIcon from './icons/question'
 
 import Icon from './icon'
 import Showcase from '../stories/showcase'
@@ -52,7 +53,8 @@ const icons = [
   AddressIcon,
   NewIcon,
   CancelIcon,
-  FlagIcon
+  FlagIcon,
+  QuestionIcon
 ]
 
 const blueIcons = [EditIcon, BackIcon, RadioOn, RadioOff, CheckboxOn, CheckboxOff]

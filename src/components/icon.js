@@ -8,7 +8,8 @@ const SvgRoot = styled.div`
     css`
       svg,
       path,
-      g {
+      g,
+      circle {
         stroke: ${props => props.color};
         fill: transparent;
       }
