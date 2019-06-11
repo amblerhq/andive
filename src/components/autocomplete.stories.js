@@ -8,6 +8,7 @@ import Autocomplete, {Suggestion} from './autocomplete'
 import MedicalFacilityIcon from './icons/medical-facility'
 import AddressIcon from './icons/address'
 import Info from './info'
+import {ZIndexes} from '../constants/enum'
 
 const FakeList = () => (
   <>
@@ -356,6 +357,45 @@ function WithFreeInputValue() {
   )
 }
 
+// With Footer
+
+function WithFooter() {
+  const [item, setItem] = React.useState(null)
+  const onChange = React.useCallback(value => {
+    setItem(value)
+  })
+  const [suggestions, onSearch] = useSuggestions(item)
+
+  return (
+    <Showcase style={{background: 'white'}}>
+      <div style={{width: 600}}>
+        <pre style={{padding: '4px 24px', overflow: 'auto'}}>{item ? JSON.stringify(item) : 'No selection'}</pre>
+        <Autocomplete
+          placeholder="Adresse de départ"
+          /* Do not wait for the default "at least 3 characters" to show suggestions. */
+          value={item}
+          onChange={onChange}
+          onSearch={onSearch}
+          suggestions={suggestions}
+          bottomFootprint={72 + 16}
+        />
+        <FakeList />
+        <div
+          style={{
+            height: 72,
+            width: '100%',
+            position: 'fixed',
+            top: 'calc(100% - 72px)',
+            left: 0,
+            background: '#4404',
+            zIndex: ZIndexes.FIXED
+          }}
+        />
+      </div>
+    </Showcase>
+  )
+}
+
 storiesOf('Autocomplete', module)
   .add('Default', () => <DefaultStory />)
   .add('Can show suggestions directly', () => <CustomCanShowSuggestionStory />)
@@ -368,3 +408,4 @@ storiesOf('Autocomplete', module)
   ))
   .add('With custom suggestion', () => <WithCustomSuggestion />)
   .add('With free input value', () => <WithFreeInputValue />)
+  .add('With footer', () => <WithFooter />)

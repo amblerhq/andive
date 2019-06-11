@@ -81,6 +81,8 @@ const Suggestions = styled.ul`
   overflow: hidden;
 
   z-index: ${ZIndexes.ABSOLUTE};
+
+  margin-bottom: ${props => props.bottomFootprint || 0}px;
 `
 
 const SuggestionLi = styled.li`
@@ -157,6 +159,7 @@ const AutocompleteComponent = React.forwardRef(function AutocompleteComponent(
      * To show a list on focus, use the `favorites` prop.
      */
     canShowSuggestions = defaultCanShowSuggestions,
+    bottomFootprint,
     ...props
   },
   ref
@@ -220,7 +223,7 @@ const AutocompleteComponent = React.forwardRef(function AutocompleteComponent(
         {...props}
       />
       {showSuggestions && (
-        <Suggestions>
+        <Suggestions bottomFootprint={bottomFootprint}>
           {suggestions.map((item, index) => {
             return (
               <SuggestionLi
@@ -237,7 +240,7 @@ const AutocompleteComponent = React.forwardRef(function AutocompleteComponent(
         </Suggestions>
       )}
       {showFavorites && (
-        <Suggestions>
+        <Suggestions bottomFootprint={bottomFootprint}>
           {favorites.map((item, index) => {
             return (
               <SuggestionLi
@@ -267,7 +270,8 @@ AutocompleteComponent.propTypes = {
   renderFavorite: PropTypes.func,
   renderInputValue: PropTypes.func,
   canShowSuggestions: PropTypes.func,
-  freeInput: PropTypes.bool
+  freeInput: PropTypes.bool,
+  bottomFootprint: PropTypes.number
 }
 
 export default AutocompleteComponent
