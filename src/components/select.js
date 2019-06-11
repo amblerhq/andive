@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled, {css} from 'styled-components'
 import PropTypes from 'prop-types'
 
 import {berryBlue, error} from '../constants/palette'
@@ -22,7 +22,12 @@ const SelectTag = styled.select`
   border: 0;
   border-radius: 0;
   margin: 0;
-  margin-right: ${props => (props.hasIcon ? '16px' : '0px')};
+
+  ${props =>
+    props.hasIcon &&
+    css`
+      margin-right: 16px;
+    `}
 
   background: transparent;
 
