@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.49](https://github.com/amblerhq/ambler/compare/v0.0.48...v0.0.49) (2019-06-11)
+
+
+### Bug Fixes
+
+* **select:** fix hasIcon passing down to DOM warning ([6e82bd3](https://github.com/amblerhq/ambler/commit/6e82bd3))
+
+
+
 ### [0.0.48](https://github.com/amblerhq/ambler/compare/v0.0.47...v0.0.48) (2019-06-07)
 
 
