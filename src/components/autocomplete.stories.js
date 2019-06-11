@@ -377,7 +377,7 @@ function WithFooter() {
           onChange={onChange}
           onSearch={onSearch}
           suggestions={suggestions}
-          bottomFootprint={72 + 16}
+          bottomFootprint={80}
         />
         <FakeList />
         <div

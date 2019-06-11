@@ -23,12 +23,6 @@ const SelectTag = styled.select`
   border-radius: 0;
   margin: 0;
 
-  ${props =>
-    props.hasIcon &&
-    css`
-      margin-right: 16px;
-    `}
-
   background: transparent;
 
   ${body1Css}
@@ -53,7 +47,7 @@ function SelectComponent({label, options, optionFormat, value, onChange, icon, e
   return (
     <div {...props}>
       <Select>
-        <SelectTag value={value} onChange={onChange} hasIcon={hasIcon}>
+        <SelectTag value={value} onChange={onChange} style={{marginRight: hasIcon ? 16 : 0}}>
           <option value="" disabled>
             {label}
           </option>
