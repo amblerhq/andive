@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.1.0](https://github.com/amblerhq/ambler/compare/v0.0.49...v0.1.0) (2019-06-11)
+
+
+### Features
+
+* **autocomplete:** add bottom margin ([a834492](https://github.com/amblerhq/ambler/commit/a834492))
+
+
+
 ### [0.0.49](https://github.com/amblerhq/ambler/compare/v0.0.48...v0.0.49) (2019-06-11)
 
 
