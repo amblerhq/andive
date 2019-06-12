@@ -94,6 +94,7 @@ function UpdateableCheckboxGroupStory() {
 
   return (
     <div style={{background: 'white', width: 300}}>
+      <pre style={{padding: 8}}>values: {JSON.stringify(values, null, 2)}</pre>
       <CheckboxGroup
         value={values}
         onChange={values_ => {
@@ -104,7 +105,6 @@ function UpdateableCheckboxGroupStory() {
         <Checkbox label="B" name="b" style={{background: 'white'}} />
         <Checkbox label="C" name="c" style={{background: 'white'}} />
       </CheckboxGroup>
-      <pre style={{padding: 8}}>values: {JSON.stringify(values, null, 2)}</pre>
     </div>
   )
 }

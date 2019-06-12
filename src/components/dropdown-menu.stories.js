@@ -21,14 +21,13 @@ function artistToString(artistType) {
 }
 
 function DefaultStory() {
-  const [value, setValue] = React.useState(null)
+  const [value, setValue] = React.useState('')
   const onClick = React.useCallback(id => setValue(id))
 
   return (
     <Showcase size={600}>
       <DropdownMenu
         label="Quel est ton artiste préféré ?"
-        variant="flat"
         onClick={onClick}
         valueToString={artistToString}
         value={value}

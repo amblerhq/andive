@@ -1,17 +1,47 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled, {css} from 'styled-components'
 import PropTypes from 'prop-types'
+import throttle from 'lodash.throttle'
+import posed, {PoseGroup} from 'react-pose'
+import OutsideClickHandler from 'react-outside-click-handler'
 
 import {ZIndexes} from '../constants/enum'
+import useElementRect from '../lib/use-element-rect'
+
 import Button from './button'
 import Menu from './menu'
 
-const Dropdown = styled.div`
+const Dropdown = styled(
+  posed.div({
+    enter: {
+      opacity: 1,
+      transition: {
+        duration: 150,
+        type: 'tween'
+      }
+    },
+    exit: {
+      opacity: 0,
+      transition: {
+        duration: 150,
+        type: 'tween'
+      }
+    }
+  })
+)`
   position: absolute;
-  left: -8px;
-  top: 48px;
+  left: -24px;
+  top: 40px;
 
-  min-width: 320px;
+  ${({fullWidth, buttonBottom}) =>
+    fullWidth &&
+    css`
+      position: fixed;
+      top: ${buttonBottom}px;
+      left: 0;
+      width: calc(100% + 1px);
+    `}
+
 
   z-index: ${ZIndexes.ABSOLUTE};
 
@@ -22,21 +52,81 @@ const DropdownMenuLayout = styled.div`
   position: relative;
 `
 
-function DropdownMenu({children, label, onClick, value, valueToString = x => x, ...props}) {
+function DropdownMenu({children, label, onClick, value, valueToString = x => x, threshold = 640, ...props}) {
   const [open, setOpen] = React.useState(false)
+  const [fullWidth, setFullWidth] = React.useState(false)
 
-  const onItemClick = id => {
+  const dropdownRef = React.useRef(null)
+  const buttonRef = React.useRef(null)
+  const menuRef = React.useRef(null)
+
+  const dropdownRect = useElementRect(dropdownRef)
+  const buttonRect = useElementRect(buttonRef)
+
+  const buttonBottom = buttonRect ? buttonRect.y + buttonRect.height : 0
+
+  const onOpen = React.useCallback(() => {
+    setOpen(true)
+  })
+
+  const onClose = React.useCallback(() => {
     setOpen(false)
-    onClick(id)
-  }
+  })
+
+  const onItemClick = React.useCallback(
+    id => {
+      onClose()
+      onClick(id)
+    },
+    [onClick]
+  )
+
+  const onResize = React.useCallback(
+    throttle(() => {
+      if (!open) {
+        return
+      }
+
+      if (fullWidth) {
+        if (window.innerWidth > threshold) {
+          setFullWidth(false)
+        }
+      } else {
+        if (window.innerWidth <= threshold) {
+          setFullWidth(true)
+        }
+      }
+    }, 500),
+    [dropdownRect, open, fullWidth, threshold]
+  )
+
+  React.useEffect(() => {
+    if (open) {
+      onResize()
+    }
+  }, [open])
+
+  React.useEffect(() => {
+    window.addEventListener('resize', onResize)
+    onResize()
+    return () => {
+      window.removeEventListener('resize', onResize)
+    }
+  }, [onResize])
 
   return (
-    <DropdownMenuLayout>
-      <Button onClick={() => setOpen(prev => !prev)} label={value ? valueToString(value) : label} {...props} />
+    <DropdownMenuLayout {...props}>
+      <Button ref={buttonRef} onClick={onOpen} label={value ? valueToString(value) : label} variant="flat" />
       {open && (
-        <Dropdown>
-          <Menu onClick={onItemClick}>{children}</Menu>
-        </Dropdown>
+        <OutsideClickHandler onOutsideClick={onClose}>
+          <PoseGroup>
+            <Dropdown key="dropdown" ref={dropdownRef} buttonBottom={buttonBottom} fullWidth={fullWidth}>
+              <Menu ref={menuRef} onClick={onItemClick}>
+                {children}
+              </Menu>
+            </Dropdown>
+          </PoseGroup>
+        </OutsideClickHandler>
       )}
     </DropdownMenuLayout>
   )
@@ -50,7 +140,8 @@ DropdownMenu.propTypes = {
   label: PropTypes.string.isRequired,
   onClick: PropTypes.func.isRequired,
   value: PropTypes.string.isRequired,
-  valueToString: PropTypes.func
+  valueToString: PropTypes.func,
+  threshold: PropTypes.number
 }
 
 export default DropdownMenu

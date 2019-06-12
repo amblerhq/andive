@@ -7,7 +7,8 @@ import {ZIndexes} from '../constants/enum'
 
 import Hover from './hover'
 import {FullWidthDivider, Divider} from './autocomplete'
-import {Info} from '..'
+import Info from './info'
+import * as Typography from './typography'
 import ArrowRightIcon from './icons/arrow-right'
 import BackIcon from './icons/back'
 
@@ -109,14 +110,17 @@ function reducer(prevState, action) {
 const BackOption = styled.div`
   display: flex;
   flex-flow: row nowrap;
-  align-items: center;
 `
 
 const BackButton = styled(BackIcon)`
   cursor: pointer;
-  background: white;
-  margin-left: 8px;
 
+  flex-shrink: 0;
+  flex-basis: 32px;
+
+  margin-top: 4px;
+
+  background: white;
   :hover {
     background: ${palette.mediumGrey}20;
   }
@@ -144,6 +148,7 @@ const Menu = React.forwardRef(function Menu({children, bottomFootprint, onClick,
             <Container>
               <BackOption>
                 <BackButton color={palette.mediumGrey} circle onClick={() => dispatch({type: 'navigate/back'})} />
+                <div style={{width: 8}} />
                 <Info>
                   <Info.Label
                     label={state.stack

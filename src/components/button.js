@@ -131,24 +131,15 @@ function textStyle(leftIcon, rightIcon, variant, invert, color) {
   }
 }
 
-export default function Button({
-  label,
-  rightIcon,
-  leftIcon,
-  onClick,
-  variant,
-  invert,
-  textColor,
-  href,
-  disabled,
-  loading,
-  ...props
-}) {
+const Button = React.forwardRef(function Button(
+  {label, rightIcon, leftIcon, onClick, variant, invert, textColor, href, disabled, loading, ...props},
+  ref
+) {
   if (href && variant !== 'link') {
     throw new Error('Button variant "link" cannot be used without "href"')
   }
 
-  const ButtonComponent = (() => {
+  const ButtonComponent = React.useMemo(() => {
     switch (variant) {
       case 'primary':
         return PrimaryButton
@@ -159,9 +150,9 @@ export default function Button({
       default:
         return DefaultButton
     }
-  })()
+  }, [variant])
 
-  const ButtonLabel = (() => {
+  const ButtonLabel = React.useMemo(() => {
     switch (variant) {
       case 'primary':
         return ButtonTextPrimary
@@ -171,9 +162,9 @@ export default function Button({
       default:
         return ButtonTextSecondary
     }
-  })()
+  }, [variant])
 
-  const color = (() => {
+  const color = React.useMemo(() => {
     if (disabled) {
       switch (variant) {
         case 'primary':
@@ -200,7 +191,7 @@ export default function Button({
           return white
       }
     }
-  })()
+  }, [variant, disabled, invert, textColor])
 
   const iconStyle = {}
 
@@ -208,7 +199,7 @@ export default function Button({
     iconStyle.color = color
   }
 
-  const loaderColor = (() => {
+  const loaderColor = React.useMemo(() => {
     if (!loading) {
       return
     }
@@ -222,10 +213,11 @@ export default function Button({
       default:
         return invert ? white : lightBeetrootPurple
     }
-  })()
+  }, [variant, loading, invert])
 
   return (
     <ButtonComponent
+      ref={ref}
       onClick={!href && !disabled && !loading ? onClick : undefined}
       href={!disabled && !loading ? href : undefined}
       primary={variant === 'primary'}
@@ -245,7 +237,7 @@ export default function Button({
       )}
     </ButtonComponent>
   )
-}
+})
 
 Button.propTypes = {
   label: PropTypes.string,
@@ -261,3 +253,5 @@ Button.propTypes = {
   disabled: PropTypes.bool,
   loading: PropTypes.bool
 }
+
+export default Button

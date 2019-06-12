@@ -14,13 +14,17 @@ const FadeInOut = posed.div({
   enter: {
     opacity: 1,
     transition: {
-      duration: 150
+      duration: 150,
+      type: 'tween',
+      stifness: 0
     }
   },
   exit: {
     opacity: 0,
     transition: {
-      duration: 150
+      duration: 150,
+      type: 'tween',
+      stifness: 0
     }
   }
 })
