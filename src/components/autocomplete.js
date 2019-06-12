@@ -4,12 +4,19 @@ import PropTypes from 'prop-types'
 
 import * as palette from '../constants/palette'
 import {ZIndexes} from '../constants/enum'
-import useElementRect from '../lib/use-element-rect'
 import Input from './input'
 import HistoryIcon from './icons/historic'
 import Info from './info'
+import Hover from './hover'
 
-const Divider = styled.div`
+export const Divider = styled.div`
+  width: calc(100% - 16px);
+  height: 1px;
+  background: #eee;
+  margin: 8px;
+`
+
+export const FullWidthDivider = styled.div`
   width: calc(100% + 16px);
   height: 1px;
   background: #eee;
@@ -18,45 +25,6 @@ const Divider = styled.div`
   position: relative;
   left: -8px;
 `
-
-const Hover = styled.div`
-  position: relative;
-  z-index: ${ZIndexes.ABSOLUTE};
-
-  :hover {
-    ::before {
-      z-index: -1;
-      position: absolute;
-      left: -8px;
-      top: -8px;
-
-      content: '';
-      background: #fafafa;
-      width: calc(100% + 16px);
-      height: ${props => props.height + 16}px;
-    }
-  }
-`
-
-export function Suggestion({index, length, children}) {
-  const ref = React.useRef(null)
-  const rect = useElementRect(ref)
-
-  return (
-    <>
-      <Hover height={rect && rect.height}>
-        <div ref={ref}>{children}</div>
-      </Hover>
-      {index !== length - 1 && <Divider />}
-    </>
-  )
-}
-
-Suggestion.propTypes = {
-  index: PropTypes.number.isRequired,
-  length: PropTypes.number.isRequired,
-  children: PropTypes.node.isRequired
-}
 
 const Autocomplete = styled.div`
   position: relative;
@@ -95,14 +63,14 @@ const AutocompleteInput = styled(Input)`
   border: 1px solid ${props => (props.unstable ? palette.berryBlue : 'transparent')};
 `
 
-const defaultRenderSuggestion = (item, index, length) => {
+const defaultRenderSuggestion = item => {
   return (
-    <Suggestion index={index} length={length} icon={<HistoryIcon circle />}>
-      <Info>
+    <Hover>
+      <Info icon={<HistoryIcon circle />}>
         <Info.Label label={item.mainText} />
         {item.secondaryText && <Info.Item item={item.secondaryText} />}
       </Info>
-    </Suggestion>
+    </Hover>
   )
 }
 
@@ -167,7 +135,8 @@ const AutocompleteComponent = React.forwardRef(function AutocompleteComponent(
   const [input, setInput] = React.useState('')
   const [unstable, setUnstable] = React.useState(false)
   const [focus, setFocus] = React.useState(false)
-  const showSuggestions = suggestions && suggestions.length > 0 && canShowSuggestions(suggestions, input)
+  const showSuggestions =
+    suggestions && suggestions.length > 0 && input.length > 0 && canShowSuggestions(suggestions, input)
   const showFavorites = favorites && favorites.length > 0 && focus && !input
 
   const onUpdate = React.useCallback(
@@ -234,6 +203,7 @@ const AutocompleteComponent = React.forwardRef(function AutocompleteComponent(
                 }}
               >
                 {renderSuggestion(item, index, suggestions.length)}
+                {index !== suggestions.length - 1 && <Divider />}
               </SuggestionLi>
             )
           })}
@@ -251,6 +221,7 @@ const AutocompleteComponent = React.forwardRef(function AutocompleteComponent(
                 }}
               >
                 {renderFavorite(item, index, favorites.length)}
+                {index !== favorites.length - 1 && <Divider />}
               </SuggestionLi>
             )
           })}

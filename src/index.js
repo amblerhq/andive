@@ -115,9 +115,8 @@ export const Info = InfoComponent
 import AppBarComponent from './components/app-bar'
 export const AppBar = AppBarComponent
 
-import AutocompleteComponent, {Suggestion as SuggestionComponent} from './components/autocomplete'
+import AutocompleteComponent from './components/autocomplete'
 export const Autocomplete = AutocompleteComponent
-export const AutocompleteSuggestion = SuggestionComponent
 
 import BaselineComponent from './components/baseline'
 export const Baseline = BaselineComponent
@@ -143,6 +142,12 @@ export const Direction = DirectionComponent
 import DropdownComponent from './components/dropdown'
 export const Dropdown = DropdownComponent
 
+import DropdownMenuComponent from './components/dropdown-menu'
+export const DropdownMenu = DropdownMenuComponent
+
+import HoverComponent from './components/hover'
+export const Hover = HoverComponent
+
 import IconComponent from './components/icon'
 export const Icon = IconComponent
 
@@ -157,6 +162,9 @@ export const RideStatus = RideStatusComponent
 
 import SelectComponent from './components/select'
 export const Select = SelectComponent
+
+import MenuComponent from './components/menu'
+export const Menu = MenuComponent
 
 import TitleComponent from './components/title'
 export const Title = TitleComponent

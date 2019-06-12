@@ -4,7 +4,8 @@ import {Provider, createClient, useQuery} from 'urql'
 
 import * as palette from '../constants/palette'
 import Showcase from '../stories/showcase'
-import Autocomplete, {Suggestion} from './autocomplete'
+import Autocomplete from './autocomplete'
+import Hover from './hover'
 import MedicalFacilityIcon from './icons/medical-facility'
 import AddressIcon from './icons/address'
 import Info from './info'
@@ -288,14 +289,14 @@ function WithCustomSuggestion() {
   })
   const [suggestions, onSearch] = useSuggestions(item)
 
-  const renderSuggestion = React.useCallback((item, index, length) => {
+  const renderSuggestion = React.useCallback(item => {
     const icon = item.mainText.startsWith('Maison') ? <MedicalFacilityIcon circle /> : <AddressIcon circle />
     return (
-      <Suggestion index={index} length={length} icon={icon}>
+      <Hover>
         <Info icon={icon}>
           <Info.Label label={item.mainText} />
         </Info>
-      </Suggestion>
+      </Hover>
     )
   })
 
@@ -327,13 +328,13 @@ function WithFreeInputValue() {
   })
   const [suggestions, onSearch] = useSuggestions(item, true)
 
-  const renderSuggestion = React.useCallback((item, index, length) => {
+  const renderSuggestion = React.useCallback(item => {
     return (
-      <Suggestion index={index} length={length}>
+      <Hover>
         <Info>
           <Info.Item item={item} />
         </Info>
-      </Suggestion>
+      </Hover>
     )
   })
 

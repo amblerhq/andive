@@ -11,11 +11,11 @@
   "author": "Ambler team",
   "license": "MIT",
   "scripts": {
-    "dev": "start-storybook",
+    "dev": "start-storybook -p 3042",
     "build": "babel src -d dist --ignore \"src/**/*.stories.js\",\"src/stories\",\"src/**/*.test.js\"",
     "test": "echo test",
     "release": "standard-version",
-    "share": "yarn build-storybook && cd storybook-static && now deploy --target production",
+    "share": "yarn build-storybook && cd storybook-static && now",
     "share:ci": "yarn build-storybook && cd storybook-static && now deploy --token=$ZEIT_TOKEN --target production"
   },
   "devDependencies": {
