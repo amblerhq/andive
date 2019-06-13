@@ -220,6 +220,7 @@ const Button = React.forwardRef(function Button(
       ref={ref}
       onClick={!href && !disabled && !loading ? onClick : undefined}
       href={!disabled && !loading ? href : undefined}
+      type="button"
       primary={variant === 'primary'}
       invert={invert}
       disabled={disabled}
