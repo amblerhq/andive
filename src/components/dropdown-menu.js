@@ -33,13 +33,11 @@ const Dropdown = styled(
   left: -24px;
   top: 40px;
 
-  ${({fullWidth, buttonBottom}) =>
+  ${({fullWidth, buttonLeft}) =>
     fullWidth &&
     css`
-      position: fixed;
-      top: ${buttonBottom}px;
-      left: 0;
-      width: calc(100% + 1px);
+      left: -${buttonLeft}px;
+      width: 100vw;
     `}
 
 
@@ -72,7 +70,7 @@ function DropdownMenu({
   const dropdownRect = useElementRect(dropdownRef)
   const buttonRect = useElementRect(buttonRef)
 
-  const buttonBottom = buttonRect ? buttonRect.y + buttonRect.height : 0
+  const buttonLeft = buttonRect ? buttonRect.x : 0
 
   const onOpen = React.useCallback(() => {
     setOpen(true)
@@ -129,7 +127,7 @@ function DropdownMenu({
       {open && (
         <OutsideClickHandler onOutsideClick={onClose}>
           <PoseGroup>
-            <Dropdown key="dropdown" ref={dropdownRef} buttonBottom={buttonBottom} fullWidth={fullWidth}>
+            <Dropdown key="dropdown" ref={dropdownRef} buttonLeft={buttonLeft} fullWidth={fullWidth}>
               <Menu ref={menuRef} onClick={onItemClick} bottomFootprint={bottomFootprint}>
                 {children}
               </Menu>
