@@ -79,7 +79,7 @@ function OptionGroup({children, label, onClick, ...props}) {
 OptionGroup.propTypes = {
   children: PropTypes.node.isRequired,
   label: PropTypes.string.isRequired,
-  onClick: PropTypes.func.isRequired
+  onClick: PropTypes.func
 }
 
 const initialState = children => ({
@@ -170,20 +170,18 @@ const Menu = React.forwardRef(function Menu({children, bottomFootprint, onClick,
             return (
               <Container ref={menuRef}>
                 {React.Children.map(state.options, (child, index) => {
+                  function onClick(children) {
+                    return () => {
+                      if (child.type === OptionGroup) {
+                        dispatch({type: 'navigate/push', options: children, label: child.props.label})
+                        scrollTo({x: 0, y: menuRect ? menuRect.top - 16 : 0, smooth: true})
+                      }
+                    }
+                  }
+
                   return (
                     <React.Fragment key={index}>
-                      <Hover padding={16}>
-                        {React.cloneElement(child, {
-                          onClick(children) {
-                            return () => {
-                              if (child.type === OptionGroup) {
-                                dispatch({type: 'navigate/push', options: children, label: child.props.label})
-                                scrollTo({x: 0, y: menuRect ? menuRect.top - 16 : 0, smooth: true})
-                              }
-                            }
-                          }
-                        })}
-                      </Hover>
+                      <Hover padding={16}>{React.cloneElement(child, {onClick})}</Hover>
                       {index !== length - 1 && <Divider />}
                     </React.Fragment>
                   )
