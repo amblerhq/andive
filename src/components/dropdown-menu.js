@@ -52,7 +52,16 @@ const DropdownMenuLayout = styled.div`
   position: relative;
 `
 
-function DropdownMenu({children, label, onClick, value, valueToString = x => x, threshold = 640, ...props}) {
+function DropdownMenu({
+  children,
+  label,
+  onClick,
+  value,
+  valueToString = x => x,
+  threshold = 640,
+  bottomFootprint,
+  ...props
+}) {
   const [open, setOpen] = React.useState(false)
   const [fullWidth, setFullWidth] = React.useState(false)
 
@@ -121,7 +130,7 @@ function DropdownMenu({children, label, onClick, value, valueToString = x => x, 
         <OutsideClickHandler onOutsideClick={onClose}>
           <PoseGroup>
             <Dropdown key="dropdown" ref={dropdownRef} buttonBottom={buttonBottom} fullWidth={fullWidth}>
-              <Menu ref={menuRef} onClick={onItemClick}>
+              <Menu ref={menuRef} onClick={onItemClick} bottomFootprint={bottomFootprint}>
                 {children}
               </Menu>
             </Dropdown>
@@ -141,7 +150,8 @@ DropdownMenu.propTypes = {
   onClick: PropTypes.func.isRequired,
   value: PropTypes.string.isRequired,
   valueToString: PropTypes.func,
-  threshold: PropTypes.number
+  threshold: PropTypes.number,
+  bottomFootprint: PropTypes.number
 }
 
 export default DropdownMenu
