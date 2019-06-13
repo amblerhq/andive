@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.2.5](https://github.com/amblerhq/ambler/compare/v0.2.4...v0.2.5) (2019-06-13)
+
+
+### Bug Fixes
+
+* **menu:** fix missing prop warning ([a991055](https://github.com/amblerhq/ambler/commit/a991055))
+* **menu:** scroll to top on navigate ([f4f3fd5](https://github.com/amblerhq/ambler/commit/f4f3fd5))
+
+
+
 ### [0.2.4](https://github.com/amblerhq/ambler/compare/v0.2.3...v0.2.4) (2019-06-13)
 
 
