@@ -7670,6 +7670,13 @@ react-resize-detector@^4.0.5:
     raf-schd "^4.0.0"
     resize-observer-polyfill "^1.5.1"
 
+react-scroll-to@2.0.9:
+  version "2.0.9"
+  resolved "https://registry.yarnpkg.com/react-scroll-to/-/react-scroll-to-2.0.9.tgz#2e846eccb8ed043da4da6a075044b2e80780d250"
+  integrity sha512-kz5Wz7SZgrKOf28RIjPpkJOwIYpiuZz4yFHBGQ6d7CVjVyut/Uxtzy4Wmc0MUh9B2XgI5L7FYaGKU6EurPe0pA==
+  dependencies:
+    create-react-context "^0.2.3"
+
 react-side-effect@^1.1.0:
   version "1.1.5"
   resolved "https://registry.yarnpkg.com/react-side-effect/-/react-side-effect-1.1.5.tgz#f26059e50ed9c626d91d661b9f3c8bb38cd0ff2d"

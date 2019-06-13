@@ -1,6 +1,7 @@
 import React, {createContext} from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
+import {ScrollTo} from 'react-scroll-to'
 
 import * as palette from '../constants/palette'
 import {ZIndexes} from '../constants/enum'
@@ -8,9 +9,9 @@ import {ZIndexes} from '../constants/enum'
 import Hover from './hover'
 import {FullWidthDivider, Divider} from './autocomplete'
 import Info from './info'
-import * as Typography from './typography'
 import ArrowRightIcon from './icons/arrow-right'
 import BackIcon from './icons/back'
+import useElementRect from '../lib/use-element-rect'
 
 const MenuContext = createContext({onClick() {}})
 
@@ -133,6 +134,8 @@ const Container = styled.div`
 const Menu = React.forwardRef(function Menu({children, bottomFootprint, onClick, ...props}, ref) {
   const [state, dispatch] = React.useReducer(reducer, initialState(children))
   const length = React.Children.count(state.options)
+  const menuRef = React.useRef(null)
+  const menuRect = useElementRect(menuRef)
   const contextValue = React.useMemo(
     () => ({
       onClick
@@ -162,26 +165,33 @@ const Menu = React.forwardRef(function Menu({children, bottomFootprint, onClick,
             <FullWidthDivider />
           </>
         )}
-        <Container>
-          {React.Children.map(state.options, (child, index) => {
+        <ScrollTo>
+          {({scrollTo}) => {
             return (
-              <React.Fragment key={index}>
-                <Hover padding={16}>
-                  {React.cloneElement(child, {
-                    onClick(children) {
-                      return () => {
-                        if (child.type === OptionGroup) {
-                          dispatch({type: 'navigate/push', options: children, label: child.props.label})
-                        }
-                      }
-                    }
-                  })}
-                </Hover>
-                {index !== length - 1 && <Divider />}
-              </React.Fragment>
+              <Container ref={menuRef}>
+                {React.Children.map(state.options, (child, index) => {
+                  return (
+                    <React.Fragment key={index}>
+                      <Hover padding={16}>
+                        {React.cloneElement(child, {
+                          onClick(children) {
+                            return () => {
+                              if (child.type === OptionGroup) {
+                                dispatch({type: 'navigate/push', options: children, label: child.props.label})
+                                scrollTo({x: 0, y: menuRect ? menuRect.top - 16 : 0, smooth: true})
+                              }
+                            }
+                          }
+                        })}
+                      </Hover>
+                      {index !== length - 1 && <Divider />}
+                    </React.Fragment>
+                  )
+                })}
+              </Container>
             )
-          })}
-        </Container>
+          }}
+        </ScrollTo>
       </MenuLayout>
     </MenuContext.Provider>
   )

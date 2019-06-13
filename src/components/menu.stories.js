@@ -5,6 +5,21 @@ import Menu from './menu'
 import Showcase from '../stories/showcase'
 import {Info} from '..'
 
+const FakeList = ({nth}) =>
+  [...new Array(nth).keys()].map(i => {
+    return (
+      <div
+        key={i}
+        style={{
+          height: 64,
+          margin: 8,
+          background: '#eee',
+          borderRadius: 8
+        }}
+      />
+    )
+  })
+
 function DefaultStory() {
   const [instrument, setInstrument] = React.useState(null)
 
@@ -132,6 +147,41 @@ function DeepStory() {
   )
 }
 
+function ScrollToStory() {
+  return (
+    <>
+      <Showcase style={{background: '#eee'}}>
+        <Menu onClick={() => {}}>
+          {[...new Array(10).keys()].map(i => {
+            return (
+              <Menu.Option key={i} id={`padding-${i}`}>
+                <Info>
+                  <Info.Label label={String(i)} />
+                </Info>
+              </Menu.Option>
+            )
+          })}
+
+          <Menu.OptionGroup label="Should scroll">
+            <Menu.Option id="A">
+              <Info>
+                <Info.Label label="A" />
+              </Info>
+            </Menu.Option>
+            <Menu.Option id="B">
+              <Info>
+                <Info.Label label="B" />
+              </Info>
+            </Menu.Option>
+          </Menu.OptionGroup>
+        </Menu>
+      </Showcase>
+      <FakeList nth={15} />
+    </>
+  )
+}
+
 storiesOf('Menu', module)
   .add('Default', () => <DefaultStory />)
   .add('Deep', () => <DeepStory />)
+  .add('OptionGroup navigate trigger scrollTo', () => <ScrollToStory />)

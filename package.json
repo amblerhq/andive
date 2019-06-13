@@ -57,6 +57,7 @@
     "prop-types": "15.7.2",
     "react-outside-click-handler": "1.2.3",
     "react-pose": "4.0.8",
+    "react-scroll-to": "2.0.9",
     "use-interval": "1.1.0"
   }
 }
