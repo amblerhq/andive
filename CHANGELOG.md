@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.2.9](https://github.com/amblerhq/ambler/compare/v0.2.8...v0.2.9) (2019-06-18)
+
+
+### Bug Fixes
+
+* **checkbox:** fix vertical label miss alignment ([a8e9b24](https://github.com/amblerhq/ambler/commit/a8e9b24))
+* **direction:** nopadding remove padding entierly ([67ea94b](https://github.com/amblerhq/ambler/commit/67ea94b))
+* **dropdown:** render label as body1 instead of body2 ([350090a](https://github.com/amblerhq/ambler/commit/350090a))
+
+
+
 ### [0.2.8](https://github.com/amblerhq/ambler/compare/v0.2.7...v0.2.8) (2019-06-18)
 
 
