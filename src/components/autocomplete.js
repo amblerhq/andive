@@ -30,15 +30,12 @@ const Autocomplete = styled.div`
   position: relative;
 `
 
-const Suggestions = styled.ul`
+const SuggestionsUl = styled.ul`
   box-sizing: border-box;
   list-style: none;
 
-  position: absolute;
-
-  width: calc(100% - 16px);
-  margin: 0 8px;
   padding: 8px;
+  margin: 0;
 
   background: white;
   border: 1px solid ${palette.lightGrey};
@@ -47,10 +44,16 @@ const Suggestions = styled.ul`
 
   /* To crop the child suggestion :hover effect */
   overflow: hidden;
+`
 
+const Suggestions = styled.div`
+  position: absolute;
+
+  width: calc(100% - 16px);
+  margin: 0 8px;
   z-index: ${ZIndexes.ABSOLUTE};
 
-  margin-bottom: ${props => props.bottomFootprint || 0}px;
+  padding-bottom: ${props => props.bottomFootprint || 0}px;
 `
 
 const SuggestionLi = styled.li`
@@ -59,9 +62,7 @@ const SuggestionLi = styled.li`
   cursor: pointer;
 `
 
-const AutocompleteInput = styled(Input)`
-  border: 1px solid ${props => (props.unstable ? palette.berryBlue : 'transparent')};
-`
+const AutocompleteInput = styled(Input)``
 
 const defaultRenderSuggestion = item => {
   return (
@@ -210,36 +211,40 @@ const AutocompleteComponent = React.forwardRef(function AutocompleteComponent(
       />
       {showSuggestions && (
         <Suggestions bottomFootprint={bottomFootprint}>
-          {suggestions.map((item, index) => {
-            return (
-              <SuggestionLi
-                key={index}
-                onMouseDown={() => {
-                  onSelectItem(item)
-                }}
-              >
-                {renderSuggestion(item, index, suggestions.length)}
-                {index !== suggestions.length - 1 && <Divider />}
-              </SuggestionLi>
-            )
-          })}
+          <SuggestionsUl>
+            {suggestions.map((item, index) => {
+              return (
+                <SuggestionLi
+                  key={index}
+                  onMouseDown={() => {
+                    onSelectItem(item)
+                  }}
+                >
+                  {renderSuggestion(item, index, suggestions.length)}
+                  {index !== suggestions.length - 1 && <Divider />}
+                </SuggestionLi>
+              )
+            })}
+          </SuggestionsUl>
         </Suggestions>
       )}
       {showFavorites && (
         <Suggestions bottomFootprint={bottomFootprint}>
-          {favorites.map((item, index) => {
-            return (
-              <SuggestionLi
-                key={index}
-                onMouseDown={() => {
-                  onSelectItem(item)
-                }}
-              >
-                {renderFavorite(item, index, favorites.length)}
-                {index !== favorites.length - 1 && <Divider />}
-              </SuggestionLi>
-            )
-          })}
+          <SuggestionsUl>
+            {favorites.map((item, index) => {
+              return (
+                <SuggestionLi
+                  key={index}
+                  onMouseDown={() => {
+                    onSelectItem(item)
+                  }}
+                >
+                  {renderFavorite(item, index, favorites.length)}
+                  {index !== favorites.length - 1 && <Divider />}
+                </SuggestionLi>
+              )
+            })}
+          </SuggestionsUl>
         </Suggestions>
       )}
     </Autocomplete>
