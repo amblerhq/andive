@@ -8,8 +8,10 @@ import OutsideClickHandler from 'react-outside-click-handler'
 import {ZIndexes} from '../constants/enum'
 import useElementRect from '../lib/use-element-rect'
 
+import {berryBlue} from '../constants/palette'
 import Button from './button'
 import Menu from './menu'
+import {body1Css} from './typography'
 
 const Dropdown = styled(
   posed.div({
@@ -48,6 +50,14 @@ const Dropdown = styled(
 
 const DropdownMenuLayout = styled.div`
   position: relative;
+`
+
+// This is not a real button but a fake select.
+const DropdownButton = styled(Button)`
+  > div {
+    ${body1Css};
+    color: ${berryBlue};
+  }
 `
 
 function DropdownMenu({
@@ -123,7 +133,7 @@ function DropdownMenu({
 
   return (
     <DropdownMenuLayout {...props}>
-      <Button ref={buttonRef} onClick={onOpen} label={value ? valueToString(value) : label} variant="flat" />
+      <DropdownButton ref={buttonRef} onClick={onOpen} label={value ? valueToString(value) : label} variant="flat" />
       {open && (
         <OutsideClickHandler onOutsideClick={onClose}>
           <PoseGroup>
