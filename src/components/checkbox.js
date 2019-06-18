@@ -41,9 +41,6 @@ const Checkbox = styled.div`
 
 const Label = styled(Body1)`
   padding-left: 12px;
-
-  /* Match Icon height */
-  line-height: 24px;
 `
 
 function isNullable(value) {
