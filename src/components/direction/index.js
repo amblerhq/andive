@@ -8,7 +8,7 @@ import Destination from './destination'
 
 const Direction = styled.div`
   min-width: ${props => (props.fullWidth ? '100%' : 'auto')};
-  padding: ${props => (props.nopadding ? '0 0 0 8px' : '8px')};
+  padding: ${props => (props.nopadding ? 0 : '8px')};
 `
 
 function DirectionComponent({children, label, fullWidth, nopadding, ...props}) {
