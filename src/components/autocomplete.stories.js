@@ -246,7 +246,7 @@ const useSwapi = query => {
       }))) ||
     []
 
-  return suggestions
+  return [suggestions, res.fetching]
 }
 
 function WithGraphqlQueryStory() {
@@ -260,7 +260,7 @@ function WithGraphqlQueryStory() {
     setQuery(inputValue)
   })
 
-  const suggestions = useSwapi(query)
+  const [suggestions, loading] = useSwapi(query)
 
   return (
     <Showcase style={{background: 'white'}}>
@@ -273,6 +273,7 @@ function WithGraphqlQueryStory() {
           onSearch={onSearch}
           suggestions={suggestions}
           errorMessage="Vous devez choisir une planète"
+          loading={loading}
         />
         <FakeList />
       </div>

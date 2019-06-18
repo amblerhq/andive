@@ -3,7 +3,8 @@ import styled, {css} from 'styled-components'
 import PropTypes from 'prop-types'
 
 import {body1Css, Body2} from './typography'
-import CloseIcon from '../components/icons/close'
+import CloseIcon from './icons/close'
+import Loader from './loader'
 import {darkGrey, lightGrey, mediumGrey, berryBlue, error} from '../constants/palette'
 
 const InputRoot = styled.div`
@@ -65,6 +66,14 @@ const Close = styled.div`
   cursor: pointer;
 `
 
+const Loading = styled.div`
+  position: absolute;
+  left: calc(100% - 50px);
+  top: 20px;
+
+  cursor: loading;
+`
+
 const Error = styled(Body2)`
   padding: 4px 8px 8px 8px;
   color: ${error};
@@ -83,7 +92,7 @@ const Icon = styled.div`
  *  - An onClear handle called when the right hand-side <CloseIcon /> is clicked.
  */
 const InputComponent = React.forwardRef(function InputComponent(
-  {value, onChange, onClear, error: error_, fullWidth, icon, disabled, textarea, onBlur, ...props},
+  {value, onChange, onClear, error: error_, fullWidth, icon, disabled, loading, textarea, onBlur, ...props},
   ref
 ) {
   const canClear = !!(onChange && value && value.length > 0)
@@ -133,10 +142,15 @@ const InputComponent = React.forwardRef(function InputComponent(
         {...props}
       />
       {hasIcon && <Icon>{icon}</Icon>}
-      {canClear && !disabled && (
+      {canClear && !disabled && !loading && (
         <Close onMouseDown={handleClear}>
           <CloseIcon inline />
         </Close>
+      )}
+      {loading && (
+        <Loading>
+          <Loader inline color={mediumGrey} />
+        </Loading>
       )}
       {error_ && <Error>{error_}</Error>}
     </InputRoot>
@@ -158,6 +172,8 @@ InputComponent.propTypes = {
   icon: PropTypes.node,
   /** disable the text field */
   disabled: PropTypes.bool,
+  /** render a loader next to the text field */
+  loading: PropTypes.bool,
   /** must render a <textarea /> */
   textarea: PropTypes.bool,
   onBlur: PropTypes.func

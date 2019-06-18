@@ -139,6 +139,23 @@ function AsTextAreaStory() {
   )
 }
 
+function WithLoaderStory() {
+  const [value, setValue] = useState('')
+
+  function onChange(ev) {
+    setValue(ev.target.value)
+  }
+  function onClear() {}
+
+  return (
+    <Showcase>
+      <div style={{width: 300, background: 'white'}}>
+        <Input placeholder="Commentaire..." value={value} onChange={onChange} onClear={onClear} loading />
+      </div>
+    </Showcase>
+  )
+}
+
 storiesOf('Input', module)
   .add('Default', () => <DefaultStory />)
   .add('With clear', () => <WithClearStory />)
@@ -146,3 +163,4 @@ storiesOf('Input', module)
   .add('With disabled', () => <WithDisabledStory />)
   .add('With icon', () => <WithIconStory />)
   .add('As text area', () => <AsTextAreaStory />)
+  .add('With loader', () => <WithLoaderStory />)

@@ -153,15 +153,36 @@ const AutocompleteComponent = React.forwardRef(function AutocompleteComponent(
     [onSearch, input]
   )
 
-  function mapValueToInput(value) {
-    return value ? renderInputValue(value) : ''
-  }
+  const mapValueToInput = React.useCallback(
+    value => {
+      return value ? renderInputValue(value) : ''
+    },
+    [renderInputValue]
+  )
 
   // If the value changes, we want to initialize the input to match the value.
   React.useEffect(() => {
-    setInput(mapValueToInput(value))
-    setUnstable(false)
-  }, [value])
+    if (focus) {
+      return
+    }
+
+    if (freeInput) {
+      setUnstable(true)
+    } else {
+      setInput(mapValueToInput(value))
+      setUnstable(false)
+    }
+  }, [value, focus, mapValueToInput])
+
+  const onSelectItem = React.useCallback(
+    item => {
+      onChange(item)
+      onSearch(null)
+      setInput(mapValueToInput(item))
+      setUnstable(false)
+    },
+    [onChange, onSearch, mapValueToInput]
+  )
 
   return (
     <Autocomplete>
@@ -177,10 +198,6 @@ const AutocompleteComponent = React.forwardRef(function AutocompleteComponent(
         onBlur={() => {
           setFocus(false)
           onSearch(null)
-          if (value) {
-            setInput(mapValueToInput(value))
-            setUnstable(false)
-          }
         }}
         onFocus={() => {
           setFocus(true)
@@ -198,8 +215,7 @@ const AutocompleteComponent = React.forwardRef(function AutocompleteComponent(
               <SuggestionLi
                 key={index}
                 onMouseDown={() => {
-                  onChange(item)
-                  onSearch(null)
+                  onSelectItem(item)
                 }}
               >
                 {renderSuggestion(item, index, suggestions.length)}
@@ -216,8 +232,7 @@ const AutocompleteComponent = React.forwardRef(function AutocompleteComponent(
               <SuggestionLi
                 key={index}
                 onMouseDown={() => {
-                  onChange(item)
-                  onSearch(null)
+                  onSelectItem(item)
                 }}
               >
                 {renderFavorite(item, index, favorites.length)}
