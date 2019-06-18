@@ -33,7 +33,7 @@ const InfoComponent = forwardRef(function InfoComponent({children, icon, fullWid
   return (
     <Info ref={ref} hasIcon={hasIcon} fullWidth={fullWidth} {...props}>
       {hasIcon && <InfoIcon>{icon}</InfoIcon>}
-      {React.Children.map(children, child => (child ? React.cloneElement(child, {hasIcon}) : null))}
+      {children}
     </Info>
   )
 })
