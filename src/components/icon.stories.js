@@ -26,6 +26,9 @@ import RadioOff from './icons/radio-off'
 import CancelIcon from './icons/cancel'
 import FlagIcon from './icons/flag'
 import QuestionIcon from './icons/question'
+import Art80Icon from './icons/art80'
+import CerfaIcon from './icons/cerfa'
+import PatientIcon from './icons/patient'
 
 import Icon from './icon'
 import Showcase from '../stories/showcase'
@@ -54,7 +57,10 @@ const icons = [
   NewIcon,
   CancelIcon,
   FlagIcon,
-  QuestionIcon
+  QuestionIcon,
+  Art80Icon,
+  CerfaIcon,
+  PatientIcon
 ]
 
 const blueIcons = [EditIcon, BackIcon, RadioOn, RadioOff, CheckboxOn, CheckboxOff]
@@ -67,7 +73,7 @@ storiesOf('Icon', module)
           {icons.map((Icon, index) => {
             return (
               <Showcase key={index} variant="squared" size={160} legend={Icon.name}>
-                <Icon color={palette.lightBeetrootPurple} />
+                <Icon color={palette.darkGrey} />
               </Showcase>
             )
           })}
@@ -93,11 +99,18 @@ storiesOf('Icon', module)
     </Showcase>
   ))
   .add('With circle', () => (
-    <Showcase variant="squared">
-      <Icon circle circleColor={'white'}>
-        <MedicalFacilitySvg />
-      </Icon>
-    </Showcase>
+    <Icons>
+      <Showcase variant="squared">
+        <Icon circle circleColor="white">
+          <MedicalFacilitySvg />
+        </Icon>
+      </Showcase>
+      <Showcase variant="squared">
+        <Icon circle circleColor={palette.beetrootPurple} color="white">
+          <MedicalFacilitySvg />
+        </Icon>
+      </Showcase>
+    </Icons>
   ))
   .add('Colored', () => (
     <Icons>
