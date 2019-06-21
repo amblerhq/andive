@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.3.1](https://github.com/amblerhq/ambler/compare/v0.3.0...v0.3.1) (2019-06-21)
+
+
+### Bug Fixes
+
+* **accordeon:** add iconSize prop to fix padding ([62c998c](https://github.com/amblerhq/ambler/commit/62c998c))
+
+
+
 ## [0.3.0](https://github.com/amblerhq/ambler/compare/v0.2.9...v0.3.0) (2019-06-21)
 
 
