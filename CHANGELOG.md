@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.3.0](https://github.com/amblerhq/ambler/compare/v0.2.9...v0.3.0) (2019-06-21)
+
+
+### Features
+
+* **accordeon:** add Accordeon component ([e72eda2](https://github.com/amblerhq/ambler/commit/e72eda2))
+* **icons:** add 3 new icons ([46f012f](https://github.com/amblerhq/ambler/commit/46f012f))
+
+
+
 ### [0.2.9](https://github.com/amblerhq/ambler/compare/v0.2.8...v0.2.9) (2019-06-18)
 
 
