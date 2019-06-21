@@ -9,7 +9,7 @@ import {AlertSvg} from './icons/alert'
 storiesOf('Info', module)
   .add('Label', () => {
     return (
-      <Showcase style={{background: '#eee'}}>
+      <Showcase>
         <Info style={{background: 'white'}}>
           <Info.Label label={'Fan de Phil Collins'} />
         </Info>
@@ -18,7 +18,7 @@ storiesOf('Info', module)
   })
   .add('Label Item', () => {
     return (
-      <Showcase style={{background: '#eee'}}>
+      <Showcase>
         <Info style={{background: 'white'}}>
           <Info.Label label={'Appartement de Phil'} />
           <Info.Item item={'14225 Dives-sur-mer'} />
@@ -28,7 +28,7 @@ storiesOf('Info', module)
   })
   .add('Item Label', () => {
     return (
-      <Showcase style={{background: '#eee'}}>
+      <Showcase>
         <Info style={{background: 'white'}}>
           <Info.Item item={'Raison du transport'} />
           <Info.Label label={'Concert de Phil'} />
@@ -38,7 +38,7 @@ storiesOf('Info', module)
   })
   .add('Label Items', () => {
     return (
-      <Showcase style={{background: '#eee'}}>
+      <Showcase>
         <Info style={{background: 'white'}}>
           <Info.Label label={'M Phil Collins (+1 accompagnateur)'} />
           <Info.Item item={'0000000101010'} />
@@ -49,7 +49,7 @@ storiesOf('Info', module)
   })
   .add('Label Icon', () => {
     return (
-      <Showcase style={{background: '#eee'}}>
+      <Showcase>
         <Info style={{background: 'white'}}>
           <Info.LabelIcon label={'Voiture de Phil'} icon={<VslSvg />} />
         </Info>
@@ -58,7 +58,7 @@ storiesOf('Info', module)
   })
   .add('Item / Label Icon', () => {
     return (
-      <Showcase style={{background: '#eee'}}>
+      <Showcase>
         <Info style={{background: 'white'}}>
           <Info.Item item="Besoins de Phil" />
           <Info.LabelIcon label={'Piano'} icon={<AlertSvg />} />
@@ -66,9 +66,18 @@ storiesOf('Info', module)
       </Showcase>
     )
   })
-  .add('Left Icon / Item Label', () => {
+  .add('Icon / Item', () => {
     return (
-      <Showcase style={{background: '#eee'}}>
+      <Showcase>
+        <Info icon={<VslIcon circle />} iconSize={32} style={{background: 'white'}}>
+          <Info.Item item="Besoins de Phil" />
+        </Info>
+      </Showcase>
+    )
+  })
+  .add('Icon / Item Label', () => {
+    return (
+      <Showcase>
         <Info icon={<VslIcon circle />} style={{background: 'white'}}>
           <Info.Item item="Besoins de Phil" />
           <Info.Label label={'Une voiture !'} />
@@ -76,9 +85,9 @@ storiesOf('Info', module)
       </Showcase>
     )
   })
-  .add('Left Icon / Label Item', () => {
+  .add('Icon / Label Item', () => {
     return (
-      <Showcase style={{background: '#eee'}}>
+      <Showcase>
         <Info icon={<VslIcon circle />} style={{background: 'white'}}>
           <Info.Label label={'Une voiture !'} />
           <Info.Item item="Besoins de Phil" />
@@ -88,7 +97,7 @@ storiesOf('Info', module)
   })
   .add('LabelItem side with ItemLabel', () => {
     return (
-      <Showcase style={{background: '#eee'}}>
+      <Showcase>
         <Info style={{background: 'white'}}>
           <Info.Label label={'Concert de Phil'} />
           <Info.Item item={'Raison du transport'} />

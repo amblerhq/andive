@@ -77,6 +77,15 @@ export const VslIcon = VslIconComponent
 import QuestionIconComponent from './components/icons/question'
 export const QuestionIcon = QuestionIconComponent
 
+import Art80IconComponent from './components/icons/art80'
+export const Art80Icon = Art80IconComponent
+
+import PatientComponent from './components/icons/art80'
+export const Patient = PatientComponent
+
+import CerfaIconComponent from './components/icons/cerfa'
+export const CerfaIcon = CerfaIconComponent
+
 /**
  * Illustrations
  */
@@ -111,6 +120,9 @@ export const SuccessIllustration = SuccessIllustrationComponent
 
 import InfoComponent from './components/info'
 export const Info = InfoComponent
+
+import AccordeonComponent from './components/accordeon'
+export const Accordeon = AccordeonComponent
 
 import AppBarComponent from './components/app-bar'
 export const AppBar = AppBarComponent

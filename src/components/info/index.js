@@ -13,11 +13,13 @@ const Info = styled.div`
   padding: 8px;
   width: ${props => (props.fullWidth ? '100%' : 'auto')};
 
-  ${props =>
-    props.hasIcon &&
+  ${({hasIcon, iconSize}) =>
+    hasIcon &&
     css`
       position: relative;
       padding-left: 56px;
+      padding-top: 12px;
+      min-height: ${iconSize + 16}px;
     `}
 `
 
@@ -27,11 +29,11 @@ const InfoIcon = styled.div`
   top: calc(50% - 16px);
 `
 
-const InfoComponent = forwardRef(function InfoComponent({children, icon, fullWidth, ...props}, ref) {
+const InfoComponent = forwardRef(function InfoComponent({children, icon, iconSize = 0, fullWidth, ...props}, ref) {
   const hasIcon = !!icon
 
   return (
-    <Info ref={ref} hasIcon={hasIcon} fullWidth={fullWidth} {...props}>
+    <Info ref={ref} hasIcon={hasIcon} iconSize={iconSize} fullWidth={fullWidth} {...props}>
       {hasIcon && <InfoIcon>{icon}</InfoIcon>}
       {children}
     </Info>
@@ -41,6 +43,7 @@ const InfoComponent = forwardRef(function InfoComponent({children, icon, fullWid
 InfoComponent.propTypes = {
   children: PropTypes.node,
   icon: PropTypes.node,
+  iconSize: PropTypes.number,
   fullWidth: PropTypes.bool
 }
 
