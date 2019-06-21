@@ -17,7 +17,7 @@ const Info = styled.div`
     hasIcon &&
     css`
       position: relative;
-      padding-left: 56px;
+      padding-left: ${iconSize + 16 + 8}px;
       padding-top: 12px;
       min-height: ${iconSize + 16}px;
     `}
@@ -26,7 +26,7 @@ const Info = styled.div`
 const InfoIcon = styled.div`
   position: absolute;
   left: 8px;
-  top: calc(50% - 16px);
+  top: 8px;
 `
 
 const InfoComponent = forwardRef(function InfoComponent({children, icon, iconSize = 0, fullWidth, ...props}, ref) {

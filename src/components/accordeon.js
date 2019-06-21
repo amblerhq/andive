@@ -20,7 +20,7 @@ const AccordeonButton = styled.div`
   align-items: center;
 `
 
-function AccordeonComponent({label, openByDefault, icon, children}) {
+function AccordeonComponent({label, openByDefault, icon, iconSize, children}) {
   const [open, setOpen] = React.useState(openByDefault || false)
   const onClick = React.useCallback(() => {
     setOpen(prev => !prev)
@@ -29,7 +29,7 @@ function AccordeonComponent({label, openByDefault, icon, children}) {
   return (
     <Accordeon>
       <AccordeonButton onClick={onClick}>
-        <Info icon={icon}>
+        <Info icon={icon} iconSize={iconSize}>
           <Info.Label label={label} />
         </Info>
         {open ? <ArrowDownIcon color={mediumGrey} /> : <ArrowRightIcon color={mediumGrey} />}
@@ -43,6 +43,7 @@ AccordeonComponent.propTypes = {
   label: PropTypes.string.isRequired,
   openByDefault: PropTypes.bool,
   icon: PropTypes.node,
+  iconSize: PropTypes.number,
   children: PropTypes.node
 }
 

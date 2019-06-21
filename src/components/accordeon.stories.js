@@ -2,12 +2,7 @@ import React from 'react'
 import {storiesOf} from '@storybook/react'
 import Showcase from '../stories/showcase'
 
-import Accordeon from './accordeon'
-import Info from './info'
-import {palette} from '..'
-
-import Art80Icon from './icons/art80'
-import CerfaIcon from './icons/cerfa'
+import {Accordeon, Info, palette, Art80Icon, PatientIcon} from '..'
 
 storiesOf('Accordeon', module)
   .add('Default', () => {
@@ -16,7 +11,7 @@ storiesOf('Accordeon', module)
     return (
       <Showcase>
         <div style={{background: 'white', width: '100%'}}>
-          <Accordeon icon={icon} label="Cliques ici si t'es fan">
+          <Accordeon icon={icon} iconSize={32} label="CERFA n° 11574*04 à fournir au transporteur">
             <Info>
               <Info.Label label="de Phil Colins !" />
             </Info>
@@ -26,12 +21,12 @@ storiesOf('Accordeon', module)
     )
   })
   .add('Open by default', () => {
-    const icon = <CerfaIcon circle circleColor={palette.beetrootPurple} />
+    const icon = <PatientIcon circle circleColor={palette.beetrootPurple} />
 
     return (
       <Showcase>
         <div style={{background: 'white'}}>
-          <Accordeon icon={icon} openByDefault label="T'es fan">
+          <Accordeon icon={icon} iconSize={32} openByDefault label="T'es fan">
             <Info>
               <Info.Label label="de Phil Colins !" />
             </Info>

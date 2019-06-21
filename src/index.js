@@ -80,8 +80,8 @@ export const QuestionIcon = QuestionIconComponent
 import Art80IconComponent from './components/icons/art80'
 export const Art80Icon = Art80IconComponent
 
-import PatientComponent from './components/icons/art80'
-export const Patient = PatientComponent
+import PatientIconComponent from './components/icons/patient'
+export const PatientIcon = PatientIconComponent
 
 import CerfaIconComponent from './components/icons/cerfa'
 export const CerfaIcon = CerfaIconComponent
