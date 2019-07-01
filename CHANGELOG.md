@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.3.2](https://github.com/amblerhq/ambler/compare/v0.3.1...v0.3.2) (2019-07-01)
+
+
+### Bug Fixes
+
+* **accordeon:** fix arrow directions ([89cb03a](https://github.com/amblerhq/ambler/commit/89cb03a))
+
+
+
 ### [0.3.1](https://github.com/amblerhq/ambler/compare/v0.3.0...v0.3.1) (2019-06-21)
 
 
