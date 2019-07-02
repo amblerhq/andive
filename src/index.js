@@ -20,6 +20,9 @@ export const ArrowRightIcon = ArrowRightIconComponent
 import ArrowLeftIconComponent from './components/icons/arrow-left'
 export const ArrowLeftIcon = ArrowLeftIconComponent
 
+import ArrowUpIconComponent from './components/icons/arrow-up'
+export const ArrowUpIcon = ArrowUpIconComponent
+
 import BackIconComponent from './components/icons/back'
 export const BackIcon = BackIconComponent
 

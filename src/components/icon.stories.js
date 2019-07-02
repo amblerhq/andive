@@ -14,6 +14,7 @@ import CloseIcon from './icons/close'
 import RightArrowIcon from './icons/arrow-right'
 import LeftArrowIcon from './icons/arrow-left'
 import DownArrowIcon from './icons/arrow-down'
+import UpArrowIcon from './icons/arrow-up'
 import LogoutIcon from './icons/logout'
 import HistoricIcon from './icons/historic'
 import MedicalFacilityIcon, {MedicalFacilitySvg} from './icons/medical-facility'
@@ -50,6 +51,7 @@ const icons = [
   RightArrowIcon,
   LeftArrowIcon,
   DownArrowIcon,
+  UpArrowIcon,
   LogoutIcon,
   HistoricIcon,
   MedicalFacilityIcon,
