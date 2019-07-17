@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.4.0](https://github.com/amblerhq/ambler/compare/v0.3.1...v0.4.0) (2019-07-17)
+
+
+### Bug Fixes
+
+* **accordeon:** clean arrow-up svg ([aefa4cc](https://github.com/amblerhq/ambler/commit/aefa4cc))
+* **accordeon:** fix arrow directions ([89cb03a](https://github.com/amblerhq/ambler/commit/89cb03a))
+* **icon:** export arrow up icon + add to storybook ([988b95d](https://github.com/amblerhq/ambler/commit/988b95d))
+
+
+### Features
+
+* **icons:** add delegate and map icons ([aa325f6](https://github.com/amblerhq/ambler/commit/aa325f6))
+
+
+
 ### [0.3.3](https://github.com/amblerhq/ambler/compare/v0.3.2...v0.3.3) (2019-07-01)
 
 
