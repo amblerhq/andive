@@ -30,10 +30,12 @@ import QuestionIcon from './icons/question'
 import Art80Icon from './icons/art80'
 import CerfaIcon from './icons/cerfa'
 import PatientIcon from './icons/patient'
+import DelegateIcon from './icons/delegate'
 
 import Icon from './icon'
 import Showcase from '../stories/showcase'
 import * as palette from '../constants/palette'
+import MapIcon from './icons/map'
 
 const Icons = styled.div`
   display: flex;
@@ -62,7 +64,9 @@ const icons = [
   QuestionIcon,
   Art80Icon,
   CerfaIcon,
-  PatientIcon
+  PatientIcon,
+  DelegateIcon,
+  MapIcon
 ]
 
 const blueIcons = [EditIcon, BackIcon, RadioOn, RadioOff, CheckboxOn, CheckboxOff]

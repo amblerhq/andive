@@ -89,6 +89,12 @@ export const PatientIcon = PatientIconComponent
 import CerfaIconComponent from './components/icons/cerfa'
 export const CerfaIcon = CerfaIconComponent
 
+import DelegateIconComponent from './components/icons/delegate'
+export const DelegateIcon = DelegateIconComponent
+
+import MapIconComponent from './components/icons/map'
+export const MapIcon = MapIconComponent
+
 /**
  * Illustrations
  */
