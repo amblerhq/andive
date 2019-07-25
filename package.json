@@ -1,6 +1,6 @@
 {
   "name": "@ambler/andive",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "description": "Ambler UI library",
   "main": "dist/index.js",
   "files": [
