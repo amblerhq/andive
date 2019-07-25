@@ -13,7 +13,7 @@ const RideStatus = styled.div`
   width: 100%;
   min-height: 64px;
 
-  padding: 8px 8px 8px 24px;
+  padding: 8px 8px 8px 28px;
 
   display: flex;
   flex-flow: column nowrap;

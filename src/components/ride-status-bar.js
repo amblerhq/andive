@@ -7,8 +7,9 @@ import {baselineCss} from './baseline'
 export const RideStatusBar = styled.div`
   ${baselineCss}
 
-  width: 4px;
+  width: 8px;
   height: 48px;
+  border-radius: 2px;
 
   margin: 8px;
 
