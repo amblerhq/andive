@@ -64,10 +64,10 @@ storiesOf('Button', module)
   .add('Filter', () => (
     <>
       <Showcase legend="Filter (desktop)">
-        <Button variant="filter" label="Filtrer par Status" />
+        <Button variant="filter" label="Filtrer par Statuts" />
       </Showcase>
       <Showcase legend="Filter (mobile)">
-        <Button variant="filter" label="Filtrer par Status" mobile />
+        <Button variant="filter" label="Filtrer par Statuts" mobile />
       </Showcase>
     </>
   ))

@@ -27,6 +27,7 @@ function loadStories() {
   require('../src/components/direction.stories')
   require('../src/components/dropdown.stories')
   require('../src/components/dropdown-menu.stories')
+  require('../src/components/dropdown-filter.stories')
   require('../src/components/icon.stories')
   require('../src/components/illustration.stories')
   require('../src/components/input.stories')

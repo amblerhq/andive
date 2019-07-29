@@ -166,6 +166,9 @@ export const Dropdown = DropdownComponent
 import DropdownMenuComponent from './components/dropdown-menu'
 export const DropdownMenu = DropdownMenuComponent
 
+import DropdownFilterComponent from './components/dropdown-filter'
+export const DropdownFilter = DropdownFilterComponent
+
 import HoverComponent from './components/hover'
 export const Hover = HoverComponent
 

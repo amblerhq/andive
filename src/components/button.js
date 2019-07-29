@@ -42,7 +42,7 @@ function defaultColor({disabled, invert}) {
 
 const DefaultButton = styled(ResetButton)`
   border: 1px solid ${({invert}) => (invert ? white : lightBeetrootPurple)};
-  background-color: ${({invert}) => (invert ? lightBeetrootPurple : white)};
+  background-color: ${({invert, backgroundColor}) => backgroundColor || (invert ? lightBeetrootPurple : white)};
   color: ${props => props.color};
   height: 56px;
   border-radius: 28px;
@@ -79,7 +79,7 @@ function primaryColor({disabled, invert}) {
 
 const PrimaryButton = styled(ResetButton)`
   border: 1px solid ${lightBeetrootPurple};
-  background-color: ${({invert}) => (invert ? white : lightBeetrootPurple)};
+  background-color: ${({invert, backgroundColor}) => backgroundColor || (invert ? white : lightBeetrootPurple)};
   color: ${props => props.color};
   height: 56px;
   border-radius: 28px;
@@ -176,8 +176,9 @@ const FilterButton = styled(ResetButton)`
   padding: 0;
 
   border-radius: 20px;
+  border: 1px solid ${props => (props.invert ? darkGrey : 'transparent')};
   height: ${props => (props.mobile ? 32 : 40)}px;
-  background: ${props => (props.invert ? white : berryBlue)};
+  background: ${({invert, backgroundColor}) => backgroundColor || (invert ? white : berryBlue)};
 `
 
 const FilterText = styled.div`
@@ -195,7 +196,21 @@ function textStyle(leftIcon, rightIcon) {
 }
 
 const Button = React.forwardRef(function Button(
-  {label, rightIcon, leftIcon, onClick, variant, invert, textColor, href, disabled, loading, mobile, ...props},
+  {
+    label,
+    rightIcon,
+    leftIcon,
+    onClick,
+    variant,
+    invert,
+    textColor,
+    backgroundColor,
+    href,
+    disabled,
+    loading,
+    mobile,
+    ...props
+  },
   ref
 ) {
   if (href && variant !== 'link') {
@@ -255,6 +270,7 @@ const Button = React.forwardRef(function Button(
     if (textColor) {
       return textColor
     }
+
     return color
   }, [variant, disabled, invert, textColor])
 
@@ -285,6 +301,7 @@ const Button = React.forwardRef(function Button(
       disabled={disabled}
       loading={loading}
       mobile={mobile}
+      backgroundColor={backgroundColor}
       {...props}
     >
       {loading ? (
@@ -312,6 +329,7 @@ Button.propTypes = {
   variant: PropTypes.oneOf(['primary', 'flat', 'link']),
   /** Inverse button colors to display on beetrootPurple background */
   invert: PropTypes.bool,
+  backgroundColor: PropTypes.string,
   textColor: PropTypes.string,
   disabled: PropTypes.bool,
   loading: PropTypes.bool,
