@@ -42,7 +42,7 @@ storiesOf('Button', module)
   .add('Default', () => (
     <>
       <Showcase>
-        <Button label={'Je suis fan'} />
+        <Button label="Je suis fan" />
       </Showcase>
       <Showcase>
         <Button label={'Enregistrer mes changements'} />
@@ -51,26 +51,39 @@ storiesOf('Button', module)
   ))
   .add('Primary', () => (
     <Showcase>
-      <Button variant="primary" label={'Je suis fan'} />
+      <Button variant="primary" label="Je suis fan" />
     </Showcase>
   ))
   .add('Flat', () => {
     return (
       <Showcase>
-        <Button variant="flat" label={'Je suis fan'} />
+        <Button variant="flat" label="Je suis fan" />
       </Showcase>
     )
   })
+  .add('Filter', () => (
+    <>
+      <Showcase legend="Filter (desktop)">
+        <Button variant="filter" label="Filtrer par Status" />
+      </Showcase>
+      <Showcase legend="Filter (mobile)">
+        <Button variant="filter" label="Filtrer par Status" mobile />
+      </Showcase>
+    </>
+  ))
   .add('Invert', () => (
     <>
       <Showcase invert>
-        <Button invert label={'Je suis fan'} />
+        <Button invert label="Je suis fan" />
       </Showcase>
       <Showcase invert>
-        <Button invert variant="primary" label={'Je suis fan'} />
+        <Button invert variant="primary" label="Je suis fan" />
       </Showcase>
       <Showcase invert>
-        <Button invert variant="flat" label={'Je suis fan'} />
+        <Button invert variant="flat" label="Je suis fan" />
+      </Showcase>
+      <Showcase invert>
+        <Button invert variant="filter" label="Je suis fan" />
       </Showcase>
     </>
   ))

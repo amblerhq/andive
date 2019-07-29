@@ -9,9 +9,10 @@ import {
   lightBeetrootPurpleAlpha,
   berryBlue,
   lightGreyAlpha,
-  lightGrey
+  lightGrey,
+  darkGrey
 } from '../constants/palette'
-import {ButtonTextPrimary, ButtonTextSecondary, ActionText} from './typography'
+import {ButtonTextPrimary, ButtonTextSecondary, ActionText, body1Css, body3Css} from './typography'
 import Loader from './loader'
 
 const ResetButton = styled.button`
@@ -29,10 +30,20 @@ const ResetButton = styled.button`
   align-items: center;
 `
 
+// * Default/secondary variant
+
+function defaultColor({disabled, invert}) {
+  if (disabled) {
+    return invert ? lightGreyAlpha(0.5) : lightBeetrootPurpleAlpha(0.5)
+  }
+
+  return invert ? white : lightBeetrootPurple
+}
+
 const DefaultButton = styled(ResetButton)`
   border: 1px solid ${({invert}) => (invert ? white : lightBeetrootPurple)};
   background-color: ${({invert}) => (invert ? lightBeetrootPurple : white)};
-  color: ${({invert}) => (invert ? white : lightBeetrootPurple)};
+  color: ${props => props.color};
   height: 56px;
   border-radius: 28px;
   box-shadow: 0 2px 5px 0 rgba(5, 71, 82, 0.2);
@@ -57,10 +68,19 @@ const DefaultButton = styled(ResetButton)`
     `}
 `
 
+// * Primary/main variant
+
+function primaryColor({disabled, invert}) {
+  if (disabled) {
+    return invert ? lightBeetrootPurpleAlpha(0.5) : lightGrey
+  }
+  return invert ? lightBeetrootPurple : white
+}
+
 const PrimaryButton = styled(ResetButton)`
   border: 1px solid ${lightBeetrootPurple};
   background-color: ${({invert}) => (invert ? white : lightBeetrootPurple)};
-  color: ${({invert}) => (invert ? lightBeetrootPurple : white)};
+  color: ${props => props.color};
   height: 56px;
   border-radius: 28px;
   box-shadow: 0 2px 5px 0 rgba(5, 71, 82, 0.2);
@@ -85,6 +105,15 @@ const PrimaryButton = styled(ResetButton)`
     `}
 `
 
+// * Link variant
+
+function linkColor({disabled, invert}) {
+  if (disabled) {
+    return invert ? lightGreyAlpha(0.5) : lightBeetrootPurpleAlpha(0.5)
+  }
+  return invert ? white : berryBlue
+}
+
 const LinkButton = styled.a`
   outline: none;
   cursor: pointer;
@@ -98,7 +127,7 @@ const LinkButton = styled.a`
   justify-content: center;
   align-items: center;
 
-  color: ${({invert}) => (invert ? white : berryBlue)};
+  color: ${props => props.color};
 
   ${props =>
     props.loading &&
@@ -107,8 +136,17 @@ const LinkButton = styled.a`
     `}
 `
 
+// * Flat variant
+
+function flatColor({disabled, invert}) {
+  if (disabled) {
+    return invert ? lightGreyAlpha(0.5) : lightBeetrootPurpleAlpha(0.5)
+  }
+  return invert ? white : berryBlue
+}
+
 const FlatButton = styled(ResetButton)`
-  color: ${({invert}) => (invert ? white : berryBlue)};
+  color: ${props => props.color};
 
   ${props =>
     props.disabled &&
@@ -123,16 +161,41 @@ const FlatButton = styled(ResetButton)`
     `}
 `
 
-function textStyle(leftIcon, rightIcon, variant, invert, color) {
+// * Filter variant
+
+function filterColor({disabled, invert}) {
+  if (disabled) {
+    return invert ? lightGreyAlpha(0.5) : lightBeetrootPurpleAlpha(0.5)
+  }
+
+  return invert ? darkGrey : white
+}
+
+const FilterButton = styled(ResetButton)`
+  /* The padding is ruled by the text, not the button. */
+  padding: 0;
+
+  border-radius: 20px;
+  height: ${props => (props.mobile ? 32 : 40)}px;
+  background: ${props => (props.invert ? white : berryBlue)};
+`
+
+const FilterText = styled.div`
+  ${props => (props.mobile ? body3Css : body1Css)};
+
+  color: ${props => props.color};
+  padding: ${props => (props.mobile ? '6px 18px' : '8px 24px')};
+`
+
+function textStyle(leftIcon, rightIcon) {
   return {
-    paddingRight: rightIcon && 8,
-    paddingLeft: leftIcon && 8,
-    color
+    paddingRight: rightIcon ? 8 : undefined,
+    paddingLeft: leftIcon ? 8 : undefined
   }
 }
 
 const Button = React.forwardRef(function Button(
-  {label, rightIcon, leftIcon, onClick, variant, invert, textColor, href, disabled, loading, ...props},
+  {label, rightIcon, leftIcon, onClick, variant, invert, textColor, href, disabled, loading, mobile, ...props},
   ref
 ) {
   if (href && variant !== 'link') {
@@ -147,6 +210,8 @@ const Button = React.forwardRef(function Button(
         return FlatButton
       case 'link':
         return LinkButton
+      case 'filter':
+        return FilterButton
       default:
         return DefaultButton
     }
@@ -159,45 +224,39 @@ const Button = React.forwardRef(function Button(
       case 'flat':
       case 'link':
         return ActionText
+      case 'filter':
+        return FilterText
       default:
         return ButtonTextSecondary
     }
   }, [variant])
 
+  const colorFn = React.useMemo(
+    () =>
+      variant === 'primary'
+        ? primaryColor
+        : variant === 'flat'
+        ? flatColor
+        : variant === 'link'
+        ? linkColor
+        : variant === 'filter'
+        ? filterColor
+        : defaultColor,
+    [variant]
+  )
+
   const color = React.useMemo(() => {
+    const color = colorFn({disabled, invert})
     if (disabled) {
-      switch (variant) {
-        case 'primary':
-          return invert ? lightBeetrootPurpleAlpha(0.5) : lightGrey
-        case 'flat':
-        case 'link':
-          return invert ? lightGreyAlpha(0.5) : lightBeetrootPurpleAlpha(0.5)
-        default:
-          return invert ? lightGreyAlpha(0.5) : lightBeetrootPurpleAlpha(0.5)
-      }
+      return color
     }
 
+    // ? The textColor override takes precedence over the normal color, not the disabled one.
     if (textColor) {
       return textColor
     }
-
-    if (invert) {
-      switch (variant) {
-        case 'primary':
-          return lightBeetrootPurple
-        case 'flat':
-          return white
-        default:
-          return white
-      }
-    }
+    return color
   }, [variant, disabled, invert, textColor])
-
-  const iconStyle = {}
-
-  if (disabled) {
-    iconStyle.color = color
-  }
 
   const loaderColor = React.useMemo(() => {
     if (!loading) {
@@ -225,15 +284,18 @@ const Button = React.forwardRef(function Button(
       invert={invert}
       disabled={disabled}
       loading={loading}
+      mobile={mobile}
       {...props}
     >
       {loading ? (
         <Loader inline color={loaderColor} />
       ) : (
         <>
-          {leftIcon && React.cloneElement(leftIcon, iconStyle)}
-          <ButtonLabel style={textStyle(leftIcon, rightIcon, variant, invert, color)}>{label}</ButtonLabel>
-          {rightIcon && React.cloneElement(rightIcon, iconStyle)}
+          {leftIcon && React.cloneElement(leftIcon, {style: {color}})}
+          <ButtonLabel style={textStyle(leftIcon, rightIcon)} invert={invert} color={color} mobile={mobile}>
+            {label}
+          </ButtonLabel>
+          {rightIcon && React.cloneElement(rightIcon, {style: {color}})}
         </>
       )}
     </ButtonComponent>
@@ -252,7 +314,8 @@ Button.propTypes = {
   invert: PropTypes.bool,
   textColor: PropTypes.string,
   disabled: PropTypes.bool,
-  loading: PropTypes.bool
+  loading: PropTypes.bool,
+  mobile: PropTypes.bool
 }
 
 export default Button

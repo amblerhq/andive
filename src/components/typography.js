@@ -92,6 +92,23 @@ export const Body2 = styled.div.attrs({
   ${interpolateCss(body2Css)}
 `
 
+// Body3
+
+export const body3Css = css`
+  font-family: ${fontFamily};
+  font-weight: ${fontWeights.regular};
+  font-size: 14px;
+  line-height: 20px;
+  min-height: 20px;
+  color: ${darkGrey};
+`
+
+export const Body3 = styled.div.attrs({
+  'data-andive-type': 'typography'
+})`
+  ${interpolateCss(body3Css)}
+`
+
 // ButtonTextPrimary
 
 export const buttonTextPrimaryCss = css`

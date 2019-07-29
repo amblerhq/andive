@@ -4,7 +4,7 @@ import {storiesOf} from '@storybook/react'
 import Showcase from '../stories/showcase'
 import {Typography, palette} from '../index'
 
-const {H1, H2, Body1, Body2, ButtonTextPrimary, ButtonTextSecondary, ActionText} = Typography
+const {H1, H2, Body1, Body2, Body3, ButtonTextPrimary, ButtonTextSecondary, ActionText} = Typography
 
 storiesOf('Typography', module)
   .add('Library', () => {
@@ -22,6 +22,9 @@ storiesOf('Typography', module)
         </Showcase>
         <Showcase compact legend={'Body2'}>
           <Body2 style={{background: 'white'}}>{demoText}</Body2>
+        </Showcase>
+        <Showcase compact legend={'Body3'}>
+          <Body3 style={{background: 'white'}}>{demoText}</Body3>
         </Showcase>
         <Showcase compact legend={'ButtonTextPrimary'} invert>
           <ButtonTextPrimary>{demoText}</ButtonTextPrimary>
