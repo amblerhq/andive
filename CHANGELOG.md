@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.6.0](https://github.com/amblerhq/ambler/compare/v0.5.0...v0.6.0) (2019-07-29)
+
+
+### Features
+
+* **button:** add filter variant ([3da7974](https://github.com/amblerhq/ambler/commit/3da7974))
+* **dropdown-filter:** add dropdown-filter component ([3ebf4cc](https://github.com/amblerhq/ambler/commit/3ebf4cc))
+
+
+
 ## [0.5.0](https://github.com/amblerhq/ambler/compare/v0.4.0...v0.5.0) (2019-07-25)
 
 
