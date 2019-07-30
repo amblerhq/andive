@@ -43,6 +43,10 @@ const ShowcaseFilter = styled(Showcase)`
   justify-content: start;
 `
 
+const DropdownContent = styled.div`
+  width: 320px;
+`
+
 function RideStatusStory() {
   const [values, setValues] = React.useState({CONFIRMED: true})
   const selectedValues = Object.keys(values).filter(key => values[key])
@@ -57,19 +61,21 @@ function RideStatusStory() {
     <>
       <ShowcaseFilter>
         <DropdownFilter label={label} selected={selected} onClear={() => setValues({})}>
-          <CheckboxGroup
-            value={values}
-            onChange={values_ => {
-              setValues(values_)
-            }}
-          >
-            <RideStatusCheckbox name="CONFIRMED" label="Réalisé" color={palette.success} />
-            <RideStatusCheckbox name="BOOKED" label="Confirmé" color={palette.success} />
-            <RideStatusCheckbox name="SUPPORT" label="Incident signalé" color={palette.warning} />
-            <RideStatusCheckbox name="WAIT_TPTR_APPROVAL" label="En attente" color={palette.warning} />
-            <RideStatusCheckbox name="CANCELED" label="Annulé" color={palette.error} />
-            <RideStatusCheckbox name="NORIDE" label="Non réalisé" color={palette.error} />
-          </CheckboxGroup>
+          <DropdownContent>
+            <CheckboxGroup
+              value={values}
+              onChange={values_ => {
+                setValues(values_)
+              }}
+            >
+              <RideStatusCheckbox name="CONFIRMED" label="Réalisé" color={palette.success} />
+              <RideStatusCheckbox name="BOOKED" label="Confirmé" color={palette.success} />
+              <RideStatusCheckbox name="SUPPORT" label="Incident signalé" color={palette.warning} />
+              <RideStatusCheckbox name="WAIT_TPTR_APPROVAL" label="En attente" color={palette.warning} />
+              <RideStatusCheckbox name="CANCELED" label="Annulé" color={palette.error} />
+              <RideStatusCheckbox name="NORIDE" label="Non réalisé" color={palette.error} />
+            </CheckboxGroup>
+          </DropdownContent>
         </DropdownFilter>
       </ShowcaseFilter>
       <RandomPageContent />
