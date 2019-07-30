@@ -31,6 +31,7 @@ import Art80Icon from './icons/art80'
 import CerfaIcon from './icons/cerfa'
 import PatientIcon from './icons/patient'
 import DelegateIcon from './icons/delegate'
+import ExportIcon from './icons/export'
 
 import Icon from './icon'
 import Showcase from '../stories/showcase'
@@ -66,7 +67,8 @@ const icons = [
   CerfaIcon,
   PatientIcon,
   DelegateIcon,
-  MapIcon
+  MapIcon,
+  ExportIcon
 ]
 
 const blueIcons = [EditIcon, BackIcon, RadioOn, RadioOff, CheckboxOn, CheckboxOff]

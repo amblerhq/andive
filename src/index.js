@@ -95,6 +95,9 @@ export const DelegateIcon = DelegateIconComponent
 import MapIconComponent from './components/icons/map'
 export const MapIcon = MapIconComponent
 
+import ExportIconComponent from './components/icons/export'
+export const ExportIcon = ExportIconComponent
+
 /**
  * Illustrations
  */
