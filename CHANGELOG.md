@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.7.1](https://github.com/amblerhq/ambler/compare/v0.7.0...v0.7.1) (2019-07-30)
+
+
+### Bug Fixes
+
+* **dropdown-filter:** let the content control the width ([410b97e](https://github.com/amblerhq/ambler/commit/410b97e))
+
+
+
 ## [0.7.0](https://github.com/amblerhq/ambler/compare/v0.6.0...v0.7.0) (2019-07-30)
 
 
