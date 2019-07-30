@@ -113,7 +113,13 @@ function MenuFilter({label, selected, onSave, onClear, mobile, children, ...prop
     <>
       {open && <PageOverlay onClick={onCloseAndSave} />}
       <MenuFilterRoot open={open}>
-        <Button variant="filter" invert={selected || open ? false : true} label={label} onClick={onClick} />
+        <Button
+          variant="filter"
+          invert={selected || open ? false : true}
+          label={label}
+          onClick={onClick}
+          mobile={mobile}
+        />
         {open && (
           <Menu mobile={mobile} {...props}>
             {mobile && (
