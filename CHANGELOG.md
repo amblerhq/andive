@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.7.0](https://github.com/amblerhq/ambler/compare/v0.6.0...v0.7.0) (2019-07-30)
+
+
+### Bug Fixes
+
+* **filter:** fix not up to date prop-types ([4bcc4b4](https://github.com/amblerhq/ambler/commit/4bcc4b4))
+
+
+### Features
+
+* **icon:** add export icon ([72b55fc](https://github.com/amblerhq/ambler/commit/72b55fc))
+
+
+
 ## [0.6.0](https://github.com/amblerhq/ambler/compare/v0.5.0...v0.6.0) (2019-07-29)
 
 
