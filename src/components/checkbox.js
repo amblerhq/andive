@@ -79,13 +79,13 @@ function CheckboxComponent({label, checked, onChange, name, fullWidth, ...props}
         {!checked && <FadeInOut key="off">{radio ? <RadioOffIcon inline /> : <CheckboxOffIcon inline />}</FadeInOut>}
         {!!checked && <FadeInOut key="on">{radio ? <RadioOnIcon inline /> : <CheckboxOnIcon inline />}</FadeInOut>}
       </PoseGroup>
-      <Label>{label}</Label>
+      {label ? <Label>{label}</Label> : null}
     </Checkbox>
   )
 }
 
 CheckboxComponent.propTypes = {
-  label: PropTypes.string.isRequired,
+  label: PropTypes.string,
   checked: PropTypes.bool,
   onChange: PropTypes.func,
   name: PropTypes.string,

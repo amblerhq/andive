@@ -326,7 +326,7 @@ Button.propTypes = {
   onClick: PropTypes.func,
   href: PropTypes.string,
   /** Change the button look to "primary", "flat", "link" or undefined (defautlt) */
-  variant: PropTypes.oneOf(['primary', 'flat', 'link']),
+  variant: PropTypes.oneOf(['primary', 'flat', 'link', 'filter']),
   /** Inverse button colors to display on beetrootPurple background */
   invert: PropTypes.bool,
   backgroundColor: PropTypes.string,

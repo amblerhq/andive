@@ -144,7 +144,7 @@ function MenuFilter({label, selected, onSave, onClear, mobile, children}) {
 
 MenuFilter.propTypes = {
   label: PropTypes.string.isRequired,
-  selected: PropTypes.bool.isRequired,
+  selected: PropTypes.bool,
   onSave: PropTypes.func,
   onClear: PropTypes.func,
   mobile: PropTypes.bool,
