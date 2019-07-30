@@ -99,7 +99,7 @@ const StickyFooter = styled.div`
   z-index: ${ZIndexes.MODALS + 1};
 `
 
-function MenuFilter({label, selected, onSave, onClear, mobile, children, ...props}) {
+function MenuFilter({label, selected, onSave, onClear, onClose, mobile, children, ...props}) {
   const [open, setOpen] = React.useState(false)
   const onClick = React.useCallback(() => {
     setOpen(prev => !prev)
@@ -108,6 +108,10 @@ function MenuFilter({label, selected, onSave, onClear, mobile, children, ...prop
     setOpen(false)
     onSave && onSave()
   }, [setOpen, onSave])
+  const onCloseOnly = React.useCallback(() => {
+    setOpen(false)
+    onClose && onClose()
+  })
 
   return (
     <>
@@ -124,7 +128,7 @@ function MenuFilter({label, selected, onSave, onClear, mobile, children, ...prop
           <Menu mobile={mobile} {...props}>
             {mobile && (
               <MobileHeader>
-                <CloseButton onClick={() => setOpen(false)} />
+                <CloseButton onClick={onCloseOnly} />
                 <Button variant="flat" label="Effacer" onClick={onClear} />
               </MobileHeader>
             )}
@@ -151,6 +155,7 @@ MenuFilter.propTypes = {
   selected: PropTypes.bool,
   onSave: PropTypes.func,
   onClear: PropTypes.func,
+  onClose: PropTypes.func,
   mobile: PropTypes.bool,
   children: PropTypes.node
 }
