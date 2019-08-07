@@ -47,14 +47,14 @@ jobs:
 
     steps:
       - attach_workspace:
-        at: .
+          at: .
       - checkout
       - run:
-        name: Setup NPM
-        command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> ~/.npmrc
+          name: Setup NPM
+          command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> ~/.npmrc
       - run:
-        name: Push to NPM (tag canary)
-        command: npm publish --tag canary
+          name: Push to NPM (tag canary)
+          command: npm publish --tag canary
 
 workflows:
   version: 2
