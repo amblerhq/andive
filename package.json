@@ -1,6 +1,6 @@
 {
   "name": "@ambler/andive",
-  "version": "0.8.0",
+  "version": "0.9.0-canary.0",
   "description": "Ambler UI library",
   "main": "dist/index.js",
   "files": [
@@ -13,8 +13,8 @@
   "scripts": {
     "dev": "start-storybook -p 3042",
     "build": "babel src -d dist --ignore \"src/**/*.stories.js\",\"src/stories\",\"src/**/*.test.js\"",
-    "test": "echo test",
     "release": "standard-version",
+    "release:canary": "standard-version --prerelease canary",
     "share": "yarn build-storybook && cd storybook-static && now",
     "share:ci": "yarn build-storybook && cd storybook-static && now deploy --token=$ZEIT_TOKEN --target production"
   },
