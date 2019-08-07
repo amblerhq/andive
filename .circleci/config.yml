@@ -42,24 +42,6 @@ jobs:
           name: Push to NPM
           command: npm publish
 
-  deploy-storybook:
-    <<: *defaults
-
-    steps:
-      - checkout
-      # Download and cache dependencies
-      - restore_cache:
-          keys:
-            - v1-dependencies-{{ .Branch }}-{{ checksum "yarn.lock" }}
-            # fallback to using the latest cache if no exact match is found
-            - v1-dependencies-{{ .Branch }}-
-            - v1-dependencies-
-      - run: yarn install
-      - run:
-          name: Install Now CLI
-          command: sudo npm install --global --unsafe-perm now
-      - run: yarn share:ci
-
   deploy-canary:
     <<: *defaults
 
@@ -73,22 +55,6 @@ jobs:
       - run:
         name: Push to NPM (tag canary)
         command: npm publish --tag canary
-
-  deploy-canary-storybook:
-    steps:
-      - checkout
-      # Download and cache dependencies
-      - restore_cache:
-          keys:
-            - v1-dependencies-{{ .Branch }}-{{ checksum "yarn.lock" }}
-            # fallback to using the latest cache if no exact match is found
-            - v1-dependencies-{{ .Branch }}-
-            - v1-dependencies-
-      - run: yarn install
-      - run:
-          name: Install Now CLI
-          command: sudo npm install --global --unsafe-perm now
-      - run: yarn share:canary
 
 workflows:
   version: 2
@@ -113,21 +79,3 @@ workflows:
             branches:
               only:
                 - canary
-      - deploy-canary-storybook:
-        requires:
-          - deploy-canary
-        filters:
-          tags:
-            only: /^v\d+\.\d+\.\d+-canary\.\d+$/
-          branches:
-            only:
-              - canary
-      - deploy-storybook:
-          requires:
-            - deploy
-          filters:
-            tags:
-              only: /^v\d+\.\d+\.\d+$/
-            branches:
-              only:
-                - master
