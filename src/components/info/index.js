@@ -2,14 +2,11 @@ import React, {forwardRef} from 'react'
 import styled, {css} from 'styled-components'
 import PropTypes from 'prop-types'
 
-import {baselineCss} from '../baseline'
 import Item from './item'
 import Label from './label'
 import LabelIcon from './label-icon'
 
 const Info = styled.div`
-  ${baselineCss}
-
   padding: 8px;
   width: ${props => (props.fullWidth ? '100%' : 'auto')};
 

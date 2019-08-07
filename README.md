@@ -6,12 +6,41 @@ Style `<div />` the Ambler way.
 
 ## Getting started
 
-- `yarn add @ambler/andive react react-dom styled-components react-helmet`
+- `yarn add @ambler/andive react react-dom styled-components`
+
+### Any React project
+
+- Render the <Baseline /> component which reset the SPA Css.
+
+```
+import {Baseline} from '@ambler/andive'
+import App from './app'
+
+function HelloWorld() {
+  return (
+    <>
+      <Baseline />
+      <App />
+    </>
+  )
+}
+```
+
+- Import the Asap Google font (default Andive's font).
+
+```
+<head>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Asap" />
+</head>
+```
 
 ### With Next.js
-- Render <Baseline /> (without child) in `pages/_app.js` render method and setup react-helmet server-side rendering (see https://github.com/zeit/next.js/tree/master/examples/with-react-helmet)
+
+- Render <Baseline /> (without a child) in `pages/_app.js` render method.
+- Import the Asap font-familly in your project
 
 In `pages/_app.js`
+
 ```
 import React from 'react'
 import App, { Container } from 'next/app'
@@ -42,6 +71,7 @@ export default class MyApp extends App {
 ```
 
 In `pages/_document.js` (for react-helmet SSR support)
+
 ```
 import Document, { Head, Main, NextScript } from 'next/document'
 import Helmet from 'react-helmet'
@@ -88,7 +118,9 @@ export default class extends Document {
 ```
 
 ### With create-react-app
+
 - With create-react-app, render <Baseline /> (without child) at the top-most component.
+
 ```
 import React from 'react'
 import ReactDOM from 'react-dom'
@@ -106,13 +138,16 @@ ReactDOM.render(
 ## API
 
 ### Style solution
-  To style our components we use `styled-components`. To avoid collisions and let you configure your `styled-components` it is set as a _peerDependency_
+
+To style our components we use `styled-components`. To avoid collisions and let you configure your `styled-components` it is set as a _peerDependency_
 
 ### Typography
-  TODO
+
+TODO
 
 ### Components
-  TODO
+
+TODO
 
 ## Contribution
 
@@ -123,16 +158,17 @@ ReactDOM.render(
 ### Project dependencies and setup
 
 - Prettier
-    VSCode: we let eslint format the code through eslint. Keep `editor.formatOnSave` disabled to let
-    `eslint.autoFixOnSave` do his job.
+  VSCode: we let eslint format the code through eslint. Keep `editor.formatOnSave` disabled to let
+  `eslint.autoFixOnSave` do his job.
 - Eslint
-    `eslint` uses prettier to format and disable its rules. This can be done through `eslint-plugin-prettier` and `eslint-config-prettier`,
-    yet `eslint-plugin-prettier` exposes a "recommended" config that turns on both dependencies. See https://prettier.io/docs/en/eslint.html#use-both for more details.
+  `eslint` uses prettier to format and disable its rules. This can be done through `eslint-plugin-prettier` and `eslint-config-prettier`,
+  yet `eslint-plugin-prettier` exposes a "recommended" config that turns on both dependencies. See https://prettier.io/docs/en/eslint.html#use-both for more details.
 
-    `babel-eslint` is the parser used to lint.
+  `babel-eslint` is the parser used to lint.
 
-    `eslint-plugin-react` needs a configuration under `settings.react` key in `.eslintrc` to a least specify the react version. See https://github.com/yannickcr/eslint-plugin-react#configuration.
+  `eslint-plugin-react` needs a configuration under `settings.react` key in `.eslintrc` to a least specify the react version. See https://github.com/yannickcr/eslint-plugin-react#configuration.
+
 - Babel
-    babel is used to transpile our components to commonjs format.
+  babel is used to transpile our components to commonjs format.
 
 - Package versions are fixed with exact-version (except for peerDependencies because we want react and react-dom to match any minor update)

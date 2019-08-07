@@ -5,11 +5,8 @@ import PropTypes from 'prop-types'
 import {mediumGrey} from '../constants/palette'
 import {Body1} from './typography'
 import Select from './select'
-import {baselineCss} from './baseline'
 
 const Dropdown = styled.div`
-  ${baselineCss}
-
   width: ${props => (props.fullWidth ? '100%' : 'auto')};
   padding: 8px;
 `

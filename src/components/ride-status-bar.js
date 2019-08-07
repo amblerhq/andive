@@ -2,11 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
-import {baselineCss} from './baseline'
-
 export const RideStatusBar = styled.div`
-  ${baselineCss}
-
   width: 8px;
   height: 48px;
   border-radius: 2px;
