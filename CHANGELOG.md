@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.9.0](https://github.com/amblerhq/ambler/compare/v0.9.0-canary.3...v0.9.0) (2019-08-09)
+
+
+### Bug Fixes
+
+* **global:** fix global style ([1343795](https://github.com/amblerhq/ambler/commit/1343795))
+
+
+
 ## [0.9.0-canary.3](https://github.com/amblerhq/ambler/compare/v0.9.0-canary.2...v0.9.0-canary.3) (2019-08-07)
 
 
