@@ -98,6 +98,9 @@ export const MapIcon = MapIconComponent
 import ExportIconComponent from './components/icons/export'
 export const ExportIcon = ExportIconComponent
 
+import KebabIconComponent from './components/icons/kebab'
+export const KebabIcon = KebabIconComponent
+
 /**
  * Illustrations
  */
