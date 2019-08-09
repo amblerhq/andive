@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.9.1-canary.1](https://github.com/amblerhq/ambler/compare/v0.9.1-canary.0...v0.9.1-canary.1) (2019-08-09)
+
+
+### Bug Fixes
+
+* **info:** add default Info.icon size to 24 ([c531382](https://github.com/amblerhq/ambler/commit/c531382))
+
+
+
 ### [0.9.1-canary.0](https://github.com/amblerhq/ambler/compare/v0.9.0...v0.9.1-canary.0) (2019-08-09)
 
 
