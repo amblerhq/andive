@@ -1,17 +1,8 @@
 import React from 'react'
-import {css, createGlobalStyle} from 'styled-components'
+import PropTypes from 'prop-types'
+import {css, createGlobalStyle, ThemeProvider} from 'styled-components'
 
 import {fontFamily} from './typography'
-
-const andiveResetCss = css`
-  box-sizing: border-box;
-  font-family: ${fontFamily};
-
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-
-  fill: transparent;
-`
 
 const meyerResetCss = css`
   /* http://meyerweb.com/eric/tools/css/reset/ 
@@ -104,7 +95,6 @@ License: none (public domain)
     padding: 0;
     border: 0;
     font-size: 100%;
-    font: inherit;
     vertical-align: baseline;
   }
   /* HTML5 display-role reset for older browsers */
@@ -145,14 +135,34 @@ License: none (public domain)
   }
 `
 
-const BaselineCss = createGlobalStyle`
-  ${meyerResetCss}
-
+const andiveResetCss = css`
   * {
-    ${andiveResetCss}
+    box-sizing: border-box;
+    font-family: ${fontFamily};
+
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a {
+    text-decoration: none;
   }
 `
 
-export default function Baseline() {
-  return <BaselineCss />
+const BaselineCss = createGlobalStyle`
+  ${meyerResetCss}
+  ${andiveResetCss}
+`
+
+export default function AndiveProvider({children}) {
+  return (
+    <>
+      <BaselineCss />
+      <ThemeProvider>{children}</ThemeProvider>
+    </>
+  )
+}
+
+AndiveProvider.propTypes = {
+  children: PropTypes.node
 }
