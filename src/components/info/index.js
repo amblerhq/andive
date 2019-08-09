@@ -26,7 +26,7 @@ const InfoIcon = styled.div`
   top: 8px;
 `
 
-const InfoComponent = forwardRef(function InfoComponent({children, icon, iconSize = 0, fullWidth, ...props}, ref) {
+const InfoComponent = forwardRef(function InfoComponent({children, icon, iconSize = 24, fullWidth, ...props}, ref) {
   const hasIcon = !!icon
 
   return (
