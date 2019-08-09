@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.10.0-canary.0](https://github.com/amblerhq/ambler/compare/v0.9.1-canary.1...v0.10.0-canary.0) (2019-08-09)
+
+
+### Features
+
+* **icon:** add kebab icon ([3b1b7e0](https://github.com/amblerhq/ambler/commit/3b1b7e0))
+
+
+
 ### [0.9.1-canary.1](https://github.com/amblerhq/ambler/compare/v0.9.1-canary.0...v0.9.1-canary.1) (2019-08-09)
 
 
