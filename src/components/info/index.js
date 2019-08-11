@@ -7,7 +7,7 @@ import Label from './label'
 import LabelIcon from './label-icon'
 
 const Info = styled.div`
-  padding: 8px;
+  padding: ${props => props.theme.padding}px;
   width: ${props => (props.fullWidth ? '100%' : 'auto')};
 
   ${({hasIcon, iconSize}) =>

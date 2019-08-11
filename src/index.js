@@ -196,6 +196,9 @@ export const Select = SelectComponent
 import MenuComponent from './components/menu'
 export const Menu = MenuComponent
 
+import ThemeProviderComponent from './components/theme-provider'
+export const ThemeProvider = ThemeProviderComponent
+
 import TitleComponent from './components/title'
 export const Title = TitleComponent
 
