@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.10.0-canary.1](https://github.com/amblerhq/ambler/compare/v0.10.0-canary.0...v0.10.0-canary.1) (2019-08-11)
+
+
+### Features
+
+* **theme:** add ThemeProvider and hook typography sizes + paddig ([07c67ae](https://github.com/amblerhq/ambler/commit/07c67ae))
+
+
+
 ## [0.10.0-canary.0](https://github.com/amblerhq/ambler/compare/v0.9.1-canary.1...v0.10.0-canary.0) (2019-08-09)
 
 
