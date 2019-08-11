@@ -155,15 +155,16 @@ const BaselineCss = createGlobalStyle`
   ${andiveResetCss}
 `
 
-export default function AndiveProvider({children}) {
+export default function AndiveProvider({theme, children}) {
   return (
     <>
       <BaselineCss />
-      <ThemeProvider>{children}</ThemeProvider>
+      <ThemeProvider theme={theme}>{children}</ThemeProvider>
     </>
   )
 }
 
 AndiveProvider.propTypes = {
+  theme: PropTypes.object,
   children: PropTypes.node
 }

@@ -22,6 +22,6 @@ export default function AmblerThemeProvider({theme = defaultTheme, children}) {
 }
 
 AmblerThemeProvider.propTypes = {
-  theme: PropTypes.objectOf(defaultTheme),
-  children: PropTypes.node
+  theme: PropTypes.object,
+  children: PropTypes.node.isRequired
 }
