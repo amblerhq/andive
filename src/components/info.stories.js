@@ -3,121 +3,165 @@ import {storiesOf} from '@storybook/react'
 
 import Info from './info'
 import Showcase from '../stories/showcase'
-import VslIcon, {VslSvg} from './icons/vsl'
-import {AlertSvg} from './icons/alert'
+import VslIcon from './icons/vsl'
+import AlertIcon from './icons/alert'
+
+const shortLabel = 'Fan de Phil Collins'
+const longLabel =
+  'Philip David Charles Collins dit Phil Collins, né le 30 janvier 1951 à Chiswick (Londres), est un musicien, auteur-compositeur-interprète, acteur et producteur de disques britannique.'
 
 storiesOf('Info', module)
   .add('Label', () => {
     return (
-      <Showcase>
-        <Info style={{background: 'white'}}>
-          <Info.Label label={'Fan de Phil Collins'} />
-        </Info>
-      </Showcase>
+      <>
+        <Showcase>
+          <Info style={{background: 'white'}}>
+            <Info.Label label={shortLabel} />
+          </Info>
+        </Showcase>
+        <Showcase legend="Fixed width">
+          <Info style={{background: 'white', width: 300}}>
+            <Info.Label label={longLabel} />
+          </Info>
+        </Showcase>
+      </>
     )
   })
   .add('Label Item', () => {
     return (
-      <Showcase>
-        <Info style={{background: 'white'}}>
-          <Info.Label label={'Appartement de Phil'} />
-          <Info.Item item={'14225 Dives-sur-mer'} />
-        </Info>
-      </Showcase>
+      <>
+        <Showcase>
+          <Info style={{background: 'white'}}>
+            <Info.Label label={shortLabel} />
+            <Info.Item item={shortLabel} />
+          </Info>
+        </Showcase>
+        <Showcase legend="Fixed width (long label)">
+          <Info style={{background: 'white', width: 300}}>
+            <Info.Label label={longLabel} />
+            <Info.Item item={shortLabel} />
+          </Info>
+        </Showcase>
+        <Showcase legend="Fixed width (long item)">
+          <Info style={{background: 'white', width: 300}}>
+            <Info.Label label={shortLabel} />
+            <Info.Item item={longLabel} />
+          </Info>
+        </Showcase>
+      </>
     )
   })
   .add('Item Label', () => {
     return (
-      <Showcase>
-        <Info style={{background: 'white'}}>
-          <Info.Item item={'Raison du transport'} />
-          <Info.Label label={'Concert de Phil'} />
-        </Info>
-      </Showcase>
+      <>
+        <Showcase>
+          <Info style={{background: 'white'}}>
+            <Info.Item item={shortLabel} />
+            <Info.Label label={shortLabel} />
+          </Info>
+        </Showcase>
+        <Showcase legend="Fixed width (long label)">
+          <Info style={{background: 'white', width: 300}}>
+            <Info.Item item={shortLabel} />
+            <Info.Label label={longLabel} />
+          </Info>
+        </Showcase>
+        <Showcase legend="Fixed width (long item)">
+          <Info style={{background: 'white', width: 300}}>
+            <Info.Item item={longLabel} />
+            <Info.Label label={shortLabel} />
+          </Info>
+        </Showcase>
+      </>
     )
   })
   .add('Label Items', () => {
     return (
-      <Showcase>
-        <Info style={{background: 'white'}}>
-          <Info.Label label={'M Phil Collins (+1 accompagnateur)'} />
-          <Info.Item item={'0000000101010'} />
-          <Info.Item item={'30/01/1951 - 68 ans'} />
-        </Info>
-      </Showcase>
+      <>
+        <Showcase>
+          <Info style={{background: 'white'}}>
+            <Info.Label label={shortLabel} />
+            <Info.Item item={shortLabel} />
+            <Info.Item item={shortLabel} />
+          </Info>
+        </Showcase>
+        <Showcase legend="Fixed width (long label)">
+          <Info style={{background: 'white', width: 300}}>
+            <Info.Label label={longLabel} />
+            <Info.Item item={shortLabel} />
+            <Info.Item item={shortLabel} />
+          </Info>
+        </Showcase>
+        <Showcase legend="Fixed width (long items)">
+          <Info style={{background: 'white', width: 300}}>
+            <Info.Label label={shortLabel} />
+            <Info.Item item={longLabel} />
+            <Info.Item item={longLabel} />
+          </Info>
+        </Showcase>
+      </>
     )
   })
   .add('Label Icon', () => {
     return (
-      <Showcase>
-        <Info style={{background: 'white'}}>
-          <Info.LabelIcon label={'Voiture de Phil'} icon={<VslSvg />} />
-        </Info>
-      </Showcase>
+      <>
+        <Showcase>
+          <Info style={{background: 'white'}}>
+            <Info.LabelIcon label={'Voiture de Phil'} icon={<VslIcon inline />} iconSize={24} />
+          </Info>
+        </Showcase>
+        <Showcase legend="Fixed width (2 lines)">
+          <Info style={{background: 'white', width: 300}}>
+            <Info.LabelIcon label={longLabel.substr(0, 64)} icon={<VslIcon inline />} iconSize={24} />
+          </Info>
+        </Showcase>
+        <Showcase legend="Fixed width (long label)">
+          <Info style={{background: 'white', width: 300}}>
+            <Info.LabelIcon label={longLabel} icon={<VslIcon inline />} iconSize={24} />
+          </Info>
+        </Showcase>
+      </>
     )
   })
   .add('Item / Label Icon', () => {
     return (
-      <Showcase>
-        <Info style={{background: 'white'}}>
-          <Info.Item item="Besoins de Phil" />
-          <Info.LabelIcon label={'Piano'} icon={<AlertSvg />} />
-        </Info>
-      </Showcase>
+      <>
+        <Showcase>
+          <Info style={{background: 'white'}}>
+            <Info.Item item={shortLabel} />
+            <Info.LabelIcon label={shortLabel} icon={<AlertIcon inline />} iconSize={24} />
+          </Info>
+        </Showcase>
+        <Showcase legend="Fixed width (2 lines)">
+          <Info style={{background: 'white', width: 300}}>
+            <Info.Item item={shortLabel} />
+            <Info.LabelIcon label={longLabel.substr(0, 64)} icon={<AlertIcon inline />} iconSize={24} />
+          </Info>
+        </Showcase>
+        <Showcase legend="Fixed width (long label)">
+          <Info style={{background: 'white', width: 300}}>
+            <Info.Item item={shortLabel} />
+            <Info.LabelIcon label={longLabel} icon={<AlertIcon inline />} iconSize={24} />
+          </Info>
+        </Showcase>
+      </>
     )
   })
-  .add('Icon / Item', () => {
+  .add('Icon / Items & Labels', () => {
     return (
-      <Showcase>
-        <Info icon={<VslIcon circle />} iconSize={32} style={{background: 'white'}}>
-          <Info.Item item="Besoins de Phil" />
-        </Info>
-      </Showcase>
-    )
-  })
-  .add('Icon / Item Label', () => {
-    return (
-      <Showcase>
-        <Info icon={<VslIcon circle />} style={{background: 'white'}}>
-          <Info.Item item="Besoins de Phil" />
-          <Info.Label label={'Une voiture !'} />
-        </Info>
-      </Showcase>
-    )
-  })
-  .add('Icon / Label Item', () => {
-    return (
-      <Showcase>
-        <Info icon={<VslIcon circle />} style={{background: 'white'}}>
-          <Info.Label label={'Une voiture !'} />
-          <Info.Item item="Besoins de Phil" />
-        </Info>
-      </Showcase>
-    )
-  })
-  .add('LabelItem side with ItemLabel', () => {
-    return (
-      <Showcase>
-        <Info style={{background: 'white'}}>
-          <Info.Label label={'Concert de Phil'} />
-          <Info.Item item={'Raison du transport'} />
-        </Info>
-        <Info style={{background: 'white'}}>
-          <Info.Item item={'Raison du transport'} />
-          <Info.Label label={'Concert de Phil'} />
-        </Info>
-        <Info style={{background: 'white'}}>
-          <Info.Label label={'Concert de Phil'} />
-          <Info.Item item={'Raison du transport'} />
-        </Info>
-        <Info style={{background: 'white'}}>
-          <Info.Item item={'Raison du transport'} />
-          <Info.Label label={'Concert de Phil'} />
-        </Info>
-        <Info style={{background: 'white'}}>
-          <Info.Label label={'Concert de Phil'} />
-          <Info.Item item={'Raison du transport'} />
-        </Info>
-      </Showcase>
+      <>
+        <Showcase>
+          <Info icon={<VslIcon circle />} iconSize={32} style={{background: 'white'}}>
+            <Info.Label label={shortLabel} />
+            <Info.Item item={shortLabel} />
+          </Info>
+        </Showcase>
+        <Showcase legend="Fixed width (long label)">
+          <Info icon={<VslIcon circle />} iconSize={32} style={{background: 'white', width: 300}}>
+            <Info.Label label={longLabel} />
+            <Info.Item item={longLabel} />
+          </Info>
+        </Showcase>
+      </>
     )
   })
