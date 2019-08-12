@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.11.0-canary.1](https://github.com/amblerhq/ambler/compare/v0.11.0-canary.0...v0.11.0-canary.1) (2019-08-12)
+
+
+### Bug Fixes
+
+* **info:** info can grow height ([7fb8a61](https://github.com/amblerhq/ambler/commit/7fb8a61))
+
+
+
 ## [0.11.0-canary.0](https://github.com/amblerhq/ambler/compare/v0.10.0...v0.11.0-canary.0) (2019-08-12)
 
 
