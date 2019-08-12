@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.10.0-canary.4](https://github.com/amblerhq/ambler/compare/v0.10.0-canary.2...v0.10.0-canary.4) (2019-08-12)
+
+
+### Bug Fixes
+
+* **autocomplete:** fix autocomplete initial value ([3f93c61](https://github.com/amblerhq/ambler/commit/3f93c61))
+* **baseline:** set svg filling as transparent by default ([6242602](https://github.com/amblerhq/ambler/commit/6242602))
+
+
+
 ## [0.10.0-canary.3](https://github.com/amblerhq/ambler/compare/v0.10.0-canary.2...v0.10.0-canary.3) (2019-08-12)
 
 
