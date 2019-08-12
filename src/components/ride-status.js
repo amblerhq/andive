@@ -3,13 +3,10 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 import {Body2} from './typography'
-import {baselineCss} from './baseline'
 
 import RideStatusBar from './ride-status-bar'
 
 const RideStatus = styled.div`
-  ${baselineCss}
-
   width: 100%;
   min-height: 64px;
 

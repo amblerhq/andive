@@ -1,20 +1,23 @@
 import React from 'react'
-import { configure, addDecorator, addParameters } from '@storybook/react';
+import { configure, addDecorator, addParameters } from '@storybook/react'
 
-import Baseline from '../src/components/baseline';
-import theme from './ambler-theme';
+import Baseline from '../src/components/baseline'
+import theme from './ambler-theme'
 
 addParameters({
   options: {
-    theme,
-  },
-});
+    theme
+  }
+})
 
 addDecorator(storyFn => {
-  return <>
-    <Baseline />
-    {storyFn()}
-  </>
+  return (
+    <>
+      <Baseline>
+        {storyFn()}
+      </Baseline>
+    </>
+  )
 })
 
 function loadStories() {
@@ -38,9 +41,10 @@ function loadStories() {
   require('../src/constants/palette.stories')
   require('../src/components/ride-status.stories')
   require('../src/components/select.stories')
+  require('../src/components/theme.stories')
   require('../src/components/title.stories')
   require('../src/components/typography.stories')
   require('../src/components/toast.stories')
 }
 
-configure(loadStories, module);
+configure(loadStories, module)

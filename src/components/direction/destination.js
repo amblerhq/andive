@@ -5,18 +5,13 @@ import PropTypes from 'prop-types'
 import useElementRect from '../../lib/use-element-rect'
 import {Body1, isTypography} from '../typography'
 import {darkGrey} from '../../constants/palette'
-import {baselineCss} from '../baseline'
 
 const Destination = styled.div`
-  ${baselineCss}
-
   position: relative;
   padding-left: ${props => (props.label ? 24 + 61 : 24)}px;
 `
 
 const DestinationIcon = styled.div`
-  ${baselineCss}
-
   position: absolute;
   left: ${props => (props.label ? 69 : 0)}px;
   top: 0;
@@ -26,8 +21,6 @@ const DestinationIcon = styled.div`
 `
 
 const DestinationPoint = styled.div`
-  ${baselineCss}
-
   position: absolute;
 
   width: 8px;
@@ -42,8 +35,6 @@ const DestinationPoint = styled.div`
   background: white;
 `
 const DestinationRoad = styled.div`
-  ${baselineCss}
-
   position: absolute;
 
   left: calc(50% - 10px);
@@ -68,8 +59,6 @@ const DestinationRoad = styled.div`
 `
 
 const AsideLabel = styled(Body1)`
-  ${baselineCss}
-
   position: absolute;
   top: ${props => (props.offsetY ? props.offsetY - 16 : -10)}px;
   left: 0;

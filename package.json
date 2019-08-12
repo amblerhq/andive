@@ -1,6 +1,6 @@
 {
   "name": "@ambler/andive",
-  "version": "0.8.0",
+  "version": "0.10.0-canary.5",
   "description": "Ambler UI library",
   "main": "dist/index.js",
   "files": [
@@ -13,8 +13,8 @@
   "scripts": {
     "dev": "start-storybook -p 3042",
     "build": "babel src -d dist --ignore \"src/**/*.stories.js\",\"src/stories\",\"src/**/*.test.js\"",
-    "test": "echo test",
     "release": "standard-version",
+    "release:canary": "standard-version --prerelease canary",
     "share": "yarn build-storybook && cd storybook-static && now",
     "share:ci": "yarn build-storybook && cd storybook-static && now deploy --token=$ZEIT_TOKEN --target production"
   },
@@ -40,7 +40,6 @@
     "react": "16.8.6",
     "react-copy-to-clipboard": "5.0.1",
     "react-dom": "16.8.6",
-    "react-helmet": "5.2.1",
     "standard-version": "6.0.1",
     "styled-components": "4.2.1",
     "urql": "1.0.5"
@@ -49,7 +48,6 @@
     "moment": "^2.24.0",
     "react": "^16.8.5",
     "react-dom": "^16.8.5",
-    "react-helmet": "^5.2.0",
     "styled-components": "^4.2.0"
   },
   "dependencies": {

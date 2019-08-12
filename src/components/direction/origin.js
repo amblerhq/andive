@@ -5,18 +5,13 @@ import PropTypes from 'prop-types'
 import useElementRect from '../../lib/use-element-rect'
 import {darkGrey} from '../../constants/palette'
 import {Body1} from '../typography'
-import {baselineCss} from '../baseline'
 
 const Origin = styled.div`
-  ${baselineCss}
-
   position: relative;
   padding-left: ${props => (props.label ? 24 + 61 : 24)}px;
 `
 
 const OriginIcon = styled.div`
-  ${baselineCss}
-
   position: absolute;
   left: ${props => (props.label ? 69 : 0)}px;
   top: 0;
@@ -26,8 +21,6 @@ const OriginIcon = styled.div`
 `
 
 const OriginPoint = styled.div`
-  ${baselineCss}
-
   position: absolute;
 
   width: 8px;
@@ -42,8 +35,6 @@ const OriginPoint = styled.div`
   background: white;
 `
 const OriginRoad = styled.div`
-  ${baselineCss}
-
   position: absolute;
 
   left: calc(50% - 10px);
@@ -68,8 +59,6 @@ const OriginRoad = styled.div`
 `
 
 const AsideLabel = styled(Body1)`
-  ${baselineCss}
-
   position: absolute;
   top: ${props => (props.offsetY ? props.offsetY - 20 : -8)}px;
   left: 0;

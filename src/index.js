@@ -98,6 +98,9 @@ export const MapIcon = MapIconComponent
 import ExportIconComponent from './components/icons/export'
 export const ExportIcon = ExportIconComponent
 
+import KebabIconComponent from './components/icons/kebab'
+export const KebabIcon = KebabIconComponent
+
 /**
  * Illustrations
  */
@@ -192,6 +195,9 @@ export const Select = SelectComponent
 
 import MenuComponent from './components/menu'
 export const Menu = MenuComponent
+
+import ThemeProviderComponent from './components/theme-provider'
+export const ThemeProvider = ThemeProviderComponent
 
 import TitleComponent from './components/title'
 export const Title = TitleComponent

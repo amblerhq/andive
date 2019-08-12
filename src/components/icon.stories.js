@@ -32,6 +32,7 @@ import CerfaIcon from './icons/cerfa'
 import PatientIcon from './icons/patient'
 import DelegateIcon from './icons/delegate'
 import ExportIcon from './icons/export'
+import KebabIcon from './icons/kebab'
 
 import Icon from './icon'
 import Showcase from '../stories/showcase'
@@ -68,7 +69,8 @@ const icons = [
   PatientIcon,
   DelegateIcon,
   MapIcon,
-  ExportIcon
+  ExportIcon,
+  KebabIcon
 ]
 
 const blueIcons = [EditIcon, BackIcon, RadioOn, RadioOff, CheckboxOn, CheckboxOff]

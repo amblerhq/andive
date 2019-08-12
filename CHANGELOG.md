@@ -2,6 +2,104 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.10.0-canary.5](https://github.com/amblerhq/ambler/compare/v0.10.0-canary.4...v0.10.0-canary.5) (2019-08-12)
+
+
+### Bug Fixes
+
+* **icon:** fix patient icon default stroke color ([d8c8638](https://github.com/amblerhq/ambler/commit/d8c8638))
+
+
+
+## [0.10.0-canary.4](https://github.com/amblerhq/ambler/compare/v0.10.0-canary.2...v0.10.0-canary.4) (2019-08-12)
+
+
+### Bug Fixes
+
+* **autocomplete:** fix autocomplete initial value ([3f93c61](https://github.com/amblerhq/ambler/commit/3f93c61))
+* **baseline:** set svg filling as transparent by default ([6242602](https://github.com/amblerhq/ambler/commit/6242602))
+
+
+
+## [0.10.0-canary.3](https://github.com/amblerhq/ambler/compare/v0.10.0-canary.2...v0.10.0-canary.3) (2019-08-12)
+
+
+### Bug Fixes
+
+* **autocomplete:** fix autocomplete initial value ([3f93c61](https://github.com/amblerhq/ambler/commit/3f93c61))
+
+
+
+## [0.10.0-canary.2](https://github.com/amblerhq/ambler/compare/v0.10.0-canary.1...v0.10.0-canary.2) (2019-08-11)
+
+
+### Bug Fixes
+
+* **theme:** fix default theme provider ([5f8ec5f](https://github.com/amblerhq/ambler/commit/5f8ec5f))
+
+
+
+## [0.10.0-canary.1](https://github.com/amblerhq/ambler/compare/v0.10.0-canary.0...v0.10.0-canary.1) (2019-08-11)
+
+
+### Features
+
+* **theme:** add ThemeProvider and hook typography sizes + paddig ([07c67ae](https://github.com/amblerhq/ambler/commit/07c67ae))
+
+
+
+## [0.10.0-canary.0](https://github.com/amblerhq/ambler/compare/v0.9.1-canary.1...v0.10.0-canary.0) (2019-08-09)
+
+
+### Features
+
+* **icon:** add kebab icon ([3b1b7e0](https://github.com/amblerhq/ambler/commit/3b1b7e0))
+
+
+
+### [0.9.1-canary.1](https://github.com/amblerhq/ambler/compare/v0.9.1-canary.0...v0.9.1-canary.1) (2019-08-09)
+
+
+### Bug Fixes
+
+* **info:** add default Info.icon size to 24 ([c531382](https://github.com/amblerhq/ambler/commit/c531382))
+
+
+
+### [0.9.1-canary.0](https://github.com/amblerhq/ambler/compare/v0.9.0...v0.9.1-canary.0) (2019-08-09)
+
+
+
+## [0.9.0](https://github.com/amblerhq/ambler/compare/v0.9.0-canary.3...v0.9.0) (2019-08-09)
+
+
+### Bug Fixes
+
+* **global:** fix global style ([1343795](https://github.com/amblerhq/ambler/commit/1343795))
+
+
+
+## [0.9.0-canary.3](https://github.com/amblerhq/ambler/compare/v0.9.0-canary.2...v0.9.0-canary.3) (2019-08-07)
+
+
+
+## [0.9.0-canary.2](https://github.com/amblerhq/ambler/compare/v0.9.0-canary.1...v0.9.0-canary.2) (2019-08-07)
+
+
+
+## [0.9.0-canary.1](https://github.com/amblerhq/ambler/compare/v0.9.0-canary.0...v0.9.0-canary.1) (2019-08-07)
+
+
+
+## [0.9.0-canary.0](https://github.com/amblerhq/ambler/compare/v0.8.0...v0.9.0-canary.0) (2019-08-07)
+
+
+### Features
+
+* **baseline:** use meyers reset and apply some custom reset to all global style ([2e49939](https://github.com/amblerhq/ambler/commit/2e49939))
+
+
+
 ## [0.8.0](https://github.com/amblerhq/ambler/compare/v0.7.2...v0.8.0) (2019-07-30)
 
 

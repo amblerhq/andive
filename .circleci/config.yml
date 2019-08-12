@@ -11,27 +11,19 @@ jobs:
 
     steps:
       - checkout
-
       # Download and cache dependencies
       - restore_cache:
           keys:
-          - v1-dependencies-{{ .Branch }}-{{ checksum "yarn.lock" }}
-          # fallback to using the latest cache if no exact match is found
-          - v1-dependencies-{{ .Branch }}-
-          - v1-dependencies-
-
+            - v1-dependencies-{{ .Branch }}-{{ checksum "yarn.lock" }}
+            # fallback to using the latest cache if no exact match is found
+            - v1-dependencies-{{ .Branch }}-
+            - v1-dependencies-
       - run: yarn install
-
       - save_cache:
           paths:
             - node_modules
           key: v1-dependencies-{{ checksum "yarn.lock" }}
-
       - run: yarn build
-
-      # run tests!
-      - run: yarn test
-
       - persist_to_workspace:
           root: .
           paths: .
@@ -50,32 +42,25 @@ jobs:
           name: Push to NPM
           command: npm publish
 
-  deploy-storybook:
+  deploy-canary:
     <<: *defaults
 
     steps:
+      - attach_workspace:
+          at: .
       - checkout
-      # Download and cache dependencies
-      - restore_cache:
-          keys:
-          - v1-dependencies-{{ .Branch }}-{{ checksum "yarn.lock" }}
-          # fallback to using the latest cache if no exact match is found
-          - v1-dependencies-{{ .Branch }}-
-          - v1-dependencies-
-      - run: yarn install
       - run:
-          name: Install Now CLI
-          command: sudo npm install --global --unsafe-perm now
-      - run: yarn share:ci
+          name: Setup NPM
+          command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> ~/.npmrc
+      - run:
+          name: Push to NPM (tag canary)
+          command: npm publish --tag canary
 
 workflows:
   version: 2
   build-and-deploy:
     jobs:
-      - build:
-          filters:
-            tags:
-              only: /.*/
+      - build
       - deploy:
           requires:
             - build
@@ -83,13 +68,14 @@ workflows:
             tags:
               only: /^v\d+\.\d+\.\d+$/
             branches:
-              ignore: /.*/
-      - deploy-storybook:
+              only:
+                - master
+      - deploy-canary:
           requires:
-            - deploy
+            - build
           filters:
             tags:
-              only: /^v\d+\.\d+\.\d+$/
+              only: /^v\d+\.\d+\.\d+-canary\.\d+$/
             branches:
-              ignore: /.*/
-           
+              only:
+                - canary

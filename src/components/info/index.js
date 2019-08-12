@@ -2,15 +2,12 @@ import React, {forwardRef} from 'react'
 import styled, {css} from 'styled-components'
 import PropTypes from 'prop-types'
 
-import {baselineCss} from '../baseline'
 import Item from './item'
 import Label from './label'
 import LabelIcon from './label-icon'
 
 const Info = styled.div`
-  ${baselineCss}
-
-  padding: 8px;
+  padding: ${props => props.theme.padding}px;
   width: ${props => (props.fullWidth ? '100%' : 'auto')};
 
   ${({hasIcon, iconSize}) =>
@@ -29,7 +26,7 @@ const InfoIcon = styled.div`
   top: 8px;
 `
 
-const InfoComponent = forwardRef(function InfoComponent({children, icon, iconSize = 0, fullWidth, ...props}, ref) {
+const InfoComponent = forwardRef(function InfoComponent({children, icon, iconSize = 24, fullWidth, ...props}, ref) {
   const hasIcon = !!icon
 
   return (

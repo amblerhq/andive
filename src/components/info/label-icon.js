@@ -3,11 +3,8 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 import {Body1} from '../typography'
-import {baselineCss} from '../baseline'
 
 const LabelIcon = styled.div`
-  ${baselineCss}
-
   height: 32px;
   width: 100%;
 

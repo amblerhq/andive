@@ -2,7 +2,6 @@ import React from 'react'
 import styled, {css} from 'styled-components'
 import PropTypes from 'prop-types'
 
-import {baselineCss} from './baseline'
 import {
   white,
   lightBeetrootPurple,
@@ -16,8 +15,6 @@ import {ButtonTextPrimary, ButtonTextSecondary, ActionText, body1Css, body3Css} 
 import Loader from './loader'
 
 const ResetButton = styled.button`
-  ${baselineCss}
-
   outline: none;
   cursor: pointer;
   border: none;
