@@ -167,12 +167,8 @@ const AutocompleteComponent = React.forwardRef(function AutocompleteComponent(
       return
     }
 
-    if (freeInput) {
-      setUnstable(true)
-    } else {
-      setInput(mapValueToInput(value))
-      setUnstable(false)
-    }
+    setInput(mapValueToInput(value))
+    setUnstable(false)
   }, [value, focus, mapValueToInput])
 
   const onSelectItem = React.useCallback(
