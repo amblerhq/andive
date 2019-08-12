@@ -148,6 +148,10 @@ const andiveResetCss = css`
   a {
     text-decoration: none;
   }
+
+  svg {
+    fill: transparent;
+  }
 `
 
 const BaselineCss = createGlobalStyle`
