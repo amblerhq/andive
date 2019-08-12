@@ -11,7 +11,7 @@ import {
   lightGrey,
   darkGrey
 } from '../constants/palette'
-import {ButtonTextPrimary, ButtonTextSecondary, ActionText, body1Css, body3Css} from './typography'
+import {Body2, ActionText, body1Css, body3Css} from './typography'
 import Loader from './loader'
 
 const ResetButton = styled.button`
@@ -20,11 +20,16 @@ const ResetButton = styled.button`
   border: none;
   background: none;
 
-  padding: 8px;
+  padding: ${props => props.theme.padding}px;
 
   display: flex;
   justify-content: center;
   align-items: center;
+`
+
+const DefaultButtonText = styled(Body2)`
+  text-transform: uppercase;
+  font-size: ${props => (props.mobile ? 14 : 16)}px;
 `
 
 // * Default/secondary variant
@@ -41,11 +46,11 @@ const DefaultButton = styled(ResetButton)`
   border: 1px solid ${({invert}) => (invert ? white : lightBeetrootPurple)};
   background-color: ${({invert, backgroundColor}) => backgroundColor || (invert ? lightBeetrootPurple : white)};
   color: ${props => props.color};
-  height: 56px;
+  height: ${props => (props.mobile ? 40 : 56)}px;
   border-radius: 28px;
   box-shadow: 0 2px 5px 0 rgba(5, 71, 82, 0.2);
 
-  padding: 16px 24px;
+  padding: ${props => (props.mobile ? '8px 16px' : '16px 24px')};
 
   ${props =>
     props.disabled &&
@@ -60,7 +65,7 @@ const DefaultButton = styled(ResetButton)`
     props.loading &&
     css`
       padding: 0;
-      min-width: 56px;
+      min-width: ${props => (props.mobile ? 40 : 56)}px;
       cursor: progress;
     `}
 `
@@ -74,15 +79,12 @@ function primaryColor({disabled, invert}) {
   return invert ? lightBeetrootPurple : white
 }
 
-const PrimaryButton = styled(ResetButton)`
+const PrimaryButton = styled(DefaultButton)`
   border: 1px solid ${lightBeetrootPurple};
   background-color: ${({invert, backgroundColor}) => backgroundColor || (invert ? white : lightBeetrootPurple)};
   color: ${props => props.color};
-  height: 56px;
   border-radius: 28px;
   box-shadow: 0 2px 5px 0 rgba(5, 71, 82, 0.2);
-
-  padding: 16px 24px;
 
   ${props =>
     props.disabled &&
@@ -91,14 +93,6 @@ const PrimaryButton = styled(ResetButton)`
       border: 1px solid ${({invert}) => (invert ? lightGreyAlpha(0.5) : lightBeetrootPurpleAlpha(0.5))};
       cursor: not-allowed;
       box-shadow: none;
-    `}
-
-  ${props =>
-    props.loading &&
-    css`
-      padding: 0;
-      min-width: 56px;
-      cursor: progress;
     `}
 `
 
@@ -231,15 +225,14 @@ const Button = React.forwardRef(function Button(
 
   const ButtonLabel = React.useMemo(() => {
     switch (variant) {
-      case 'primary':
-        return ButtonTextPrimary
       case 'flat':
       case 'link':
         return ActionText
       case 'filter':
         return FilterText
+      case 'primary':
       default:
-        return ButtonTextSecondary
+        return DefaultButtonText
     }
   }, [variant])
 

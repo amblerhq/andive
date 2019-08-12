@@ -9,6 +9,7 @@ import AmbulanceIcon from './icons/ambulance'
 import VslIcon from './icons/vsl'
 import BariatricIcon from './icons/bariatric'
 import TpmrIcon from './icons/tpmr'
+import PatientIcon from './icons/patient'
 
 import EditIcon from './icons/edit'
 import LogoutIcon from './icons/logout'
@@ -39,20 +40,59 @@ function TimedIcon({interval, color, children}) {
 }
 
 storiesOf('Button', module)
+  .add('Showcase', () => (
+    <>
+      <Showcase legend="Desktop">
+        <Button label="Je suis fan" />
+        <div style={{width: 32}} />
+        <Button variant="primary" label="Je suis fan" />
+        <div style={{width: 32}} />
+        <Button disabled variant="primary" label="Je suis fan" />
+        <div style={{width: 32}} />
+        <Button loading variant="primary" label="Je suis fan" />
+        <div style={{width: 32}} />
+        <Button variant="primary" label="Je suis fan" rightIcon={<PatientIcon inline color="white" />} />
+      </Showcase>
+      <Showcase legend="Mobile">
+        <Button mobile label="Je suis fan" />
+        <div style={{width: 32}} />
+        <Button mobile variant="primary" label="Je suis fan" />
+        <div style={{width: 32}} />
+        <Button mobile disabled variant="primary" label="Je suis fan" />
+        <div style={{width: 32}} />
+        <Button mobile loading variant="primary" label="Je suis fan" />
+        <div style={{width: 32}} />
+        <Button mobile variant="primary" label="Je suis fan" rightIcon={<PatientIcon inline color="white" />} />
+      </Showcase>
+    </>
+  ))
   .add('Default', () => (
     <>
-      <Showcase>
+      <Showcase legend="Default (desktop)">
         <Button label="Je suis fan" />
+        <div style={{width: 32}} />
+        <Button label="Enregistrer mes changements" />
       </Showcase>
-      <Showcase>
-        <Button label={'Enregistrer mes changements'} />
+      <Showcase legend="Default (mobile)">
+        <Button label="Je suis fan" mobile />
+        <div style={{width: 32}} />
+        <Button label="Enregistrer mes changements" mobile />
       </Showcase>
     </>
   ))
   .add('Primary', () => (
-    <Showcase>
-      <Button variant="primary" label="Je suis fan" />
-    </Showcase>
+    <>
+      <Showcase legend="Default (desktop)">
+        <Button variant="primary" label="Je suis fan" />
+        <div style={{width: 32}} />
+        <Button variant="primary" label="Enregistrer mes changements" />
+      </Showcase>
+      <Showcase legend="Default (mobile)">
+        <Button variant="primary" label="Je suis fan" mobile />
+        <div style={{width: 32}} />
+        <Button variant="primary" label="Enregistrer mes changements" mobile />
+      </Showcase>
+    </>
   ))
   .add('Flat', () => {
     return (
