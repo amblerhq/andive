@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.11.0-canary.2](https://github.com/amblerhq/ambler/compare/v0.11.0-canary.1...v0.11.0-canary.2) (2019-08-14)
+
+
+### Features
+
+* **colors:** add missing alphas + foreground colors ([4adee91](https://github.com/amblerhq/ambler/commit/4adee91))
+* **icons:** add many icons ([c610ac8](https://github.com/amblerhq/ambler/commit/c610ac8))
+* **info:** add Block compound component ([4569d72](https://github.com/amblerhq/ambler/commit/4569d72))
+
+
+
 ## [0.11.0-canary.1](https://github.com/amblerhq/ambler/compare/v0.11.0-canary.0...v0.11.0-canary.1) (2019-08-12)
 
 
