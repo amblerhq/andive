@@ -44,6 +44,7 @@ import RidesIcon from './icons/rides'
 import OrdersIcon from './icons/orders'
 import DashboardIcon from './icons/dashboard'
 import BurgerIcon from './icons/burger'
+import IncidentIcon from './icons/incident'
 
 import Icon from './icon'
 import Showcase from '../stories/showcase'
@@ -84,6 +85,7 @@ const icons = [
   CheckIcon,
   WarningIcon,
   ForbiddenIcon,
+  IncidentIcon,
   MfIcon,
   MfuIcon,
   MtIcon,

@@ -19,8 +19,8 @@ const SvgRoot = styled.div`
 const IconRoot = styled(SvgRoot)`
   position: relative;
 
-  width: 32px;
-  height: 32px;
+  width: ${props => (props.inline ? props.size : 32)}px;
+  height: ${props => (props.inline ? props.size : 32)}px;
 
   border-radius: ${props => (props.circle ? '50%' : 0)};
   background: ${props => (props.circle ? props.circleColor || '#ededed' : 'inherit')};
@@ -41,8 +41,10 @@ const Icon = ({circle, circleColor, color, children, iconProps, inline, ...props
   }
 
   return (
-    <IconRoot circleColor={circleColor} circle={circle} color={color} {...props}>
-      <IconWrapper size={size}>{React.cloneElement(children, {...(iconProps || {})})}</IconWrapper>
+    <IconRoot size={size} circleColor={circleColor} circle={circle} color={color} {...props}>
+      <IconWrapper size={size} inline={inline}>
+        {React.cloneElement(children, {...(iconProps || {})})}
+      </IconWrapper>
     </IconRoot>
   )
 }

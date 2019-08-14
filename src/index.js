@@ -110,6 +110,9 @@ export const WarningIcon = WarningIconComponent
 import ForbiddenIconComponent from './components/icons/forbidden'
 export const ForbiddenIcon = ForbiddenIconComponent
 
+import IncidentIconComponent from './components/icons/incident'
+export const IncidentIcon = IncidentIconComponent
+
 import MfIconComponent from './components/icons/mf'
 export const MfIcon = MfIconComponent
 
