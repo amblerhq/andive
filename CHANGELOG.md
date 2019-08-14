@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.11.0-canary.3](https://github.com/amblerhq/ambler/compare/v0.11.0-canary.2...v0.11.0-canary.3) (2019-08-14)
+
+
+### Features
+
+* **icon:** add incident icon ([5a89a75](https://github.com/amblerhq/ambler/commit/5a89a75))
+* **info:** add stickyIcon mode + lighter colors for info block ([9c85806](https://github.com/amblerhq/ambler/commit/9c85806))
+
+
+
 ## [0.11.0-canary.2](https://github.com/amblerhq/ambler/compare/v0.11.0-canary.1...v0.11.0-canary.2) (2019-08-14)
 
 

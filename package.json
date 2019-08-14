@@ -1,6 +1,6 @@
 {
   "name": "@ambler/andive",
-  "version": "0.11.0-canary.2",
+  "version": "0.11.0-canary.3",
   "description": "Ambler UI library",
   "main": "dist/index.js",
   "files": [
