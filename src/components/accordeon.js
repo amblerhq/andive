@@ -6,9 +6,10 @@ import Info from './info'
 import ArrowDownIcon from './icons/arrow-down'
 import ArrowUpIcon from './icons/arrow-up'
 import * as palette from '../constants/palette'
+import HSpace from './h-space'
 
 const Accordeon = styled.div`
-  width: 100%;
+  padding: 8px 16px 8px 8px;
 `
 
 const AccordeonButton = styled.div`
@@ -32,6 +33,7 @@ function AccordeonComponent({label, openByDefault, icon, iconSize, children}) {
         <Info icon={icon} iconSize={iconSize}>
           <Info.Label label={label} />
         </Info>
+        <HSpace px={8} />
         {open ? <ArrowUpIcon color={palette.mediumPrimary} /> : <ArrowDownIcon color={palette.mediumPrimary} />}
       </AccordeonButton>
       {open ? children : null}

@@ -232,6 +232,12 @@ export const ThemeProvider = ThemeProviderComponent
 import TitleComponent from './components/title'
 export const Title = TitleComponent
 
+import VSpaceComponent from './components/v-space'
+export const VSpace = VSpaceComponent
+
+import HSpaceComponent from './components/h-space'
+export const HSpace = HSpaceComponent
+
 import ToastContainer, * as toastActions from './components/toast'
 export const Toast = ToastContainer
 export const toast = toastActions.toast

@@ -147,14 +147,6 @@ storiesOf('Icon', module)
       </>
     )
   })
-
-  .add('Default', () => (
-    <Showcase variant="squared">
-      <Icon>
-        <MedicalFacilitySvg />
-      </Icon>
-    </Showcase>
-  ))
   .add('With circle', () => (
     <Icons>
       <Showcase variant="squared">
@@ -169,7 +161,7 @@ storiesOf('Icon', module)
       </Showcase>
     </Icons>
   ))
-  .add('Colored', () => (
+  .add('With color', () => (
     <Icons>
       <Showcase variant="squared">
         <AddressIcon color={palette.mediumBerryBlue} />

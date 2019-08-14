@@ -44,8 +44,8 @@ const inputCss = ({error: error_, canClear, hasIcon, disabled}) => css`
 
   ${disabled &&
     css`
-      color: ${palette.darkPrimary};
-      background-color: ${palette.mediumPrimary};
+      color: ${palette.mediumPrimary};
+      background-color: ${palette.darkGrey};
     `}
 `
 
@@ -149,7 +149,7 @@ const InputComponent = React.forwardRef(function InputComponent(
       )}
       {loading && (
         <Loading>
-          <Loader inline color={palette.darkPrimary} />
+          <Loader inline color={palette.darkGrey} />
         </Loading>
       )}
       {error_ && <Error>{error_}</Error>}
