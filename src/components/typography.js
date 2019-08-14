@@ -1,4 +1,5 @@
 import styled, {css} from 'styled-components'
+import PropTypes from 'prop-types'
 
 import {berryBlue, darkGrey, lightBeetrootPurple} from '../constants/palette'
 
@@ -22,6 +23,12 @@ function interpolateCss(baseCss) {
     ${textTransform && `text-transform: ${textTransform};`}
     ${fontStyle && `font-style: ${fontStyle};`}
   `
+}
+
+export const TypographyPropTypes = {
+  color: PropTypes.string,
+  textTransform: PropTypes.string,
+  fontStyle: PropTypes.string
 }
 
 // H1

@@ -5,6 +5,10 @@ import Info from './info'
 import Showcase from '../stories/showcase'
 import VslIcon from './icons/vsl'
 import AlertIcon from './icons/alert'
+import {palette} from '..'
+import CheckIcon from './icons/check'
+import WarningIcon from './icons/warning'
+import ForbiddenIcon from './icons/forbidden'
 
 const shortLabel = 'Fan de Phil Collins'
 const longLabel =
@@ -160,6 +164,50 @@ storiesOf('Info', module)
           <Info icon={<VslIcon circle />} iconSize={32} style={{background: 'white', width: 300}}>
             <Info.Label label={longLabel} />
             <Info.Item item={longLabel} />
+          </Info>
+        </Showcase>
+      </>
+    )
+  })
+  .add('Custom style items & labels', () => {
+    return (
+      <>
+        <Showcase>
+          <Info icon={<VslIcon color={palette.beetrootPurple} />} iconSize={24} style={{background: 'white'}}>
+            <Info.Label label={shortLabel} color={palette.error} />
+            <Info.Item item={shortLabel} color={palette.success} />
+          </Info>
+        </Showcase>
+        <Showcase>
+          <Info icon={<CheckIcon />} iconSize={24} style={{background: 'white', width: 300}}>
+            <Info.Item item={shortLabel} color={palette.success} />
+          </Info>
+        </Showcase>
+      </>
+    )
+  })
+  .add('Block', () => {
+    return (
+      <>
+        <Showcase>
+          <Info style={{background: 'white'}}>
+            <Info.Block variant="success" icon={<CheckIcon />}>
+              <Info.Item item={longLabel} />
+            </Info.Block>
+          </Info>
+        </Showcase>
+        <Showcase>
+          <Info style={{background: 'white'}}>
+            <Info.Block variant="error" icon={<ForbiddenIcon />}>
+              <Info.Item item={longLabel} />
+            </Info.Block>
+          </Info>
+        </Showcase>
+        <Showcase>
+          <Info style={{background: 'white'}}>
+            <Info.Block variant="warning" icon={<WarningIcon />}>
+              <Info.Item item={longLabel} />
+            </Info.Block>
           </Info>
         </Showcase>
       </>

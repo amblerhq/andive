@@ -1,8 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import styled, {css} from 'styled-components'
+import styled from 'styled-components'
 
-import {Body1} from '../typography'
+import {Body1, TypographyPropTypes} from '../typography'
 
 const LabelIcon = styled.div`
   width: 100%;
@@ -19,16 +19,18 @@ const IconWrapper = styled.div`
   width: ${props => props.iconSize}px;
 `
 
-export default function LabelIconComponent({icon, iconSize = 24, label, ...props}) {
+export default function LabelIconComponent({className, icon, iconSize = 24, label, ...typographyProps}) {
   return (
-    <LabelIcon {...props}>
-      {icon ? <IconWrapper iconSize={iconSize}>{icon}</IconWrapper> : null} <Label>{label}</Label>
+    <LabelIcon className={className}>
+      {icon ? <IconWrapper iconSize={iconSize}>{icon}</IconWrapper> : null} <Label {...typographyProps}>{label}</Label>
     </LabelIcon>
   )
 }
 
 LabelIconComponent.propTypes = {
+  className: PropTypes.string,
   icon: PropTypes.node.isRequired,
   iconSize: PropTypes.number,
-  label: PropTypes.string.isRequired
+  label: PropTypes.string.isRequired,
+  ...TypographyPropTypes
 }
