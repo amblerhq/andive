@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.11.0-canary.6](https://github.com/amblerhq/ambler/compare/v0.11.0-canary.5...v0.11.0-canary.6) (2019-08-14)
+
+
+### Bug Fixes
+
+* **dropdown:** fix disabled color ([65da2c5](https://github.com/amblerhq/ambler/commit/65da2c5))
+
+
+### Tests
+
+* add visual regression testing ([e013023](https://github.com/amblerhq/ambler/commit/e013023))
+
+
+
 ## [0.11.0-canary.5](https://github.com/amblerhq/ambler/compare/v0.11.0-canary.4...v0.11.0-canary.5) (2019-08-14)
 
 
