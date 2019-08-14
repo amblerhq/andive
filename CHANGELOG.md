@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.11.0-canary.5](https://github.com/amblerhq/ambler/compare/v0.11.0-canary.4...v0.11.0-canary.5) (2019-08-14)
+
+
+### Features
+
+* **space:** add vspace and hspace components ([9533226](https://github.com/amblerhq/ambler/commit/9533226))
+
+
+
 ## [0.11.0-canary.4](https://github.com/amblerhq/ambler/compare/v0.11.0-canary.3...v0.11.0-canary.4) (2019-08-14)
 
 
