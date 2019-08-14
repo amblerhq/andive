@@ -18,89 +18,36 @@ storiesOf('Info', module)
   .add('Label', () => {
     return (
       <>
-        <Showcase>
+        <Showcase legend="Label only">
           <Info style={{background: 'white'}}>
             <Info.Label label={shortLabel} />
           </Info>
         </Showcase>
-        <Showcase legend="Fixed width">
+        <Showcase legend="Label only (long)">
           <Info style={{background: 'white', width: 300}}>
             <Info.Label label={longLabel} />
           </Info>
         </Showcase>
-      </>
-    )
-  })
-  .add('Label Item', () => {
-    return (
-      <>
-        <Showcase>
+        <Showcase legend="Item only">
           <Info style={{background: 'white'}}>
-            <Info.Label label={shortLabel} />
             <Info.Item item={shortLabel} />
           </Info>
         </Showcase>
-        <Showcase legend="Fixed width (long label)">
+        <Showcase legend="Item only (only)">
           <Info style={{background: 'white', width: 300}}>
-            <Info.Label label={longLabel} />
-            <Info.Item item={shortLabel} />
+            <Info.Item item={longLabel} />
           </Info>
         </Showcase>
-        <Showcase legend="Fixed width (long item)">
+        <Showcase legend="Label/Item">
           <Info style={{background: 'white', width: 300}}>
             <Info.Label label={shortLabel} />
             <Info.Item item={longLabel} />
           </Info>
         </Showcase>
-      </>
-    )
-  })
-  .add('Item Label', () => {
-    return (
-      <>
-        <Showcase>
-          <Info style={{background: 'white'}}>
-            <Info.Item item={shortLabel} />
-            <Info.Label label={shortLabel} />
-          </Info>
-        </Showcase>
-        <Showcase legend="Fixed width (long label)">
-          <Info style={{background: 'white', width: 300}}>
-            <Info.Item item={shortLabel} />
-            <Info.Label label={longLabel} />
-          </Info>
-        </Showcase>
-        <Showcase legend="Fixed width (long item)">
+        <Showcase legend="Item/Label">
           <Info style={{background: 'white', width: 300}}>
             <Info.Item item={longLabel} />
             <Info.Label label={shortLabel} />
-          </Info>
-        </Showcase>
-      </>
-    )
-  })
-  .add('Label Items', () => {
-    return (
-      <>
-        <Showcase>
-          <Info style={{background: 'white'}}>
-            <Info.Label label={shortLabel} />
-            <Info.Item item={shortLabel} />
-            <Info.Item item={shortLabel} />
-          </Info>
-        </Showcase>
-        <Showcase legend="Fixed width (long label)">
-          <Info style={{background: 'white', width: 300}}>
-            <Info.Label label={longLabel} />
-            <Info.Item item={shortLabel} />
-            <Info.Item item={shortLabel} />
-          </Info>
-        </Showcase>
-        <Showcase legend="Fixed width (long items)">
-          <Info style={{background: 'white', width: 300}}>
-            <Info.Label label={shortLabel} />
-            <Info.Item item={longLabel} />
-            <Info.Item item={longLabel} />
           </Info>
         </Showcase>
       </>
@@ -109,43 +56,43 @@ storiesOf('Info', module)
   .add('Label Icon', () => {
     return (
       <>
-        <Showcase>
+        <Showcase legend="Label with icon">
           <Info style={{background: 'white'}}>
-            <Info.LabelIcon label={'Voiture de Phil'} icon={<VslIcon inline />} iconSize={24} />
+            <Info.LabelIcon label={'Voiture de Phil'} icon={<VslIcon inline />} />
           </Info>
         </Showcase>
         <Showcase legend="Fixed width (2 lines)">
           <Info style={{background: 'white', width: 300}}>
-            <Info.LabelIcon label={longLabel.substr(0, 64)} icon={<VslIcon inline />} iconSize={24} />
+            <Info.LabelIcon label={longLabel.substr(0, 64)} icon={<VslIcon inline />} />
           </Info>
         </Showcase>
         <Showcase legend="Fixed width (long label)">
           <Info style={{background: 'white', width: 300}}>
-            <Info.LabelIcon label={longLabel} icon={<VslIcon inline />} iconSize={24} />
+            <Info.LabelIcon label={longLabel} icon={<VslIcon inline />} />
           </Info>
         </Showcase>
-      </>
-    )
-  })
-  .add('Item / Label Icon', () => {
-    return (
-      <>
-        <Showcase>
+        <Showcase legend="With sticky icon">
+          <Info style={{background: 'white', width: 300}}>
+            <Info.LabelIcon label={shortLabel} icon={<VslIcon inline />} stickyIcon />
+            <Info.LabelIcon label={longLabel} icon={<VslIcon circle />} stickyIcon iconSize={32} />
+          </Info>
+        </Showcase>
+        <Showcase legend="Item / Label with icon">
           <Info style={{background: 'white'}}>
             <Info.Item item={shortLabel} />
-            <Info.LabelIcon label={shortLabel} icon={<AlertIcon inline />} iconSize={24} />
+            <Info.LabelIcon label={shortLabel} icon={<AlertIcon inline />} />
           </Info>
         </Showcase>
         <Showcase legend="Fixed width (2 lines)">
           <Info style={{background: 'white', width: 300}}>
             <Info.Item item={shortLabel} />
-            <Info.LabelIcon label={longLabel.substr(0, 64)} icon={<AlertIcon inline />} iconSize={24} />
+            <Info.LabelIcon label={longLabel.substr(0, 64)} icon={<AlertIcon inline />} />
           </Info>
         </Showcase>
         <Showcase legend="Fixed width (long label)">
           <Info style={{background: 'white', width: 300}}>
             <Info.Item item={shortLabel} />
-            <Info.LabelIcon label={longLabel} icon={<AlertIcon inline />} iconSize={24} />
+            <Info.LabelIcon label={longLabel} icon={<AlertIcon inline />} stickyIcon />
           </Info>
         </Showcase>
       </>
@@ -180,7 +127,7 @@ storiesOf('Info', module)
         </Showcase>
         <Showcase>
           <Info icon={<CheckIcon />} iconSize={24} style={{background: 'white', width: 300}}>
-            <Info.Item item={shortLabel} color={palette.success} />
+            <Info.Item item={longLabel} color={palette.success} />
           </Info>
         </Showcase>
       </>

@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import styled from 'styled-components'
+import styled, {css} from 'styled-components'
 
 import {Body1, TypographyPropTypes} from '../typography'
 
@@ -9,6 +9,13 @@ const LabelIcon = styled.div`
   display: flex;
   flex-flow: row nowrap;
   align-items: center;
+
+  ${props =>
+    props.stickyIcon &&
+    css`
+      position: relative;
+      padding-left: ${props => props.iconSize}px;
+    `}
 `
 
 const Label = styled(Body1)`
@@ -17,12 +24,25 @@ const Label = styled(Body1)`
 
 const IconWrapper = styled.div`
   width: ${props => props.iconSize}px;
+
+  ${props =>
+    props.stickyIcon &&
+    css`
+      position: absolute;
+      top: 0;
+      left: 0;
+    `}
 `
 
-export default function LabelIconComponent({className, icon, iconSize = 24, label, ...typographyProps}) {
+export default function LabelIconComponent({className, icon, iconSize = 24, stickyIcon, label, ...typographyProps}) {
   return (
-    <LabelIcon className={className}>
-      {icon ? <IconWrapper iconSize={iconSize}>{icon}</IconWrapper> : null} <Label {...typographyProps}>{label}</Label>
+    <LabelIcon className={className} iconSize={iconSize} stickyIcon={stickyIcon}>
+      {icon ? (
+        <IconWrapper iconSize={iconSize} stickyIcon={stickyIcon}>
+          {icon}
+        </IconWrapper>
+      ) : null}{' '}
+      <Label {...typographyProps}>{label}</Label>
     </LabelIcon>
   )
 }
@@ -31,6 +51,7 @@ LabelIconComponent.propTypes = {
   className: PropTypes.string,
   icon: PropTypes.node.isRequired,
   iconSize: PropTypes.number,
+  stickyIcon: PropTypes.bool,
   label: PropTypes.string.isRequired,
   ...TypographyPropTypes
 }

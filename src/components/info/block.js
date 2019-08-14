@@ -37,11 +37,11 @@ function Block({icon, variant, className, children}) {
 
   const backgroundColor =
     variant === 'success'
-      ? palette.success
+      ? palette.lettuceGreenAlpha(0.6)
       : variant === 'error'
-      ? palette.error
+      ? palette.radishRedAlpha(0.6)
       : variant === 'warning'
-      ? palette.warning
+      ? palette.potatoYellowAlpha(0.6)
       : palette.white
 
   return (
