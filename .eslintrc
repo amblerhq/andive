@@ -1,43 +1,41 @@
 {
-    "plugins": [
-        "react",
-        "prettier"
-    ],
-    "parser": "babel-eslint",
-    "parserOptions": {
-        "ecmaFeatures": {
-            "jsx": true
-        }
-    },
-    "env": {
-        "node": true,
-        "browser": true
-    },
-    "extends": [
-        "eslint:recommended",
-        "plugin:react/recommended",
-        "plugin:prettier/recommended"
-    ],
-    "settings": {
-        "react": {
-            "version": "16.8"
-        }
-    },
-    "rules": {
-        "react/display-name": "off",
-        "prettier/prettier": [
-            "error",
-            {
-                "printWidth": 120,
-                "tabWidth": 2,
-                "singleQuote": true,
-                "trailingComma": "none",
-                "bracketSpacing": false,
-                "semi": false,
-                "useTabs": false,
-                "parser": "babylon",
-                "jsxBracketSameLine": false
-            }
-        ]
+  "plugins": ["react", "prettier"],
+  "parser": "babel-eslint",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
     }
+  },
+  "env": {
+    "node": true,
+    "browser": true,
+    "jest": true
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:prettier/recommended"
+  ],
+  "settings": {
+    "react": {
+      "version": "16.8"
+    }
+  },
+  "rules": {
+    "react/display-name": "off",
+    "prettier/prettier": [
+      "error",
+      {
+        "printWidth": 120,
+        "tabWidth": 2,
+        "singleQuote": true,
+        "trailingComma": "none",
+        "bracketSpacing": false,
+        "semi": false,
+        "useTabs": false,
+        "parser": "babylon",
+        "jsxBracketSameLine": false
+      }
+    ]
+  }
 }

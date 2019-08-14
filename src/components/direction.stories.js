@@ -14,7 +14,7 @@ storiesOf('Direction', module)
           <Direction.Origin>
             <div>
               <Typography.Body1>Ambler</Typography.Body1>
-              <Typography.Body2 color={palette.mediumGrey}>24 Quai charles pasqua, Levalois-Perret</Typography.Body2>
+              <Typography.Body2 color={palette.mediumPrimary}>24 Quai charles pasqua, Levalois-Perret</Typography.Body2>
             </div>
           </Direction.Origin>
         </Direction>
@@ -26,7 +26,7 @@ storiesOf('Direction', module)
               return (
                 <div ref={ref}>
                   <Typography.Body1 ref={pointRef}>Ambler</Typography.Body1>
-                  <Typography.Body2 color={palette.mediumGrey}>
+                  <Typography.Body2 color={palette.mediumPrimary}>
                     24 Quai charles pasqua, Levalois-Perret
                   </Typography.Body2>
                 </div>
@@ -44,7 +44,7 @@ storiesOf('Direction', module)
           <Direction.Origin label={'11:27'}>
             <div>
               <Typography.Body1>Ambler</Typography.Body1>
-              <Typography.Body2 color={palette.mediumGrey}>24 Quai charles pasqua, Levalois-Perret</Typography.Body2>
+              <Typography.Body2 color={palette.mediumPrimary}>24 Quai charles pasqua, Levalois-Perret</Typography.Body2>
             </div>
           </Direction.Origin>
         </Direction>
@@ -56,7 +56,7 @@ storiesOf('Direction', module)
               return (
                 <div ref={ref}>
                   <Typography.Body1 ref={pointRef}>Ambler</Typography.Body1>
-                  <Typography.Body2 color={palette.mediumGrey}>
+                  <Typography.Body2 color={palette.mediumPrimary}>
                     24 Quai charles pasqua, Levalois-Perret
                   </Typography.Body2>
                 </div>
@@ -74,7 +74,7 @@ storiesOf('Direction', module)
           <Direction.Destination>
             <div>
               <Typography.Body1>Phil</Typography.Body1>
-              <Typography.Body2 color={palette.mediumGrey}>Appart de Phil, Dives-sur-mer</Typography.Body2>
+              <Typography.Body2 color={palette.mediumPrimary}>Appart de Phil, Dives-sur-mer</Typography.Body2>
             </div>
           </Direction.Destination>
         </Direction>
@@ -86,7 +86,7 @@ storiesOf('Direction', module)
               return (
                 <div ref={ref}>
                   <Typography.Body1 ref={pointRef}>Phil</Typography.Body1>
-                  <Typography.Body2 color={palette.mediumGrey}>Appart de Phil, Dives-sur-mer</Typography.Body2>
+                  <Typography.Body2 color={palette.mediumPrimary}>Appart de Phil, Dives-sur-mer</Typography.Body2>
                 </div>
               )
             }}
@@ -102,7 +102,7 @@ storiesOf('Direction', module)
           <Direction.Destination label={'~14:10'}>
             <div>
               <Typography.Body1>Phil</Typography.Body1>
-              <Typography.Body2 color={palette.mediumGrey}>Appart de Phil, Dives-sur-mer</Typography.Body2>
+              <Typography.Body2 color={palette.mediumPrimary}>Appart de Phil, Dives-sur-mer</Typography.Body2>
             </div>
           </Direction.Destination>
         </Direction>
@@ -114,7 +114,7 @@ storiesOf('Direction', module)
               return (
                 <div ref={ref}>
                   <Typography.Body1 ref={pointRef}>Phil</Typography.Body1>
-                  <Typography.Body2 color={palette.mediumGrey}>Appart de Phil, Dives-sur-mer</Typography.Body2>
+                  <Typography.Body2 color={palette.mediumPrimary}>Appart de Phil, Dives-sur-mer</Typography.Body2>
                 </div>
               )
             }}
@@ -129,11 +129,11 @@ storiesOf('Direction', module)
         <Direction style={{background: 'white'}}>
           <Direction.Origin>
             <Typography.Body1>Ambler</Typography.Body1>
-            <Typography.Body2 color={palette.mediumGrey}>24 Quai charles pasqua, Levalois-Perret</Typography.Body2>
+            <Typography.Body2 color={palette.mediumPrimary}>24 Quai charles pasqua, Levalois-Perret</Typography.Body2>
           </Direction.Origin>
           <Direction.Destination>
             <Typography.Body1>Phil</Typography.Body1>
-            <Typography.Body2 color={palette.mediumGrey}>Appart de Phil, Dives-sur-mer</Typography.Body2>
+            <Typography.Body2 color={palette.mediumPrimary}>Appart de Phil, Dives-sur-mer</Typography.Body2>
           </Direction.Destination>
         </Direction>
       </Showcase>
@@ -144,7 +144,7 @@ storiesOf('Direction', module)
               return (
                 <div ref={ref}>
                   <Typography.Body1 ref={pointRef}>Ambler</Typography.Body1>
-                  <Typography.Body2 color={palette.mediumGrey}>
+                  <Typography.Body2 color={palette.mediumPrimary}>
                     24 Quai charles pasqua, Levalois-Perret
                   </Typography.Body2>
                   <div style={{height: 8}} />
@@ -158,7 +158,7 @@ storiesOf('Direction', module)
                 <div ref={ref}>
                   <div style={{height: 8}} />
                   <Typography.Body1 ref={pointRef}>Phil</Typography.Body1>
-                  <Typography.Body2 color={palette.mediumGrey}>Appart de Phil, Dives-sur-mer</Typography.Body2>
+                  <Typography.Body2 color={palette.mediumPrimary}>Appart de Phil, Dives-sur-mer</Typography.Body2>
                 </div>
               )
             }}
@@ -173,11 +173,11 @@ storiesOf('Direction', module)
         <Direction style={{background: 'white'}}>
           <Direction.Origin label={'~14:10'}>
             <Typography.Body1>Ambler</Typography.Body1>
-            <Typography.Body2 color={palette.mediumGrey}>24 Quai charles pasqua, Levalois-Perret</Typography.Body2>
+            <Typography.Body2 color={palette.mediumPrimary}>24 Quai charles pasqua, Levalois-Perret</Typography.Body2>
           </Direction.Origin>
           <Direction.Destination label={'~14:10'}>
             <Typography.Body1>Phil</Typography.Body1>
-            <Typography.Body2 color={palette.mediumGrey}>Appart de Phil, Dives-sur-mer</Typography.Body2>
+            <Typography.Body2 color={palette.mediumPrimary}>Appart de Phil, Dives-sur-mer</Typography.Body2>
           </Direction.Destination>
         </Direction>
       </Showcase>
@@ -188,7 +188,7 @@ storiesOf('Direction', module)
               return (
                 <div ref={ref}>
                   <Typography.Body1 ref={pointRef}>Ambler</Typography.Body1>
-                  <Typography.Body2 color={palette.mediumGrey}>
+                  <Typography.Body2 color={palette.mediumPrimary}>
                     24 Quai charles pasqua, Levalois-Perret
                   </Typography.Body2>
                   <div style={{height: 8}} />
@@ -202,7 +202,7 @@ storiesOf('Direction', module)
                 <div ref={ref}>
                   <div style={{height: 8}} />
                   <Typography.Body1 ref={pointRef}>Phil</Typography.Body1>
-                  <Typography.Body2 color={palette.mediumGrey}>Appart de Phil, Dives-sur-mer</Typography.Body2>
+                  <Typography.Body2 color={palette.mediumPrimary}>Appart de Phil, Dives-sur-mer</Typography.Body2>
                 </div>
               )
             }}
@@ -216,11 +216,11 @@ storiesOf('Direction', module)
       <Direction label={'Heure inconnue'} style={{background: 'white'}}>
         <Direction.Origin>
           <Typography.Body1>Ambler</Typography.Body1>
-          <Typography.Body2 color={palette.mediumGrey}>24 Quai charles pasqua, Levalois-Perret</Typography.Body2>
+          <Typography.Body2 color={palette.mediumPrimary}>24 Quai charles pasqua, Levalois-Perret</Typography.Body2>
         </Direction.Origin>
         <Direction.Destination>
           <Typography.Body1>Phil</Typography.Body1>
-          <Typography.Body2 color={palette.mediumGrey}>Appart de Phil, Dives-sur-mer</Typography.Body2>
+          <Typography.Body2 color={palette.mediumPrimary}>Appart de Phil, Dives-sur-mer</Typography.Body2>
         </Direction.Destination>
       </Direction>
     </Showcase>

@@ -124,6 +124,7 @@ storiesOf('Icon', module)
     return (
       <>
         <TimedColor
+          interval={5000}
           colors={[
             palette.mediumLettuceGreen,
             palette.mediumPrimary,

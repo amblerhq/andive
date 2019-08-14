@@ -3,7 +3,7 @@ import styled, {css} from 'styled-components'
 import PropTypes from 'prop-types'
 
 import useElementRect from '../../lib/use-element-rect'
-import {darkGrey} from '../../constants/palette'
+import * as palette from '../../constants/palette'
 import {Body1} from '../typography'
 
 const Origin = styled.div`
@@ -31,7 +31,7 @@ const OriginPoint = styled.div`
 
   border-radius: 50%;
 
-  border: 2px solid ${darkGrey};
+  border: 2px solid ${palette.darkPrimary};
   background: white;
 `
 const OriginRoad = styled.div`
@@ -55,7 +55,7 @@ const OriginRoad = styled.div`
     `
   }}
 
-  background: ${darkGrey};
+  background: ${palette.darkPrimary};
 `
 
 const AsideLabel = styled(Body1)`

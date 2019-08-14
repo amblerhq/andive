@@ -10,7 +10,7 @@ import Loader from './loader'
 function RandomPageContent() {
   return (
     <>
-      {range(42).map(i => (
+      {range(3).map(i => (
         <Showcase key={i} variant="compact">
           <Typography.Body2 color={palette.mediumGrey}>{i}</Typography.Body2>
         </Showcase>

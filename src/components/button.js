@@ -21,11 +21,18 @@ const ResetButton = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-spaces: nowrap;
 `
 
 const DefaultButtonText = styled(Body2)`
   text-transform: uppercase;
   font-size: ${props => (props.mobile ? 14 : 16)}px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 `
 
 // * Default/secondary variant

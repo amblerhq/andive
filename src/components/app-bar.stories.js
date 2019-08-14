@@ -12,7 +12,7 @@ function RandomPageContent() {
   return (
     <>
       <div style={{height: 16}} />
-      {range(42).map(i => (
+      {range(10).map(i => (
         <Showcase key={i} variant="compact">
           <Typography.Body2 color={palette.mediumGrey}>{i}</Typography.Body2>
         </Showcase>
@@ -64,11 +64,10 @@ storiesOf('AppBar', module)
         <Container style={{justifyContent: 'space-between'}}>
           <LogoSvg width={135} height={35} />
           <Button
-            variant="link"
-            href="https://www.ambler.fr"
-            textColor={palette.mediumGrey}
-            leftIcon={<LogoutIcon inline color={palette.mediumGrey} />}
-            label={'Déconnexion'}
+            variant="flat"
+            textColor={palette.mediumPrimary}
+            leftIcon={<LogoutIcon inline color={palette.mediumPrimary} />}
+            label="Déconnexion"
           />
         </Container>
       </AppBar>
@@ -82,11 +81,10 @@ storiesOf('AppBar', module)
           <Container style={{justifyContent: 'space-between'}}>
             <LogoSvg width={135} height={35} />
             <Button
-              variant="link"
-              href="https://www.ambler.fr"
-              textColor={palette.mediumGrey}
-              leftIcon={<LogoutIcon inline color={palette.mediumGrey} />}
-              label={'Déconnexion'}
+              variant="flat"
+              textColor={palette.mediumPrimary}
+              leftIcon={<LogoutIcon inline color={palette.mediumPrimary} />}
+              label="Déconnexion"
             />
           </Container>
         </AppBar>
@@ -101,11 +99,10 @@ storiesOf('AppBar', module)
           <Container style={{justifyContent: 'space-between'}}>
             <LogoSvg width={135} height={35} />
             <Button
-              variant="link"
-              href="https://www.ambler.fr"
-              textColor={palette.mediumGrey}
-              leftIcon={<LogoutIcon inline color={palette.mediumGrey} />}
-              label={'Déconnexion'}
+              variant="flat"
+              textColor={palette.mediumPrimary}
+              leftIcon={<LogoutIcon inline color={palette.mediumPrimary} />}
+              label="Déconnexion"
             />
           </Container>
           <AppBar.Sticky height={72} fadeOffset={128}>

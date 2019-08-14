@@ -176,7 +176,7 @@ function ScrollToStory() {
           </Menu.OptionGroup>
         </Menu>
       </Showcase>
-      <FakeList nth={15} />
+      <FakeList nth={5} />
     </>
   )
 }

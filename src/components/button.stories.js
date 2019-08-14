@@ -130,13 +130,15 @@ storiesOf('Button', module)
   .add('With right icon', () => (
     <>
       <Showcase>
-        <TimedIcon color={palette.mediumBeetrootPurple}>{icon => <Button label="Tap" rightIcon={icon} />}</TimedIcon>
+        <TimedIcon interval={5000} color={palette.mediumBeetrootPurple}>
+          {icon => <Button label="Tap" rightIcon={icon} />}
+        </TimedIcon>
       </Showcase>
       <Showcase>
         <Button label="Commander" rightIcon={<AddressIcon color={palette.white} />} variant="primary" />
       </Showcase>
       <Showcase>
-        <TimedIcon color={palette.mediumBerryBlue}>
+        <TimedIcon interval={5000} color={palette.mediumBerryBlue}>
           {icon => <Button label="Tap" rightIcon={icon} variant="flat" />}
         </TimedIcon>
       </Showcase>
@@ -152,13 +154,15 @@ storiesOf('Button', module)
   .add('With icon left', () => (
     <>
       <Showcase>
-        <TimedIcon color={palette.mediumBeetrootPurple}>{icon => <Button label="Tap" leftIcon={icon} />}</TimedIcon>
+        <TimedIcon interval={5000} color={palette.mediumBeetrootPurple}>
+          {icon => <Button label="Tap" leftIcon={icon} />}
+        </TimedIcon>
       </Showcase>
       <Showcase>
         <Button label="Commander" leftIcon={<NewIcon inline color={palette.white} />} variant="primary" />
       </Showcase>
       <Showcase>
-        <TimedIcon color={palette.mediumBerryBlue}>
+        <TimedIcon interval={5000} color={palette.mediumBerryBlue}>
           {icon => <Button label="Tap" leftIcon={icon} variant="flat" />}
         </TimedIcon>
       </Showcase>
