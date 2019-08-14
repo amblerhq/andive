@@ -33,11 +33,21 @@ import PatientIcon from './icons/patient'
 import DelegateIcon from './icons/delegate'
 import ExportIcon from './icons/export'
 import KebabIcon from './icons/kebab'
+import CheckIcon from './icons/check'
+import WarningIcon from './icons/warning'
+import MapIcon from './icons/map'
+import ForbiddenIcon from './icons/forbidden'
+import MfIcon from './icons/mf'
+import MfuIcon from './icons/mfu'
+import MtIcon from './icons/mt'
+import RidesIcon from './icons/rides'
+import OrdersIcon from './icons/orders'
+import DashboardIcon from './icons/dashboard'
+import BurgerIcon from './icons/burger'
 
 import Icon from './icon'
 import Showcase from '../stories/showcase'
 import * as palette from '../constants/palette'
-import MapIcon from './icons/map'
 
 const Icons = styled.div`
   display: flex;
@@ -70,10 +80,19 @@ const icons = [
   DelegateIcon,
   MapIcon,
   ExportIcon,
-  KebabIcon
+  KebabIcon,
+  CheckIcon,
+  WarningIcon,
+  ForbiddenIcon,
+  MfIcon,
+  MfuIcon,
+  MtIcon,
+  RidesIcon,
+  OrdersIcon,
+  DashboardIcon
 ]
 
-const blueIcons = [EditIcon, BackIcon, RadioOn, RadioOff, CheckboxOn, CheckboxOff]
+const blueIcons = [EditIcon, BackIcon, RadioOn, RadioOff, CheckboxOn, CheckboxOff, BurgerIcon]
 
 storiesOf('Icon', module)
   .add('All', () => {

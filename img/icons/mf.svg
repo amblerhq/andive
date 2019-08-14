@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40">
+    <g fill="none" fill-rule="evenodd">
+        <text fill="#FFF" font-family="Asap-SemiBold, Asap SemiBold" font-size="14" font-weight="500">
+            <tspan x="10.578" y="26">MF</tspan>
+        </text>
+        <path stroke="#FFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 35V5a1 1 0 0 1 1-1l30 .002a1 1 0 0 1 1 1V35a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1z"/>
+    </g>
+</svg>

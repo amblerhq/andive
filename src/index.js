@@ -101,6 +101,36 @@ export const ExportIcon = ExportIconComponent
 import KebabIconComponent from './components/icons/kebab'
 export const KebabIcon = KebabIconComponent
 
+import CheckIconComponent from './components/icons/check'
+export const CheckIcon = CheckIconComponent
+
+import WarningIconComponent from './components/icons/warning'
+export const WarningIcon = WarningIconComponent
+
+import ForbiddenIconComponent from './components/icons/forbidden'
+export const ForbiddenIcon = ForbiddenIconComponent
+
+import MfIconComponent from './components/icons/mf'
+export const MfIcon = MfIconComponent
+
+import MfuIconComponent from './components/icons/mfu'
+export const MfuIcon = MfuIconComponent
+
+import MtIconComponent from './components/icons/mt'
+export const MtIcon = MtIconComponent
+
+import RidesIconComponent from './components/icons/rides'
+export const RidesIcon = RidesIconComponent
+
+import OrdersIconComponent from './components/icons/orders'
+export const OrdersIcon = OrdersIconComponent
+
+import DashboardIconComponent from './components/icons/dashboard'
+export const DashboardIcon = DashboardIconComponent
+
+import BurgerIconComponent from './components/icons/burger'
+export const BurgerIcon = BurgerIconComponent
+
 /**
  * Illustrations
  */
