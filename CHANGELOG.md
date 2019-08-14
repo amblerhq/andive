@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.11.0-canary.4](https://github.com/amblerhq/ambler/compare/v0.11.0-canary.3...v0.11.0-canary.4) (2019-08-14)
+
+
+### Bug Fixes
+
+* **colors:** fix colors and icon colors ([60e41a7](https://github.com/amblerhq/ambler/commit/60e41a7))
+
+
+
 ## [0.11.0-canary.3](https://github.com/amblerhq/ambler/compare/v0.11.0-canary.2...v0.11.0-canary.3) (2019-08-14)
 
 
