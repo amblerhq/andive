@@ -36,7 +36,7 @@ function TimedIcon({interval, color, children}) {
 
   const Icon = icons[index % icons.length]
 
-  return children(<Icon color={color} inline />)
+  return children(<Icon color={color} />)
 }
 
 storiesOf('Button', module)
@@ -51,7 +51,7 @@ storiesOf('Button', module)
         <div style={{width: 32}} />
         <Button loading variant="primary" label="Je suis fan" />
         <div style={{width: 32}} />
-        <Button variant="primary" label="Je suis fan" rightIcon={<PatientIcon inline color="white" />} />
+        <Button variant="primary" label="Je suis fan" rightIcon={<PatientIcon color="white" size={24} />} />
       </Showcase>
       <Showcase legend="Mobile">
         <Button mobile label="Je suis fan" />
@@ -62,7 +62,7 @@ storiesOf('Button', module)
         <div style={{width: 32}} />
         <Button mobile loading variant="primary" label="Je suis fan" />
         <div style={{width: 32}} />
-        <Button mobile variant="primary" label="Je suis fan" rightIcon={<PatientIcon inline color="white" />} />
+        <Button mobile variant="primary" label="Je suis fan" rightIcon={<PatientIcon color="white" size={24} />} />
       </Showcase>
     </>
   ))
@@ -130,77 +130,69 @@ storiesOf('Button', module)
   .add('With right icon', () => (
     <>
       <Showcase>
-        <TimedIcon color={palette.lightBeetrootPurple}>
-          {icon => <Button label={'VSL / Taxi'} rightIcon={icon} />}
+        <TimedIcon color={palette.mediumBeetrootPurple}>{icon => <Button label="Tap" rightIcon={icon} />}</TimedIcon>
+      </Showcase>
+      <Showcase>
+        <Button label="Commander" rightIcon={<AddressIcon color={palette.white} />} variant="primary" />
+      </Showcase>
+      <Showcase>
+        <TimedIcon color={palette.mediumBerryBlue}>
+          {icon => <Button label="Tap" rightIcon={icon} variant="flat" />}
         </TimedIcon>
       </Showcase>
       <Showcase>
-        <Button label={'Commander'} rightIcon={<AddressIcon inline color={palette.white} />} variant="primary" />
-      </Showcase>
-      <Showcase>
-        <TimedIcon color={palette.berryBlue}>
-          {icon => <Button label={'VSL / Taxi'} rightIcon={icon} variant="flat" />}
-        </TimedIcon>
-      </Showcase>
-      <Showcase>
-        <Button label={'Nouvelle commande'} rightIcon={<ArrowIcon inline color={palette.berryBlue} />} variant="flat" />
+        <Button
+          label={'Nouvelle commande'}
+          rightIcon={<ArrowIcon inline color={palette.mediumBerryBlue} />}
+          variant="flat"
+        />
       </Showcase>
     </>
   ))
   .add('With icon left', () => (
     <>
       <Showcase>
-        <TimedIcon color={palette.lightBeetrootPurple}>
-          {icon => <Button label={'VSL / Taxi'} leftIcon={icon} />}
+        <TimedIcon color={palette.mediumBeetrootPurple}>{icon => <Button label="Tap" leftIcon={icon} />}</TimedIcon>
+      </Showcase>
+      <Showcase>
+        <Button label="Commander" leftIcon={<NewIcon inline color={palette.white} />} variant="primary" />
+      </Showcase>
+      <Showcase>
+        <TimedIcon color={palette.mediumBerryBlue}>
+          {icon => <Button label="Tap" leftIcon={icon} variant="flat" />}
         </TimedIcon>
       </Showcase>
       <Showcase>
-        <Button label={'Commander'} leftIcon={<NewIcon inline color={palette.white} />} variant="primary" />
-      </Showcase>
-      <Showcase>
-        <TimedIcon color={palette.berryBlue}>
-          {icon => <Button label={'VSL / Taxi'} leftIcon={icon} variant="flat" />}
-        </TimedIcon>
-      </Showcase>
-      <Showcase>
-        <Button label={'Editer la commande'} leftIcon={<EditIcon inline color={palette.berryBlue} />} variant="flat" />
+        <Button
+          label="Editer la commande"
+          leftIcon={<EditIcon inline color={palette.mediumBerryBlue} />}
+          variant="flat"
+        />
       </Showcase>
       <Showcase invert>
         <Button
-          label={'Déconnexion'}
-          leftIcon={<LogoutIcon inline color={palette.lightGrey} />}
+          label="Déconnexion"
+          leftIcon={<LogoutIcon color={palette.white} />}
           variant="flat"
-          textColor={palette.lightGrey}
+          textColor={palette.white}
         />
       </Showcase>
     </>
   ))
-  .add('As link', () => {
-    return (
-      <Showcase>
-        <Button
-          href={'#'}
-          variant="link"
-          label={'Commander'}
-          rightIcon={<NewIcon inline color={palette.berryBlue} />}
-        />
-      </Showcase>
-    )
-  })
   .add('Disabled', () => {
     return (
       <>
         <Showcase>
-          <Button label={'Commander'} rightIcon={<NewIcon inline color={palette.lightBeetrootPurple} />} disabled />
+          <Button label="Commander" rightIcon={<NewIcon inline color={palette.mediumBeetrootPurple} />} disabled />
         </Showcase>
         <Showcase>
-          <Button variant="primary" label={'Commander'} rightIcon={<NewIcon inline color={palette.white} />} disabled />
+          <Button variant="primary" label="Commander" rightIcon={<NewIcon inline color={palette.white} />} disabled />
         </Showcase>
         <Showcase>
           <Button
             variant="flat"
-            label={'Commander'}
-            rightIcon={<NewIcon inline color={palette.berryBlue} />}
+            label="Commander"
+            rightIcon={<NewIcon inline color={palette.mediumBerryBlue} />}
             disabled
           />
         </Showcase>
@@ -211,15 +203,15 @@ storiesOf('Button', module)
     return (
       <>
         <Showcase invert>
-          <Button invert disabled label={'Commander'} rightIcon={<NewIcon inline color={palette.white} />} />
+          <Button invert disabled label="Commander" rightIcon={<NewIcon inline color={palette.white} />} />
         </Showcase>
         <Showcase invert>
           <Button
             invert
             disabled
             variant="primary"
-            label={'Commander'}
-            rightIcon={<NewIcon inline color={palette.lightBeetrootPurple} />}
+            label="Commander"
+            rightIcon={<NewIcon inline color={palette.mediumBeetrootPurple} />}
           />
         </Showcase>
         <Showcase invert>
@@ -227,7 +219,7 @@ storiesOf('Button', module)
             invert
             disabled
             variant="flat"
-            label={'Commander'}
+            label="Commander"
             rightIcon={<NewIcon inline color={palette.white} />}
           />
         </Showcase>
@@ -238,13 +230,18 @@ storiesOf('Button', module)
     return (
       <>
         <Showcase>
-          <Button label={'Commander'} rightIcon={<NewIcon inline color={palette.lightBeetrootPurple} />} loading />
+          <Button label="Commander" rightIcon={<NewIcon inline color={palette.mediumBeetrootPurple} />} loading />
         </Showcase>
         <Showcase>
-          <Button variant="primary" label={'Commander'} rightIcon={<NewIcon inline color={palette.white} />} loading />
+          <Button variant="primary" label="Commander" rightIcon={<NewIcon inline color={palette.white} />} loading />
         </Showcase>
         <Showcase>
-          <Button variant="flat" label={'Commander'} rightIcon={<NewIcon inline color={palette.berryBlue} />} loading />
+          <Button
+            variant="flat"
+            label="Commander"
+            rightIcon={<NewIcon inline color={palette.mediumBerryBlue} />}
+            loading
+          />
         </Showcase>
       </>
     )
@@ -253,15 +250,15 @@ storiesOf('Button', module)
     return (
       <>
         <Showcase invert>
-          <Button invert loading label={'Commander'} rightIcon={<NewIcon inline color={palette.white} />} />
+          <Button invert loading label="Commander" rightIcon={<NewIcon inline color={palette.white} />} />
         </Showcase>
         <Showcase invert>
           <Button
             invert
             loading
             variant="primary"
-            label={'Commander'}
-            rightIcon={<NewIcon inline color={palette.lightBeetrootPurple} />}
+            label="Commander"
+            rightIcon={<NewIcon inline color={palette.mediumBeetrootPurple} />}
           />
         </Showcase>
         <Showcase invert>
@@ -269,7 +266,7 @@ storiesOf('Button', module)
             invert
             loading
             variant="flat"
-            label={'Commander'}
+            label="Commander"
             rightIcon={<NewIcon inline color={palette.white} />}
           />
         </Showcase>

@@ -150,7 +150,7 @@ const andiveResetCss = css`
   }
 
   svg {
-    fill: transparent;
+    // fill: transparent;
   }
 `
 

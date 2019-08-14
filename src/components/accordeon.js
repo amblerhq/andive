@@ -5,7 +5,7 @@ import styled from 'styled-components'
 import Info from './info'
 import ArrowDownIcon from './icons/arrow-down'
 import ArrowUpIcon from './icons/arrow-up'
-import {mediumGrey} from '../constants/palette'
+import * as palette from '../constants/palette'
 
 const Accordeon = styled.div`
   width: 100%;
@@ -32,7 +32,7 @@ function AccordeonComponent({label, openByDefault, icon, iconSize, children}) {
         <Info icon={icon} iconSize={iconSize}>
           <Info.Label label={label} />
         </Info>
-        {open ? <ArrowUpIcon color={mediumGrey} /> : <ArrowDownIcon color={mediumGrey} />}
+        {open ? <ArrowUpIcon color={palette.mediumPrimary} /> : <ArrowDownIcon color={palette.mediumPrimary} />}
       </AccordeonButton>
       {open ? children : null}
     </Accordeon>

@@ -1,7 +1,7 @@
 import styled, {css} from 'styled-components'
 import PropTypes from 'prop-types'
 
-import {berryBlue, darkGrey, lightBeetrootPurple} from '../constants/palette'
+import * as palette from '../constants/palette'
 
 export const fontWeights = {
   regular: 400,
@@ -39,7 +39,7 @@ export const h1Css = css`
   font-size: 25px;
   line-height: 30px;
   min-height: 32px;
-  color: ${darkGrey};
+  color: ${palette.darkPrimary};
 `
 
 export const H1 = styled.div.attrs({
@@ -56,7 +56,7 @@ export const h2Css = css`
   font-size: 18px;
   line-height: 22px;
   min-height: 24px;
-  color: ${darkGrey};
+  color: ${palette.darkPrimary};
 `
 
 export const H2 = styled.div.attrs({
@@ -73,7 +73,7 @@ export const body1Css = css`
   font-size: ${props => props.theme.typography.body1.fontSize}px;
   line-height: 22px;
   min-height: 24px;
-  color: ${darkGrey};
+  color: ${palette.darkPrimary};
 `
 
 export const Body1 = styled.div.attrs({
@@ -90,7 +90,7 @@ export const body2Css = css`
   font-size: ${props => props.theme.typography.body2.fontSize}px;
   line-height: 22px;
   min-height: 24px;
-  color: ${darkGrey};
+  color: ${palette.darkPrimary};
 `
 
 export const Body2 = styled.div.attrs({
@@ -107,66 +107,13 @@ export const body3Css = css`
   font-size: ${props => props.theme.typography.body3.fontSize}px;
   line-height: 20px;
   min-height: 20px;
-  color: ${darkGrey};
+  color: ${palette.darkPrimary};
 `
 
 export const Body3 = styled.div.attrs({
   'data-andive-type': 'typography'
 })`
   ${interpolateCss(body3Css)}
-`
-
-// ButtonTextPrimary
-
-export const buttonTextPrimaryCss = css`
-  font-family: ${fontFamily};
-  font-weight: ${fontWeights.medium};
-  text-transform: uppercase;
-  font-size: 16px;
-  line-height: 22px;
-  min-height: 24px;
-  color: #ffffff;
-`
-
-export const ButtonTextPrimary = styled.div.attrs({
-  'data-andive-type': 'typography'
-})`
-  ${interpolateCss(buttonTextPrimaryCss)}
-`
-
-// ButtonTextSecondary
-
-export const buttonTextSecondaryCss = css`
-  font-family: ${fontFamily};
-  font-weight: ${fontWeights.medium};
-  text-transform: uppercase;
-  font-size: 16px;
-  line-height: 22px;
-  min-height: 24px;
-  color: ${lightBeetrootPurple};
-`
-
-export const ButtonTextSecondary = styled.div.attrs({
-  'data-andive-type': 'typography'
-})`
-  ${interpolateCss(buttonTextSecondaryCss)}
-`
-
-// Action
-
-export const actionTextCss = css`
-  font-family: ${fontFamily};
-  font-weight: ${fontWeights.regular};
-  font-size: 16px;
-  line-height: 22px;
-  min-height: 24px;
-  color: ${berryBlue};
-`
-
-export const ActionText = styled.div.attrs({
-  'data-andive-type': 'typography'
-})`
-  ${interpolateCss(actionTextCss)}
 `
 
 export const isTypography = elementRef => {

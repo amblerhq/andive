@@ -5,7 +5,7 @@ import PropTypes from 'prop-types'
 import {body1Css, Body2} from './typography'
 import CloseIcon from './icons/close'
 import Loader from './loader'
-import {darkGrey, lightGrey, mediumGrey, berryBlue, error} from '../constants/palette'
+import * as palette from '../constants/palette'
 
 const InputRoot = styled.div`
   width: ${props => (props.fullWidth ? '100%' : 'auto')};
@@ -21,31 +21,31 @@ const inputCss = ({error: error_, canClear, hasIcon, disabled}) => css`
   width: 100%;
   height: 56px;
   border-radius: 16px;
-  background-color: ${error_ ? `${error}44` : '#ededed'};
-  color: ${error_ ? error : darkGrey}
+  background-color: ${error_ ? palette.lightRadishRed : '#ededed'};
+  color: ${error_ ? palette.error : palette.darkPrimary}
 
   padding: 16px ${canClear ? 48 : 16}px 16px ${hasIcon ? '64px' : '16px'};
 
-  caret-color: ${berryBlue};
+  caret-color: ${palette.mediumBerryBlue};
 
   ${body1Css};
 
   ::placeholder {
     ${body1Css};
-    color: ${mediumGrey};
+    color: ${palette.darkPrimary};
   }
 
   border: 1px solid transparent;
 
   :focus {
-    border: 1px solid ${mediumGrey};
+    border: 1px solid ${palette.darkPrimary};
     background-color: white;
   }
 
   ${disabled &&
     css`
-      color: ${mediumGrey};
-      background-color: ${lightGrey};
+      color: ${palette.darkPrimary};
+      background-color: ${palette.mediumPrimary};
     `}
 `
 
@@ -76,7 +76,7 @@ const Loading = styled.div`
 
 const Error = styled(Body2)`
   padding: 4px 8px 8px 8px;
-  color: ${error};
+  color: ${palette.error};
 `
 
 const Icon = styled.div`
@@ -149,7 +149,7 @@ const InputComponent = React.forwardRef(function InputComponent(
       )}
       {loading && (
         <Loading>
-          <Loader inline color={mediumGrey} />
+          <Loader inline color={palette.darkPrimary} />
         </Loading>
       )}
       {error_ && <Error>{error_}</Error>}

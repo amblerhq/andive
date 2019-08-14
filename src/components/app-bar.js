@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react'
 import PropTypes from 'prop-types'
 import styled, {css} from 'styled-components'
 
-import {darkGreyAlpha} from '../constants/palette'
+import * as palette from '../constants/palette'
 import {ZIndexes} from '../constants/enum'
 
 function stickyAppBar({sticky, scrollable, stickyHeight, fade}) {
@@ -15,7 +15,7 @@ function stickyAppBar({sticky, scrollable, stickyHeight, fade}) {
 
       z-index: ${ZIndexes.FIXED};
 
-      box-shadow: 0 ${2}px ${5}px 0 ${darkGreyAlpha(fade * 0.2)};
+      box-shadow: 0 ${2}px ${5}px 0 ${palette.hexToRGBA(palette.darkGrey, fade * 0.2)};
     `
   }
 }

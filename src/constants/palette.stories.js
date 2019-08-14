@@ -7,7 +7,9 @@ import {CopyToClipboard} from 'react-copy-to-clipboard'
 import Showcase from '../stories/showcase'
 
 import {initializeQueue} from '../components/toast'
-import {palette, Toast, toastSuccess, Info} from '../index'
+import {palette, Toast, toastSuccess, Info} from '..'
+import QuestionIcon from '../components/icons/question'
+
 const ColorHex = styled.div`
   text-transform: lowercase;
 `
@@ -25,7 +27,7 @@ function Color({children, color, label, invert}) {
         variant="squared"
         style={{
           backgroundColor: color,
-          color: invert ? palette.darkGrey : '#fff',
+          color: invert ? palette.darkPrimary : '#fff',
           cursor: 'pointer',
           justifyContent: 'space-around'
         }}
@@ -49,6 +51,26 @@ const Palette = styled.div`
   flex-flow: row wrap;
 `
 
+const ColorRange = ({legend, color}) => {
+  return (
+    <>
+      <Info>
+        <Info.Label label={legend} />
+      </Info>
+      <Palette>
+        <Color color={palette[`light${color}`]}>Light</Color>
+        <Color color={palette[`medium${color}`]}>Medium</Color>
+        <Color color={palette[`dark${color}`]}>Dark</Color>
+      </Palette>
+    </>
+  )
+}
+
+ColorRange.propTypes = {
+  legend: PropTypes.string.isRequired,
+  color: PropTypes.string.isRequired
+}
+
 storiesOf('Palette', module)
   .addDecorator(storyFn => {
     initializeQueue()
@@ -63,65 +85,15 @@ storiesOf('Palette', module)
     return (
       <>
         <Info>
-          <Info.Label label="White to black gradients" />
+          <Info.Block variant="info" icon={<QuestionIcon />} iconSize={24}>
+            <Info.LabelIcon label="Click on any color block to copy its value !" />
+          </Info.Block>
         </Info>
-        <Palette>
-          <Color color={palette.white} invert>
-            White
-          </Color>
-          <Color color={palette.lightGrey} invert>
-            Light grey
-          </Color>
-          <Color color={palette.mediumGrey}>Medium grey</Color>
-          <Color color={palette.darkGrey}>Dark grey</Color>
-          <Color color={palette.black}>Black</Color>
-        </Palette>
 
-        <Info>
-          <Info.Label label="White to black gradients (alpha)" />
-        </Info>
-        <Palette>
-          <Color color={palette.whiteAlpha(0.6)} invert>
-            White
-          </Color>
-          <Color color={palette.lightGreyAlpha(0.6)} invert>
-            Light grey
-          </Color>
-          <Color color={palette.mediumGreyAlpha(0.6)}>Medium grey</Color>
-          <Color color={palette.darkGreyAlpha(0.6)}>Dark grey</Color>
-          <Color color={palette.blackAlpha(0.6)}>Black</Color>
-        </Palette>
-
-        <Info>
-          <Info.Label label="Color palette" />
-        </Info>
-        <Palette>
-          <Color color={palette.grapeGreen}>Grape Green</Color>
-          <Color color={palette.lettuceGreen}>Lettuce Green</Color>
-          <Color color={palette.berryBlue}>Berry Blue</Color>
-          <Color color={palette.lightBeetrootPurple}>Light Beetroot Purple</Color>
-          <Color color={palette.beetrootPurple}>Beetroot Purple</Color>
-          <Color color={palette.grapeRed}>Grape Red</Color>
-          <Color color={palette.radishRed}>Radish Red</Color>
-          <Color color={palette.grapeYellow}>Grape Yellow</Color>
-          <Color color={palette.potatoYellow} invert>
-            Potato Yellow
-          </Color>
-        </Palette>
-
-        <Info>
-          <Info.Label label="Color palette (alpha)" />
-        </Info>
-        <Palette>
-          <Color color={palette.lettuceGreenAlpha(0.6)}>Lettuce Green</Color>
-          <Color color={palette.berryBlueAlpha(0.6)}>Berry Blue</Color>
-          <Color color={palette.lightBeetrootPurpleAlpha(0.6)}>Light Beetroot Purple</Color>
-          <Color color={palette.beetrootPurpleAlpha(0.6)}>Beetroot Purple</Color>
-          <Color color={palette.radishRedAlpha(0.6)}>Radish Red</Color>
-          <Color color={palette.potatoYellowAlpha(0.6)} invert>
-            Potato Yellow
-          </Color>
-        </Palette>
+        <ColorRange legend="Berry Blue" color="BerryBlue" />
+        <ColorRange legend="Radish Red" color="RadishRed" />
+        <ColorRange legend="Lettuce Green" color="LettuceGreen" />
+        <ColorRange legend="Beetroot Purple" color="BeetrootPurple" />
 
         <Info>
           <Info.Label label="Semantic colors (background & forground)" />
@@ -135,6 +107,9 @@ storiesOf('Palette', module)
           <Color color={palette.warningText}>Warning Text</Color>
           <Color color={palette.error}>Error</Color>
           <Color color={palette.errorText}>Error Text</Color>
+          <Color color={palette.border} invert>
+            Border
+          </Color>
         </Palette>
       </>
     )

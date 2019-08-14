@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 
-import {berryBlue, error} from '../constants/palette'
+import * as palette from '../constants/palette'
 import {body1Css, Body2} from './typography'
 
 const Select = styled.div`
@@ -26,11 +26,11 @@ const SelectTag = styled.select`
   background: transparent;
 
   ${body1Css}
-  color: ${berryBlue};
+  color: ${palette.mediumBerryBlue};
 `
 
 const Error = styled(Body2)`
-  color: ${error};
+  color: ${palette.error};
   padding-top: 4px;
 `
 

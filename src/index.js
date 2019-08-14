@@ -41,8 +41,8 @@ export const EditIcon = EditIconComponent
 import FlagIconComponent from './components/icons/flag'
 export const FlagIcon = FlagIconComponent
 
-import HistoricIconComponent from './components/icons/historic'
-export const HistoricIcon = HistoricIconComponent
+import HistoryIconComponent from './components/icons/history'
+export const HistoryIcon = HistoryIconComponent
 
 import LogoutIconComponent from './components/icons/logout'
 export const LogoutIcon = LogoutIconComponent
@@ -97,9 +97,6 @@ export const MapIcon = MapIconComponent
 
 import ExportIconComponent from './components/icons/export'
 export const ExportIcon = ExportIconComponent
-
-import KebabIconComponent from './components/icons/kebab'
-export const KebabIcon = KebabIconComponent
 
 import CheckIconComponent from './components/icons/check'
 export const CheckIcon = CheckIconComponent

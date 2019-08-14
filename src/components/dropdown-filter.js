@@ -21,7 +21,7 @@ const Menu = styled.div`
   margin-top: 8px;
   padding: 16px 16px 0 16px;
   border-radius: 8px;
-  box-shadow: 0 1px 4px 0 ${palette.darkGreyAlpha(0.3)};
+  box-shadow: 0 1px 4px 0 ${palette.hexToRGBA(palette.darkPrimary, 0.3)};
   background: white;
 
   z-index: ${ZIndexes.MODALS + 1};
@@ -69,7 +69,7 @@ const MobileHeader = styled.div`
   justify-content: space-between;
   align-items: center;
 
-  box-shadow: 0 2px 5px 0 ${palette.darkGreyAlpha(0.2)};
+  box-shadow: 0 2px 5px 0 ${palette.hexToRGBA(palette.darkPrimary, 0.2)};
 
   padding: 8px 16px;
   height: 56px;
@@ -135,11 +135,16 @@ function MenuFilter({label, selected, onSave, onClear, onClose, mobile, children
             {children}
             {mobile ? (
               <StickyFooter>
-                <Button variant="primary" color={palette.berryBlue} label="Enregistrer" onClick={onCloseAndSave} />
+                <Button
+                  variant="primary"
+                  color={palette.mediumBerryBlue}
+                  label="Enregistrer"
+                  onClick={onCloseAndSave}
+                />
               </StickyFooter>
             ) : (
               <Actions>
-                <Button variant="flat" textColor={palette.darkGrey} label="Effacer" onClick={onClear} />
+                <Button variant="flat" textColor={palette.darkPrimary} label="Effacer" onClick={onClear} />
                 <Button variant="flat" label="Enregistrer" onClick={onCloseAndSave} />
               </Actions>
             )}

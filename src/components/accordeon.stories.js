@@ -6,11 +6,11 @@ import {Accordeon, Info, palette, Art80Icon, PatientIcon} from '..'
 
 storiesOf('Accordeon', module)
   .add('Default', () => {
-    const icon = <Art80Icon circle circleColor={palette.beetrootPurple} />
+    const icon = <Art80Icon circle circleColor={palette.mediumBeetrootPurple} />
 
     return (
       <Showcase>
-        <div style={{background: 'white', width: '100%'}}>
+        <div style={{background: 'white'}}>
           <Accordeon icon={icon} iconSize={32} label="CERFA n° 11574*04 à fournir au transporteur">
             <Info>
               <Info.Label label="de Phil Colins !" />
@@ -21,7 +21,7 @@ storiesOf('Accordeon', module)
     )
   })
   .add('Open by default', () => {
-    const icon = <PatientIcon circle circleColor={palette.beetrootPurple} />
+    const icon = <PatientIcon circle circleColor={palette.mediumBeetrootPurple} color="white" />
 
     return (
       <Showcase>

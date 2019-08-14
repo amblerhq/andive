@@ -16,7 +16,7 @@ import LeftArrowIcon from './icons/arrow-left'
 import DownArrowIcon from './icons/arrow-down'
 import UpArrowIcon from './icons/arrow-up'
 import LogoutIcon from './icons/logout'
-import HistoricIcon from './icons/historic'
+import HistoryIcon from './icons/history'
 import MedicalFacilityIcon, {MedicalFacilitySvg} from './icons/medical-facility'
 import AddressIcon, {AddressSvg} from './icons/address'
 import CheckboxOn from './icons/checkbox-on'
@@ -32,7 +32,6 @@ import CerfaIcon from './icons/cerfa'
 import PatientIcon from './icons/patient'
 import DelegateIcon from './icons/delegate'
 import ExportIcon from './icons/export'
-import KebabIcon from './icons/kebab'
 import CheckIcon from './icons/check'
 import WarningIcon from './icons/warning'
 import MapIcon from './icons/map'
@@ -68,7 +67,7 @@ const icons = [
   DownArrowIcon,
   UpArrowIcon,
   LogoutIcon,
-  HistoricIcon,
+  HistoryIcon,
   MedicalFacilityIcon,
   AddressIcon,
   NewIcon,
@@ -81,7 +80,6 @@ const icons = [
   DelegateIcon,
   MapIcon,
   ExportIcon,
-  KebabIcon,
   CheckIcon,
   WarningIcon,
   ForbiddenIcon,
@@ -91,33 +89,61 @@ const icons = [
   MtIcon,
   RidesIcon,
   OrdersIcon,
-  DashboardIcon
+  DashboardIcon,
+  EditIcon,
+  BackIcon,
+  BurgerIcon,
+  RadioOn,
+  RadioOff,
+  CheckboxOn,
+  CheckboxOff
 ]
 
-const blueIcons = [EditIcon, BackIcon, RadioOn, RadioOff, CheckboxOn, CheckboxOff, BurgerIcon]
+function TimedColor({interval, colors, children}) {
+  const [index, setIndex] = React.useState(0)
+
+  React.useEffect(() => {
+    function tick() {
+      setIndex(prev => (prev >= colors.length - 1 ? 0 : prev + 1))
+    }
+
+    const handle = setInterval(tick, interval || 1000)
+
+    return () => {
+      clearInterval(handle)
+    }
+  }, [setIndex])
+
+  const color = colors[index % icons.length]
+
+  return children(color)
+}
 
 storiesOf('Icon', module)
   .add('All', () => {
     return (
       <>
-        <Icons>
-          {icons.map((Icon, index) => {
-            return (
-              <Showcase key={index} variant="squared" size={160} legend={Icon.name}>
-                <Icon color={palette.darkGrey} />
-              </Showcase>
-            )
-          })}
-        </Icons>
-        <Icons>
-          {blueIcons.map((Icon, index) => {
-            return (
-              <Showcase key={index} variant="squared" size={160} legend={Icon.name}>
-                <Icon />
-              </Showcase>
-            )
-          })}
-        </Icons>
+        <TimedColor
+          colors={[
+            palette.mediumLettuceGreen,
+            palette.mediumPrimary,
+            palette.successText,
+            palette.errorText,
+            palette.warningText
+          ]}
+        >
+          {color => (
+            <Icons>
+              {icons.map((Icon, index) => {
+                return (
+                  <Showcase key={index} variant="squared" size={160} legend={Icon.name}>
+                    <Icon color={color} />
+                  </Showcase>
+                )
+              })}
+            </Icons>
+          )}
+        </TimedColor>
       </>
     )
   })
@@ -137,7 +163,7 @@ storiesOf('Icon', module)
         </Icon>
       </Showcase>
       <Showcase variant="squared">
-        <Icon circle circleColor={palette.beetrootPurple} color="white">
+        <Icon circle circleColor={palette.mediumBeetrootPurple} color="white">
           <MedicalFacilitySvg />
         </Icon>
       </Showcase>
@@ -145,27 +171,27 @@ storiesOf('Icon', module)
   ))
   .add('Colored', () => (
     <Icons>
-      <Showcase variant="squared" legend={'berryBlue'}>
-        <AddressIcon color={palette.berryBlue} />
+      <Showcase variant="squared">
+        <AddressIcon color={palette.mediumBerryBlue} />
       </Showcase>
-      <Showcase variant="squared" legend={'radishRed'}>
-        <AddressIcon color={palette.radishRed} />
+      <Showcase variant="squared">
+        <AddressIcon color={palette.mediumRadishRed} />
       </Showcase>
-      <Showcase variant="squared" legend={'lettuceGreen'}>
-        <AddressIcon color={palette.lettuceGreen} />
+      <Showcase variant="squared">
+        <AddressIcon color={palette.mediumLettuceGreen} />
       </Showcase>
-      <Showcase variant="squared" invert legend={'potatoYellow'}>
-        <AddressIcon color={palette.potatoYellow} />
+      <Showcase variant="squared" invert>
+        <AddressIcon color={palette.mediumPotatoYellow} />
       </Showcase>
-      <Showcase variant="squared" invert legend={'potatoYellow'}>
+      <Showcase variant="squared" invert>
         <AddressIcon color={palette.white} />
       </Showcase>
     </Icons>
   ))
   .add('Inline', () => (
     <Showcase>
-      {"En concert à l'Olympiade"}
-      <Icon inline color={palette.radishRed}>
+      En concert à {"l'"}Olympiade
+      <Icon inline color={palette.lightRadishRed}>
         <AddressSvg />
       </Icon>
       dès 2020 !

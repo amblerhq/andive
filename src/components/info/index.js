@@ -15,9 +15,9 @@ const Info = styled.div`
     hasIcon &&
     css`
       position: relative;
-      padding-left: ${iconSize + 16 + 8}px;
+      padding-left: ${iconSize + 16}px;
       padding-top: 12px;
-      min-height: ${iconSize + 16}px;
+      min-height: ${iconSize + 8}px;
     `}
 `
 

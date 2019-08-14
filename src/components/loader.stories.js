@@ -37,13 +37,13 @@ storiesOf('Loader', module)
   .add('Color', () => (
     <>
       <Showcase variant="squared">
-        <Loader inline color={palette.radishRed} />
+        <Loader inline color={palette.mediumRadishRed} />
       </Showcase>
       <Showcase variant="squared">
-        <Loader inline color={palette.lettuceGreen} />
+        <Loader inline color={palette.mediumLettuceGreen} />
       </Showcase>
       <Showcase variant="squared">
-        <Loader inline color={palette.darkGrey} />
+        <Loader inline color={palette.darkPrimary} />
       </Showcase>
     </>
   ))

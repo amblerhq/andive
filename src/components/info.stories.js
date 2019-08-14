@@ -1,14 +1,8 @@
 import React from 'react'
 import {storiesOf} from '@storybook/react'
 
-import Info from './info'
 import Showcase from '../stories/showcase'
-import VslIcon from './icons/vsl'
-import AlertIcon from './icons/alert'
-import {palette} from '..'
-import CheckIcon from './icons/check'
-import WarningIcon from './icons/warning'
-import ForbiddenIcon from './icons/forbidden'
+import {palette, Info, VslIcon, AlertIcon, CheckIcon, WarningIcon, ForbiddenIcon, QuestionIcon} from '..'
 
 const shortLabel = 'Fan de Phil Collins'
 const longLabel =
@@ -120,13 +114,13 @@ storiesOf('Info', module)
     return (
       <>
         <Showcase>
-          <Info icon={<VslIcon color={palette.beetrootPurple} />} iconSize={24} style={{background: 'white'}}>
+          <Info icon={<QuestionIcon color={palette.error} />} style={{background: 'white'}}>
             <Info.Label label={shortLabel} color={palette.error} />
             <Info.Item item={shortLabel} color={palette.success} />
           </Info>
         </Showcase>
         <Showcase>
-          <Info icon={<CheckIcon />} iconSize={24} style={{background: 'white', width: 300}}>
+          <Info icon={<CheckIcon />} style={{background: 'white', width: 300}}>
             <Info.Item item={longLabel} color={palette.success} />
           </Info>
         </Showcase>
@@ -154,6 +148,13 @@ storiesOf('Info', module)
           <Info style={{background: 'white'}}>
             <Info.Block variant="warning" icon={<WarningIcon />}>
               <Info.Item item={longLabel} />
+            </Info.Block>
+          </Info>
+        </Showcase>
+        <Showcase>
+          <Info style={{background: 'white'}}>
+            <Info.Block variant="info" icon={<QuestionIcon color={palette.mediumBeetrootPurple} />}>
+              <Info.LabelIcon label={longLabel} />
             </Info.Block>
           </Info>
         </Showcase>

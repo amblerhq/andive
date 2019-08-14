@@ -11,8 +11,8 @@ function AndiveShowcase() {
     <div style={{display: 'flex', flexFlow: 'row wrap'}}>
       <Info>
         <Typography.Body1>Body1 - {theme.typography.body1.fontSize}</Typography.Body1>
-        <Typography.Body2 color={palette.mediumGrey}>Body2 - {theme.typography.body2.fontSize}</Typography.Body2>
-        <Typography.Body3 color={palette.mediumGrey}>Body3 - {theme.typography.body3.fontSize}</Typography.Body3>
+        <Typography.Body2 color={palette.mediumPrimary}>Body2 - {theme.typography.body2.fontSize}</Typography.Body2>
+        <Typography.Body3 color={palette.mediumPrimary}>Body3 - {theme.typography.body3.fontSize}</Typography.Body3>
       </Info>
     </div>
   )

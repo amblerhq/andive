@@ -33,15 +33,19 @@ function Block({icon, variant, className, children}) {
       ? palette.errorText
       : variant === 'warning'
       ? palette.warningText
-      : palette.darkGrey
+      : variant === 'info'
+      ? palette.darkBeetrootPurple
+      : palette.black
 
   const backgroundColor =
     variant === 'success'
-      ? palette.lettuceGreenAlpha(0.6)
+      ? palette.lightLettuceGreen
       : variant === 'error'
-      ? palette.radishRedAlpha(0.6)
+      ? palette.lightRadishRed
       : variant === 'warning'
-      ? palette.potatoYellowAlpha(0.6)
+      ? palette.lightPotatoYellow
+      : variant === 'info'
+      ? palette.hexToRGBA(palette.lightBeetrootPurple, 0.6)
       : palette.white
 
   return (
@@ -55,7 +59,7 @@ function Block({icon, variant, className, children}) {
 
 Block.propTypes = {
   icon: PropTypes.node,
-  variant: PropTypes.oneOf(['success', 'error', 'warning']).isRequired,
+  variant: PropTypes.oneOf(['success', 'error', 'warning', 'info']).isRequired,
   className: PropTypes.string,
   children: PropTypes.node
 }
