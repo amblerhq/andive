@@ -1,18 +1,18 @@
 import React from 'react'
 import {storiesOf} from '@storybook/react'
-
-import Success from './illustrations/success'
-import Direction from './illustrations/direction'
-import Doctor from './illustrations/doctor'
-import Error from './illustrations/error'
-import Hospital from './illustrations/hospital'
-import OrderOnline from './illustrations/order-online'
-import Patient from './illustrations/patient'
-import Standard from './illustrations/standard'
-
-import Showcase from '../stories/showcase'
-
 import styled from 'styled-components'
+
+import Showcase from './showcase'
+import {
+  SuccessIllustration,
+  DirectionIllustration,
+  DoctorIllustration,
+  ErrorIllustration,
+  HospitalIllustration,
+  OrderOnlineIllustration,
+  PatientIllustration,
+  StandardIllustration
+} from '..'
 
 const Story = styled.div`
     display: flex;
@@ -23,28 +23,28 @@ storiesOf('Illustration', module).add('Library', () => {
   return (
     <Story>
       <Showcase variant="squared" size={400} invert legend="Success">
-        <Success />
-      </Showcase>
-      <Showcase variant="squared" size={400} style={{background: 'white'}} legend="Direction">
-        <Direction />
-      </Showcase>
-      <Showcase variant="squared" size={400} style={{background: 'white'}} legend="Doctor">
-        <Doctor />
+        <SuccessIllustration />
       </Showcase>
       <Showcase variant="squared" size={400} style={{background: 'white'}} legend="Error">
-        <Error />
+        <ErrorIllustration />
+      </Showcase>
+      <Showcase variant="squared" size={400} style={{background: 'white'}} legend="Direction">
+        <DirectionIllustration />
+      </Showcase>
+      <Showcase variant="squared" size={400} style={{background: 'white'}} legend="Doctor">
+        <DoctorIllustration />
       </Showcase>
       <Showcase variant="squared" size={400} style={{background: 'white'}} legend="Hospital">
-        <Hospital />
+        <HospitalIllustration />
       </Showcase>
       <Showcase variant="squared" size={400} style={{background: 'white'}} legend="OrderOnline">
-        <OrderOnline />
+        <OrderOnlineIllustration />
       </Showcase>
       <Showcase variant="squared" size={400} style={{background: 'white'}} legend="Patient">
-        <Patient />
+        <PatientIllustration />
       </Showcase>
       <Showcase variant="squared" size={400} style={{background: 'white'}} legend="Standard">
-        <Standard />
+        <StandardIllustration />
       </Showcase>
     </Story>
   )

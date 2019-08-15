@@ -1,7 +1,7 @@
 import React from 'react'
 import {storiesOf} from '@storybook/react'
 
-import Showcase from '../stories/showcase'
+import Showcase from './showcase'
 import {Typography, palette} from '../index'
 
 const {H1, H2, Body1, Body2, Body3} = Typography

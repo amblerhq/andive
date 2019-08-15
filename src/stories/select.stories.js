@@ -1,18 +1,17 @@
 import React from 'react'
 import {storiesOf} from '@storybook/react'
 
-import Select from './select'
-import Showcase from '../stories/showcase'
-import ArrowDownIcon from './icons/arrow-down'
+import {ArrowDownIcon, Select} from '..'
+import Showcase from './showcase'
 
 storiesOf('Select', module)
   .add('Default label', () => (
-    <Showcase style={{background: '#eee'}}>
+    <Showcase>
       <Select label="Téléphone" options={['Mobile', 'Fixe']} style={{background: 'white'}} />
     </Showcase>
   ))
   .add('With icon', () => (
-    <Showcase style={{background: '#eee'}}>
+    <Showcase>
       <Select
         label="Téléphone"
         options={['Choissez une date...', 'Arrivée à destination à...']}
@@ -22,7 +21,7 @@ storiesOf('Select', module)
     </Showcase>
   ))
   .add('With error', () => (
-    <Showcase style={{background: '#eee'}}>
+    <Showcase>
       <Select
         label="Téléphone"
         options={['Choissez une date...', 'Arrivée à destination à...']}

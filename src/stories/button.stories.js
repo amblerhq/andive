@@ -1,28 +1,28 @@
-import React, {useState, useEffect} from 'react'
+import React from 'react'
 import {storiesOf} from '@storybook/react'
 
-import Button from './button'
-import * as palette from '../constants/palette'
-import Showcase from '../stories/showcase'
-
-import AmbulanceIcon from './icons/ambulance'
-import VslIcon from './icons/vsl'
-import BariatricIcon from './icons/bariatric'
-import TpmrIcon from './icons/tpmr'
-import PatientIcon from './icons/patient'
-
-import EditIcon from './icons/edit'
-import LogoutIcon from './icons/logout'
-import ArrowIcon from './icons/arrow-right'
-import NewIcon from './icons/new'
-import AddressIcon from './icons/address'
+import {
+  AmbulanceIcon,
+  ArrowRightIcon,
+  NewIcon,
+  AddressIcon,
+  BariatricIcon,
+  PatientIcon,
+  TpmrIcon,
+  EditIcon,
+  LogoutIcon,
+  VslIcon,
+  Button,
+  palette
+} from '..'
+import Showcase from './showcase'
 
 const icons = [AmbulanceIcon, VslIcon, BariatricIcon, TpmrIcon]
 
 function TimedIcon({interval, color, children}) {
-  const [index, setIndex] = useState(0)
+  const [index, setIndex] = React.useState(0)
 
-  useEffect(() => {
+  React.useEffect(() => {
     function tick() {
       setIndex(index + 1)
     }
@@ -145,7 +145,7 @@ storiesOf('Button', module)
       <Showcase>
         <Button
           label={'Nouvelle commande'}
-          rightIcon={<ArrowIcon inline color={palette.mediumBerryBlue} />}
+          rightIcon={<ArrowRightIcon inline color={palette.mediumBerryBlue} />}
           variant="flat"
         />
       </Showcase>

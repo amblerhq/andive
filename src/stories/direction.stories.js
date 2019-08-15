@@ -1,10 +1,8 @@
 import React from 'react'
 import {storiesOf} from '@storybook/react'
 
-import {Typography, palette} from '../index'
-import Direction from './direction'
-import Input from './input'
-import Showcase from '../stories/showcase'
+import {Direction, Input, Typography, palette} from '..'
+import Showcase from './showcase'
 
 storiesOf('Direction', module)
   .add('Origin', () => (

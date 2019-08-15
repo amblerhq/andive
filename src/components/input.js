@@ -21,7 +21,7 @@ const inputCss = ({error: error_, canClear, hasIcon, disabled}) => css`
   width: 100%;
   height: 56px;
   border-radius: 16px;
-  background-color: ${error_ ? palette.lightRadishRed : '#ededed'};
+  background-color: ${error_ ? palette.hexToRGBA(palette.error, 0.6) : '#ededed'};
   color: ${error_ ? palette.error : palette.darkPrimary}
 
   padding: 16px ${canClear ? 48 : 16}px 16px ${hasIcon ? '64px' : '16px'};

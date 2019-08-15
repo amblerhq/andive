@@ -1,13 +1,11 @@
-import React, {useState} from 'react'
+import React from 'react'
 import {storiesOf} from '@storybook/react'
 
-import Input from './input'
-import BariatricIcon from './icons/bariatric'
-
-import Showcase from '../stories/showcase'
+import {BariatricIcon, Input} from '..'
+import Showcase from './showcase'
 
 function DefaultStory() {
-  const [value, setValue] = useState('07/12/1993')
+  const [value, setValue] = React.useState('07/12/1993')
 
   function onChange(ev) {
     setValue(ev.target.value)
@@ -23,7 +21,7 @@ function DefaultStory() {
 }
 
 function WithClearStory() {
-  const [value, setValue] = useState('07/12/1993')
+  const [value, setValue] = React.useState('07/12/1993')
 
   function onChange(ev) {
     setValue(ev.target.value)
@@ -43,8 +41,8 @@ function WithClearStory() {
 }
 
 function WithErrorStory() {
-  const [value, setValue] = useState('0142424242')
-  const [error, setError] = useState("Le numéro n'est pas celui d'un téléphone mobile")
+  const [value, setValue] = React.useState('0142424242')
+  const [error, setError] = React.useState("Le numéro n'est pas celui d'un téléphone mobile")
 
   function onChange(ev) {
     const nextValue = ev.target.value
@@ -71,7 +69,7 @@ function WithErrorStory() {
 }
 
 function WithDisabledStory() {
-  const [value, setValue] = useState('07/12/1993')
+  const [value, setValue] = React.useState('07/12/1993')
 
   function onChange(ev) {
     setValue(ev.target.value)
@@ -87,7 +85,7 @@ function WithDisabledStory() {
 }
 
 function WithIconStory() {
-  const [value, setValue] = useState('Bariatrique')
+  const [value, setValue] = React.useState('Bariatrique')
 
   function onChange(ev) {
     setValue(ev.target.value)
@@ -113,7 +111,7 @@ function WithIconStory() {
 }
 
 function AsTextAreaStory() {
-  const [value, setValue] = useState('')
+  const [value, setValue] = React.useState('')
 
   function onChange(ev) {
     setValue(ev.target.value)
@@ -140,7 +138,7 @@ function AsTextAreaStory() {
 }
 
 function WithLoaderStory() {
-  const [value, setValue] = useState('')
+  const [value, setValue] = React.useState('')
 
   function onChange(ev) {
     setValue(ev.target.value)

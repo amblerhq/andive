@@ -1,9 +1,8 @@
 import React from 'react'
 import {storiesOf} from '@storybook/react'
-import Showcase from '../stories/showcase'
 
-import Dialog from './dialog'
-import DialogTitle from './dialog-title'
+import {Dialog, DialogTitle} from '..'
+import Showcase from './showcase'
 
 storiesOf('Dialog', module)
   .add('Default', () => {

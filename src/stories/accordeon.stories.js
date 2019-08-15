@@ -1,8 +1,8 @@
 import React from 'react'
 import {storiesOf} from '@storybook/react'
-import Showcase from '../stories/showcase'
 
 import {Accordeon, Info, palette, Art80Icon, PatientIcon} from '..'
+import Showcase from './showcase'
 
 storiesOf('Accordeon', module)
   .add('Default', () => {

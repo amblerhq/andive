@@ -1,17 +1,14 @@
 import React from 'react'
 import {storiesOf} from '@storybook/react'
 
-import Showcase from '../stories/showcase'
-import AmbulanceIcon from './icons/ambulance'
-import Button from './button'
-import ToastContainer, {toastInfo, toastSuccess, toastError, initializeQueue} from './toast'
+import Showcase from './showcase'
+import {AmbulanceIcon, Button, Toast, toastInfo, toastSuccess, toastError} from '..'
 
 storiesOf('Toast', module)
   .addDecorator(storyFn => {
-    initializeQueue()
     return (
       <>
-        <ToastContainer />
+        <Toast />
         {storyFn()}
       </>
     )

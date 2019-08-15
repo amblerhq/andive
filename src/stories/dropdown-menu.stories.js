@@ -1,10 +1,9 @@
 import React from 'react'
 import {storiesOf} from '@storybook/react'
-import Showcase from '../stories/showcase'
 
 import {ZIndexes} from '../constants/enum'
-import DropdownMenu from './dropdown-menu'
-import Info from './info'
+import Showcase from './showcase'
+import {DropdownMenu, Info} from '..'
 
 const FakeList = ({nth}) =>
   [...new Array(nth).keys()].map(i => {

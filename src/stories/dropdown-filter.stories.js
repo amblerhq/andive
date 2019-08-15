@@ -1,11 +1,11 @@
 import React from 'react'
-import {storiesOf} from '@storybook/react'
-import range from 'lodash.range'
-import styled from 'styled-components'
 import PropTypes from 'prop-types'
+import {storiesOf} from '@storybook/react'
+import styled from 'styled-components'
+import range from 'lodash.range'
 
-import {Checkbox, CheckboxGroup, DropdownFilter, Typography, palette, RideStatus, Info} from '../index'
-import Showcase from '../stories/showcase'
+import {Checkbox, CheckboxGroup, DropdownFilter, Typography, palette, RideStatus, Info} from '..'
+import Showcase from './showcase'
 
 function RandomPageContent() {
   return (

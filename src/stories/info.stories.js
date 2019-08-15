@@ -1,8 +1,8 @@
 import React from 'react'
 import {storiesOf} from '@storybook/react'
 
-import Showcase from '../stories/showcase'
 import {palette, Info, VslIcon, AlertIcon, CheckIcon, WarningIcon, ForbiddenIcon, QuestionIcon} from '..'
+import Showcase from './showcase'
 
 const shortLabel = 'Fan de Phil Collins'
 const longLabel =
@@ -131,28 +131,28 @@ storiesOf('Info', module)
     return (
       <>
         <Showcase>
-          <Info style={{background: 'white'}}>
+          <Info style={{background: 'white', width: 320}}>
             <Info.Block variant="success" icon={<CheckIcon />}>
               <Info.Item item={longLabel} />
             </Info.Block>
           </Info>
         </Showcase>
         <Showcase>
-          <Info style={{background: 'white'}}>
+          <Info style={{background: 'white', width: 320}}>
             <Info.Block variant="error" icon={<ForbiddenIcon />}>
               <Info.Item item={longLabel} />
             </Info.Block>
           </Info>
         </Showcase>
         <Showcase>
-          <Info style={{background: 'white'}}>
+          <Info style={{background: 'white', width: 320}}>
             <Info.Block variant="warning" icon={<WarningIcon />}>
               <Info.Item item={longLabel} />
             </Info.Block>
           </Info>
         </Showcase>
         <Showcase>
-          <Info style={{background: 'white'}}>
+          <Info style={{background: 'white', width: 320}}>
             <Info.Block variant="info" icon={<QuestionIcon color={palette.mediumBeetrootPurple} />}>
               <Info.LabelIcon label={longLabel} />
             </Info.Block>

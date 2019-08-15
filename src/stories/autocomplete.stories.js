@@ -2,14 +2,9 @@ import React from 'react'
 import {storiesOf} from '@storybook/react'
 import {Provider, createClient, useQuery} from 'urql'
 
-import * as palette from '../constants/palette'
-import Showcase from '../stories/showcase'
-import Autocomplete from './autocomplete'
-import Hover from './hover'
-import MedicalFacilityIcon from './icons/medical-facility'
-import AddressIcon from './icons/address'
-import Info from './info'
 import {ZIndexes} from '../constants/enum'
+import {palette, Autocomplete, Hover, MedicalFacilityIcon, AddressIcon, Info} from '..'
+import Showcase from './showcase'
 
 const FakeList = () => (
   <>

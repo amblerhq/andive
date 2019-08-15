@@ -1,9 +1,8 @@
 import React from 'react'
 import {storiesOf} from '@storybook/react'
 
-import Menu from './menu'
-import Showcase from '../stories/showcase'
-import {Info} from '..'
+import {Info, Menu} from '..'
+import Showcase from './showcase'
 
 const FakeList = ({nth}) =>
   [...new Array(nth).keys()].map(i => {
@@ -24,7 +23,7 @@ function DefaultStory() {
   const [instrument, setInstrument] = React.useState(null)
 
   return (
-    <Showcase style={{background: '#eee'}}>
+    <Showcase>
       <div style={{display: 'flex', flexFlow: 'column nowrap', width: 300}}>
         <div style={{padding: 8}}>Picked instrument: {instrument || 'none'}</div>
         <Menu onClick={id => setInstrument(id)}>
@@ -87,7 +86,7 @@ function DeepStory() {
   const [depth, setDepth] = React.useState(null)
 
   return (
-    <Showcase style={{background: '#eee'}}>
+    <Showcase>
       <div style={{display: 'flex', flexFlow: 'column nowrap', width: 600}}>
         {typeof depth === 'string' ? (
           <div style={{padding: 8}}>Got to depth {depth}</div>
@@ -150,7 +149,7 @@ function DeepStory() {
 function ScrollToStory() {
   return (
     <>
-      <Showcase style={{background: '#eee'}}>
+      <Showcase>
         <Menu onClick={() => {}}>
           {[...new Array(10).keys()].map(i => {
             return (

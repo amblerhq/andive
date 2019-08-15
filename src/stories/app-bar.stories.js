@@ -3,10 +3,9 @@ import styled from 'styled-components'
 import {storiesOf} from '@storybook/react'
 import range from 'lodash.range'
 
-import {AppBar, Button, BackIcon, LogoutIcon, AmbulanceIcon, VslIcon, Typography, palette} from '../index'
-
-import Showcase from '../stories/showcase'
 import LogoSvg from '../../img/logo.svg'
+import {AppBar, Button, BackIcon, LogoutIcon, AmbulanceIcon, VslIcon, Typography, palette} from '..'
+import Showcase from './showcase'
 
 function RandomPageContent() {
   return (

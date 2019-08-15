@@ -2,10 +2,8 @@ import React from 'react'
 import {storiesOf} from '@storybook/react'
 import range from 'lodash.range'
 
-import {Typography, palette} from '../index'
-import Showcase from '../stories/showcase'
-
-import Loader from './loader'
+import {Typography, Loader, palette} from '..'
+import Showcase from './showcase'
 
 function RandomPageContent() {
   return (

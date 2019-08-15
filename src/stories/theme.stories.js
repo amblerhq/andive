@@ -2,8 +2,8 @@ import React from 'react'
 import {storiesOf} from '@storybook/react'
 import {ThemeContext} from 'styled-components'
 
+import {defaultTheme} from '../components/theme-provider'
 import {Info, Typography, palette, Title, ThemeProvider} from '..'
-import {defaultTheme} from './theme-provider'
 
 function AndiveShowcase() {
   const theme = React.useContext(ThemeContext)

@@ -4,11 +4,8 @@ import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import {CopyToClipboard} from 'react-copy-to-clipboard'
 
-import Showcase from '../stories/showcase'
-
-import {initializeQueue} from '../components/toast'
-import {palette, Toast, toastSuccess, Info} from '..'
-import QuestionIcon from '../components/icons/question'
+import {palette, Toast, toastSuccess, Info, QuestionIcon} from '..'
+import Showcase from './showcase'
 
 const ColorHex = styled.div`
   text-transform: lowercase;
@@ -73,7 +70,6 @@ ColorRange.propTypes = {
 
 storiesOf('Palette', module)
   .addDecorator(storyFn => {
-    initializeQueue()
     return (
       <>
         <Toast />

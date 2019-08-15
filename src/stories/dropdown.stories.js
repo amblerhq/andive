@@ -1,9 +1,8 @@
 import React from 'react'
 import {storiesOf} from '@storybook/react'
 
-import Dropdown from './dropdown'
-import Showcase from '../stories/showcase'
-import ArrowDownIcon from './icons/arrow-down'
+import {ArrowDownIcon, Dropdown} from '..'
+import Showcase from './showcase'
 
 function ControlledDropdown() {
   const [value, setValue] = React.useState('')

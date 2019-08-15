@@ -3,9 +3,8 @@ import {storiesOf} from '@storybook/react'
 import range from 'lodash.range'
 import styled from 'styled-components'
 
-import {Typography, Modal, Button, palette} from '../index'
-
-import Showcase from '../stories/showcase'
+import {Typography, Modal, Button, palette} from '..'
+import Showcase from './showcase'
 
 const Center = styled.div`
   display: flex;

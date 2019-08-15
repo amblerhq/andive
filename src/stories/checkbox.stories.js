@@ -1,15 +1,13 @@
-import React, {useState, useCallback, useEffect} from 'react'
+import React from 'react'
 import {storiesOf} from '@storybook/react'
 
-import Checkbox from './checkbox'
-import CheckboxGroup from './checkbox-group'
-
-import Showcase from '../stories/showcase'
+import {Checkbox, CheckboxGroup} from '..'
+import Showcase from './showcase'
 
 function ControlledCheckbox(props) {
-  const [checked, setChecked] = useState(false)
+  const [checked, setChecked] = React.useState(false)
 
-  const onChange = useCallback(() => {
+  const onChange = React.useCallback(() => {
     setChecked(prev => !prev)
   })
 
@@ -23,7 +21,7 @@ function ControlledCheckbox(props) {
 
 // eslint-disable-next-line react/prop-types
 function CheckboxGroupStory({radio}) {
-  const [values, setValues] = useState({a: true})
+  const [values, setValues] = React.useState({a: true})
 
   return (
     <div style={{background: 'white', width: 300}}>
@@ -44,8 +42,8 @@ function CheckboxGroupStory({radio}) {
 }
 
 function CheckboxGroupWithErrorStory() {
-  const [values, setValues] = useState({a: true})
-  const [error, setError] = useState('')
+  const [values, setValues] = React.useState({a: true})
+  const [error, setError] = React.useState('')
 
   function validate(values_) {
     if (Object.keys(values_).filter(key => values_[key]).length < 2) {
@@ -55,7 +53,7 @@ function CheckboxGroupWithErrorStory() {
     }
   }
 
-  useEffect(() => {
+  React.useEffect(() => {
     validate(values)
   }, [values])
 
@@ -78,9 +76,9 @@ function CheckboxGroupWithErrorStory() {
 }
 
 function UpdateableCheckboxGroupStory() {
-  const [values, setValues] = useState({a: true})
+  const [values, setValues] = React.useState({a: true})
 
-  useEffect(() => {
+  React.useEffect(() => {
     let int = setInterval(() => {
       const newValues = ['a', 'b', 'c']
         .filter(() => Math.random() > 0.5)
