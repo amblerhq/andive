@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.11.0-canary.7](https://github.com/amblerhq/ambler/compare/v0.11.0-canary.6...v0.11.0-canary.7) (2019-08-16)
+
+
+### Bug Fixes
+
+* **button:** rework buttons and their stories ([985f09e](https://github.com/amblerhq/ambler/commit/985f09e))
+* **color:** add mainText + secondaryText colors ([8521ceb](https://github.com/amblerhq/ambler/commit/8521ceb))
+* **theme-provider:** allow for multiple children ([7035781](https://github.com/amblerhq/ambler/commit/7035781))
+
+
+
 ## [0.11.0-canary.6](https://github.com/amblerhq/ambler/compare/v0.11.0-canary.5...v0.11.0-canary.6) (2019-08-14)
 
 
