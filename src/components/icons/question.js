@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
-import Question from '../../../img/icons/Question.svg'
+import Question from '../../../img/icons/question.svg'
 import Icon from '../icon'
 
 const QuestionOverride = styled(Question)`
