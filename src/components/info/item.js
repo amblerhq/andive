@@ -6,7 +6,7 @@ import * as palette from '../../constants/palette'
 
 function Item({item, ...props}) {
   return (
-    <Body2 color={palette.mediumPrimary} {...props}>
+    <Body2 color={palette.secondaryText} {...props}>
       {item}
     </Body2>
   )

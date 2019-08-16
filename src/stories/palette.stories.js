@@ -86,15 +86,19 @@ storiesOf('Palette', module)
           </Info.Block>
         </Info>
 
+        <ColorRange legend="Primary" color="Primary" />
+        <ColorRange legend="Beetroot Purple" color="BeetrootPurple" />
         <ColorRange legend="Berry Blue" color="BerryBlue" />
         <ColorRange legend="Radish Red" color="RadishRed" />
         <ColorRange legend="Lettuce Green" color="LettuceGreen" />
-        <ColorRange legend="Beetroot Purple" color="BeetrootPurple" />
+        <ColorRange legend="Potato Yellow" color="PotatoYellow" />
 
         <Info>
           <Info.Label label="Semantic colors (background & forground)" />
         </Info>
         <Palette>
+          <Color color={palette.mainText}>Main Text</Color>
+          <Color color={palette.secondaryText}>Secondary Text</Color>
           <Color color={palette.success}>Success</Color>
           <Color color={palette.successText}>Success Text</Color>
           <Color color={palette.warning} invert>

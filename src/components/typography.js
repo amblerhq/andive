@@ -39,7 +39,7 @@ export const h1Css = css`
   font-size: 25px;
   line-height: 30px;
   min-height: 32px;
-  color: ${palette.darkPrimary};
+  color: ${palette.mainText};
 `
 
 export const H1 = styled.div.attrs({
@@ -56,7 +56,7 @@ export const h2Css = css`
   font-size: 18px;
   line-height: 22px;
   min-height: 24px;
-  color: ${palette.darkPrimary};
+  color: ${palette.mainText};
 `
 
 export const H2 = styled.div.attrs({
@@ -73,7 +73,7 @@ export const body1Css = css`
   font-size: ${props => props.theme.typography.body1.fontSize}px;
   line-height: 22px;
   min-height: 24px;
-  color: ${palette.darkPrimary};
+  color: ${palette.mainText};
 `
 
 export const Body1 = styled.div.attrs({
@@ -90,7 +90,7 @@ export const body2Css = css`
   font-size: ${props => props.theme.typography.body2.fontSize}px;
   line-height: 22px;
   min-height: 24px;
-  color: ${palette.darkPrimary};
+  color: ${palette.mainText};
 `
 
 export const Body2 = styled.div.attrs({
@@ -107,7 +107,7 @@ export const body3Css = css`
   font-size: ${props => props.theme.typography.body3.fontSize}px;
   line-height: 20px;
   min-height: 20px;
-  color: ${palette.darkPrimary};
+  color: ${palette.mainText};
 `
 
 export const Body3 = styled.div.attrs({

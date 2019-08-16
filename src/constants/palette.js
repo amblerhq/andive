@@ -32,6 +32,8 @@ export const lightBerryBlue = '#1dbeff'
 
 // Semantic color palette
 
+export const mainText = darkPrimary
+export const secondaryText = mediumPrimary
 export const warning = mediumPotatoYellow
 export const warningText = darkPotatoYellow
 export const error = mediumRadishRed
@@ -45,7 +47,7 @@ export function hexToRGBA(hex, alpha) {
     g = parseInt(hex.slice(3, 5), 16),
     b = parseInt(hex.slice(5, 7), 16)
 
-  if (alpha) {
+  if (alpha || alpha === 0) {
     return 'rgba(' + r + ', ' + g + ', ' + b + ', ' + alpha + ')'
   } else {
     return 'rgb(' + r + ', ' + g + ', ' + b + ')'

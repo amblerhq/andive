@@ -7,12 +7,13 @@ import LogoSvg from '../../img/logo.svg'
 import {AppBar, Button, BackIcon, LogoutIcon, AmbulanceIcon, VslIcon, Typography, palette} from '..'
 import Showcase from './showcase'
 
-function RandomPageContent() {
+// eslint-disable-next-line
+function RandomPageContent({nth = 3}) {
   return (
     <>
       <div style={{height: 16}} />
-      {range(10).map(i => (
-        <Showcase key={i} variant="compact">
+      {range(nth).map(i => (
+        <Showcase key={i} variant="compact" style={{background: 'white'}}>
           <Typography.Body2 color={palette.mediumGrey}>{i}</Typography.Body2>
         </Showcase>
       ))}
@@ -87,7 +88,7 @@ storiesOf('AppBar', module)
             />
           </Container>
         </AppBar>
-        <RandomPageContent />
+        <RandomPageContent nth={10} />
       </>
     )
   })
@@ -115,7 +116,7 @@ storiesOf('AppBar', module)
             </marquee>
           </AppBar.Sticky>
         </AppBar>
-        <RandomPageContent />
+        <RandomPageContent nth={10} />
       </>
     )
   })
