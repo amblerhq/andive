@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.11.0-canary.8](https://github.com/amblerhq/ambler/compare/v0.11.0-canary.7...v0.11.0-canary.8) (2019-08-16)
+
+
+### Bug Fixes
+
+* **icon:** fix typo in question icon import ([e3b4b49](https://github.com/amblerhq/ambler/commit/e3b4b49))
+
+
+
 ## [0.11.0-canary.7](https://github.com/amblerhq/ambler/compare/v0.11.0-canary.6...v0.11.0-canary.7) (2019-08-16)
 
 
