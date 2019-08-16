@@ -2,6 +2,8 @@ import React from 'react'
 import {storiesOf} from '@storybook/react'
 
 import {
+  Button,
+  ButtonGroup,
   AmbulanceIcon,
   ArrowRightIcon,
   NewIcon,
@@ -12,10 +14,11 @@ import {
   EditIcon,
   LogoutIcon,
   VslIcon,
-  Button,
-  palette
+  palette,
+  Info
 } from '..'
 import Showcase from './showcase'
+import VSpace from '../components/v-space'
 
 const icons = [AmbulanceIcon, VslIcon, BariatricIcon, TpmrIcon]
 
@@ -39,241 +42,236 @@ function TimedIcon({interval, color, children}) {
   return children(<Icon color={color} />)
 }
 
+function ButtonStory(props) {
+  return (
+    <>
+      <Info>
+        <Info.Label label="Desktop" />
+      </Info>
+      <Showcase legend="Default (desktop)">
+        <ButtonGroup>
+          <Button {...props} label="Je suis fan" />
+          <Button {...props} label="Enregistrer mes changements" />
+        </ButtonGroup>
+      </Showcase>
+      <Showcase legend="Disabled (desktop)">
+        <ButtonGroup>
+          <Button {...props} disabled label="Je suis fan" />
+          <Button {...props} disabled label="Enregistrer mes changements" />
+        </ButtonGroup>
+      </Showcase>
+      <Showcase legend="Loading (desktop)">
+        <ButtonGroup>
+          <Button {...props} loading label="Je suis fan" />
+          <Button {...props} loading label="Enregistrer mes changements" />
+        </ButtonGroup>
+      </Showcase>
+      <Showcase legend="Invert (desktop)" invert>
+        <ButtonGroup>
+          <Button {...props} invert label="Je suis fan" />
+          <Button {...props} invert label="Enregistrer mes changements" />
+        </ButtonGroup>
+      </Showcase>
+      <Showcase legend="Invert & Disabled (desktop)" invert>
+        <ButtonGroup>
+          <Button {...props} invert disabled label="Je suis fan" />
+          <Button {...props} invert disabled label="Enregistrer mes changements" />
+        </ButtonGroup>
+      </Showcase>
+      <Showcase legend="Invert & Loading (desktop)" invert>
+        <ButtonGroup>
+          <Button {...props} invert loading label="Je suis fan" />
+          <Button {...props} invert loading label="Enregistrer mes changements" />
+        </ButtonGroup>
+      </Showcase>
+      <Info>
+        <Info.Label label="Mobile" />
+      </Info>
+      <Showcase legend="Default (mobile)">
+        <ButtonGroup>
+          <Button {...props} label="Je suis fan" mobile />
+          <Button {...props} label="Enregistrer mes changements" mobile />
+        </ButtonGroup>
+      </Showcase>
+      <Showcase legend="Disabled (mobile)">
+        <ButtonGroup>
+          <Button {...props} mobile disabled label="Je suis fan" />
+          <Button {...props} mobile disabled label="Enregistrer mes changements" />
+        </ButtonGroup>
+      </Showcase>
+      <Showcase legend="Loading (mobile)">
+        <ButtonGroup>
+          <Button {...props} loading label="Je suis fan" mobile />
+          <Button {...props} loading label="Enregistrer mes changements" mobile />
+        </ButtonGroup>
+      </Showcase>
+      <Showcase legend="Invert (mobile)" invert>
+        <ButtonGroup>
+          <Button {...props} invert label="Je suis fan" mobile />
+          <Button {...props} invert label="Enregistrer mes changements" mobile />
+        </ButtonGroup>
+      </Showcase>
+      <Showcase legend="Invert & Disabled (mobile)" invert>
+        <ButtonGroup>
+          <Button {...props} mobile invert disabled label="Je suis fan" />
+          <Button {...props} mobile invert disabled label="Enregistrer mes changements" />
+        </ButtonGroup>
+      </Showcase>
+      <Showcase legend="Invert & Loading (mobile)" invert>
+        <ButtonGroup>
+          <Button {...props} invert loading label="Je suis fan" mobile />
+          <Button {...props} invert loading label="Enregistrer mes changements" mobile />
+        </ButtonGroup>
+      </Showcase>
+    </>
+  )
+}
+
 storiesOf('Button', module)
   .add('Showcase', () => (
     <>
       <Showcase legend="Desktop">
-        <Button label="Je suis fan" />
-        <div style={{width: 32}} />
-        <Button variant="primary" label="Je suis fan" />
-        <div style={{width: 32}} />
-        <Button disabled variant="primary" label="Je suis fan" />
-        <div style={{width: 32}} />
-        <Button loading variant="primary" label="Je suis fan" />
-        <div style={{width: 32}} />
-        <Button variant="primary" label="Je suis fan" rightIcon={<PatientIcon color="white" size={24} />} />
+        <ButtonGroup>
+          <Button label="Je suis fan" />
+          <Button variant="primary" label="Je suis fan" />
+          <Button disabled variant="primary" label="Je suis fan" />
+          <Button loading variant="primary" label="Je suis fan" />
+          <Button variant="primary" label="Je suis fan" rightIcon={<PatientIcon color="white" size={24} />} />
+        </ButtonGroup>
       </Showcase>
       <Showcase legend="Mobile">
-        <Button mobile label="Je suis fan" />
-        <div style={{width: 32}} />
-        <Button mobile variant="primary" label="Je suis fan" />
-        <div style={{width: 32}} />
-        <Button mobile disabled variant="primary" label="Je suis fan" />
-        <div style={{width: 32}} />
-        <Button mobile loading variant="primary" label="Je suis fan" />
-        <div style={{width: 32}} />
-        <Button mobile variant="primary" label="Je suis fan" rightIcon={<PatientIcon color="white" size={24} />} />
+        <ButtonGroup>
+          <Button mobile label="Je suis fan" />
+          <Button mobile variant="primary" label="Je suis fan" />
+          <Button mobile disabled variant="primary" label="Je suis fan" />
+          <Button mobile loading variant="primary" label="Je suis fan" />
+          <Button mobile variant="primary" label="Je suis fan" rightIcon={<PatientIcon color="white" size={24} />} />
+        </ButtonGroup>
       </Showcase>
-    </>
-  ))
-  .add('Default', () => (
-    <>
-      <Showcase legend="Default (desktop)">
-        <Button label="Je suis fan" />
-        <div style={{width: 32}} />
-        <Button label="Enregistrer mes changements" />
-      </Showcase>
-      <Showcase legend="Default (mobile)">
-        <Button label="Je suis fan" mobile />
-        <div style={{width: 32}} />
-        <Button label="Enregistrer mes changements" mobile />
-      </Showcase>
-    </>
-  ))
-  .add('Primary', () => (
-    <>
-      <Showcase legend="Default (desktop)">
-        <Button variant="primary" label="Je suis fan" />
-        <div style={{width: 32}} />
-        <Button variant="primary" label="Enregistrer mes changements" />
-      </Showcase>
-      <Showcase legend="Default (mobile)">
-        <Button variant="primary" label="Je suis fan" mobile />
-        <div style={{width: 32}} />
-        <Button variant="primary" label="Enregistrer mes changements" mobile />
-      </Showcase>
-    </>
-  ))
-  .add('Flat', () => {
-    return (
-      <Showcase>
-        <Button variant="flat" label="Je suis fan" />
-      </Showcase>
-    )
-  })
-  .add('Filter', () => (
-    <>
-      <Showcase legend="Filter (desktop)">
-        <Button variant="filter" label="Filtrer par Statuts" />
-      </Showcase>
-      <Showcase legend="Filter (mobile)">
-        <Button variant="filter" label="Filtrer par Statuts" mobile />
-      </Showcase>
-    </>
-  ))
-  .add('Invert', () => (
-    <>
-      <Showcase invert>
-        <Button invert label="Je suis fan" />
-      </Showcase>
-      <Showcase invert>
-        <Button invert variant="primary" label="Je suis fan" />
-      </Showcase>
-      <Showcase invert>
-        <Button invert variant="flat" label="Je suis fan" />
-      </Showcase>
-      <Showcase invert>
-        <Button invert variant="filter" label="Je suis fan" />
-      </Showcase>
-    </>
-  ))
-  .add('With right icon', () => (
-    <>
-      <Showcase>
-        <TimedIcon interval={5000} color={palette.mediumBeetrootPurple}>
-          {icon => <Button label="Tap" rightIcon={icon} />}
-        </TimedIcon>
-      </Showcase>
-      <Showcase>
-        <Button label="Commander" rightIcon={<AddressIcon color={palette.white} />} variant="primary" />
-      </Showcase>
-      <Showcase>
-        <TimedIcon interval={5000} color={palette.mediumBerryBlue}>
-          {icon => <Button label="Tap" rightIcon={icon} variant="flat" />}
-        </TimedIcon>
-      </Showcase>
-      <Showcase>
-        <Button
-          label={'Nouvelle commande'}
-          rightIcon={<ArrowRightIcon inline color={palette.mediumBerryBlue} />}
-          variant="flat"
-        />
-      </Showcase>
-    </>
-  ))
-  .add('With icon left', () => (
-    <>
-      <Showcase>
-        <TimedIcon interval={5000} color={palette.mediumBeetrootPurple}>
-          {icon => <Button label="Tap" leftIcon={icon} />}
-        </TimedIcon>
-      </Showcase>
-      <Showcase>
-        <Button label="Commander" leftIcon={<NewIcon inline color={palette.white} />} variant="primary" />
-      </Showcase>
-      <Showcase>
-        <TimedIcon interval={5000} color={palette.mediumBerryBlue}>
-          {icon => <Button label="Tap" leftIcon={icon} variant="flat" />}
-        </TimedIcon>
-      </Showcase>
-      <Showcase>
-        <Button
-          label="Editer la commande"
-          leftIcon={<EditIcon inline color={palette.mediumBerryBlue} />}
-          variant="flat"
-        />
-      </Showcase>
-      <Showcase invert>
-        <Button
-          label="Déconnexion"
-          leftIcon={<LogoutIcon color={palette.white} />}
-          variant="flat"
-          textColor={palette.white}
-        />
-      </Showcase>
-    </>
-  ))
-  .add('Disabled', () => {
-    return (
-      <>
-        <Showcase>
-          <Button label="Commander" rightIcon={<NewIcon inline color={palette.mediumBeetrootPurple} />} disabled />
-        </Showcase>
-        <Showcase>
-          <Button variant="primary" label="Commander" rightIcon={<NewIcon inline color={palette.white} />} disabled />
-        </Showcase>
-        <Showcase>
-          <Button
-            variant="flat"
-            label="Commander"
-            rightIcon={<NewIcon inline color={palette.mediumBerryBlue} />}
-            disabled
-          />
-        </Showcase>
-      </>
-    )
-  })
-  .add('Invert disabled', () => {
-    return (
-      <>
-        <Showcase invert>
-          <Button invert disabled label="Commander" rightIcon={<NewIcon inline color={palette.white} />} />
-        </Showcase>
-        <Showcase invert>
+      <Showcase legend="Mobile inverted" invert>
+        <ButtonGroup>
+          <Button invert mobile label="Je suis fan" />
+          <Button invert mobile variant="primary" label="Je suis fan" />
+          <Button invert mobile disabled variant="primary" label="Je suis fan" />
+          <Button invert mobile loading variant="primary" label="Je suis fan" />
           <Button
             invert
-            disabled
+            mobile
             variant="primary"
-            label="Commander"
-            rightIcon={<NewIcon inline color={palette.mediumBeetrootPurple} />}
+            label="Je suis fan"
+            rightIcon={<PatientIcon color="white" size={24} />}
           />
-        </Showcase>
-        <Showcase invert>
-          <Button
-            invert
-            disabled
-            variant="flat"
-            label="Commander"
-            rightIcon={<NewIcon inline color={palette.white} />}
-          />
-        </Showcase>
-      </>
-    )
-  })
-  .add('Loading', () => {
+        </ButtonGroup>
+      </Showcase>
+      <Showcase legend="Use-case: footer actions">
+        <ButtonGroup>
+          <Button label="action" />
+          <Button label="action" variant="primary" />
+        </ButtonGroup>
+      </Showcase>
+    </>
+  ))
+  .add('Primary/Main', () => <ButtonStory variant="primary" />)
+  .add('Default/Secondary', () => <ButtonStory />)
+  .add('Flat/Third', () => <ButtonStory variant="flat" />)
+  .add('Filter', () => <ButtonStory variant="filter" />)
+  .add('With icon', () => (
+    <>
+      <Info>
+        <Info.Label label="Desktop" />
+      </Info>
+      <Showcase legend="Primary/Main">
+        <ButtonGroup>
+          <Button variant="primary" label="Ambulance" leftIcon={<AmbulanceIcon />} />
+          <Button variant="primary" label="Ambulance" rightIcon={<AmbulanceIcon />} />
+        </ButtonGroup>
+      </Showcase>
+      <Showcase legend="Default/Secondary">
+        <ButtonGroup>
+          <Button label="Ambulance" leftIcon={<AmbulanceIcon />} />
+          <Button label="Ambulance" rightIcon={<AmbulanceIcon />} />
+        </ButtonGroup>
+      </Showcase>
+      <Showcase legend="Flat/Third">
+        <ButtonGroup>
+          <Button variant="flat" label="Ambulance" leftIcon={<AmbulanceIcon />} />
+          <Button variant="flat" label="Ambulance" rightIcon={<AmbulanceIcon />} />
+        </ButtonGroup>
+      </Showcase>
+      <Showcase legend="Flat/Third">
+        <ButtonGroup>
+          <Button variant="filter" label="Ambulance" leftIcon={<AmbulanceIcon />} />
+          <Button variant="filter" label="Ambulance" rightIcon={<AmbulanceIcon />} />
+        </ButtonGroup>
+      </Showcase>
+      <Info>
+        <Info.Label label="Mobile" />
+      </Info>
+      <Showcase legend="Primary/Main">
+        <ButtonGroup>
+          <Button mobile variant="primary" label="Ambulance" leftIcon={<AmbulanceIcon />} />
+          <Button mobile variant="primary" label="Ambulance" rightIcon={<AmbulanceIcon />} />
+        </ButtonGroup>
+      </Showcase>
+      <Showcase legend="Default/Secondary">
+        <ButtonGroup>
+          <Button mobile label="Ambulance" leftIcon={<AmbulanceIcon />} />
+          <Button mobile label="Ambulance" rightIcon={<AmbulanceIcon />} />
+        </ButtonGroup>
+      </Showcase>
+      <Showcase legend="Flat/Third">
+        <ButtonGroup>
+          <Button mobile variant="flat" label="Ambulance" leftIcon={<AmbulanceIcon />} />
+          <Button mobile variant="flat" label="Ambulance" rightIcon={<AmbulanceIcon />} />
+        </ButtonGroup>
+      </Showcase>
+      <Showcase legend="Flat/Third">
+        <ButtonGroup>
+          <Button mobile variant="filter" label="Ambulance" leftIcon={<AmbulanceIcon />} />
+          <Button mobile variant="filter" label="Ambulance" rightIcon={<AmbulanceIcon />} />
+        </ButtonGroup>
+      </Showcase>
+    </>
+  ))
+  .add('Rules', () => {
     return (
       <>
-        <Showcase>
-          <Button label="Commander" rightIcon={<NewIcon inline color={palette.mediumBeetrootPurple} />} loading />
-        </Showcase>
-        <Showcase>
-          <Button variant="primary" label="Commander" rightIcon={<NewIcon inline color={palette.white} />} loading />
-        </Showcase>
-        <Showcase>
-          <Button
-            variant="flat"
-            label="Commander"
-            rightIcon={<NewIcon inline color={palette.mediumBerryBlue} />}
-            loading
-          />
-        </Showcase>
-      </>
-    )
-  })
-  .add('Invert loading', () => {
-    return (
-      <>
-        <Showcase invert>
-          <Button invert loading label="Commander" rightIcon={<NewIcon inline color={palette.white} />} />
-        </Showcase>
-        <Showcase invert>
-          <Button
-            invert
-            loading
-            variant="primary"
-            label="Commander"
-            rightIcon={<NewIcon inline color={palette.mediumBeetrootPurple} />}
-          />
-        </Showcase>
-        <Showcase invert>
-          <Button
-            invert
-            loading
-            variant="flat"
-            label="Commander"
-            rightIcon={<NewIcon inline color={palette.white} />}
-          />
-        </Showcase>
+        {/* Min-width === 200px */}
+        <Info>
+          <Info.Block variant="info">
+            <Info.Item item="Minimum width is 200px" />
+          </Info.Block>
+          <VSpace px={16} />
+          <div style={{width: 200, border: '2px solid black', borderBottom: 'none', height: 4}} />
+        </Info>
+        <Button label="action" variant="primary" />
+        <VSpace px={32} />
+
+        {/* If used together, both button have the same (biggest of two) size */}
+        <Info>
+          <Info.Block variant="info">
+            <Info.Item item="Main and Secondary button have the same size if used together (largest button size)" />
+          </Info.Block>
+          <VSpace px={16} />
+        </Info>
+        <ButtonGroup minWidth={276}>
+          <Button label="nop" />
+          <Button label="fantastic, incredible, magic" variant="primary" />
+        </ButtonGroup>
+        <VSpace px={32} />
+
+        {/* If used together, both button have the same (biggest of two) size */}
+        <Info>
+          <Info.Block variant="info">
+            <Info.Item item="Horizontal spacing between buttons is 32px excluding the 8px standard margins (until the screen size or use case doesn’t allow it)" />
+          </Info.Block>
+          <VSpace px={16} />
+        </Info>
+        <ButtonGroup>
+          <Button label="action" />
+          <Button label="action" variant="primary" />
+        </ButtonGroup>
+        <VSpace px={32} />
       </>
     )
   })

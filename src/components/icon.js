@@ -22,7 +22,7 @@ const IconRoot = styled(SvgRoot)`
   height: ${props => (props.circle ? 32 : props.size || 32)}px;
 
   border-radius: ${props => (props.circle ? '50%' : 0)};
-  background: ${props => (props.circle ? props.circleColor || '#ededed' : 'inherit')};
+  background: ${props => (props.circle ? props.circleColor || '#ededed' : 'transparent')};
 
   & > * {
     position: absolute;

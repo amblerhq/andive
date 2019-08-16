@@ -181,6 +181,9 @@ export const Baseline = BaselineComponent
 import ButtonComponent from './components/button'
 export const Button = ButtonComponent
 
+import ButtonGroupComponent from './components/button-group'
+export const ButtonGroup = ButtonGroupComponent
+
 import CheckboxComponent from './components/checkbox'
 export const Checkbox = CheckboxComponent
 
