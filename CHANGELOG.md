@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.11.0-canary.10](https://github.com/amblerhq/ambler/compare/v0.11.0-canary.9...v0.11.0-canary.10) (2019-09-09)
+
+
+### Bug Fixes
+
+* **input:** fix placeholder text color ([e5b75a8](https://github.com/amblerhq/ambler/commit/e5b75a8))
+
+
+
 ## [0.11.0-canary.9](https://github.com/amblerhq/ambler/compare/v0.11.0-canary.8...v0.11.0-canary.9) (2019-09-09)
 
 
