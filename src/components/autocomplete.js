@@ -5,7 +5,7 @@ import PropTypes from 'prop-types'
 import * as palette from '../constants/palette'
 import {ZIndexes} from '../constants/enum'
 import Input from './input'
-import HistoryIcon from './icons/historic'
+import HistoryIcon from './icons/history'
 import Info from './info'
 import Hover from './hover'
 
@@ -38,9 +38,9 @@ const SuggestionsUl = styled.ul`
   margin: 0;
 
   background: white;
-  border: 1px solid ${palette.lightGrey};
+  border: 1px solid ${palette.border};
   border-radius: 8px;
-  box-shadow: 0 1px 4px 0 ${palette.darkGrey}44;
+  box-shadow: 0 1px 4px 0 ${palette.darkPrimary}44;
 
   /* To crop the child suggestion :hover effect */
   overflow: hidden;

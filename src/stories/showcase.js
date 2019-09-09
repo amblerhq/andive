@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
-import {lightGrey, lightBeetrootPurple, white, darkGrey} from '../constants/palette'
+import * as palette from '../constants/palette'
 import {body2Css} from '../components/typography'
 
 const Card = styled.div`
@@ -16,13 +16,13 @@ const Card = styled.div`
   justify-content: center;
   align-items: center;
 
-  border: 1px solid ${lightGrey};
+  border: 1px solid ${palette.mediumGrey};
   border-radius: 8px;
   margin-bottom: 8px;
 
   position: relative;
 
-  background-color: ${props => (props.invert ? lightBeetrootPurple : '#eee')};
+  background-color: ${props => (props.invert ? palette.mediumBeetrootPurple : '#eee')};
 `
 
 const Squared = styled(Card)`
@@ -42,7 +42,7 @@ const Legend = styled.div`
 
   ${body2Css}
 
-  color: ${props => (props.invert ? white : darkGrey)};
+  color: ${props => (props.invert ? palette.white : palette.darkPrimary)};
   font-size: ${props => (props.compact ? 14 : 16)}px;
 `
 

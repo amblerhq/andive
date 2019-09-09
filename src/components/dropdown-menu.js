@@ -8,7 +8,7 @@ import OutsideClickHandler from 'react-outside-click-handler'
 import {ZIndexes} from '../constants/enum'
 import useElementRect from '../lib/use-element-rect'
 
-import {berryBlue} from '../constants/palette'
+import * as palette from '../constants/palette'
 import Button from './button'
 import Menu from './menu'
 import {body1Css} from './typography'
@@ -56,7 +56,7 @@ const DropdownMenuLayout = styled.div`
 const DropdownButton = styled(Button)`
   > div {
     ${body1Css};
-    color: ${berryBlue};
+    color: ${palette.mediumBerryBlue};
   }
 `
 

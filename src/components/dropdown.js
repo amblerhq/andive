@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 
-import {mediumGrey} from '../constants/palette'
+import * as palette from '../constants/palette'
 import {Body1} from './typography'
 import Select from './select'
 
@@ -23,7 +23,7 @@ function DropdownComponent({
   icon,
   ...props
 }) {
-  const color = disabled && mediumGrey
+  const color = disabled && palette.darkGrey
   const selectProps = {
     label: placeholder,
     value,
@@ -36,7 +36,7 @@ function DropdownComponent({
   return (
     <Dropdown fullWidth={fullWidth} {...props}>
       <Body1 color={color}>{label}</Body1>
-      {disabled ? <Body1 color={mediumGrey}>—</Body1> : <Select {...selectProps} />}
+      {disabled ? <Body1 color={palette.darkGrey}>—</Body1> : <Select {...selectProps} />}
     </Dropdown>
   )
 }

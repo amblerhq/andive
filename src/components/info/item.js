@@ -2,11 +2,11 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import {Body2} from '../typography'
-import {mediumGrey} from '../../constants/palette'
+import * as palette from '../../constants/palette'
 
 function Item({item, ...props}) {
   return (
-    <Body2 color={mediumGrey} {...props}>
+    <Body2 color={palette.secondaryText} {...props}>
       {item}
     </Body2>
   )

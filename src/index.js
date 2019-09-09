@@ -41,8 +41,8 @@ export const EditIcon = EditIconComponent
 import FlagIconComponent from './components/icons/flag'
 export const FlagIcon = FlagIconComponent
 
-import HistoricIconComponent from './components/icons/historic'
-export const HistoricIcon = HistoricIconComponent
+import HistoryIconComponent from './components/icons/history'
+export const HistoryIcon = HistoryIconComponent
 
 import LogoutIconComponent from './components/icons/logout'
 export const LogoutIcon = LogoutIconComponent
@@ -98,8 +98,38 @@ export const MapIcon = MapIconComponent
 import ExportIconComponent from './components/icons/export'
 export const ExportIcon = ExportIconComponent
 
-import KebabIconComponent from './components/icons/kebab'
-export const KebabIcon = KebabIconComponent
+import CheckIconComponent from './components/icons/check'
+export const CheckIcon = CheckIconComponent
+
+import WarningIconComponent from './components/icons/warning'
+export const WarningIcon = WarningIconComponent
+
+import ForbiddenIconComponent from './components/icons/forbidden'
+export const ForbiddenIcon = ForbiddenIconComponent
+
+import IncidentIconComponent from './components/icons/incident'
+export const IncidentIcon = IncidentIconComponent
+
+import MfIconComponent from './components/icons/mf'
+export const MfIcon = MfIconComponent
+
+import MfuIconComponent from './components/icons/mfu'
+export const MfuIcon = MfuIconComponent
+
+import MtIconComponent from './components/icons/mt'
+export const MtIcon = MtIconComponent
+
+import RidesIconComponent from './components/icons/rides'
+export const RidesIcon = RidesIconComponent
+
+import OrdersIconComponent from './components/icons/orders'
+export const OrdersIcon = OrdersIconComponent
+
+import DashboardIconComponent from './components/icons/dashboard'
+export const DashboardIcon = DashboardIconComponent
+
+import BurgerIconComponent from './components/icons/burger'
+export const BurgerIcon = BurgerIconComponent
 
 /**
  * Illustrations
@@ -151,6 +181,9 @@ export const Baseline = BaselineComponent
 import ButtonComponent from './components/button'
 export const Button = ButtonComponent
 
+import ButtonGroupComponent from './components/button-group'
+export const ButtonGroup = ButtonGroupComponent
+
 import CheckboxComponent from './components/checkbox'
 export const Checkbox = CheckboxComponent
 
@@ -201,6 +234,12 @@ export const ThemeProvider = ThemeProviderComponent
 
 import TitleComponent from './components/title'
 export const Title = TitleComponent
+
+import VSpaceComponent from './components/v-space'
+export const VSpace = VSpaceComponent
+
+import HSpaceComponent from './components/h-space'
+export const HSpace = HSpaceComponent
 
 import ToastContainer, * as toastActions from './components/toast'
 export const Toast = ToastContainer

@@ -24,9 +24,9 @@ const MenuLayout = styled.ul`
   padding: 8px;
 
   background: white;
-  border: 1px solid ${palette.lightGrey};
+  border: 1px solid ${palette.mediumGrey};
   border-radius: 8px;
-  box-shadow: 0 1px 4px 0 ${palette.darkGrey}44;
+  box-shadow: 0 1px 4px 0 ${palette.darkPrimary}44;
 
   /* To crop the child suggestion :hover effect */
   overflow: hidden;
@@ -71,7 +71,7 @@ function OptionGroup({children, label, onClick, ...props}) {
       <Info>
         <Info.Label label={label} />
       </Info>
-      <ArrowRightIcon color={palette.mediumGrey} />
+      <ArrowRightIcon color={palette.mediumPrimary} />
     </OptionGroupLayout>
   )
 }
@@ -123,7 +123,7 @@ const BackButton = styled(BackIcon)`
 
   background: white;
   :hover {
-    background: ${palette.mediumGrey}20;
+    background: ${palette.mediumPrimary}20;
   }
 `
 
@@ -150,7 +150,7 @@ const Menu = React.forwardRef(function Menu({children, bottomFootprint, onClick,
           <>
             <Container>
               <BackOption>
-                <BackButton color={palette.mediumGrey} circle onClick={() => dispatch({type: 'navigate/back'})} />
+                <BackButton color={palette.mediumPrimary} circle onClick={() => dispatch({type: 'navigate/back'})} />
                 <div style={{width: 8}} />
                 <Info>
                   <Info.Label

@@ -2,6 +2,115 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.11.0-canary.10](https://github.com/amblerhq/ambler/compare/v0.11.0-canary.9...v0.11.0-canary.10) (2019-09-09)
+
+
+### Bug Fixes
+
+* **input:** fix placeholder text color ([e5b75a8](https://github.com/amblerhq/ambler/commit/e5b75a8))
+
+
+
+## [0.11.0-canary.9](https://github.com/amblerhq/ambler/compare/v0.11.0-canary.8...v0.11.0-canary.9) (2019-09-09)
+
+
+### Bug Fixes
+
+* **icons:** swap seated and lying icons ([a4f1eb4](https://github.com/amblerhq/ambler/commit/a4f1eb4))
+
+
+
+## [0.11.0-canary.8](https://github.com/amblerhq/ambler/compare/v0.11.0-canary.7...v0.11.0-canary.8) (2019-08-16)
+
+
+### Bug Fixes
+
+* **icon:** fix typo in question icon import ([e3b4b49](https://github.com/amblerhq/ambler/commit/e3b4b49))
+
+
+
+## [0.11.0-canary.7](https://github.com/amblerhq/ambler/compare/v0.11.0-canary.6...v0.11.0-canary.7) (2019-08-16)
+
+
+### Bug Fixes
+
+* **button:** rework buttons and their stories ([985f09e](https://github.com/amblerhq/ambler/commit/985f09e))
+* **color:** add mainText + secondaryText colors ([8521ceb](https://github.com/amblerhq/ambler/commit/8521ceb))
+* **theme-provider:** allow for multiple children ([7035781](https://github.com/amblerhq/ambler/commit/7035781))
+
+
+
+## [0.11.0-canary.6](https://github.com/amblerhq/ambler/compare/v0.11.0-canary.5...v0.11.0-canary.6) (2019-08-14)
+
+
+### Bug Fixes
+
+* **dropdown:** fix disabled color ([65da2c5](https://github.com/amblerhq/ambler/commit/65da2c5))
+
+
+### Tests
+
+* add visual regression testing ([e013023](https://github.com/amblerhq/ambler/commit/e013023))
+
+
+
+## [0.11.0-canary.5](https://github.com/amblerhq/ambler/compare/v0.11.0-canary.4...v0.11.0-canary.5) (2019-08-14)
+
+
+### Features
+
+* **space:** add vspace and hspace components ([9533226](https://github.com/amblerhq/ambler/commit/9533226))
+
+
+
+## [0.11.0-canary.4](https://github.com/amblerhq/ambler/compare/v0.11.0-canary.3...v0.11.0-canary.4) (2019-08-14)
+
+
+### Bug Fixes
+
+* **colors:** fix colors and icon colors ([60e41a7](https://github.com/amblerhq/ambler/commit/60e41a7))
+
+
+
+## [0.11.0-canary.3](https://github.com/amblerhq/ambler/compare/v0.11.0-canary.2...v0.11.0-canary.3) (2019-08-14)
+
+
+### Features
+
+* **icon:** add incident icon ([5a89a75](https://github.com/amblerhq/ambler/commit/5a89a75))
+* **info:** add stickyIcon mode + lighter colors for info block ([9c85806](https://github.com/amblerhq/ambler/commit/9c85806))
+
+
+
+## [0.11.0-canary.2](https://github.com/amblerhq/ambler/compare/v0.11.0-canary.1...v0.11.0-canary.2) (2019-08-14)
+
+
+### Features
+
+* **colors:** add missing alphas + foreground colors ([4adee91](https://github.com/amblerhq/ambler/commit/4adee91))
+* **icons:** add many icons ([c610ac8](https://github.com/amblerhq/ambler/commit/c610ac8))
+* **info:** add Block compound component ([4569d72](https://github.com/amblerhq/ambler/commit/4569d72))
+
+
+
+## [0.11.0-canary.1](https://github.com/amblerhq/ambler/compare/v0.11.0-canary.0...v0.11.0-canary.1) (2019-08-12)
+
+
+### Bug Fixes
+
+* **info:** info can grow height ([7fb8a61](https://github.com/amblerhq/ambler/commit/7fb8a61))
+
+
+
+## [0.11.0-canary.0](https://github.com/amblerhq/ambler/compare/v0.10.0...v0.11.0-canary.0) (2019-08-12)
+
+
+### Features
+
+* **button:** add mobile version for default and primary variants ([defcfa7](https://github.com/amblerhq/ambler/commit/defcfa7))
+
+
+
 ## [0.10.0](https://github.com/amblerhq/ambler/compare/v0.10.0-canary.5...v0.10.0) (2019-08-12)
 
 

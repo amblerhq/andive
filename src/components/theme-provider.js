@@ -18,7 +18,11 @@ export const defaultTheme = {
 }
 
 export default function AmblerThemeProvider({theme = defaultTheme, children}) {
-  return <ThemeProvider theme={theme}>{children}</ThemeProvider>
+  return (
+    <ThemeProvider theme={theme}>
+      <>{children}</>
+    </ThemeProvider>
+  )
 }
 
 AmblerThemeProvider.propTypes = {

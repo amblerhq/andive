@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 
 import useElementRect from '../../lib/use-element-rect'
 import {Body1, isTypography} from '../typography'
-import {darkGrey} from '../../constants/palette'
+import * as palette from '../../constants/palette'
 
 const Destination = styled.div`
   position: relative;
@@ -31,7 +31,7 @@ const DestinationPoint = styled.div`
 
   border-radius: 50%;
 
-  border: 2px solid ${darkGrey};
+  border: 2px solid ${palette.darkPrimary};
   background: white;
 `
 const DestinationRoad = styled.div`
@@ -55,7 +55,7 @@ const DestinationRoad = styled.div`
   }}
  
 
-  background: ${darkGrey};
+  background: ${palette.darkPrimary};
 `
 
 const AsideLabel = styled(Body1)`
