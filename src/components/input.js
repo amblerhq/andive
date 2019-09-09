@@ -32,7 +32,7 @@ const inputCss = ({error: error_, canClear, hasIcon, disabled}) => css`
 
   ::placeholder {
     ${body1Css};
-    color: ${palette.darkPrimary};
+    color: ${palette.mediumPrimary};
   }
 
   border: 1px solid transparent;
