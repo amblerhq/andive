@@ -58,7 +58,7 @@ function DropdownMenu({
   valueToString = x => x,
   threshold = 640,
   bottomFootprint,
-  buttonComponent = Button,
+  buttonComponent = props => <Button variant="flat" {...props} />,
   ...props
 }) {
   const [open, setOpen] = React.useState(false)
