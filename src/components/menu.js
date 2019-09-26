@@ -1,5 +1,5 @@
 import React, {createContext} from 'react'
-import styled from 'styled-components'
+import styled, {css} from 'styled-components'
 import PropTypes from 'prop-types'
 import {ScrollTo} from 'react-scroll-to'
 
@@ -37,14 +37,28 @@ const MenuLayout = styled.ul`
 `
 
 const OptionLayout = styled.div`
-  cursor: pointer;
+  ${props =>
+    props.disabled &&
+    css`
+      cursor: not-allowed;
+      & [data-andive-type='typography'] {
+        color: ${palette.mediumPrimary};
+      }
+    `}
 `
 
-function Option({id, children, ...props}) {
+function Option({id, children, disabled, ...props}) {
   const {onClick} = React.useContext(MenuContext)
 
   return (
-    <OptionLayout id={id} onClickCapture={() => onClick(id)} {...props}>
+    <OptionLayout
+      disabled={disabled}
+      id={id}
+      onClickCapture={() => {
+        disabled ? null : onClick(id)
+      }}
+      {...props}
+    >
       {children}
     </OptionLayout>
   )
@@ -52,7 +66,8 @@ function Option({id, children, ...props}) {
 
 Option.propTypes = {
   id: PropTypes.string.isRequired,
-  children: PropTypes.node.isRequired
+  children: PropTypes.node.isRequired,
+  disabled: PropTypes.bool
 }
 
 const OptionGroupLayout = styled.div`

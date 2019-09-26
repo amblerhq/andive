@@ -8,10 +8,8 @@ import OutsideClickHandler from 'react-outside-click-handler'
 import {ZIndexes} from '../constants/enum'
 import useElementRect from '../lib/use-element-rect'
 
-import * as palette from '../constants/palette'
 import Button from './button'
 import Menu from './menu'
-import {body1Css} from './typography'
 
 const Dropdown = styled(
   posed.div({
@@ -52,14 +50,6 @@ const DropdownMenuLayout = styled.div`
   position: relative;
 `
 
-// This is not a real button but a fake select.
-const DropdownButton = styled(Button)`
-  > div {
-    ${body1Css};
-    color: ${palette.mediumBerryBlue};
-  }
-`
-
 function DropdownMenu({
   children,
   label,
@@ -68,6 +58,7 @@ function DropdownMenu({
   valueToString = x => x,
   threshold = 640,
   bottomFootprint,
+  buttonComponent = props => <Button variant="flat" {...props} />,
   ...props
 }) {
   const [open, setOpen] = React.useState(false)
@@ -131,9 +122,11 @@ function DropdownMenu({
     }
   }, [onResize])
 
+  const ButtonComponent = buttonComponent
+
   return (
     <DropdownMenuLayout {...props}>
-      <DropdownButton ref={buttonRef} onClick={onOpen} label={value ? valueToString(value) : label} variant="flat" />
+      <ButtonComponent ref={buttonRef} onClick={onOpen} label={value ? valueToString(value) : label} {...props} />
       {open && (
         <OutsideClickHandler onOutsideClick={onClose}>
           <PoseGroup>
@@ -159,7 +152,8 @@ DropdownMenu.propTypes = {
   value: PropTypes.string.isRequired,
   valueToString: PropTypes.func,
   threshold: PropTypes.number,
-  bottomFootprint: PropTypes.number
+  bottomFootprint: PropTypes.number,
+  buttonComponent: PropTypes.element
 }
 
 export default DropdownMenu
