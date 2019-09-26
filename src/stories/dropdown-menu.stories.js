@@ -197,7 +197,7 @@ function WithDisabledOptions() {
         value={value}
       >
         <DropdownMenu.OptionGroup label="Chanteur">
-          <DropdownMenu.Option disabled id={'PHIL_C'}>
+          <DropdownMenu.Option id={'PHIL_C'}>
             <Info>
               <Info.Label label={artistToString('PHIL_C')} />
             </Info>
@@ -232,7 +232,7 @@ function WithCustomButton() {
   return (
     <Showcase size={600}>
       <DropdownMenu
-        buttonComponent={props => <Button variant="flat" {...props} />}
+        buttonComponent={props => <Button variant="primary" {...props} />}
         label="Quel est ton artiste préféré ?"
         onClick={onClick}
         valueToString={artistToString}
