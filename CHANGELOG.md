@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.11.0-canary.12](https://github.com/amblerhq/ambler/compare/v0.11.0-canary.10...v0.11.0-canary.12) (2019-10-02)
+
+
+### Bug Fixes
+
+* **info:** Info.Block can have more then 1 child ([08b2abb](https://github.com/amblerhq/ambler/commit/08b2abb))
+
+
+### Features
+
+* **dropdown-menu:** add disabled prop to options ([3ec3a6f](https://github.com/amblerhq/ambler/commit/3ec3a6f))
+
+
+
 ## [0.11.0-canary.11](https://github.com/amblerhq/ambler/compare/v0.11.0-canary.10...v0.11.0-canary.11) (2019-09-26)
 
 
