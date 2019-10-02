@@ -158,6 +158,14 @@ storiesOf('Info', module)
             </Info.Block>
           </Info>
         </Showcase>
+        <Showcase>
+          <Info style={{background: 'white', width: 320}}>
+            <Info.Block variant="warning" icon={<WarningIcon />}>
+              <Info.Item item={shortLabel} />
+              <Info.Item item={shortLabel} />
+            </Info.Block>
+          </Info>
+        </Showcase>
       </>
     )
   })

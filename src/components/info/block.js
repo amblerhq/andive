@@ -52,7 +52,7 @@ function Block({icon, variant, className, children}) {
     <BlockRoot className={className} backgroundColor={backgroundColor}>
       {icon ? <Icon>{React.cloneElement(icon, {color: textColor})}</Icon> : null}
       {/** Passing the color, expecting a Label/Item/LabelIcon component or else the custom children to use the color */}
-      {React.cloneElement(children, {color: textColor})}
+      <div>{React.Children.map(children, child => React.cloneElement(child, {color: textColor}))}</div>
     </BlockRoot>
   )
 }
