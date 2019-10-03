@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.11.0-canary.13](https://github.com/amblerhq/ambler/compare/v0.11.0-canary.12...v0.11.0-canary.13) (2019-10-03)
+
+
+### Features
+
+* **info:** add disabled variant to info block ([cdaafd5](https://github.com/amblerhq/ambler/commit/cdaafd5))
+
+
+
 ## [0.11.0-canary.12](https://github.com/amblerhq/ambler/compare/v0.11.0-canary.10...v0.11.0-canary.12) (2019-10-02)
 
 
