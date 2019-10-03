@@ -130,35 +130,42 @@ storiesOf('Info', module)
   .add('Block', () => {
     return (
       <>
-        <Showcase>
+        <Showcase legend="success">
           <Info style={{background: 'white', width: 320}}>
             <Info.Block variant="success" icon={<CheckIcon />}>
               <Info.Item item={longLabel} />
             </Info.Block>
           </Info>
         </Showcase>
-        <Showcase>
+        <Showcase legend="error">
           <Info style={{background: 'white', width: 320}}>
             <Info.Block variant="error" icon={<ForbiddenIcon />}>
               <Info.Item item={longLabel} />
             </Info.Block>
           </Info>
         </Showcase>
-        <Showcase>
+        <Showcase legend="warning">
           <Info style={{background: 'white', width: 320}}>
             <Info.Block variant="warning" icon={<WarningIcon />}>
               <Info.Item item={longLabel} />
             </Info.Block>
           </Info>
         </Showcase>
-        <Showcase>
+        <Showcase legend="info">
           <Info style={{background: 'white', width: 320}}>
             <Info.Block variant="info" icon={<QuestionIcon color={palette.mediumBeetrootPurple} />}>
               <Info.LabelIcon label={longLabel} />
             </Info.Block>
           </Info>
         </Showcase>
-        <Showcase>
+        <Showcase legend="disabled">
+          <Info style={{background: 'white', width: 320}}>
+            <Info.Block variant="disabled">
+              <Info.LabelIcon label={longLabel} />
+            </Info.Block>
+          </Info>
+        </Showcase>
+        <Showcase legend="2+ children">
           <Info style={{background: 'white', width: 320}}>
             <Info.Block variant="warning" icon={<WarningIcon />}>
               <Info.Item item={shortLabel} />
