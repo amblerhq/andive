@@ -23,7 +23,7 @@ const AccordeonButton = styled.div`
   align-items: center;
 `
 
-function AccordeonComponent({label, openByDefault, icon, iconSize, href, children}) {
+function AccordeonComponent({label, openByDefault, icon, iconSize, href, overflow = 0, children}) {
   const [open, setOpen] = React.useState(openByDefault || false)
   const onClick = React.useCallback(() => {
     setOpen(prev => !prev)
@@ -51,7 +51,7 @@ function AccordeonComponent({label, openByDefault, icon, iconSize, href, childre
   if (href) {
     return (
       <a href={href} target="_blank" rel="noopener noreferrer">
-        <Hover overflow={0}>{accordeon}</Hover>
+        <Hover overflow={overflow}>{accordeon}</Hover>
       </a>
     )
   }
@@ -64,7 +64,8 @@ AccordeonComponent.propTypes = {
   openByDefault: PropTypes.bool,
   icon: PropTypes.node,
   iconSize: PropTypes.number,
-  children: PropTypes.node
+  children: PropTypes.node,
+  overflow: PropTypes.number
 }
 
 export default AccordeonComponent
