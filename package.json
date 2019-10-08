@@ -1,6 +1,6 @@
 {
   "name": "@ambler/andive",
-  "version": "0.11.0-canary.14",
+  "version": "0.11.0-canary.15",
   "description": "Ambler UI library",
   "main": "dist/index.js",
   "files": [
@@ -16,7 +16,7 @@
     "test": "yarn jest",
     "release": "standard-version",
     "release:canary": "standard-version --prerelease canary",
-    "release:canary:push": "release:canary && git push --follow-tags origin canary",
+    "release:canary:push": "yarn release:canary && git push --follow-tags origin canary",
     "share": "yarn build-storybook && cd storybook-static && now",
     "share:ci": "yarn build-storybook && cd storybook-static && now deploy --token=$ZEIT_TOKEN --target production"
   },

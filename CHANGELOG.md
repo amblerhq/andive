@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.11.0-canary.15](https://github.com/amblerhq/ambler/compare/v0.11.0-canary.14...v0.11.0-canary.15) (2019-10-08)
+
+
+### Features
+
+* **accordeon:** add Hover overflow prop ([30dd185](https://github.com/amblerhq/ambler/commit/30dd185))
+
+
+
 ## [0.11.0-canary.14](https://github.com/amblerhq/ambler/compare/v0.11.0-canary.13...v0.11.0-canary.14) (2019-10-08)
 
 
