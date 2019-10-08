@@ -31,6 +31,7 @@ function loadStories() {
   require('../src/stories/dropdown.stories')
   require('../src/stories/dropdown-menu.stories')
   require('../src/stories/dropdown-filter.stories')
+  require('../src/stories/hover.stories')
   require('../src/stories/icon.stories')
   require('../src/stories/illustration.stories')
   require('../src/stories/input.stories')

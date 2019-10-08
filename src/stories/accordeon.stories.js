@@ -3,6 +3,7 @@ import {storiesOf} from '@storybook/react'
 
 import {Accordeon, Info, palette, Art80Icon, PatientIcon} from '..'
 import Showcase from './showcase'
+import QuestionIcon from '../components/icons/question'
 
 storiesOf('Accordeon', module)
   .add('Default', () => {
@@ -31,6 +32,17 @@ storiesOf('Accordeon', module)
               <Info.Label label="de Phil Colins !" />
             </Info>
           </Accordeon>
+        </div>
+      </Showcase>
+    )
+  })
+  .add('As link', () => {
+    const icon = <QuestionIcon circle color={palette.darkPrimary} />
+
+    return (
+      <Showcase>
+        <div style={{background: 'white'}}>
+          <Accordeon icon={icon} iconSize={32} label="Toujours fan" href="https://fr.wikipedia.org/wiki/Phil_Collins" />
         </div>
       </Showcase>
     )

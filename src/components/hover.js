@@ -12,24 +12,26 @@ const HoverLayout = styled.div`
   :hover {
     ::before {
       z-index: -1;
+
       position: absolute;
-      left: ${props => (props.padding ? -(props.padding + 8) : -8)}px;
-      top: -8px;
+
+      left: ${({overflow, padding}) => (padding ? -(padding + overflow) : -overflow)}px;
+      top: -${props => props.overflow}px;
+      width: calc(100% + ${props => (props.padding ? props.padding * 2 + props.overflow * 2 : props.overflow * 2)}px);
+      height: ${props => props.height + props.overflow * 2}px;
 
       content: '';
       background: #fafafa;
-      width: calc(100% + ${props => (props.padding ? props.padding * 2 + 16 : 16)}px);
-      height: ${props => props.height + 16}px;
     }
   }
 `
 
-function Hover({padding, children}) {
+function Hover({overflow = 8, padding, children}) {
   const ref = React.useRef(null)
   const rect = useElementRect(ref)
 
   return (
-    <HoverLayout padding={padding} height={rect && rect.height}>
+    <HoverLayout overflow={overflow} padding={padding} height={rect && rect.height}>
       <div ref={ref}>{children}</div>
     </HoverLayout>
   )
@@ -37,7 +39,8 @@ function Hover({padding, children}) {
 
 Hover.propTypes = {
   children: PropTypes.node.isRequired,
-  padding: PropTypes.number
+  padding: PropTypes.number,
+  overflow: PropTypes.number
 }
 
 export default Hover
