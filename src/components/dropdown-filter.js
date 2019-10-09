@@ -15,6 +15,13 @@ const MenuFilterRoot = styled.div`
 const Menu = styled.div`
   position: absolute;
 
+  ${props =>
+    props.openLeft
+      ? css`
+          right: 0;
+        `
+      : undefined}
+
   display: flex;
   flex-flow column nowrap;
 
@@ -99,7 +106,7 @@ const StickyFooter = styled.div`
   z-index: ${ZIndexes.MODALS + 1};
 `
 
-function MenuFilter({label, selected, onSave, onClear, onClose, mobile, children, ...props}) {
+function MenuFilter({label, selected, onSave, onClear, onClose, mobile, children, openLeft = false, ...props}) {
   const [open, setOpen] = React.useState(false)
   const onClick = React.useCallback(() => {
     setOpen(prev => !prev)
@@ -125,7 +132,7 @@ function MenuFilter({label, selected, onSave, onClear, onClose, mobile, children
           mobile={mobile}
         />
         {open && (
-          <Menu mobile={mobile} {...props}>
+          <Menu openLeft={openLeft} mobile={mobile} {...props}>
             {mobile && (
               <MobileHeader>
                 <CloseButton onClick={onCloseOnly} />
@@ -162,7 +169,8 @@ MenuFilter.propTypes = {
   onClear: PropTypes.func,
   onClose: PropTypes.func,
   mobile: PropTypes.bool,
-  children: PropTypes.node
+  children: PropTypes.node,
+  openLeft: PropTypes.bool
 }
 
 export default MenuFilter

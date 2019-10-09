@@ -98,6 +98,22 @@ function MobileFilterStory() {
   )
 }
 
+function RideSideFilterStory() {
+  return (
+    <>
+      <ShowcaseFilter style={{justifyContent: 'flex-end'}}>
+        <DropdownFilter label="23 juin - 4 juil." openLeft>
+          <Info>
+            <Info.Label label="A l'Olympiade" />
+          </Info>
+        </DropdownFilter>
+      </ShowcaseFilter>
+      <RandomPageContent />
+    </>
+  )
+}
+
 storiesOf('DropdownFilter', module)
   .add('Ride Status Filter', () => <RideStatusStory />)
   .add('Mobile Filter', () => <MobileFilterStory />)
+  .add('Right-side filter', () => <RideSideFilterStory />)
