@@ -30,16 +30,21 @@ const Dropdown = styled(
   })
 )`
   position: absolute;
-  left: -24px;
-  top: 40px;
+  ${props =>
+    props.openLeft
+      ? css`
+          right: 0;
+        `
+      : css`
+          left: -24px;
+        `}
 
   ${({fullWidth, buttonLeft}) =>
     fullWidth &&
     css`
       left: -${buttonLeft}px;
-      width: 100vw;
+      width: calc(100vw - 16px);
     `}
-
 
   z-index: ${ZIndexes.ABSOLUTE};
 
@@ -50,6 +55,8 @@ const DropdownMenuLayout = styled.div`
   position: relative;
 `
 
+const defaultButton = React.forwardRef((props, ref) => <Button ref={ref} variant="flat" {...props} />)
+
 function DropdownMenu({
   children,
   label,
@@ -58,7 +65,8 @@ function DropdownMenu({
   valueToString = x => x,
   threshold = 640,
   bottomFootprint,
-  buttonComponent = props => <Button variant="flat" {...props} />,
+  buttonComponent = defaultButton,
+  openLeft = false,
   ...props
 }) {
   const [open, setOpen] = React.useState(false)
@@ -71,7 +79,7 @@ function DropdownMenu({
   const dropdownRect = useElementRect(dropdownRef)
   const buttonRect = useElementRect(buttonRef)
 
-  const buttonLeft = buttonRect ? buttonRect.x : 0
+  const buttonLeft = buttonRect ? buttonRect.x - 16 : 0
 
   const onOpen = React.useCallback(() => {
     setOpen(true)
@@ -84,7 +92,7 @@ function DropdownMenu({
   const onItemClick = React.useCallback(
     id => {
       onClose()
-      onClick(id)
+      onClick && onClick(id)
     },
     [onClick]
   )
@@ -108,12 +116,14 @@ function DropdownMenu({
     [dropdownRect, open, fullWidth, threshold]
   )
 
+  // ? Resize on open.
   React.useEffect(() => {
     if (open) {
       onResize()
     }
   }, [open])
 
+  // ? Resize on window size change.
   React.useEffect(() => {
     window.addEventListener('resize', onResize)
     onResize()
@@ -130,7 +140,13 @@ function DropdownMenu({
       {open && (
         <OutsideClickHandler onOutsideClick={onClose}>
           <PoseGroup>
-            <Dropdown key="dropdown" ref={dropdownRef} buttonLeft={buttonLeft} fullWidth={fullWidth}>
+            <Dropdown
+              key="dropdown"
+              ref={dropdownRef}
+              buttonLeft={buttonLeft}
+              fullWidth={fullWidth}
+              openLeft={openLeft}
+            >
               <Menu ref={menuRef} onClick={onItemClick} bottomFootprint={bottomFootprint}>
                 {children}
               </Menu>
@@ -148,12 +164,13 @@ DropdownMenu.OptionGroup = Menu.OptionGroup
 DropdownMenu.propTypes = {
   children: PropTypes.node.isRequired,
   label: PropTypes.string.isRequired,
-  onClick: PropTypes.func.isRequired,
-  value: PropTypes.string.isRequired,
+  onClick: PropTypes.func,
+  value: PropTypes.string,
   valueToString: PropTypes.func,
   threshold: PropTypes.number,
   bottomFootprint: PropTypes.number,
-  buttonComponent: PropTypes.element
+  buttonComponent: PropTypes.element,
+  openLeft: PropTypes.bool
 }
 
 export default DropdownMenu

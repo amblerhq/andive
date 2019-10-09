@@ -35,6 +35,8 @@ function artistToString(artistType) {
   }
 }
 
+const PrimaryButton = React.forwardRef((props, ref) => <Button ref={ref} variant="primary" small mobile {...props} />)
+
 function DefaultStory() {
   const [value, setValue] = React.useState('')
   const onClick = React.useCallback(id => setValue(id))
@@ -232,7 +234,7 @@ function WithCustomButton() {
   return (
     <Showcase size={600}>
       <DropdownMenu
-        buttonComponent={props => <Button variant="primary" {...props} />}
+        buttonComponent={PrimaryButton}
         label="Quel est ton artiste préféré ?"
         onClick={onClick}
         valueToString={artistToString}
@@ -273,3 +275,35 @@ storiesOf('DropdownMenu', module)
   .add('Navigate should scroll to top', () => <ScrollToStory />)
   .add('With disabled options', () => <WithDisabledOptions />)
   .add('With custom button', () => <WithCustomButton />)
+  .add('Should not leave viewport', () => {
+    return (
+      <Showcase style={{justifyContent: 'flex-end'}}>
+        <DropdownMenu buttonComponent={PrimaryButton} label="Save" valueToString={artistToString} openLeft>
+          <DropdownMenu.OptionGroup label="Chanteur">
+            <DropdownMenu.Option id={'PHIL_C'}>
+              <Info>
+                <Info.Label label={artistToString('PHIL_C')} />
+              </Info>
+            </DropdownMenu.Option>
+            <DropdownMenu.Option id={'CHARLES_A'}>
+              <Info>
+                <Info.Label label={artistToString('CHARLES_A')} />
+              </Info>
+            </DropdownMenu.Option>
+          </DropdownMenu.OptionGroup>
+          <DropdownMenu.OptionGroup label="Groupe">
+            <DropdownMenu.Option id={'DAFT_P'}>
+              <Info>
+                <Info.Label label={artistToString('DAFT_P')} />
+              </Info>
+            </DropdownMenu.Option>
+            <DropdownMenu.Option id={'JUSTICE'}>
+              <Info>
+                <Info.Label label={artistToString('JUSTICE')} />
+              </Info>
+            </DropdownMenu.Option>
+          </DropdownMenu.OptionGroup>
+        </DropdownMenu>
+      </Showcase>
+    )
+  })
