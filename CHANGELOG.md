@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.11.0-canary.17](https://github.com/amblerhq/ambler/compare/v0.11.0-canary.16...v0.11.0-canary.17) (2019-10-09)
+
+
+### Features
+
+* **dropdown-filter:** add openLeft prop ([b2558a5](https://github.com/amblerhq/ambler/commit/b2558a5))
+
+
+
 ## [0.11.0-canary.16](https://github.com/amblerhq/ambler/compare/v0.11.0-canary.15...v0.11.0-canary.16) (2019-10-09)
 
 
