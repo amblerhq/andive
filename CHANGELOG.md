@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.11.0-canary.18](https://github.com/amblerhq/ambler/compare/v0.11.0-canary.17...v0.11.0-canary.18) (2019-10-13)
+
+
+### Bug Fixes
+
+* **dropdown:** show value even if disabled ([c19497f](https://github.com/amblerhq/ambler/commit/c19497f))
+* **dropdown-menu:** fix buttonComponent prop-type ([6e2997a](https://github.com/amblerhq/ambler/commit/6e2997a))
+* **dropdown-menu:** fix mobile fullWidth + add openVariant ([425f20d](https://github.com/amblerhq/ambler/commit/425f20d))
+
+
+
 ## [0.11.0-canary.17](https://github.com/amblerhq/ambler/compare/v0.11.0-canary.16...v0.11.0-canary.17) (2019-10-09)
 
 
