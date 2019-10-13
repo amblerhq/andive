@@ -36,7 +36,7 @@ function DropdownComponent({
   return (
     <Dropdown fullWidth={fullWidth} {...props}>
       <Body1 color={color}>{label}</Body1>
-      {disabled ? <Body1 color={palette.darkGrey}>—</Body1> : <Select {...selectProps} />}
+      {disabled ? <Body1 color={palette.darkGrey}>{value || '—'}</Body1> : <Select {...selectProps} />}
     </Dropdown>
   )
 }

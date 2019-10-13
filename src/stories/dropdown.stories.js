@@ -25,29 +25,41 @@ storiesOf('Dropdown', module)
   .add('Default', () => (
     <Showcase>
       <Dropdown
-        label={'Aller'}
-        placeholder={'Choisir le type de demande...'}
+        label="Aller"
+        placeholder="Choisir le type de demande..."
         options={['Prise en charge le...', 'Arrivée au RDV le...']}
         style={{background: 'white'}}
       />
     </Showcase>
   ))
   .add('Disabled', () => (
-    <Showcase>
-      <Dropdown
-        label={'Aller'}
-        placeholder={'Choisir le type de demande...'}
-        options={['Prise en charge le...', 'Arrivée au RDV le...']}
-        disabled
-        style={{background: 'white'}}
-      />
-    </Showcase>
+    <>
+      <Showcase>
+        <Dropdown
+          label="Aller"
+          placeholder="Choisir le type de demande..."
+          options={['Prise en charge le...', 'Arrivée au RDV le...']}
+          disabled
+          style={{background: 'white'}}
+        />
+      </Showcase>
+      <Showcase>
+        <Dropdown
+          label="Aller"
+          placeholder="Choisir le type de demande..."
+          options={['Prise en charge le...', 'Arrivée au RDV le...']}
+          disabled
+          value="Désactivé, mais visible"
+          style={{background: 'white'}}
+        />
+      </Showcase>
+    </>
   ))
   .add('With icon', () => (
     <Showcase>
       <Dropdown
-        label={'Aller'}
-        placeholder={'Choisir le type de demande...'}
+        label="Aller"
+        placeholder="Choisir le type de demande..."
         options={['Prise en charge le...', 'Arrivée au RDV le...']}
         icon={<ArrowDownIcon inline />}
         style={{background: 'white'}}
@@ -79,8 +91,8 @@ storiesOf('Dropdown', module)
     <Showcase>
       <Dropdown
         fullWidth
-        label={'Aller'}
-        placeholder={'Choisir le type de demande...'}
+        label="Aller"
+        placeholder="Choisir le type de demande..."
         options={['Prise en charge le...', 'Arrivée au RDV le...']}
         style={{background: 'white'}}
       />
