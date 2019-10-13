@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.11.0-canary.19](https://github.com/amblerhq/ambler/compare/v0.11.0-canary.18...v0.11.0-canary.19) (2019-10-13)
+
+
+### Bug Fixes
+
+* **select:** fix select native width overflow ([04a399a](https://github.com/amblerhq/ambler/commit/04a399a))
+
+
+
 ## [0.11.0-canary.18](https://github.com/amblerhq/ambler/compare/v0.11.0-canary.17...v0.11.0-canary.18) (2019-10-13)
 
 
