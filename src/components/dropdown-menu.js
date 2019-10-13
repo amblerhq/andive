@@ -169,7 +169,7 @@ DropdownMenu.propTypes = {
   valueToString: PropTypes.func,
   threshold: PropTypes.number,
   bottomFootprint: PropTypes.number,
-  buttonComponent: PropTypes.element,
+  buttonComponent: PropTypes.elementType,
   openLeft: PropTypes.bool
 }
 
