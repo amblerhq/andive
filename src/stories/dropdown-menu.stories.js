@@ -43,37 +43,42 @@ function DefaultStory() {
 
   return (
     <Showcase size={600}>
-      <DropdownMenu
-        label="Quel est ton artiste préféré ?"
-        onClick={onClick}
-        valueToString={artistToString}
-        value={value}
-      >
-        <DropdownMenu.OptionGroup label="Chanteur">
-          <DropdownMenu.Option id={'PHIL_C'}>
-            <Info>
-              <Info.Label label={artistToString('PHIL_C')} />
-            </Info>
-          </DropdownMenu.Option>
-          <DropdownMenu.Option id={'CHARLES_A'}>
-            <Info>
-              <Info.Label label={artistToString('CHARLES_A')} />
-            </Info>
-          </DropdownMenu.Option>
-        </DropdownMenu.OptionGroup>
-        <DropdownMenu.OptionGroup label="Groupe">
-          <DropdownMenu.Option id={'DAFT_P'}>
-            <Info>
-              <Info.Label label={artistToString('DAFT_P')} />
-            </Info>
-          </DropdownMenu.Option>
-          <DropdownMenu.Option id={'JUSTICE'}>
-            <Info>
-              <Info.Label label={artistToString('JUSTICE')} />
-            </Info>
-          </DropdownMenu.Option>
-        </DropdownMenu.OptionGroup>
-      </DropdownMenu>
+      <div>
+        <Info>
+          <Info.Label label="Quel est ton artiste préféré ?" />
+        </Info>
+        <DropdownMenu
+          label="Quel est ton artiste préféré ?"
+          onClick={onClick}
+          valueToString={artistToString}
+          value={value}
+        >
+          <DropdownMenu.OptionGroup label="Chanteur">
+            <DropdownMenu.Option id={'PHIL_C'}>
+              <Info>
+                <Info.Label label={artistToString('PHIL_C')} />
+              </Info>
+            </DropdownMenu.Option>
+            <DropdownMenu.Option id={'CHARLES_A'}>
+              <Info>
+                <Info.Label label={artistToString('CHARLES_A')} />
+              </Info>
+            </DropdownMenu.Option>
+          </DropdownMenu.OptionGroup>
+          <DropdownMenu.OptionGroup label="Groupe">
+            <DropdownMenu.Option id={'DAFT_P'}>
+              <Info>
+                <Info.Label label={artistToString('DAFT_P')} />
+              </Info>
+            </DropdownMenu.Option>
+            <DropdownMenu.Option id={'JUSTICE'}>
+              <Info>
+                <Info.Label label={artistToString('JUSTICE')} />
+              </Info>
+            </DropdownMenu.Option>
+          </DropdownMenu.OptionGroup>
+        </DropdownMenu>
+      </div>
     </Showcase>
   )
 }
@@ -278,7 +283,12 @@ storiesOf('DropdownMenu', module)
   .add('Should not leave viewport', () => {
     return (
       <Showcase style={{justifyContent: 'flex-end'}}>
-        <DropdownMenu buttonComponent={PrimaryButton} label="Save" valueToString={artistToString} openLeft>
+        <DropdownMenu
+          buttonComponent={PrimaryButton}
+          label="Save"
+          valueToString={artistToString}
+          openVariant={DropdownMenu.OpenVariant.LEFT}
+        >
           <DropdownMenu.OptionGroup label="Chanteur">
             <DropdownMenu.Option id={'PHIL_C'}>
               <Info>

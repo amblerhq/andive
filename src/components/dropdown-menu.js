@@ -30,20 +30,28 @@ const Dropdown = styled(
   })
 )`
   position: absolute;
-  ${props =>
-    props.openLeft
-      ? css`
-          right: 0;
-        `
-      : css`
-          left: -24px;
-        `}
+  ${({openVariant}) => {
+    if (openVariant === OpenVariant.LEFT) {
+      return css`
+        right: 0;
+      `
+    }
 
-  ${({fullWidth, buttonLeft}) =>
+    if (openVariant === OpenVariant.RIGHT) {
+      return css`
+        left: -20px;
+      `
+    }
+
+    throw new Error(`openVariant prop (${openVariant}) of type oneOf(OpenVariant) is not valid`)
+  }}
+
+  ${({fullWidth}) =>
     fullWidth &&
     css`
-      left: -${buttonLeft}px;
-      width: calc(100vw - 16px);
+      position: fixed;
+      left: 0;
+      width: 100%;
     `}
 
   z-index: ${ZIndexes.ABSOLUTE};
@@ -55,9 +63,19 @@ const DropdownMenuLayout = styled.div`
   position: relative;
 `
 
-const defaultButton = React.forwardRef((props, ref) => <Button ref={ref} variant="flat" {...props} />)
+const DefaultButton = styled(Button)`
+  padding-left: 0;
+`
+
+const defaultButton = React.forwardRef((props, ref) => <DefaultButton ref={ref} variant="flat" {...props} />)
+
+const OpenVariant = {
+  RIGHT: 'RIGHT',
+  LEFT: 'LEFT'
+}
 
 function DropdownMenu({
+  className,
   children,
   label,
   onClick,
@@ -66,7 +84,7 @@ function DropdownMenu({
   threshold = 640,
   bottomFootprint,
   buttonComponent = defaultButton,
-  openLeft = false,
+  openVariant = OpenVariant.RIGHT,
   ...props
 }) {
   const [open, setOpen] = React.useState(false)
@@ -79,7 +97,7 @@ function DropdownMenu({
   const dropdownRect = useElementRect(dropdownRef)
   const buttonRect = useElementRect(buttonRef)
 
-  const buttonLeft = buttonRect ? buttonRect.x - 16 : 0
+  const buttonLeft = buttonRect ? buttonRect.x : 0
 
   const onOpen = React.useCallback(() => {
     setOpen(true)
@@ -135,7 +153,7 @@ function DropdownMenu({
   const ButtonComponent = buttonComponent
 
   return (
-    <DropdownMenuLayout {...props}>
+    <DropdownMenuLayout className={className}>
       <ButtonComponent ref={buttonRef} onClick={onOpen} label={value ? valueToString(value) : label} {...props} />
       {open && (
         <OutsideClickHandler onOutsideClick={onClose}>
@@ -145,9 +163,9 @@ function DropdownMenu({
               ref={dropdownRef}
               buttonLeft={buttonLeft}
               fullWidth={fullWidth}
-              openLeft={openLeft}
+              openVariant={openVariant}
             >
-              <Menu ref={menuRef} onClick={onItemClick} bottomFootprint={bottomFootprint}>
+              <Menu ref={menuRef} onClick={onItemClick} bottomFootprint={bottomFootprint} mobile={fullWidth}>
                 {children}
               </Menu>
             </Dropdown>
@@ -160,8 +178,10 @@ function DropdownMenu({
 
 DropdownMenu.Option = Menu.Option
 DropdownMenu.OptionGroup = Menu.OptionGroup
+DropdownMenu.OpenVariant = OpenVariant
 
 DropdownMenu.propTypes = {
+  className: PropTypes.string,
   children: PropTypes.node.isRequired,
   label: PropTypes.string.isRequired,
   onClick: PropTypes.func,
@@ -170,7 +190,8 @@ DropdownMenu.propTypes = {
   threshold: PropTypes.number,
   bottomFootprint: PropTypes.number,
   buttonComponent: PropTypes.elementType,
-  openLeft: PropTypes.bool
+  openVariant: PropTypes.oneOf(Object.keys(OpenVariant)),
+  openMiddle: PropTypes.bool
 }
 
 export default DropdownMenu

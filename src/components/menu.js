@@ -19,8 +19,8 @@ const MenuLayout = styled.ul`
   box-sizing: border-box;
   list-style: none;
 
-  width: calc(100% - 16px);
-  margin: 0 8px;
+  width: ${props => (props.mobile ? '100%' : `calc(100% - 16px)`)};
+  margin: 0 ${props => (props.mobile ? 0 : 8)}px;
   padding: 8px;
 
   background: white;
@@ -146,7 +146,7 @@ const Container = styled.div`
   padding: 0 8px;
 `
 
-const Menu = React.forwardRef(function Menu({children, bottomFootprint, onClick, ...props}, ref) {
+const Menu = React.forwardRef(function Menu({className, children, bottomFootprint, onClick, mobile}, ref) {
   const [state, dispatch] = React.useReducer(reducer, initialState(children))
   const length = React.Children.count(state.options)
   const menuRef = React.useRef(null)
@@ -160,7 +160,7 @@ const Menu = React.forwardRef(function Menu({children, bottomFootprint, onClick,
 
   return (
     <MenuContext.Provider value={contextValue}>
-      <MenuLayout ref={ref} bottomFootprint={bottomFootprint} {...props}>
+      <MenuLayout className={className} ref={ref} bottomFootprint={bottomFootprint} mobile={mobile}>
         {state.stack.length > 0 && (
           <>
             <Container>
@@ -214,9 +214,11 @@ Menu.Option = Option
 Menu.OptionGroup = OptionGroup
 
 Menu.propTypes = {
+  className: PropTypes.string,
   children: PropTypes.node.isRequired,
   onClick: PropTypes.func.isRequired,
-  bottomFootprint: PropTypes.number
+  bottomFootprint: PropTypes.number,
+  mobile: PropTypes.bool
 }
 
 export default Menu
