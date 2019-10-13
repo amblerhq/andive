@@ -22,6 +22,7 @@ const SelectTag = styled.select`
   border: 0;
   border-radius: 0;
   margin: 0;
+  width: 100%;
 
   background: transparent;
 
