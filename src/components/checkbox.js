@@ -37,7 +37,7 @@ const Checkbox = styled.div`
   display: flex;
   align-items: center;
 
-  cursor: pointer;
+  cursor: ${props => (props.disabled ? 'not-allowed' : 'pointer')};
 `
 
 const Label = styled(Body1)`
@@ -82,7 +82,13 @@ function CheckboxComponent({label, checked, onChange, name, disabled, fullWidth,
   }
 
   return (
-    <Checkbox fullWidth={fullWidth} onClick={disabled ? undefined : onChange} checked={checked} {...props}>
+    <Checkbox
+      fullWidth={fullWidth}
+      onClick={disabled ? undefined : onChange}
+      checked={checked}
+      disabled={disabled}
+      {...props}
+    >
       <PoseGroup>
         {!checked && (
           <FadeInOut key="off">
