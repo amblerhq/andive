@@ -20,6 +20,10 @@ const ButtonGroupRoot = styled.div`
     `}
 `
 
+// We used to pass down the props minWidth and small to the <Button /> components, but we do not know if the direct
+// child will be a Button or not. Therefore we pass them through the context.
+export const ButtonGroupContext = React.createContext({})
+
 /**
  * To handle all rules associated to multiple buttons, we introduce the ButtonGroup component.
  *
@@ -60,15 +64,17 @@ function ButtonGroup({minWidth, children}) {
     return () => window.removeEventListener('resize', onResize)
   }, [onResize])
 
+  const contextValue = React.useMemo(() => ({minWidth, small}), [minWidth, small])
+
   return (
     <ButtonGroupRoot ref={ref} mobile={small}>
-      {React.Children.map(children, child => React.cloneElement(child, {minWidth, small}))}
+      <ButtonGroupContext.Provider value={contextValue}>{children}</ButtonGroupContext.Provider>
     </ButtonGroupRoot>
   )
 }
 
 ButtonGroup.propTypes = {
-  children: PropTypes.children,
+  children: PropTypes.node,
   minWidth: PropTypes.number
 }
 

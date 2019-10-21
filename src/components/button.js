@@ -5,6 +5,7 @@ import PropTypes from 'prop-types'
 import * as palette from '../constants/palette'
 import {Body2, body1Css, body3Css} from './typography'
 import Loader from './loader'
+import {ButtonGroupContext} from './button-group'
 
 const lightGreyAlpha = palette.hexToRGBA(palette.mediumPrimary, 0.5)
 const lightBeetrootPurpleAlpha = palette.hexToRGBA(palette.mediumBeetrootPurple, 0.5)
@@ -174,6 +175,8 @@ const Button = React.forwardRef(function Button(
   },
   ref
 ) {
+  const buttonGroupContext = React.useContext(ButtonGroupContext)
+
   const ButtonComponent = React.useMemo(() => {
     switch (variant) {
       case 'primary':
@@ -253,6 +256,8 @@ const Button = React.forwardRef(function Button(
         mobile={mobile}
         backgroundColor={backgroundColor}
         color={color}
+        minWidth={buttonGroupContext ? buttonGroupContext.minWidth : undefined}
+        small={buttonGroupContext ? buttonGroupContext.small : undefined}
         {...props}
       >
         {loading ? (
@@ -284,9 +289,7 @@ Button.propTypes = {
   textColor: PropTypes.string,
   disabled: PropTypes.bool,
   loading: PropTypes.bool,
-  mobile: PropTypes.bool,
-  /** See ButtonGroup for this prop usage. Do not pass this props directly ! */
-  minWidth: PropTypes.number
+  mobile: PropTypes.bool
 }
 
 export default Button
