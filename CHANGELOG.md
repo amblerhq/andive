@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.11.0-canary.20](https://github.com/amblerhq/ambler/compare/v0.11.0-canary.19...v0.11.0-canary.20) (2019-10-21)
+
+
+### Bug Fixes
+
+* **checkbox:** fix disabled state ([b35e3f7](https://github.com/amblerhq/ambler/commit/b35e3f7))
+
+
+
 ## [0.11.0-canary.19](https://github.com/amblerhq/ambler/compare/v0.11.0-canary.18...v0.11.0-canary.19) (2019-10-13)
 
 
