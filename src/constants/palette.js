@@ -3,8 +3,9 @@
 export const white = '#ffffff'
 export const black = '#000000'
 
-export const darkPrimary = '#054752'
+export const lightPrimary = '#dddddd'
 export const mediumPrimary = '#708c91'
+export const darkPrimary = '#054752'
 
 export const lightGrey = '#fafafa'
 export const mediumGrey = '#ededed'

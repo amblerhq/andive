@@ -20,6 +20,22 @@ function ControlledCheckbox(props) {
 }
 
 // eslint-disable-next-line react/prop-types
+function DisabledCheckbox({defaultValue}) {
+  const [checked, setChecked] = React.useState(defaultValue || false)
+
+  const onChange = React.useCallback(() => {
+    setChecked(prev => !prev)
+  })
+
+  return (
+    <div style={{background: 'white'}}>
+      <Checkbox disabled label="Bariatrique" checked={checked} onChange={onChange} />
+      <div style={{padding: 8}}>checked: {checked ? 'true' : 'false'}</div>
+    </div>
+  )
+}
+
+// eslint-disable-next-line react/prop-types
 function CheckboxGroupStory({radio}) {
   const [values, setValues] = React.useState({a: true})
 
@@ -122,6 +138,16 @@ storiesOf('Checkbox', module)
     <Showcase>
       <ControlledCheckbox style={{background: 'white'}} />
     </Showcase>
+  ))
+  .add('Disabled', () => (
+    <>
+      <Showcase>
+        <DisabledCheckbox style={{background: 'white'}} defaultValue />
+      </Showcase>
+      <Showcase>
+        <DisabledCheckbox style={{background: 'white'}} />
+      </Showcase>
+    </>
   ))
   .add('Checkbox Group', () => (
     <Showcase>

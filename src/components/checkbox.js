@@ -1,5 +1,5 @@
 import React, {useContext} from 'react'
-import styled from 'styled-components'
+import styled, {css} from 'styled-components'
 import PropTypes from 'prop-types'
 import posed, {PoseGroup} from 'react-pose'
 
@@ -9,6 +9,7 @@ import RadioOnIcon from './icons/radio-on'
 import RadioOffIcon from './icons/radio-off'
 import {CheckboxGroupContext} from './checkbox-group'
 import {Body1} from './typography'
+import * as palette from '../constants/palette'
 
 const FadeInOut = posed.div({
   enter: {
@@ -41,13 +42,20 @@ const Checkbox = styled.div`
 
 const Label = styled(Body1)`
   padding-left: 12px;
+
+  ${props =>
+    props.disabled
+      ? css`
+          color: ${palette.mediumPrimary};
+        `
+      : undefined}
 `
 
 function isNullable(value) {
   return value === undefined || value === null
 }
 
-function CheckboxComponent({label, checked, onChange, name, fullWidth, ...props}) {
+function CheckboxComponent({label, checked, onChange, name, disabled, fullWidth, ...props}) {
   const context = useContext(CheckboxGroupContext)
 
   if (!context && (isNullable(checked) || isNullable(onChange))) {
@@ -74,12 +82,28 @@ function CheckboxComponent({label, checked, onChange, name, fullWidth, ...props}
   }
 
   return (
-    <Checkbox fullWidth={fullWidth} onClick={onChange} checked={checked} {...props}>
+    <Checkbox fullWidth={fullWidth} onClick={disabled ? undefined : onChange} checked={checked} {...props}>
       <PoseGroup>
-        {!checked && <FadeInOut key="off">{radio ? <RadioOffIcon inline /> : <CheckboxOffIcon inline />}</FadeInOut>}
-        {!!checked && <FadeInOut key="on">{radio ? <RadioOnIcon inline /> : <CheckboxOnIcon inline />}</FadeInOut>}
+        {!checked && (
+          <FadeInOut key="off">
+            {radio ? (
+              <RadioOffIcon inline color={disabled ? palette.lightPrimary : undefined} />
+            ) : (
+              <CheckboxOffIcon inline color={disabled ? palette.lightPrimary : undefined} />
+            )}
+          </FadeInOut>
+        )}
+        {!!checked && (
+          <FadeInOut key="on">
+            {radio ? (
+              <RadioOnIcon inline color={disabled ? palette.lightPrimary : undefined} />
+            ) : (
+              <CheckboxOnIcon inline color={disabled ? palette.lightPrimary : undefined} />
+            )}
+          </FadeInOut>
+        )}
       </PoseGroup>
-      {label ? <Label>{label}</Label> : null}
+      {label ? <Label disabled={disabled}>{label}</Label> : null}
     </Checkbox>
   )
 }
@@ -88,6 +112,7 @@ CheckboxComponent.propTypes = {
   label: PropTypes.string,
   checked: PropTypes.bool,
   onChange: PropTypes.func,
+  disabled: PropTypes.bool,
   name: PropTypes.string,
   fullWidth: PropTypes.bool,
   radio: PropTypes.bool
