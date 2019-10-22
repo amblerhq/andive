@@ -11,41 +11,40 @@ import ArrowRightIcon from './icons/arrow-right'
 import {Hover} from '..'
 
 const Accordeon = styled.div`
-  padding: 8px 16px 8px 8px;
+  padding: 8px 8px 8px 0px;
 `
 
 const AccordeonButton = styled.div`
-  cursor: pointer;
-
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-between;
   align-items: center;
+
+  cursor: pointer;
 `
 
-function AccordeonComponent({label, openByDefault, icon, iconSize, href, overflow = 0, children}) {
-  const [open, setOpen] = React.useState(openByDefault || false)
-  const onClick = React.useCallback(() => {
-    setOpen(prev => !prev)
-  }, [setOpen])
+function AccordeonComponent({label, openByDefault, open, onToggle, icon, iconSize, href, overflow = 0, children}) {
+  const [localOpen, setLocalOpen] = React.useState(openByDefault || false)
 
   const accordeon = (
-    <Accordeon>
-      <AccordeonButton onClick={href ? undefined : onClick}>
-        <Info icon={icon} iconSize={iconSize}>
-          <Info.Label label={label} />
-        </Info>
-        <HSpace px={8} />
-        {href ? (
-          <ArrowRightIcon color={palette.mediumPrimary} />
-        ) : open ? (
-          <ArrowUpIcon color={palette.mediumPrimary} />
-        ) : (
-          <ArrowDownIcon color={palette.mediumPrimary} />
-        )}
-      </AccordeonButton>
-      {open ? children : null}
-    </Accordeon>
+    <>
+      <Accordeon>
+        <AccordeonButton onClick={href ? undefined : onToggle || (() => setLocalOpen(prev => !prev))}>
+          <Info>
+            <Info.LabelIcon iconSize={iconSize} icon={icon} label={label} />
+          </Info>
+          <HSpace px={8} />
+          {href ? (
+            <ArrowRightIcon color={palette.mediumPrimary} />
+          ) : localOpen || open ? (
+            <ArrowUpIcon color={palette.mediumPrimary} />
+          ) : (
+            <ArrowDownIcon color={palette.mediumPrimary} />
+          )}
+        </AccordeonButton>
+      </Accordeon>
+      {localOpen || open ? children : null}
+    </>
   )
 
   if (href) {

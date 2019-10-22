@@ -5,8 +5,32 @@ import {Accordeon, Info, palette, Art80Icon, PatientIcon} from '..'
 import Showcase from './showcase'
 import QuestionIcon from '../components/icons/question'
 
+function ControlledStory() {
+  const icon = <Art80Icon circle circleColor={palette.mediumBeetrootPurple} />
+  const [open, setToggle] = React.useState(false)
+
+  return (
+    <Showcase>
+      <div style={{background: 'white'}}>
+        <Accordeon
+          open={open}
+          onToggle={() => setToggle(prev => !prev)}
+          icon={icon}
+          iconSize={32}
+          label="CERFA n° 11574*04 à fournir au transporteur"
+        >
+          <Info>
+            <Info.Label label="de Phil Colins !" />
+          </Info>
+        </Accordeon>
+      </div>
+      <div style={{padding: 8}}>{open ? 'Is open 👍' : 'Is closed 👎'}</div>
+    </Showcase>
+  )
+}
+
 storiesOf('Accordeon', module)
-  .add('Default', () => {
+  .add('Uncontrolled', () => {
     const icon = <Art80Icon circle circleColor={palette.mediumBeetrootPurple} />
 
     return (
@@ -21,6 +45,7 @@ storiesOf('Accordeon', module)
       </Showcase>
     )
   })
+  .add('Controlled', () => <ControlledStory />)
   .add('Open by default', () => {
     const icon = <PatientIcon circle circleColor={palette.mediumBeetrootPurple} color="white" />
 
