@@ -8,10 +8,10 @@ import ArrowUpIcon from './icons/arrow-up'
 import * as palette from '../constants/palette'
 import HSpace from './h-space'
 import ArrowRightIcon from './icons/arrow-right'
-import {Hover} from '..'
+import {Hover, Typography} from '..'
 
 const Accordeon = styled.div`
-  padding: 8px 8px 8px 0px;
+  padding: 8px 8px 8px ${props => (props.hasIcon ? 0 : 8)}px;
 `
 
 const AccordeonButton = styled.div`
@@ -28,11 +28,15 @@ function AccordeonComponent({label, openByDefault, open, onToggle, icon, iconSiz
 
   const accordeon = (
     <>
-      <Accordeon>
+      <Accordeon hasIcon={Boolean(icon)}>
         <AccordeonButton onClick={href ? undefined : onToggle || (() => setLocalOpen(prev => !prev))}>
-          <Info>
-            <Info.LabelIcon iconSize={iconSize} icon={icon} label={label} />
-          </Info>
+          {icon ? (
+            <Info>
+              <Info.LabelIcon iconSize={iconSize} icon={icon} label={label} />
+            </Info>
+          ) : (
+            <Typography.Body1>{label}</Typography.Body1>
+          )}
           <HSpace px={8} />
           {href ? (
             <ArrowRightIcon color={palette.mediumPrimary} />

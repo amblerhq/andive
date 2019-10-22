@@ -30,6 +30,19 @@ function ControlledStory() {
 }
 
 storiesOf('Accordeon', module)
+  .add('Default', () => {
+    return (
+      <Showcase>
+        <div style={{background: 'white'}}>
+          <Accordeon label="CERFA n° 11574*04 à fournir au transporteur">
+            <Info>
+              <Info.Label label="de Phil Colins !" />
+            </Info>
+          </Accordeon>
+        </div>
+      </Showcase>
+    )
+  })
   .add('Uncontrolled', () => {
     const icon = <Art80Icon circle circleColor={palette.mediumBeetrootPurple} />
 
