@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.11.0-canary.24](https://github.com/amblerhq/ambler/compare/v0.11.0-canary.23...v0.11.0-canary.24) (2019-10-22)
+
+
+### Features
+
+* **icons:** add pooling icons ([54d14e2](https://github.com/amblerhq/ambler/commit/54d14e2))
+
+
+
 ## [0.11.0-canary.23](https://github.com/amblerhq/ambler/compare/v0.11.0-canary.22...v0.11.0-canary.23) (2019-10-22)
 
 
