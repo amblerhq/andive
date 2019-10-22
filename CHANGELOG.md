@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.11.0-canary.23](https://github.com/amblerhq/ambler/compare/v0.11.0-canary.22...v0.11.0-canary.23) (2019-10-22)
+
+
+### Bug Fixes
+
+* **accordeon:** fix without icon padding ([0ceff00](https://github.com/amblerhq/ambler/commit/0ceff00))
+
+
+
 ## [0.11.0-canary.22](https://github.com/amblerhq/ambler/compare/v0.11.0-canary.21...v0.11.0-canary.22) (2019-10-22)
 
 
