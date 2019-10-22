@@ -46,7 +46,11 @@ import {
   OrdersIcon,
   DashboardIcon,
   BurgerIcon,
-  IncidentIcon
+  IncidentIcon,
+  PassengerIcon,
+  AddressRemoveIcon,
+  PatientAddIcon,
+  PatientRemoveIcon
 } from '..'
 
 const Icons = styled.div`
@@ -70,6 +74,7 @@ const icons = [
   HistoryIcon,
   MedicalFacilityIcon,
   AddressIcon,
+  AddressRemoveIcon,
   NewIcon,
   CancelIcon,
   FlagIcon,
@@ -96,7 +101,10 @@ const icons = [
   RadioOnIcon,
   RadioOffIcon,
   CheckboxOnIcon,
-  CheckboxOffIcon
+  CheckboxOffIcon,
+  PassengerIcon,
+  PatientAddIcon,
+  PatientRemoveIcon
 ]
 
 function TimedColor({interval, colors, children}) {

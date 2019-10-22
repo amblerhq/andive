@@ -5,6 +5,9 @@
 import AddressIconComponent from './components/icons/address'
 export const AddressIcon = AddressIconComponent
 
+import AddressRemoveIconComponent from './components/icons/address-remove'
+export const AddressRemoveIcon = AddressRemoveIconComponent
+
 import AlertIconComponent from './components/icons/alert'
 export const AlertIcon = AlertIconComponent
 
@@ -130,6 +133,15 @@ export const DashboardIcon = DashboardIconComponent
 
 import BurgerIconComponent from './components/icons/burger'
 export const BurgerIcon = BurgerIconComponent
+
+import PatientAddIconComponent from './components/icons/patient-add'
+export const PatientAddIcon = PatientAddIconComponent
+
+import PatientRemoveIconComponent from './components/icons/patient-remove'
+export const PatientRemoveIcon = PatientRemoveIconComponent
+
+import PassengerIconComponent from './components/icons/passenger'
+export const PassengerIcon = PassengerIconComponent
 
 /**
  * Illustrations
