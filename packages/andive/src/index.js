@@ -2,270 +2,179 @@
  * Icons
  */
 
-import AddressIconComponent from './components/icons/address'
-export const AddressIcon = AddressIconComponent
+export AddressIcon from './components/icons/address'
 
-import AddressRemoveIconComponent from './components/icons/address-remove'
-export const AddressRemoveIcon = AddressRemoveIconComponent
+export AddressRemoveIcon from './components/icons/address-remove'
 
-import AlertIconComponent from './components/icons/alert'
-export const AlertIcon = AlertIconComponent
+export AlertIcon from './components/icons/alert'
 
-import AmbulanceIconComponent from './components/icons/ambulance'
-export const AmbulanceIcon = AmbulanceIconComponent
+export AmbulanceIcon from './components/icons/ambulance'
 
-import ArrowDownIconComponent from './components/icons/arrow-down'
-export const ArrowDownIcon = ArrowDownIconComponent
+export ArrowDownIcon from './components/icons/arrow-down'
 
-import ArrowRightIconComponent from './components/icons/arrow-right'
-export const ArrowRightIcon = ArrowRightIconComponent
+export ArrowRightIcon from './components/icons/arrow-right'
 
-import ArrowLeftIconComponent from './components/icons/arrow-left'
-export const ArrowLeftIcon = ArrowLeftIconComponent
+export ArrowLeftIcon from './components/icons/arrow-left'
 
-import ArrowUpIconComponent from './components/icons/arrow-up'
-export const ArrowUpIcon = ArrowUpIconComponent
+export ArrowUpIcon from './components/icons/arrow-up'
 
-import BackIconComponent from './components/icons/back'
-export const BackIcon = BackIconComponent
+export BackIcon from './components/icons/back'
 
-import BariatricIconComponent from './components/icons/bariatric'
-export const BariatricIcon = BariatricIconComponent
+export BariatricIcon from './components/icons/bariatric'
 
-import CancelIconComponent from './components/icons/cancel'
-export const CancelIcon = CancelIconComponent
+export CancelIcon from './components/icons/cancel'
 
-import CloseIconComponent from './components/icons/close'
-export const CloseIcon = CloseIconComponent
+export CloseIcon from './components/icons/close'
 
-import EditIconComponent from './components/icons/edit'
-export const EditIcon = EditIconComponent
+export EditIcon from './components/icons/edit'
 
-import FlagIconComponent from './components/icons/flag'
-export const FlagIcon = FlagIconComponent
+export FlagIcon from './components/icons/flag'
 
-import HistoryIconComponent from './components/icons/history'
-export const HistoryIcon = HistoryIconComponent
+export HistoryIcon from './components/icons/history'
 
-import LogoutIconComponent from './components/icons/logout'
-export const LogoutIcon = LogoutIconComponent
+export LogoutIcon from './components/icons/logout'
 
-import LyingIconComponent from './components/icons/lying'
-export const LyingIcon = LyingIconComponent
+export LyingIcon from './components/icons/lying'
 
-import MedicalFacilityIconComponent from './components/icons/medical-facility'
-export const MedicalFacilityIcon = MedicalFacilityIconComponent
+export MedicalFacilityIcon from './components/icons/medical-facility'
 
-import NewIconComponent from './components/icons/new'
-export const NewIcon = NewIconComponent
+export NewIcon from './components/icons/new'
 
-import SeatedIconComponent from './components/icons/seated'
-export const SeatedIcon = SeatedIconComponent
+export SeatedIcon from './components/icons/seated'
 
-import TpmrIconComponent from './components/icons/tpmr'
-export const TpmrIcon = TpmrIconComponent
+export TpmrIcon from './components/icons/tpmr'
 
-import CheckboxOnIconComponent from './components/icons/checkbox-on'
-export const CheckboxOnIcon = CheckboxOnIconComponent
+export CheckboxOnIcon from './components/icons/checkbox-on'
 
-import CheckboxOffIconComponent from './components/icons/checkbox-off'
-export const CheckboxOffIcon = CheckboxOffIconComponent
+export CheckboxOffIcon from './components/icons/checkbox-off'
 
-import RadioOnIconComponent from './components/icons/radio-on'
-export const RadioOnIcon = RadioOnIconComponent
+export RadioOnIcon from './components/icons/radio-on'
 
-import RadioOffIconComponent from './components/icons/radio-off'
-export const RadioOffIcon = RadioOffIconComponent
+export RadioOffIcon from './components/icons/radio-off'
 
-import VslIconComponent from './components/icons/vsl'
-export const VslIcon = VslIconComponent
+export VslIcon from './components/icons/vsl'
 
-import QuestionIconComponent from './components/icons/question'
-export const QuestionIcon = QuestionIconComponent
+export QuestionIcon from './components/icons/question'
 
-import Art80IconComponent from './components/icons/art80'
-export const Art80Icon = Art80IconComponent
+export Art80Icon from './components/icons/art80'
 
-import PatientIconComponent from './components/icons/patient'
-export const PatientIcon = PatientIconComponent
+export PatientIcon from './components/icons/patient'
 
-import CerfaIconComponent from './components/icons/cerfa'
-export const CerfaIcon = CerfaIconComponent
+export CerfaIcon from './components/icons/cerfa'
 
-import DelegateIconComponent from './components/icons/delegate'
-export const DelegateIcon = DelegateIconComponent
+export DelegateIcon from './components/icons/delegate'
 
-import MapIconComponent from './components/icons/map'
-export const MapIcon = MapIconComponent
+export MapIcon from './components/icons/map'
 
-import ExportIconComponent from './components/icons/export'
-export const ExportIcon = ExportIconComponent
+export ExportIcon from './components/icons/export'
 
-import CheckIconComponent from './components/icons/check'
-export const CheckIcon = CheckIconComponent
+export CheckIcon from './components/icons/check'
 
-import WarningIconComponent from './components/icons/warning'
-export const WarningIcon = WarningIconComponent
+export WarningIcon from './components/icons/warning'
 
-import ForbiddenIconComponent from './components/icons/forbidden'
-export const ForbiddenIcon = ForbiddenIconComponent
+export ForbiddenIcon from './components/icons/forbidden'
 
-import IncidentIconComponent from './components/icons/incident'
-export const IncidentIcon = IncidentIconComponent
+export IncidentIcon from './components/icons/incident'
 
-import MfIconComponent from './components/icons/mf'
-export const MfIcon = MfIconComponent
+export MfIcon from './components/icons/mf'
 
-import MfuIconComponent from './components/icons/mfu'
-export const MfuIcon = MfuIconComponent
+export MfuIcon from './components/icons/mfu'
 
-import MtIconComponent from './components/icons/mt'
-export const MtIcon = MtIconComponent
+export MtIcon from './components/icons/mt'
 
-import RidesIconComponent from './components/icons/rides'
-export const RidesIcon = RidesIconComponent
+export RidesIcon from './components/icons/rides'
 
-import OrdersIconComponent from './components/icons/orders'
-export const OrdersIcon = OrdersIconComponent
+export OrdersIcon from './components/icons/orders'
 
-import DashboardIconComponent from './components/icons/dashboard'
-export const DashboardIcon = DashboardIconComponent
+export DashboardIcon from './components/icons/dashboard'
 
-import BurgerIconComponent from './components/icons/burger'
-export const BurgerIcon = BurgerIconComponent
+export BurgerIcon from './components/icons/burger'
 
-import PatientAddIconComponent from './components/icons/patient-add'
-export const PatientAddIcon = PatientAddIconComponent
+export PatientAddIcon from './components/icons/patient-add'
 
-import PatientRemoveIconComponent from './components/icons/patient-remove'
-export const PatientRemoveIcon = PatientRemoveIconComponent
+export PatientRemoveIcon from './components/icons/patient-remove'
 
-import PassengerIconComponent from './components/icons/passenger'
-export const PassengerIcon = PassengerIconComponent
+export PassengerIcon from './components/icons/passenger'
 
 /**
  * Illustrations
  */
 
-import DirectionIllustrationComponent from './components/illustrations/direction'
-export const DirectionIllustration = DirectionIllustrationComponent
+export DirectionIllustration from './components/illustrations/direction'
 
-import DoctorIllustrationComponent from './components/illustrations/doctor'
-export const DoctorIllustration = DoctorIllustrationComponent
+export DoctorIllustration from './components/illustrations/doctor'
 
-import ErrorIllustrationComponent from './components/illustrations/error'
-export const ErrorIllustration = ErrorIllustrationComponent
+export ErrorIllustration from './components/illustrations/error'
 
-import HospitalIllustrationComponent from './components/illustrations/hospital'
-export const HospitalIllustration = HospitalIllustrationComponent
+export HospitalIllustration from './components/illustrations/hospital'
 
-import OrderOnlineIllustrationComponent from './components/illustrations/order-online'
-export const OrderOnlineIllustration = OrderOnlineIllustrationComponent
+export OrderOnlineIllustration from './components/illustrations/order-online'
 
-import PatientIllustrationComponent from './components/illustrations/patient'
-export const PatientIllustration = PatientIllustrationComponent
+export PatientIllustration from './components/illustrations/patient'
 
-import StandardIllustrationComponent from './components/illustrations/standard'
-export const StandardIllustration = StandardIllustrationComponent
+export StandardIllustration from './components/illustrations/standard'
 
-import SuccessIllustrationComponent from './components/illustrations/success'
-export const SuccessIllustration = SuccessIllustrationComponent
+export SuccessIllustration from './components/illustrations/success'
 
 /**
  * Components
  */
 
-import InfoComponent from './components/info'
-export const Info = InfoComponent
+export Info from './components/info'
 
 export {default as Accordeon} from './components/accordeon'
 
-import AppBarComponent from './components/app-bar'
-export const AppBar = AppBarComponent
+export AppBar from './components/app-bar'
 
-import AutocompleteComponent from './components/autocomplete'
-export const Autocomplete = AutocompleteComponent
+export Autocomplete from './components/autocomplete'
 
-import BaselineComponent from './components/baseline'
-export const Baseline = BaselineComponent
+export Baseline from './components/baseline'
 
-import ButtonComponent from './components/button'
-export const Button = ButtonComponent
+export Button from './components/button'
 
-import ButtonGroupComponent from './components/button-group'
-export const ButtonGroup = ButtonGroupComponent
+export ButtonGroup from './components/button-group'
 
-import CheckboxComponent from './components/checkbox'
-export const Checkbox = CheckboxComponent
+export Checkbox from './components/checkbox'
 
-import CheckboxGroupComponent from './components/checkbox-group'
-export const CheckboxGroup = CheckboxGroupComponent
+export CheckboxGroup from './components/checkbox-group'
 
-import DialogTitleComponent from './components/dialog-title'
-export const DialogTitle = DialogTitleComponent
+export DialogTitle from './components/dialog-title'
 
-import DialogComponent from './components/dialog'
-export const Dialog = DialogComponent
+export Dialog from './components/dialog'
 
-import DirectionComponent from './components/direction'
-export const Direction = DirectionComponent
+export Direction from './components/direction'
 
-import DropdownComponent from './components/dropdown'
-export const Dropdown = DropdownComponent
+export Dropdown from './components/dropdown'
 
-import DropdownMenuComponent from './components/dropdown-menu'
-export const DropdownMenu = DropdownMenuComponent
+export DropdownMenu from './components/dropdown-menu'
 
-import DropdownFilterComponent from './components/dropdown-filter'
-export const DropdownFilter = DropdownFilterComponent
+export DropdownFilter from './components/dropdown-filter'
 
-import HoverComponent from './components/hover'
-export const Hover = HoverComponent
+export Hover from './components/hover'
 
-import IconComponent from './components/icon'
-export const Icon = IconComponent
+export Icon from './components/icon'
 
-import InputComponent from './components/input'
-export const Input = InputComponent
+export Input from './components/input'
 
-import RideStatusBarComponent from './components/ride-status-bar'
-export const RideStatusBar = RideStatusBarComponent
+export RideStatusBar from './components/ride-status-bar'
 
-import RideStatusComponent from './components/ride-status'
-export const RideStatus = RideStatusComponent
+export RideStatus from './components/ride-status'
 
-import SelectComponent from './components/select'
-export const Select = SelectComponent
+export Select from './components/select'
 
-import MenuComponent from './components/menu'
-export const Menu = MenuComponent
+export Menu from './components/menu'
 
-import ThemeProviderComponent from './components/theme-provider'
-export const ThemeProvider = ThemeProviderComponent
+export ThemeProvider from './components/theme-provider'
 
-import TitleComponent from './components/title'
-export const Title = TitleComponent
+export Title from './components/title'
 
-import VSpaceComponent from './components/v-space'
-export const VSpace = VSpaceComponent
+export VSpace from './components/v-space'
 
-import HSpaceComponent from './components/h-space'
-export const HSpace = HSpaceComponent
+export HSpace from './components/h-space'
 
-import ToastContainer, * as toastActions from './components/toast'
-export const Toast = ToastContainer
-export const toast = toastActions.toast
-export const toastSuccess = toastActions.toastSuccess
-export const toastWarning = toastActions.toastWarning
-export const toastError = toastActions.toastError
-export const toastInfo = toastActions.toastInfo
+export Modal from './components/modal'
 
-import ModalComponent from './components/modal'
-export const Modal = ModalComponent
-
-import LoaderComponent from './components/loader'
-export const Loader = LoaderComponent
-
+export Loader from './components/loader'
 import * as TypographyComponents from './components/typography'
 export const Typography = TypographyComponents
 
@@ -275,3 +184,11 @@ export const Typography = TypographyComponents
 
 import * as paletteObject from './constants/palette'
 export const palette = paletteObject
+
+import ToastContainer, * as toastActions from './components/toast'
+export const Toast = ToastContainer
+export const toast = toastActions.toast
+export const toastSuccess = toastActions.toastSuccess
+export const toastWarning = toastActions.toastWarning
+export const toastError = toastActions.toastError
+export const toastInfo = toastActions.toastInfo
