@@ -11,7 +11,7 @@
   "author": "Ambler team",
   "license": "MIT",
   "scripts": {
-    "dev": "start-storybook -p 3042",
+    "dev": "yarn build --watch",
     "build": "babel src -d dist --ignore \"src/**/*.stories.js\",\"src/stories\",\"src/**/*.test.js\"",
     "test": "yarn jest",
     "release": "standard-version",
