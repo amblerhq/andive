@@ -1,6 +1,6 @@
 {
   "name": "@ambler/andive",
-  "version": "0.11.1-alpha.0",
+  "version": "0.11.1-ci.6+89c0f2f",
   "description": "Ambler UI library",
   "main": "dist/index.js",
   "files": [
@@ -47,5 +47,5 @@
     "react-scroll-to": "2.0.9",
     "use-interval": "1.1.0"
   },
-  "gitHead": "ca28e0276b068858d37673fd383bda62d3837090"
+  "gitHead": "89c0f2f21836e2392d72682cd1e960eee38ec19c"
 }
