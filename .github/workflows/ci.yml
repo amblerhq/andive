@@ -1,5 +1,5 @@
 name: CI
-on:
+on: push
   push:
     branches:
       - jdn-canary
@@ -19,8 +19,3 @@ jobs:
         name: Bootstrap
       - run: yarn test
         name: Test
-      # - run: yarn publish-ci
-      #   if: github.ref == 'refs/head/master'
-      #   name: Publish CI tag to npm
-      #   env:
-      #     NPM_AUTH_TOKEN: ${{secrets.NPM_AUTH_TOKEN}}
