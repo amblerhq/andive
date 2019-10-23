@@ -2,11 +2,17 @@
   "version": "0.11.0",
   "private": true,
   "scripts": {
+    "bootstrap": "lerna bootstrap && lerna link --force-local",
+    "clean": "lerna exec \"rm -rf node_modules\"",
     "lint": "eslint . --cache --report-unused-disable-directives",
     "lint:ci": "eslint . --report-unused-disable-directives",
     "lint:fix": "eslint . --cache --fix",
-    "typescript": "lerna run typescript --parallel",
-    "test": "yarn lint && yarn typescript"
+    "now-build": "yarn workspace docs build",
+    "publish": "lerna publish --force-publish=\"*\"",
+    "publish-ci": "lerna publish -y --canary --preid ci --npm-tag ci --npm-client npm",
+    "publish-next": "lerna publish --npm-tag next --preid rc --force-publish=\"*\"",
+    "test": "yarn lint && yarn typescript",
+    "typescript": "lerna run typescript --parallel"
   },
   "devDependencies": {
     "@babel/cli": "7.4.4",
