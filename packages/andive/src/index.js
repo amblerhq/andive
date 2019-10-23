@@ -178,8 +178,7 @@ export const SuccessIllustration = SuccessIllustrationComponent
 import InfoComponent from './components/info'
 export const Info = InfoComponent
 
-import AccordeonComponent from './components/accordeon'
-export const Accordeon = AccordeonComponent
+export {default as Accordeon} from './components/accordeon'
 
 import AppBarComponent from './components/app-bar'
 export const AppBar = AppBarComponent
