@@ -1,4 +1,5 @@
 {
+  "root": true,
   "plugins": ["react", "prettier"],
   "parser": "babel-eslint",
   "parserOptions": {
@@ -7,9 +8,9 @@
     }
   },
   "env": {
+    "es6": true,
     "node": true,
-    "browser": true,
-    "jest": true
+    "browser": true
   },
   "extends": [
     "eslint:recommended",
@@ -33,9 +34,20 @@
         "bracketSpacing": false,
         "semi": false,
         "useTabs": false,
-        "parser": "babylon",
+        "parser": "babel",
         "jsxBracketSameLine": false
       }
     ]
-  }
+  },
+  "overrides": [
+    {
+      "files": [
+        // matching the pattern of the test runner
+        "*.test.js"
+      ],
+      "env": {
+        "jest": true
+      }
+    }
+  ]
 }
