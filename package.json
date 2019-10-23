@@ -1,35 +1,18 @@
 {
-  "name": "@ambler/andive",
-  "version": "0.11.0-canary.24",
-  "description": "Ambler UI library",
-  "main": "dist/index.js",
-  "files": [
-    "dist/**/*.js",
-    "img/*"
-  ],
-  "repository": "git@github.com:amblerhq/ambler.git",
-  "author": "Ambler team",
-  "license": "MIT",
+  "version": "0.11.0",
+  "private": true,
   "scripts": {
-    "dev": "start-storybook -p 3042",
-    "build": "babel src -d dist --ignore \"src/**/*.stories.js\",\"src/stories\",\"src/**/*.test.js\"",
-    "test": "yarn jest",
-    "release": "standard-version",
-    "release:canary": "standard-version --prerelease canary",
-    "release:canary:push": "yarn release:canary && git push --follow-tags origin canary",
-    "share": "yarn build-storybook && cd storybook-static && now",
-    "share:ci": "yarn build-storybook && cd storybook-static && now deploy --token=$ZEIT_TOKEN --target production"
+    "lint": "eslint . --cache --report-unused-disable-directives",
+    "lint:ci": "eslint . --report-unused-disable-directives",
+    "lint:fix": "eslint . --cache --fix",
+    "typescript": "lerna run typescript --parallel",
+    "test": "yarn lint && yarn typescript"
   },
   "devDependencies": {
     "@babel/cli": "7.4.4",
     "@babel/core": "7.4.5",
     "@babel/preset-env": "7.4.5",
     "@babel/preset-react": "7.0.0",
-    "@storybook/addon-storyshots": "5.1.11",
-    "@storybook/addon-storyshots-puppeteer": "5.1.11",
-    "@storybook/addon-storysource": "5.1.1",
-    "@storybook/react": "5.2.1",
-    "@storybook/theming": "5.1.1",
     "babel-eslint": "10.0.1",
     "babel-loader": "8.0.6",
     "babel-plugin-inline-react-svg": "1.1.0",
@@ -37,31 +20,14 @@
     "eslint-config-prettier": "4.3.0",
     "eslint-plugin-prettier": "3.1.0",
     "eslint-plugin-react": "7.13.0",
-    "graphql": "14.3.1",
     "jest": "24.8.0",
-    "lodash.range": "3.2.0",
-    "moment": "2.24.0",
+    "lerna": "3.16.4",
     "prettier": "1.17.1",
-    "react": "16.8.6",
-    "react-copy-to-clipboard": "5.0.1",
-    "react-dom": "16.8.6",
-    "react-test-renderer": "16.9.0",
-    "standard-version": "6.0.1",
-    "styled-components": "4.2.1",
-    "urql": "1.0.5"
+    "standard-version": "6.0.1"
   },
-  "peerDependencies": {
-    "moment": "^2.24.0",
-    "react": "^16.8.5",
-    "react-dom": "^16.8.5",
-    "styled-components": "^4.2.0"
-  },
-  "dependencies": {
-    "lodash.throttle": "4.1.1",
-    "prop-types": "15.7.2",
-    "react-outside-click-handler": "1.2.3",
-    "react-pose": "4.0.8",
-    "react-scroll-to": "2.0.9",
-    "use-interval": "1.1.0"
-  }
+  "workspaces": [
+    "packages/*",
+    "docs"
+  ],
+  "dependencies": {}
 }

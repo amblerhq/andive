@@ -1,4 +1,6 @@
 dist
 node_modules
-storybook-static
 __diff_output__
+package-lock.json
+/packages/andive/storybook-static
+/.eslintcache

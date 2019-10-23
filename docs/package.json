@@ -1,0 +1,10 @@
+{
+  "name": "docs",
+  "version": "4.0.0",
+  "private": true,
+  "author": "Ambler Team",
+  "license": "MIT",
+  "scripts": {},
+  "dependencies": {},
+  "devDependencies": {}
+}

@@ -1,0 +1,5 @@
+/.git
+/packages/andive/storybook-static
+/tmp
+build
+node_modules
