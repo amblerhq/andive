@@ -25,7 +25,6 @@ const AccordeonButton = styled.div`
 
 function AccordeonComponent({label, openByDefault, open, onToggle, icon, iconSize, href, overflow = 0, children}) {
   const [localOpen, setLocalOpen] = React.useState(openByDefault || false)
-
   const accordeon = (
     <>
       <Accordeon hasIcon={Boolean(icon)}>
