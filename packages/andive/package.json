@@ -1,6 +1,6 @@
 {
   "name": "@ambler/andive",
-  "version": "0.11.0-canary.24",
+  "version": "0.11.1-alpha.0",
   "description": "Ambler UI library",
   "main": "dist/index.js",
   "files": [
@@ -46,5 +46,6 @@
     "react-pose": "4.0.8",
     "react-scroll-to": "2.0.9",
     "use-interval": "1.1.0"
-  }
+  },
+  "gitHead": "ca28e0276b068858d37673fd383bda62d3837090"
 }
