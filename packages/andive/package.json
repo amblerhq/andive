@@ -14,9 +14,6 @@
     "dev": "start-storybook -p 3042",
     "build": "babel src -d dist --ignore \"src/**/*.stories.js\",\"src/stories\",\"src/**/*.test.js\"",
     "test": "yarn jest",
-    "release": "standard-version",
-    "release:canary": "standard-version --prerelease canary",
-    "release:canary:push": "yarn release:canary && git push --follow-tags origin canary",
     "share": "yarn build-storybook && cd storybook-static && now",
     "share:ci": "yarn build-storybook && cd storybook-static && now deploy --token=$ZEIT_TOKEN --target production"
   },
