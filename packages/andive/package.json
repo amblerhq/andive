@@ -1,0 +1,52 @@
+{
+  "name": "@ambler/andive",
+  "version": "0.11.0",
+  "description": "Ambler UI library",
+  "main": "dist/index.js",
+  "files": [
+    "dist/**/*.js",
+    "img/*"
+  ],
+  "repository": "git@github.com:amblerhq/ambler.git",
+  "author": "Ambler team",
+  "license": "MIT",
+  "scripts": {
+    "dev": "start-storybook -p 3042",
+    "build": "babel src -d dist --ignore \"src/**/*.stories.js\",\"src/stories\",\"src/**/*.test.js\"",
+    "test": "yarn jest",
+    "release": "standard-version",
+    "release:canary": "standard-version --prerelease canary",
+    "share": "yarn build-storybook && cd storybook-static && now",
+    "share:ci": "yarn build-storybook && cd storybook-static && now deploy --token=$ZEIT_TOKEN --target production"
+  },
+  "devDependencies": {
+    "@storybook/addon-storyshots": "5.1.11",
+    "@storybook/addon-storyshots-puppeteer": "5.1.11",
+    "@storybook/addon-storysource": "5.1.1",
+    "@storybook/react": "5.2.3",
+    "@storybook/theming": "5.1.1",
+    "graphql": "14.3.1",
+    "lodash.range": "3.2.0",
+    "moment": "2.24.0",
+    "react": "16.8.6",
+    "react-copy-to-clipboard": "5.0.1",
+    "react-dom": "16.8.6",
+    "react-test-renderer": "16.9.0",
+    "styled-components": "4.2.1",
+    "urql": "1.0.5"
+  },
+  "peerDependencies": {
+    "moment": "^2.24.0",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "styled-components": "^4.2.0"
+  },
+  "dependencies": {
+    "lodash.throttle": "4.1.1",
+    "prop-types": "15.7.2",
+    "react-outside-click-handler": "1.2.3",
+    "react-pose": "4.0.8",
+    "react-scroll-to": "2.0.9",
+    "use-interval": "1.1.0"
+  }
+}

@@ -5,42 +5,42 @@ import {
   Button,
   ButtonGroup,
   AmbulanceIcon,
-  ArrowRightIcon,
-  NewIcon,
-  AddressIcon,
-  BariatricIcon,
+  // ArrowRightIcon,
+  // NewIcon,
+  // AddressIcon,
+  // EditIcon,
+  // LogoutIcon,
+  // palette,
+  // BariatricIcon,
+  // TpmrIcon,
+  // VslIcon,
   PatientIcon,
-  TpmrIcon,
-  EditIcon,
-  LogoutIcon,
-  VslIcon,
-  palette,
   Info
 } from '..'
 import Showcase from './showcase'
 import VSpace from '../components/v-space'
 
-const icons = [AmbulanceIcon, VslIcon, BariatricIcon, TpmrIcon]
+//const icons = [AmbulanceIcon, VslIcon, BariatricIcon, TpmrIcon]
 
-function TimedIcon({interval, color, children}) {
-  const [index, setIndex] = React.useState(0)
+// function TimedIcon({interval, color, children}) {
+//   const [index, setIndex] = React.useState(0)
 
-  React.useEffect(() => {
-    function tick() {
-      setIndex(index + 1)
-    }
+//   React.useEffect(() => {
+//     function tick() {
+//       setIndex(index + 1)
+//     }
 
-    const handle = setInterval(tick, interval || 1000)
+//     const handle = setInterval(tick, interval || 1000)
 
-    return () => {
-      clearInterval(handle)
-    }
-  }, [index, setIndex])
+//     return () => {
+//       clearInterval(handle)
+//     }
+//   }, [index, setIndex])
 
-  const Icon = icons[index % icons.length]
+//   const Icon = icons[index % icons.length]
 
-  return children(<Icon color={color} />)
-}
+//   return children(<Icon color={color} />)
+// }
 
 function ButtonStory(props) {
   return (
