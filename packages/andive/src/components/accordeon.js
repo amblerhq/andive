@@ -25,7 +25,8 @@ const AccordeonButton = styled.div`
 
 function AccordeonComponent({label, openByDefault, open, onToggle, icon, iconSize, href, overflow = 0, children}) {
   const [localOpen, setLocalOpen] = React.useState(openByDefault || false)
-
+  // eslint-disable-next-line no-console
+  console.log('render Accordeon')
   const accordeon = (
     <>
       <Accordeon hasIcon={Boolean(icon)}>
