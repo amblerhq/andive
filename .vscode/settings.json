@@ -1,22 +1,24 @@
 {
-    "editor.formatOnSave": true,
-    "[javascript]": {
-        "editor.formatOnSave": false,
-    },
-    "[javascriptreact]": {
-        "editor.formatOnSave": false,
-    },
-    "[typescript]": {
-        "editor.formatOnSave": false,
-    },
-    "[typescriptreact]": {
-        "editor.formatOnSave": false,
-    },
-    "eslint.enable": true,
+    "eslint.workingDirectories": [
+        {
+            "directory": "./packages/andive",
+            "changeProcessCWD": true
+        },
+        "./docs"
+    ],
+    "editor.formatOnSave": false,
     "eslint.autoFixOnSave": true,
+    "eslint.enable": true,
+    "eslint.packageManager": "yarn",
     "eslint.validate": [
-        "javascript",
-        "javascriptreact",
+        {
+            "language": "javascript",
+            "autoFix": true
+        },
+        {
+            "language": "javascriptreact",
+            "autoFix": true
+        },
         {
             "language": "typescript",
             "autoFix": true
@@ -24,6 +26,6 @@
         {
             "language": "typescriptreact",
             "autoFix": true
-        }
-    ]
+        },
+    ],
 }

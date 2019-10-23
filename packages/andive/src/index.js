@@ -164,7 +164,7 @@ export Select from './components/select'
 
 export Menu from './components/menu'
 
-export ThemeProvider from './components/theme-provider'
+export ThemeProvider, {defaultTheme} from './components/theme-provider'
 
 export Title from './components/title'
 
