@@ -134,6 +134,8 @@ export Button from './components/button'
 
 export ButtonGroup from './components/button-group'
 
+export Card from './components/card'
+
 export Checkbox from './components/checkbox'
 
 export CheckboxGroup from './components/checkbox-group'
