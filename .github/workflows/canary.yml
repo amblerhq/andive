@@ -19,6 +19,8 @@ jobs:
         name: Bootstrap
       - run: yarn test
         name: Test
+      - run: echo "//registry.npmjs.org/:_authToken=\${NPM_AUTH_TOKEN}" >> .npmrc
+        name: Configure NPM user
       - run: yarn publish-ci
         name: Publish CI tag to npm
         env:
