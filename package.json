@@ -9,8 +9,8 @@
     "lint:fix": "eslint . --cache --fix",
     "now-build": "yarn workspace docs build",
     "publish": "lerna publish --force-publish=\"*\"",
-    "publish-ci": "lerna publish -y --canary --preid ci --npm-tag ci --npm-client npm",
-    "publish-next": "lerna publish --npm-tag next --preid rc --force-publish=\"*\"",
+    "publish:ci": "lerna publish -y --canary --preid ci --dist-tag ci --npm-client npm",
+    "publish:next": "lerna publish --npm-tag next --preid rc --force-publish=\"*\"",
     "test": "yarn lint && yarn typescript",
     "typescript": "lerna run typescript --parallel"
   },
