@@ -47,7 +47,6 @@ function AccordeonComponent({
   children
 }: Props) {
   const [localOpen, setLocalOpen] = React.useState(openByDefault || false)
-
   const accordeon = (
     <>
       <Accordeon hasIcon={Boolean(icon)}>
