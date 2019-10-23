@@ -2,7 +2,7 @@ name: CI
 on:
   push:
     branches:
-      - jdn-canary
+      - canary
 jobs:
   build-test-and-deploy:
     name: Build and test
