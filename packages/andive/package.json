@@ -11,7 +11,7 @@
   "author": "Ambler team",
   "license": "MIT",
   "scripts": {
-    "dev": "start-storybook -p 3042",
+    "dev": "yarn build --watch",
     "build": "babel src -d dist --ignore \"src/**/*.stories.js\",\"src/stories\",\"src/**/*.test.js\" -x '.ts,.tsx,.js'",
     "prepublish": "yarn build",
     "test": "yarn jest",
@@ -32,11 +32,11 @@
     "graphql": "14.3.1",
     "lodash.range": "3.2.0",
     "moment": "2.24.0",
-    "react": "16.8.6",
+    "react": "16.11.0",
     "react-copy-to-clipboard": "5.0.1",
-    "react-dom": "16.8.6",
+    "react-dom": "16.11.0",
     "react-test-renderer": "16.9.0",
-    "styled-components": "4.2.1",
+    "styled-components": "4.4.0",
     "typescript": "3.6.4",
     "urql": "1.0.5"
   },

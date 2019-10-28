@@ -2,6 +2,7 @@
   "version": "0.11.0",
   "private": true,
   "scripts": {
+    "dev": "yarn lerna run dev",
     "bootstrap": "lerna bootstrap && lerna link --force-local",
     "clean": "lerna exec \"rm -rf node_modules\"",
     "lint": "eslint . --cache --report-unused-disable-directives",
