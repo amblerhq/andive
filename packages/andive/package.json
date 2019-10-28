@@ -13,6 +13,7 @@
   "scripts": {
     "dev": "start-storybook -p 3042",
     "build": "babel src -d dist --ignore \"src/**/*.stories.js\",\"src/stories\",\"src/**/*.test.js\" -x '.ts,.tsx,.js'",
+    "prepublish": "yarn build",
     "test": "yarn jest",
     "share": "yarn build-storybook && cd storybook-static && now",
     "share:ci": "yarn build-storybook && cd storybook-static && now deploy --token=$ZEIT_TOKEN --target production"
