@@ -122,7 +122,7 @@ export SuccessIllustration from './components/illustrations/success'
 
 export Info from './components/info'
 
-export Accordeon from './components/accordeon'
+export {default as Accordeon} from './components/accordeon'
 
 export AppBar from './components/app-bar'
 

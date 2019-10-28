@@ -1,5 +1,4 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import * as React from 'react'
 import styled from 'styled-components'
 
 import Info from './info'
@@ -9,9 +8,10 @@ import * as palette from '../constants/palette'
 import HSpace from './h-space'
 import ArrowRightIcon from './icons/arrow-right'
 import {Hover, Typography} from '..'
+import {ReactNodeLike} from 'prop-types'
 
 const Accordeon = styled.div`
-  padding: 8px 8px 8px ${props => (props.hasIcon ? 0 : 8)}px;
+  padding: 8px 8px 8px ${(props: {hasIcon: boolean}) => (props.hasIcon ? 0 : 8)}px;
 `
 
 const AccordeonButton = styled.div`
@@ -23,7 +23,29 @@ const AccordeonButton = styled.div`
   cursor: pointer;
 `
 
-function AccordeonComponent({label, openByDefault, open, onToggle, icon, iconSize, href, overflow = 0, children}) {
+export interface Props {
+  label: string;
+  openByDefault?: boolean;
+  open?: any;
+  onToggle?: any;
+  icon?: ReactNodeLike;
+  iconSize?: number;
+  href?: string;
+  overflow?: number;
+  children?: any;
+}
+
+function AccordeonComponent({
+  label,
+  openByDefault,
+  open,
+  onToggle,
+  icon,
+  iconSize,
+  href,
+  overflow = 0,
+  children
+}: Props) {
   const [localOpen, setLocalOpen] = React.useState(openByDefault || false)
   const accordeon = (
     <>
@@ -59,15 +81,6 @@ function AccordeonComponent({label, openByDefault, open, onToggle, icon, iconSiz
   }
 
   return accordeon
-}
-
-AccordeonComponent.propTypes = {
-  label: PropTypes.string.isRequired,
-  openByDefault: PropTypes.bool,
-  icon: PropTypes.node,
-  iconSize: PropTypes.number,
-  children: PropTypes.node,
-  overflow: PropTypes.number
 }
 
 export default AccordeonComponent
