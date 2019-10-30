@@ -233,43 +233,56 @@ function WithDisabledOptions() {
 
 function WithCustomButton() {
   const [value, setValue] = React.useState('')
-  const onClick = React.useCallback(id => setValue(id))
+  const [loading, setLoading] = React.useState(true)
+  const onClick = React.useCallback(id => {
+    setLoading(id !== 'PHIL_C')
+    setValue(id)
+  })
 
   return (
-    <Showcase size={600}>
-      <DropdownMenu
-        buttonComponent={PrimaryButton}
-        label="Quel est ton artiste préféré ?"
-        onClick={onClick}
-        valueToString={artistToString}
-        value={value}
-      >
-        <DropdownMenu.OptionGroup label="Chanteur">
+    <>
+      <Info>
+        <Info.Block variant="info">
+          <Info.Label label="Not choosing phil collins will pass `loading` to the 2nd Dropdown component" />
+        </Info.Block>
+      </Info>
+      <Showcase size={600}>
+        <DropdownMenu
+          buttonComponent={PrimaryButton}
+          label="Quel est ton artiste préféré ?"
+          onClick={onClick}
+          valueToString={artistToString}
+          value={value}
+        >
           <DropdownMenu.Option id={'PHIL_C'}>
             <Info>
               <Info.Label label={artistToString('PHIL_C')} />
             </Info>
           </DropdownMenu.Option>
-          <DropdownMenu.Option id={'CHARLES_A'}>
-            <Info>
-              <Info.Label label={artistToString('CHARLES_A')} />
-            </Info>
-          </DropdownMenu.Option>
-        </DropdownMenu.OptionGroup>
-        <DropdownMenu.OptionGroup label="Groupe">
           <DropdownMenu.Option id={'DAFT_P'}>
             <Info>
               <Info.Label label={artistToString('DAFT_P')} />
             </Info>
           </DropdownMenu.Option>
-          <DropdownMenu.Option id={'JUSTICE'}>
-            <Info>
-              <Info.Label label={artistToString('JUSTICE')} />
-            </Info>
-          </DropdownMenu.Option>
-        </DropdownMenu.OptionGroup>
-      </DropdownMenu>
-    </Showcase>
+        </DropdownMenu>
+        <DropdownMenu
+          buttonComponent={PrimaryButton}
+          label="Quel est ton artiste préféré ?"
+          onClick={onClick}
+          valueToString={artistToString}
+          value={value}
+          loading={loading}
+        >
+          <DropdownMenu.OptionGroup label="Chanteur">
+            <DropdownMenu.Option id={'JUSTICE'}>
+              <Info>
+                <Info.Label label={artistToString('JUSTICE')} />
+              </Info>
+            </DropdownMenu.Option>
+          </DropdownMenu.OptionGroup>
+        </DropdownMenu>
+      </Showcase>
+    </>
   )
 }
 
