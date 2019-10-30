@@ -5,3 +5,5 @@ package-lock.json
 /packages/andive/storybook-static
 /.eslintcache
 build
+.npmrc
+docs/public
