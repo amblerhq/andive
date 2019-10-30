@@ -149,6 +149,14 @@ storiesOf('API|Checkbox', module)
       </Showcase>
     </>
   ))
+  .add('Radio', () => (
+    <>
+      <Showcase>
+        <Checkbox radio label="1er Patient" checked={false} onChange={() => null} style={{background: 'white'}} />
+        <Checkbox radio label="2e Patient" checked onChange={() => null} style={{background: 'white'}} />
+      </Showcase>
+    </>
+  ))
   .add('Checkbox Group', () => (
     <Showcase>
       <CheckboxGroupStory />

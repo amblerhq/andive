@@ -67,7 +67,7 @@ function CheckboxComponent({label, checked, onChange, name, disabled, fullWidth,
     )
   }
 
-  let radio = false
+  let radio = props.radio || false
   // This is a group of checkboxes controlled by a <CheckboxGroup />
   if (context) {
     if (!name) {
