@@ -25,7 +25,7 @@ const AccordeonButton = styled.div`
 
 export interface Props {
   className?: string;
-  label: string;
+  label: string | React.ElementType;
   openByDefault?: boolean;
   open?: any;
   onToggle?: any;
@@ -53,12 +53,13 @@ function AccordeonComponent({
     <>
       <Accordeon className={className} hasIcon={Boolean(icon)}>
         <AccordeonButton onClick={href ? undefined : onToggle || (() => setLocalOpen(prev => !prev))}>
+          {/* `min-width: 0` is required if the `label` wants to truncate with ellipsis its content. */}
           {icon ? (
-            <Info>
+            <Info style={{minWidth: 0}}>
               <Info.LabelIcon iconSize={iconSize} icon={icon} label={label} />
             </Info>
           ) : (
-            <Typography.Body1>{label}</Typography.Body1>
+            <Typography.Body1 style={{minWidth: 0}}>{label}</Typography.Body1>
           )}
           <HSpace px={8} />
           {href ? (

@@ -1,6 +1,16 @@
 import React from 'react'
 import {storiesOf} from '@storybook/react'
-import {RideStatus, RideStatusBar, palette} from '@ambler/andive'
+import {
+  Info,
+  VSpace,
+  RideStatus,
+  RideStatusBar,
+  palette,
+  Typography,
+  HSpace,
+  AlertIcon,
+  Accordeon
+} from '@ambler/andive'
 
 import Showcase from './showcase'
 
@@ -83,5 +93,38 @@ storiesOf('API|RideStatus', module)
           <RideStatusBar color={palette.success} />
         </div>
       </Showcase>
+    )
+  })
+  .add('With custom elements', () => {
+    const label = (
+      <RideStatus
+        primary={<Typography.Body1>Test</Typography.Body1>}
+        secondary={
+          <div style={{display: 'flex', flexFlow: 'row nowrap'}}>
+            <AlertIcon inline />
+            <HSpace px={8} />
+            <Typography.Body1 style={{whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis'}}>
+              Test test test Test test test
+            </Typography.Body1>
+          </div>
+        }
+        color={palette.warning}
+        style={{background: 'white'}}
+      />
+    )
+
+    return (
+      <>
+        <Showcase>{label}</Showcase>
+        <Showcase>
+          <div style={{display: 'flex', flexFlow: 'column nowrap', background: 'white'}}>
+            <Accordeon label={label}>
+              <Info>
+                <Info.Label label="Fan" />
+              </Info>
+            </Accordeon>
+          </div>
+        </Showcase>
+      </>
     )
   })
