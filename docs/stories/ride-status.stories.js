@@ -1,16 +1,6 @@
 import React from 'react'
 import {storiesOf} from '@storybook/react'
-import {
-  Info,
-  VSpace,
-  RideStatus,
-  RideStatusBar,
-  palette,
-  Typography,
-  HSpace,
-  AlertIcon,
-  Accordeon
-} from '@ambler/andive'
+import {Info, RideStatus, RideStatusBar, palette, Typography, HSpace, AlertIcon, Accordeon} from '@ambler/andive'
 
 import Showcase from './showcase'
 
