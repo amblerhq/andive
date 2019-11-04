@@ -9,6 +9,10 @@ const AmbulanceOverride = styled(Ambulance)`
   & > g > path {
     fill: ${props => props.color};
   }
+
+  & > g > path:nth-of-type(2) {
+    stroke: none !important;
+  }
 `
 
 const AmbulanceIcon = props => {
@@ -22,7 +26,7 @@ const AmbulanceIcon = props => {
 AmbulanceIcon.propTypes = {
   color: PropTypes.string
 }
-AmbulanceOverride.size = 24
+AmbulanceOverride.size = 22
 
 export default AmbulanceIcon
 export const AmbulanceSvg = Ambulance

@@ -155,7 +155,7 @@ storiesOf('API|Icon', module)
         <MedicalFacilityIcon circle circleColor="white" />
       </Showcase>
       <Showcase variant="squared">
-        <MedicalFacilityIcon circle circleColor={palette.mediumBeetrootPurple} color="white" />
+        <AmbulanceIcon circle circleColor={palette.mediumBeetrootPurple} color="white" />
       </Showcase>
     </Icons>
   ))
