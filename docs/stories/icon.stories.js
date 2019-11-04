@@ -48,7 +48,8 @@ import {
   PassengerIcon,
   AddressRemoveIcon,
   PatientAddIcon,
-  PatientRemoveIcon
+  PatientRemoveIcon,
+  EuroIcon
 } from '@ambler/andive'
 
 import Showcase from './showcase'
@@ -104,7 +105,8 @@ const icons = [
   CheckboxOffIcon,
   PassengerIcon,
   PatientAddIcon,
-  PatientRemoveIcon
+  PatientRemoveIcon,
+  EuroIcon
 ]
 
 function TimedColor({interval, colors, children}) {

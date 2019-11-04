@@ -96,6 +96,8 @@ export PatientRemoveIcon from './components/icons/patient-remove'
 
 export PassengerIcon from './components/icons/passenger'
 
+export EuroIcon from './components/icons/euro'
+
 /**
  * Illustrations
  */
