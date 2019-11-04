@@ -82,6 +82,49 @@ function DefaultStory() {
   )
 }
 
+const range = n => [...new Array(n).keys()]
+
+function LongStory() {
+  const [value, setValue] = React.useState('')
+  const onClick = React.useCallback(id => setValue(id))
+
+  return (
+    <>
+      <Showcase size={600}>
+        <div>
+          <Info>
+            <Info.Label label="Quel est ton artiste préféré ?" />
+          </Info>
+          <DropdownMenu
+            label="Quel est ton artiste préféré ?"
+            onClick={onClick}
+            valueToString={artistToString}
+            value={value}
+          >
+            {range(42).map(i => {
+              return (
+                <DropdownMenu.OptionGroup key={i} label={`Groupe ${i}`}>
+                  <DropdownMenu.Option id={'PHIL_C'}>
+                    <Info>
+                      <Info.Label label={artistToString('PHIL_C')} />
+                    </Info>
+                  </DropdownMenu.Option>
+                  <DropdownMenu.Option id={'CHARLES_A'}>
+                    <Info>
+                      <Info.Label label={artistToString('CHARLES_A')} />
+                    </Info>
+                  </DropdownMenu.Option>
+                </DropdownMenu.OptionGroup>
+              )
+            })}
+          </DropdownMenu>
+        </div>
+      </Showcase>
+      <FakeList nth={42} />
+    </>
+  )
+}
+
 function WithFooterStory() {
   const [value, setValue] = React.useState('')
   const onClick = React.useCallback(id => setValue(id))
@@ -288,6 +331,7 @@ function WithCustomButton() {
 
 storiesOf('API|DropdownMenu', module)
   .add('Default', () => <DefaultStory />)
+  .add('With many options', () => <LongStory />)
   .add('With Footer', () => <WithFooterStory />)
   .add('Navigate should scroll to top', () => <ScrollToStory />)
   .add('With disabled options', () => <WithDisabledOptions />)

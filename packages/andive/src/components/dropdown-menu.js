@@ -30,6 +30,7 @@ const Dropdown = styled(
   })
 )`
   position: absolute;
+
   ${({openVariant}) => {
     if (openVariant === OpenVariant.LEFT) {
       return css`
@@ -46,16 +47,14 @@ const Dropdown = styled(
     throw new Error(`openVariant prop (${openVariant}) of type oneOf(OpenVariant) is not valid`)
   }}
 
-  ${({fullWidth}) =>
+  ${({fullWidth, buttonLeft}) =>
     fullWidth &&
     css`
-      position: fixed;
-      left: 0;
-      width: 100%;
+      left: ${-buttonLeft + 8}px;
+      width: 100vw;
     `}
 
   z-index: ${ZIndexes.ABSOLUTE};
-
   margin-bottom: ${props => props.bottomFootprint || 0}px;
 `
 
