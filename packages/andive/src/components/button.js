@@ -29,8 +29,16 @@ const ResetButton = styled.button`
   align-items: center;
 
   overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+
+  ${props =>
+    props.wrap
+      ? css`
+          text-align: left;
+        `
+      : css`
+          text-overflow: ellipsis;
+          white-space: nowrap;
+        `}
 `
 
 const DefaultButtonText = styled(Body2)`
@@ -171,6 +179,7 @@ const Button = React.forwardRef(function Button(
     disabled,
     loading,
     mobile,
+    wrap,
     ...props
   },
   ref
@@ -258,6 +267,7 @@ const Button = React.forwardRef(function Button(
         color={color}
         minWidth={buttonGroupContext ? buttonGroupContext.minWidth : undefined}
         small={buttonGroupContext ? buttonGroupContext.small : undefined}
+        wrap={wrap}
         {...props}
       >
         {loading ? (
@@ -289,7 +299,8 @@ Button.propTypes = {
   textColor: PropTypes.string,
   disabled: PropTypes.bool,
   loading: PropTypes.bool,
-  mobile: PropTypes.bool
+  mobile: PropTypes.bool,
+  wrap: PropTypes.bool
 }
 
 export default Button
