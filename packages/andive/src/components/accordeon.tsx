@@ -24,6 +24,7 @@ const AccordeonButton = styled.div`
 `
 
 export interface Props {
+  className?: string;
   label: string;
   openByDefault?: boolean;
   open?: any;
@@ -36,6 +37,7 @@ export interface Props {
 }
 
 function AccordeonComponent({
+  className,
   label,
   openByDefault,
   open,
@@ -49,7 +51,7 @@ function AccordeonComponent({
   const [localOpen, setLocalOpen] = React.useState(openByDefault || false)
   const accordeon = (
     <>
-      <Accordeon hasIcon={Boolean(icon)}>
+      <Accordeon className={className} hasIcon={Boolean(icon)}>
         <AccordeonButton onClick={href ? undefined : onToggle || (() => setLocalOpen(prev => !prev))}>
           {icon ? (
             <Info>
