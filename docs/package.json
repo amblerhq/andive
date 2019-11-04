@@ -1,6 +1,6 @@
 {
   "name": "docs",
-  "version": "0.12.1",
+  "version": "0.12.2",
   "private": true,
   "author": "Ambler Team",
   "license": "MIT",
@@ -9,7 +9,7 @@
     "build": "build-storybook -c .storybook -o public"
   },
   "dependencies": {
-    "@ambler/andive": "^0.12.1",
+    "@ambler/andive": "^0.12.2",
     "@babel/core": "7.6.4",
     "@babel/preset-env": "7.6.3",
     "@babel/preset-react": "7.6.3",
