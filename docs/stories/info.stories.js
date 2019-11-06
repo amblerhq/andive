@@ -154,14 +154,14 @@ storiesOf('API|Info', module)
         <Showcase legend="info">
           <Info style={{background: 'white', width: 320}}>
             <Info.Block variant="info" icon={<QuestionIcon color={palette.mediumBeetrootPurple} />}>
-              <Info.LabelIcon label={longLabel} />
+              <Info.Label label={longLabel} />
             </Info.Block>
           </Info>
         </Showcase>
         <Showcase legend="disabled">
           <Info style={{background: 'white', width: 320}}>
             <Info.Block variant="disabled">
-              <Info.LabelIcon label={longLabel} />
+              <Info.Label label={longLabel} />
             </Info.Block>
           </Info>
         </Showcase>
