@@ -16,6 +16,18 @@ const ButtonRoot = styled.div.attrs({
 })`
   padding: ${props => props.theme.padding}px;
   cursor: ${props => (props.disabled ? 'not-allowed' : props.loading ? 'progress' : 'pointer')};
+
+  ${props =>
+    props.variant === 'flat' &&
+    !props.disabled &&
+    !props.loading &&
+    css`
+      &:hover {
+        background-color: ${props =>
+          props.invert ? palette.hexToRGBA(palette.darkGrey, 0.2) : props.theme.hover.backgroundColor};
+        border-radius: ${props => props.theme.hover.borderRadius}px;
+      }
+    `}
 `
 
 const ResetButton = styled.button`
@@ -253,7 +265,7 @@ const Button = React.forwardRef(function Button(
   }, [variant, loading, invert])
 
   return (
-    <ButtonRoot disabled={disabled} loading={loading}>
+    <ButtonRoot disabled={disabled} loading={loading} invert={invert} variant={variant}>
       <ButtonComponent
         ref={ref}
         onClick={!disabled && !loading ? onClick : undefined}
