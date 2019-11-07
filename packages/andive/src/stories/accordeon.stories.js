@@ -79,9 +79,7 @@ storiesOf('Accordeon', module)
 
     return (
       <Showcase>
-        <div style={{background: 'white'}}>
-          <Accordeon icon={icon} iconSize={32} label="Toujours fan" href="https://fr.wikipedia.org/wiki/Phil_Collins" />
-        </div>
+        <Accordeon icon={icon} iconSize={32} label="Toujours fan" href="https://fr.wikipedia.org/wiki/Phil_Collins" />
       </Showcase>
     )
   })
