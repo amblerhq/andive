@@ -12,7 +12,7 @@ const Container = styled.div`
 const labelText = 'This is a simple card.'
 
 const itemText =
-  'Cards are non-clickable. They group information together and often have an icon that allows the user to perform actions (edit, add items, etc.)'
+  'Cards are non-clickable. They group information together and often have buttons that allow the user to perform actions (edit, add items, etc.)'
 
 function DefaultCard() {
   return (
