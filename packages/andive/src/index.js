@@ -96,6 +96,8 @@ export PatientRemoveIcon from './components/icons/patient-remove'
 
 export PassengerIcon from './components/icons/passenger'
 
+export EuroIcon from './components/icons/euro'
+
 /**
  * Illustrations
  */
@@ -122,7 +124,7 @@ export SuccessIllustration from './components/illustrations/success'
 
 export Info from './components/info'
 
-export Accordeon from './components/accordeon'
+export {default as Accordeon} from './components/accordeon'
 
 export AppBar from './components/app-bar'
 
@@ -166,7 +168,7 @@ export Select from './components/select'
 
 export Menu from './components/menu'
 
-export ThemeProvider from './components/theme-provider'
+export ThemeProvider, {defaultTheme} from './components/theme-provider'
 
 export Title from './components/title'
 

@@ -19,7 +19,7 @@ const LabelIcon = styled.div`
 `
 
 const Label = styled(Body1)`
-  padding-left: 8px;
+  padding-left: 16px;
 `
 
 const IconWrapper = styled.div`

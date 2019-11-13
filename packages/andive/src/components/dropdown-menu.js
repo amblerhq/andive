@@ -30,6 +30,7 @@ const Dropdown = styled(
   })
 )`
   position: absolute;
+
   ${({openVariant}) => {
     if (openVariant === OpenVariant.LEFT) {
       return css`
@@ -46,16 +47,14 @@ const Dropdown = styled(
     throw new Error(`openVariant prop (${openVariant}) of type oneOf(OpenVariant) is not valid`)
   }}
 
-  ${({fullWidth}) =>
+  ${({fullWidth, buttonLeft}) =>
     fullWidth &&
     css`
-      position: fixed;
-      left: 0;
-      width: 100%;
+      left: ${-buttonLeft + 8}px;
+      width: 100vw;
     `}
 
   z-index: ${ZIndexes.ABSOLUTE};
-
   margin-bottom: ${props => props.bottomFootprint || 0}px;
 `
 
@@ -85,7 +84,7 @@ function DropdownMenu({
   bottomFootprint,
   buttonComponent = defaultButton,
   openVariant = OpenVariant.RIGHT,
-  ...props
+  loading = false
 }) {
   const [open, setOpen] = React.useState(false)
   const [fullWidth, setFullWidth] = React.useState(false)
@@ -154,7 +153,12 @@ function DropdownMenu({
 
   return (
     <DropdownMenuLayout className={className}>
-      <ButtonComponent ref={buttonRef} onClick={onOpen} label={value ? valueToString(value) : label} {...props} />
+      <ButtonComponent
+        ref={buttonRef}
+        onClick={onOpen}
+        label={value ? valueToString(value) : label}
+        loading={loading}
+      />
       {open && (
         <OutsideClickHandler onOutsideClick={onClose}>
           <PoseGroup>
@@ -190,8 +194,8 @@ DropdownMenu.propTypes = {
   threshold: PropTypes.number,
   bottomFootprint: PropTypes.number,
   buttonComponent: PropTypes.elementType,
-  openVariant: PropTypes.oneOf(Object.keys(OpenVariant)),
-  openMiddle: PropTypes.bool
+  loading: PropTypes.bool,
+  openVariant: PropTypes.oneOf(Object.keys(OpenVariant))
 }
 
 export default DropdownMenu

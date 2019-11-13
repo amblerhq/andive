@@ -15,7 +15,7 @@ const BlockRoot = styled.div`
 `
 
 const Icon = styled.div`
-  padding-right: 8px;
+  padding-right: 16px;
 `
 
 /**

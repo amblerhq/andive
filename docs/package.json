@@ -1,10 +1,35 @@
 {
   "name": "docs",
-  "version": "4.0.0",
+  "version": "0.12.2",
   "private": true,
   "author": "Ambler Team",
   "license": "MIT",
-  "scripts": {},
-  "dependencies": {},
-  "devDependencies": {}
+  "scripts": {
+    "dev": "start-storybook -p 3042",
+    "build": "build-storybook -c .storybook -o public",
+    "publish": "yarn build && now public"
+  },
+  "dependencies": {
+    "@ambler/andive": "^0.12.2",
+    "@babel/core": "7.6.4",
+    "@babel/preset-env": "7.6.3",
+    "@babel/preset-react": "7.6.3",
+    "@storybook/addon-actions": "5.2.5",
+    "@storybook/addon-docs": "5.2.5",
+    "@storybook/addon-links": "5.2.5",
+    "@storybook/addons": "5.2.5",
+    "@storybook/react": "5.2.5",
+    "babel-loader": "8.0.6",
+    "graphql": "14.5.8",
+    "lodash.range": "3.2.0",
+    "moment": "2.24.0",
+    "react": "16.11.0",
+    "react-copy-to-clipboard": "5.0.1",
+    "react-dom": "16.11.0",
+    "urql": "1.6.1"
+  },
+  "devDependencies": {
+    "babel-plugin-module-resolver": "3.2.0",
+    "styled-components": "4.4.0"
+  }
 }

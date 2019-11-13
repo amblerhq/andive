@@ -1,9 +1,8 @@
 import React from 'react'
 import {storiesOf} from '@storybook/react'
+import {Accordeon, Info, Art80Icon, PatientIcon, QuestionIcon, palette} from '@ambler/andive'
 
-import {Accordeon, Info, palette, Art80Icon, PatientIcon} from '..'
 import Showcase from './showcase'
-import QuestionIcon from '../components/icons/question'
 
 function ControlledStory() {
   const icon = <Art80Icon circle circleColor={palette.mediumBeetrootPurple} />
@@ -28,8 +27,7 @@ function ControlledStory() {
     </Showcase>
   )
 }
-
-storiesOf('Accordeon', module)
+storiesOf('API|Accordeon', module)
   .add('Default', () => {
     return (
       <Showcase>

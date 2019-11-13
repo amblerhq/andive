@@ -16,6 +16,18 @@ const ButtonRoot = styled.div.attrs({
 })`
   padding: ${props => props.theme.padding}px;
   cursor: ${props => (props.disabled ? 'not-allowed' : props.loading ? 'progress' : 'pointer')};
+
+  ${props =>
+    props.variant === 'flat' &&
+    !props.disabled &&
+    !props.loading &&
+    css`
+      &:hover {
+        background-color: ${props =>
+          props.invert ? palette.hexToRGBA(palette.darkGrey, 0.2) : props.theme.hover.backgroundColor};
+        border-radius: ${props => props.theme.hover.borderRadius}px;
+      }
+    `}
 `
 
 const ResetButton = styled.button`
@@ -29,8 +41,16 @@ const ResetButton = styled.button`
   align-items: center;
 
   overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+
+  ${props =>
+    props.wrap
+      ? css`
+          text-align: left;
+        `
+      : css`
+          text-overflow: ellipsis;
+          white-space: nowrap;
+        `}
 `
 
 const DefaultButtonText = styled(Body2)`
@@ -171,6 +191,7 @@ const Button = React.forwardRef(function Button(
     disabled,
     loading,
     mobile,
+    wrap,
     ...props
   },
   ref
@@ -244,7 +265,7 @@ const Button = React.forwardRef(function Button(
   }, [variant, loading, invert])
 
   return (
-    <ButtonRoot disabled={disabled} loading={loading}>
+    <ButtonRoot disabled={disabled} loading={loading} invert={invert} variant={variant}>
       <ButtonComponent
         ref={ref}
         onClick={!disabled && !loading ? onClick : undefined}
@@ -258,6 +279,7 @@ const Button = React.forwardRef(function Button(
         color={color}
         minWidth={buttonGroupContext ? buttonGroupContext.minWidth : undefined}
         small={buttonGroupContext ? buttonGroupContext.small : undefined}
+        wrap={wrap}
         {...props}
       >
         {loading ? (
@@ -289,7 +311,8 @@ Button.propTypes = {
   textColor: PropTypes.string,
   disabled: PropTypes.bool,
   loading: PropTypes.bool,
-  mobile: PropTypes.bool
+  mobile: PropTypes.bool,
+  wrap: PropTypes.bool
 }
 
 export default Button

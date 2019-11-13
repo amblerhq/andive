@@ -1,6 +1,6 @@
 {
   "name": "@ambler/andive",
-  "version": "0.11.0-canary.24",
+  "version": "0.12.2",
   "description": "Ambler UI library",
   "main": "dist/index.js",
   "files": [
@@ -11,30 +11,33 @@
   "author": "Ambler team",
   "license": "MIT",
   "scripts": {
-    "dev": "start-storybook -p 3042",
-    "build": "babel src -d dist --ignore \"src/**/*.stories.js\",\"src/stories\",\"src/**/*.test.js\"",
+    "dev": "yarn build --watch",
+    "build": "babel src -d dist --ignore \"src/**/*.stories.js\",\"src/stories\",\"src/**/*.test.js\" -x '.ts,.tsx,.js'",
+    "prepublish": "yarn build",
     "test": "yarn jest",
-    "release": "standard-version",
-    "release:canary": "standard-version --prerelease canary",
-    "release:canary:push": "yarn release:canary && git push --follow-tags origin canary",
     "share": "yarn build-storybook && cd storybook-static && now",
     "share:ci": "yarn build-storybook && cd storybook-static && now deploy --token=$ZEIT_TOKEN --target production"
   },
   "devDependencies": {
+    "@babel/plugin-proposal-class-properties": "7.5.5",
     "@babel/plugin-proposal-export-default-from": "7.5.2",
+    "@babel/plugin-proposal-object-rest-spread": "7.6.2",
+    "@babel/preset-typescript": "7.6.0",
     "@storybook/addon-storyshots": "5.1.11",
     "@storybook/addon-storyshots-puppeteer": "5.1.11",
     "@storybook/addon-storysource": "5.1.1",
     "@storybook/react": "5.2.1",
     "@storybook/theming": "5.1.1",
+    "awesome-typescript-loader": "5.2.1",
     "graphql": "14.3.1",
     "lodash.range": "3.2.0",
     "moment": "2.24.0",
-    "react": "16.8.6",
+    "react": "16.11.0",
     "react-copy-to-clipboard": "5.0.1",
-    "react-dom": "16.8.6",
+    "react-dom": "16.11.0",
     "react-test-renderer": "16.9.0",
-    "styled-components": "4.2.1",
+    "styled-components": "4.4.0",
+    "typescript": "3.6.4",
     "urql": "1.0.5"
   },
   "peerDependencies": {
@@ -50,5 +53,6 @@
     "react-pose": "4.0.8",
     "react-scroll-to": "2.0.9",
     "use-interval": "1.1.0"
-  }
+  },
+  "gitHead": "89c0f2f21836e2392d72682cd1e960eee38ec19c"
 }

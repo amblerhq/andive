@@ -2,6 +2,8 @@ import React from 'react'
 import {ThemeProvider} from 'styled-components'
 import PropTypes from 'prop-types'
 
+import * as palette from '../constants/palette'
+
 export const defaultTheme = {
   typography: {
     body1: {
@@ -14,7 +16,11 @@ export const defaultTheme = {
       fontSize: 14
     }
   },
-  padding: 8
+  padding: 8,
+  hover: {
+    backgroundColor: palette.lightGrey,
+    borderRadius: 4
+  }
 }
 
 export default function AmblerThemeProvider({theme = defaultTheme, children}) {
