@@ -8,7 +8,7 @@ const rootCss = css`
   background: white;
   padding: 16px;
   border-radius: 4px;
-  border: 1px solid ${palette.hexToRGBA(palette.lightPrimary)};
+  border: 1px solid ${palette.lightPrimary};
 `
 
 const CardRoot = styled.div`
