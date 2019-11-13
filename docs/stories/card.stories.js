@@ -3,8 +3,8 @@ import {storiesOf} from '@storybook/react'
 import styled from 'styled-components'
 
 import Showcase from './showcase'
-import VSpace from '../components/v-space'
-import {Card, Info} from '..'
+// import VSpace from '@ambler/docs/v-space'
+import {Card, Info, VSpace} from '@ambler/andive'
 
 const Container = styled.div`
   width: 50%;
