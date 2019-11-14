@@ -13,6 +13,7 @@
   "scripts": {
     "dev": "yarn build --watch",
     "build": "babel src -d dist --ignore \"src/**/*.test.js\" -x '.ts,.tsx,.js'",
+    "prepublish": "yarn build",
     "test": "yarn jest"
   },
   "devDependencies": {
