@@ -19,7 +19,6 @@ function ControlledCheckbox(props) {
   )
 }
 
-// eslint-disable-next-line react/prop-types
 function DisabledCheckbox({defaultValue}) {
   const [checked, setChecked] = React.useState(defaultValue || false)
 
@@ -35,7 +34,6 @@ function DisabledCheckbox({defaultValue}) {
   )
 }
 
-// eslint-disable-next-line react/prop-types
 function CheckboxGroupStory({radio}) {
   const [values, setValues] = React.useState({a: true})
 

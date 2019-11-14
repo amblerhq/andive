@@ -7,7 +7,6 @@ import LogoSvg from '../../img/logo.svg'
 import {AppBar, Button, BackIcon, LogoutIcon, AmbulanceIcon, VslIcon, Typography, palette} from '..'
 import Showcase from './showcase'
 
-// eslint-disable-next-line
 function RandomPageContent({nth = 3}) {
   return (
     <>

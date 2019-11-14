@@ -172,9 +172,7 @@ function CustomInput({inputRef, textarea, ...props}) {
 function WithExposedRef() {
   const {register, handleSubmit, errors} = useForm()
 
-  function onSubmit(data) {
-    console.log(data, errors)
-  }
+  function onSubmit() {}
 
   return (
     <Showcase>

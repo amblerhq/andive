@@ -6,7 +6,6 @@ import {AppBar, Button, BackIcon, LogoutIcon, AmbulanceIcon, VslIcon, Typography
 
 import Showcase from './showcase'
 
-// eslint-disable-next-line
 function RandomPageContent({nth = 3}) {
   return (
     <>
