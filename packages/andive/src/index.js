@@ -98,6 +98,15 @@ export PassengerIcon from './components/icons/passenger'
 
 export EuroIcon from './components/icons/euro'
 
+export FlatrateSt1Icon from './components/icons/flatrate-st1'
+
+export FlatrateSt2Icon from './components/icons/flatrate-st2'
+
+export FlatrateSt3Icon from './components/icons/flatrate-st3'
+
+export FlatrateTdIcon from './components/icons/flatrate-td'
+
+export FlatrateTsIcon from './components/icons/flatrate-ts'
 /**
  * Illustrations
  */

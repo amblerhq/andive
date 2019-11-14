@@ -49,7 +49,12 @@ import {
   AddressRemoveIcon,
   PatientAddIcon,
   PatientRemoveIcon,
-  EuroIcon
+  EuroIcon,
+  FlatrateSt1Icon,
+  FlatrateSt2Icon,
+  FlatrateSt3Icon,
+  FlatrateTsIcon,
+  FlatrateTdIcon
 } from '@ambler/andive'
 
 import Showcase from './showcase'
@@ -106,7 +111,12 @@ const icons = [
   PassengerIcon,
   PatientAddIcon,
   PatientRemoveIcon,
-  EuroIcon
+  EuroIcon,
+  FlatrateSt1Icon,
+  FlatrateSt2Icon,
+  FlatrateSt3Icon,
+  FlatrateTsIcon,
+  FlatrateTdIcon
 ]
 
 function TimedColor({interval, colors, children}) {
@@ -157,6 +167,13 @@ storiesOf('API|Icon', module)
       <Showcase variant="squared">
         <AmbulanceIcon circle circleColor={palette.mediumBeetrootPurple} color="white" />
       </Showcase>
+      {[EuroIcon, ForbiddenIcon, FlatrateSt1Icon, FlatrateSt2Icon, FlatrateSt3Icon, FlatrateTsIcon, FlatrateTdIcon].map(
+        (Icon, index) => (
+          <Showcase variant="squared" key={index}>
+            <Icon circle circleColor={palette.mediumBeetrootPurple} color="white" />
+          </Showcase>
+        )
+      )}
     </Icons>
   ))
   .add('With color', () => (
