@@ -92,13 +92,13 @@ const Icon = styled.div`
  *  - An onClear handle called when the right hand-side <CloseIcon /> is clicked.
  */
 const InputComponent = React.forwardRef(function InputComponent(
-  {value, onChange, onClear, error: error_, fullWidth, icon, disabled, loading, textarea, onBlur, ...props},
+  {value, onChange, onClear, error: error_, inputRef, fullWidth, icon, disabled, loading, textarea, onBlur, ...props},
   ref
 ) {
   const canClear = !!(onChange && value && value.length > 0)
   const hasIcon = !!icon
   const TextField = textarea ? TextArea : Input
-  const inputRef = React.useRef(null)
+  const innerInputRef = React.useRef(null)
   const [skipNextBlur, setSkipNextBlur] = React.useState(false)
 
   const handleClear = React.useCallback(() => {
@@ -106,17 +106,17 @@ const InputComponent = React.forwardRef(function InputComponent(
       onClear()
     }
 
-    if (inputRef.current) {
-      inputRef.current.focus()
+    if (innerInputRef.current) {
+      innerInputRef.current.focus()
       setSkipNextBlur(true)
     }
-  }, [onClear, inputRef.current])
+  }, [onClear, innerInputRef.current])
 
   const handleBlur = React.useCallback(
     ev => {
       if (skipNextBlur) {
-        if (inputRef.current) {
-          inputRef.current.focus()
+        if (innerInputRef.current) {
+          innerInputRef.current.focus()
           setSkipNextBlur(false)
         }
       } else {
@@ -125,14 +125,19 @@ const InputComponent = React.forwardRef(function InputComponent(
         }
       }
     },
-    [inputRef.current, skipNextBlur]
+    [innerInputRef.current, skipNextBlur]
   )
 
   return (
     <InputRoot ref={ref} fullWidth={fullWidth}>
       <TextField
         onBlur={handleBlur}
-        ref={inputRef}
+        ref={el => {
+          innerInputRef.current = el
+          if (inputRef) {
+            inputRef(el)
+          }
+        }}
         value={value}
         onChange={onChange}
         canClear={canClear}
@@ -159,9 +164,9 @@ const InputComponent = React.forwardRef(function InputComponent(
 
 InputComponent.propTypes = {
   /** input value */
-  value: PropTypes.string.isRequired,
+  value: PropTypes.string,
   /** onChange handler */
-  onChange: PropTypes.func.isRequired,
+  onChange: PropTypes.func,
   /** onClear handler */
   onClear: PropTypes.func,
   /** error message */
@@ -176,7 +181,8 @@ InputComponent.propTypes = {
   loading: PropTypes.bool,
   /** must render a <textarea /> */
   textarea: PropTypes.bool,
-  onBlur: PropTypes.func
+  onBlur: PropTypes.func,
+  inputRef: PropTypes.any
 }
 
 export default InputComponent
