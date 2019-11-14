@@ -11,7 +11,7 @@ import {Typography} from '..'
 import {ReactNodeLike} from 'prop-types'
 
 const Accordeon = styled.div`
-  padding: 8px 8px 8px ${(props: {hasIcon: boolean}) => (props.hasIcon ? 0 : 8)}px;
+  padding: 8px;
 
   &:hover {
     background: ${props => props.theme.hover.backgroundColor};
@@ -57,12 +57,12 @@ function AccordeonComponent({className, label, openByDefault, open, onToggle, ic
   const [localOpen, setLocalOpen] = React.useState(openByDefault || false)
   return (
     <>
-      <Accordeon className={className} hasIcon={Boolean(icon)}>
+      <Accordeon className={className}>
         <OptionalLink href={href}>
           <AccordeonButton onClick={href ? undefined : onToggle || (() => setLocalOpen(prev => !prev))}>
             {/* `min-width: 0` is required if the `label` wants to truncate with ellipsis its content. */}
             {icon ? (
-              <Info style={{minWidth: 0}}>
+              <Info style={{minWidth: 0, padding: 0}}>
                 <Info.LabelIcon iconSize={iconSize} icon={icon} label={label} />
               </Info>
             ) : (
