@@ -1,6 +1,5 @@
 import React from 'react'
 import styled, {css} from 'styled-components'
-import PropTypes from 'prop-types'
 
 import * as palette from '../constants/palette'
 
@@ -15,6 +14,11 @@ const CardRoot = styled.div`
   ${rootCss}
 `
 
+export interface Props {
+  component: React.ElementType;
+  children?: any;
+}
+
 const computeCard = component => {
   return component
     ? styled(component)`
@@ -23,14 +27,9 @@ const computeCard = component => {
     : CardRoot
 }
 
-function Card({component, children}) {
+function Card({component, children}: Props) {
   const ComputedCard = React.useMemo(() => computeCard(component), [component])
   return <ComputedCard>{children}</ComputedCard>
-}
-
-Card.propTypes = {
-  children: PropTypes.node,
-  component: PropTypes.node
 }
 
 export default Card

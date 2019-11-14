@@ -25,7 +25,6 @@ function loadStories() {
   require('../src/stories/app-bar.stories')
   require('../src/stories/autocomplete.stories')
   require('../src/stories/button.stories')
-  require('../src/stories/card.stories')
   require('../src/stories/checkbox.stories')
   require('../src/stories/dialog.stories')
   require('../src/stories/direction.stories')
