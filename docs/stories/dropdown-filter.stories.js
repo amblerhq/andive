@@ -35,8 +35,8 @@ function RideStatusCheckbox({label, color, ...props}) {
 }
 
 RideStatusCheckbox.propTypes = {
-  label: PropTypes.string.isRequired,
-  color: PropTypes.string.isRequired
+  label: PropTypes.string,
+  color: PropTypes.string
 }
 
 const ShowcaseFilter = styled(Showcase)`

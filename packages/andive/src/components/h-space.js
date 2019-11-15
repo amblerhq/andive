@@ -6,7 +6,7 @@ function HSpace({px}) {
 }
 
 HSpace.propTypes = {
-  px: PropTypes.number.isRequired
+  px: PropTypes.number
 }
 
 export default HSpace

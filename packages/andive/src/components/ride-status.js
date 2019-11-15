@@ -43,8 +43,8 @@ export default function RideStatusComponent({primary, secondary, secondaryItalic
 }
 
 RideStatusComponent.propTypes = {
-  primary: PropTypes.string.isRequired,
-  color: PropTypes.string.isRequired,
+  primary: PropTypes.string,
+  color: PropTypes.string,
   secondary: PropTypes.string,
   secondaryItalic: PropTypes.bool
 }

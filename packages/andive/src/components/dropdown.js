@@ -42,7 +42,7 @@ function DropdownComponent({
 }
 
 DropdownComponent.propTypes = {
-  placeholder: PropTypes.string.isRequired,
+  placeholder: PropTypes.string,
   disabled: PropTypes.bool,
   fullWidth: PropTypes.bool,
   ...Select.propTypes

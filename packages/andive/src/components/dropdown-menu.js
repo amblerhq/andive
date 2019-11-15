@@ -186,8 +186,8 @@ DropdownMenu.OpenVariant = OpenVariant
 
 DropdownMenu.propTypes = {
   className: PropTypes.string,
-  children: PropTypes.node.isRequired,
-  label: PropTypes.string.isRequired,
+  children: PropTypes.node,
+  label: PropTypes.string,
   onClick: PropTypes.func,
   value: PropTypes.string,
   valueToString: PropTypes.func,

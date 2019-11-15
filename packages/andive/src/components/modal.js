@@ -85,8 +85,8 @@ function ModalComponent({show, onClose, transparent, children, ...props}) {
 }
 
 ModalComponent.propTypes = {
-  show: PropTypes.bool.isRequired,
-  children: PropTypes.node.isRequired,
+  show: PropTypes.bool,
+  children: PropTypes.node,
   transparent: PropTypes.bool,
   onClose: PropTypes.func
 }

@@ -65,8 +65,8 @@ function Option({id, children, disabled, ...props}) {
 }
 
 Option.propTypes = {
-  id: PropTypes.string.isRequired,
-  children: PropTypes.node.isRequired,
+  id: PropTypes.string,
+  children: PropTypes.node,
   disabled: PropTypes.bool
 }
 
@@ -92,8 +92,8 @@ function OptionGroup({children, label, onClick, ...props}) {
 }
 
 OptionGroup.propTypes = {
-  children: PropTypes.node.isRequired,
-  label: PropTypes.string.isRequired,
+  children: PropTypes.node,
+  label: PropTypes.string,
   onClick: PropTypes.func
 }
 
@@ -215,8 +215,8 @@ Menu.OptionGroup = OptionGroup
 
 Menu.propTypes = {
   className: PropTypes.string,
-  children: PropTypes.node.isRequired,
-  onClick: PropTypes.func.isRequired,
+  children: PropTypes.node,
+  onClick: PropTypes.func,
   bottomFootprint: PropTypes.number,
   mobile: PropTypes.bool
 }

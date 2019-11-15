@@ -52,7 +52,7 @@ function Sticky({children, height, fadeOffset, ...props}) {
 }
 
 Sticky.propTypes = {
-  height: PropTypes.number.isRequired,
+  height: PropTypes.number,
   fadeOffset: PropTypes.number
 }
 
@@ -100,7 +100,7 @@ export function AppBarComponent({children, fadeOffset = 1, height = 64, scrollab
 
 AppBarComponent.propTypes = {
   children: PropTypes.node,
-  height: PropTypes.number.isRequired,
+  height: PropTypes.number,
   fadeOffset: PropTypes.number,
   scrollable: PropTypes.bool
 }

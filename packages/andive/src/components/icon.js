@@ -47,7 +47,7 @@ const Icon = ({circle, circleColor, color, children, iconProps, inline, ...props
 }
 
 Icon.propTypes = {
-  children: PropTypes.node.isRequired,
+  children: PropTypes.node,
   circle: PropTypes.bool,
   circleColor: PropTypes.string,
   color: PropTypes.string,

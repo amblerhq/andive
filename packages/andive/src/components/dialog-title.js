@@ -24,7 +24,7 @@ function DialogComponent({dialog, invert, ...props}) {
 }
 
 DialogComponent.propTypes = {
-  dialog: PropTypes.string.isRequired,
+  dialog: PropTypes.string,
   invert: PropTypes.bool
 }
 

@@ -249,9 +249,9 @@ const AutocompleteComponent = React.forwardRef(function AutocompleteComponent(
 
 AutocompleteComponent.propTypes = {
   value: PropTypes.any,
-  onChange: PropTypes.func.isRequired,
-  onSearch: PropTypes.func.isRequired,
-  suggestions: PropTypes.array.isRequired,
+  onChange: PropTypes.func,
+  onSearch: PropTypes.func,
+  suggestions: PropTypes.array,
   favorites: PropTypes.array,
   renderSuggestion: PropTypes.func,
   renderFavorite: PropTypes.func,

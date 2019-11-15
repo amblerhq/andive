@@ -8,7 +8,7 @@ function Label({label, ...props}) {
 }
 
 Label.propTypes = {
-  label: PropTypes.string.isRequired,
+  label: PropTypes.string,
   ...TypographyPropTypes
 }
 

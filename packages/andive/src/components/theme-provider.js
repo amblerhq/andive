@@ -33,5 +33,5 @@ export default function AmblerThemeProvider({theme = defaultTheme, children}) {
 
 AmblerThemeProvider.propTypes = {
   theme: PropTypes.object,
-  children: PropTypes.node.isRequired
+  children: PropTypes.node
 }

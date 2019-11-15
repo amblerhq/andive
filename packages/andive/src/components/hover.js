@@ -38,7 +38,7 @@ function Hover({overflow = 8, padding, children}) {
 }
 
 Hover.propTypes = {
-  children: PropTypes.node.isRequired,
+  children: PropTypes.node,
   padding: PropTypes.number,
   overflow: PropTypes.number
 }

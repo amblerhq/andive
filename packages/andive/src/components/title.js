@@ -18,7 +18,7 @@ function TitleComponent({title, fullWidth, ...props}) {
 }
 
 TitleComponent.propTypes = {
-  title: PropTypes.string.isRequired,
+  title: PropTypes.string,
   fullWidth: PropTypes.bool
 }
 

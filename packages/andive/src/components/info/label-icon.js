@@ -49,9 +49,9 @@ export default function LabelIconComponent({className, icon, iconSize = 24, stic
 
 LabelIconComponent.propTypes = {
   className: PropTypes.string,
-  icon: PropTypes.node.isRequired,
+  icon: PropTypes.node,
   iconSize: PropTypes.number,
   stickyIcon: PropTypes.bool,
-  label: PropTypes.string.isRequired,
+  label: PropTypes.string,
   ...TypographyPropTypes
 }

@@ -37,9 +37,9 @@ function Color({children, color, label, invert}) {
 }
 
 Color.propTypes = {
-  color: PropTypes.oneOf(Object.keys(palette).map(key => palette[key])).isRequired,
+  color: PropTypes.oneOf(Object.keys(palette).map(key => palette[key])),
   invert: PropTypes.bool,
-  children: PropTypes.node.isRequired,
+  children: PropTypes.node,
   label: PropTypes.string
 }
 
@@ -64,8 +64,8 @@ const ColorRange = ({legend, color}) => {
 }
 
 ColorRange.propTypes = {
-  legend: PropTypes.string.isRequired,
-  color: PropTypes.string.isRequired
+  legend: PropTypes.string,
+  color: PropTypes.string
 }
 
 storiesOf('API|Palette', module)

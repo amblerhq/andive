@@ -63,7 +63,7 @@ function Block({icon, variant, className, children}) {
 
 Block.propTypes = {
   icon: PropTypes.node,
-  variant: PropTypes.oneOf(['success', 'error', 'warning', 'info', 'disabled']).isRequired,
+  variant: PropTypes.oneOf(['success', 'error', 'warning', 'info', 'disabled']),
   className: PropTypes.string,
   children: PropTypes.node
 }

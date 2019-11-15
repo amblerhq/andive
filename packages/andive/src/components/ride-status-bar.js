@@ -17,7 +17,7 @@ export function RideStatusBarComponent({color, ...props}) {
 }
 
 RideStatusBarComponent.propTypes = {
-  color: PropTypes.string.isRequired
+  color: PropTypes.string
 }
 
 export default RideStatusBarComponent

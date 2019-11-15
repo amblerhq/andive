@@ -66,7 +66,7 @@ function SelectComponent({label, options, optionFormat, value, onChange, icon, e
 }
 
 SelectComponent.propTypes = {
-  label: PropTypes.string.isRequired,
+  label: PropTypes.string,
   options: PropTypes.arrayOf(PropTypes.string),
   optionFormat: PropTypes.func,
   icon: PropTypes.node,

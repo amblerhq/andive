@@ -60,8 +60,8 @@ function CheckboxGroup({children, onChange, value, radio, error, ...props}) {
 
 CheckboxGroup.propTypes = {
   children: PropTypes.node,
-  value: PropTypes.object.isRequired,
-  onChange: PropTypes.func.isRequired,
+  value: PropTypes.object,
+  onChange: PropTypes.func,
   radio: PropTypes.bool,
   error: PropTypes.string
 }

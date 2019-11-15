@@ -6,7 +6,7 @@ function VSpace({px}) {
 }
 
 VSpace.propTypes = {
-  px: PropTypes.number.isRequired
+  px: PropTypes.number
 }
 
 export default VSpace

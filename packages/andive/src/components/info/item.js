@@ -13,7 +13,7 @@ function Item({item, ...props}) {
 }
 
 Item.propTypes = {
-  item: PropTypes.string.isRequired
+  item: PropTypes.string
 }
 
 export default Item
