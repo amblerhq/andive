@@ -15,6 +15,7 @@ const CardRoot = styled.div`
 `
 
 export interface Props {
+  className: string;
   component: React.ElementType;
   children?: any;
 }
@@ -27,9 +28,9 @@ const computeCard = component => {
     : CardRoot
 }
 
-function Card({component, children}: Props) {
+function Card({className, component, children}: Props) {
   const ComputedCard = React.useMemo(() => computeCard(component), [component])
-  return <ComputedCard>{children}</ComputedCard>
+  return <ComputedCard className={className}>{children}</ComputedCard>
 }
 
 export default Card

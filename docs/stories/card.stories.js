@@ -30,4 +30,4 @@ function DefaultCard() {
   )
 }
 
-storiesOf('Card', module).add('Default', () => <DefaultCard />)
+storiesOf('API|Card', module).add('Default', () => <DefaultCard />)
