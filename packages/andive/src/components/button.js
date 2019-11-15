@@ -11,9 +11,12 @@ const lightGreyAlpha = palette.hexToRGBA(palette.mediumPrimary, 0.5)
 const lightBeetrootPurpleAlpha = palette.hexToRGBA(palette.mediumBeetrootPurple, 0.5)
 const mediumBeetrootPurpleAlpha = palette.hexToRGBA(palette.darkBeetrootPurple, 0.5)
 
-const ButtonRoot = styled.div.attrs({
+// eslint-disable-next-line no-unused-vars
+const ButtonRoot = styled(({loading, invert, ...props}) => <div {...props} />).attrs({
   'data-andive-type': 'button'
 })`
+  display: inline-block;
+
   padding: ${props => props.theme.padding}px;
   cursor: ${props => (props.disabled ? 'not-allowed' : props.loading ? 'progress' : 'pointer')};
 
@@ -30,7 +33,12 @@ const ButtonRoot = styled.div.attrs({
     `}
 `
 
-const ResetButton = styled.button`
+const ResetButton = styled(
+  // eslint-disable-next-line no-unused-vars
+  React.forwardRef(({loading, invert, primary, backgroundColor, minWidth, small, mobile, ...props}, ref) => (
+    <button ref={ref} {...props} />
+  ))
+)`
   outline: none;
   border: none;
   background: none;
@@ -273,7 +281,7 @@ const Button = React.forwardRef(function Button(
         primary={variant === 'primary'}
         invert={invert}
         disabled={disabled}
-        loading={loading}
+        loading={['flat', 'filter'].includes(variant) ? undefined : loading}
         mobile={mobile}
         backgroundColor={backgroundColor}
         color={color}

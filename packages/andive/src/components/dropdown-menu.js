@@ -64,6 +64,7 @@ const DropdownMenuLayout = styled.div`
 
 const DefaultButton = styled(Button)`
   padding-left: 0;
+  padding-right: 0;
 `
 
 const defaultButton = React.forwardRef((props, ref) => <DefaultButton ref={ref} variant="flat" {...props} />)
