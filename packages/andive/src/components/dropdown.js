@@ -21,6 +21,9 @@ function DropdownComponent({
   value,
   onChange,
   icon,
+  inputRef,
+  name,
+  error,
   ...props
 }) {
   const color = disabled && palette.darkGrey
@@ -30,7 +33,10 @@ function DropdownComponent({
     onChange,
     options,
     optionFormat,
-    icon
+    error,
+    icon,
+    name,
+    inputRef
   }
 
   return (

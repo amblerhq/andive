@@ -51,21 +51,21 @@ const Label = styled(Body1)`
       : undefined}
 `
 
-function isNullable(value) {
-  return value === undefined || value === null
-}
+// function isNullable(value) {
+//   return value === undefined || value === null
+// }
 
 function CheckboxComponent({label, checked, onChange, name, disabled, fullWidth, ...props}) {
   const context = useContext(CheckboxGroupContext)
 
-  if (!context && (isNullable(checked) || isNullable(onChange))) {
-    throw new Error(
-      `A controlled checkbox needs the "checked" and "onChange" props.
-      If you want to control a group of <Checkbox /> components, do not control them instead wrap
-      them inside a <CheckboxGroup /> component.
-      `
-    )
-  }
+  // if (!context && (isNullable(checked) || isNullable(onChange))) {
+  //   throw new Error(
+  //     `A controlled checkbox needs the "checked" and "onChange" props.
+  //     If you want to control a group of <Checkbox /> components, do not control them instead wrap
+  //     them inside a <CheckboxGroup /> component.
+  //     `
+  //   )
+  // }
 
   let radio = props.radio || false
   // This is a group of checkboxes controlled by a <CheckboxGroup />

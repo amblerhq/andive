@@ -190,6 +190,9 @@ export Modal from './components/modal'
 export Loader from './components/loader'
 import * as TypographyComponents from './components/typography'
 export const Typography = TypographyComponents
+export {ZIndexes} from './constants/enum'
+
+export NativeCheckbox from './components/native/checkbox'
 
 /**
  * Constants

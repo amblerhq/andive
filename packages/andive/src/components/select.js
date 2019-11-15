@@ -42,13 +42,13 @@ const iconStyle = {
   right: 0
 }
 
-function SelectComponent({label, options, optionFormat, value, onChange, icon, error, ...props}) {
+function SelectComponent({label, options, optionFormat, value, onChange, icon, error, name, inputRef, ...props}) {
   const hasIcon = !!icon
 
   return (
     <div {...props}>
       <Select>
-        <SelectTag value={value} onChange={onChange} style={{marginRight: hasIcon ? 16 : 0}}>
+        <SelectTag ref={inputRef} name={name} value={value} onChange={onChange} style={{marginRight: hasIcon ? 16 : 0}}>
           <option value="" disabled>
             {label}
           </option>

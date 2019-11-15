@@ -129,6 +129,8 @@ const AutocompleteComponent = React.forwardRef(function AutocompleteComponent(
      */
     canShowSuggestions = defaultCanShowSuggestions,
     bottomFootprint,
+    name,
+    error,
     ...props
   },
   ref
@@ -185,6 +187,7 @@ const AutocompleteComponent = React.forwardRef(function AutocompleteComponent(
     <Autocomplete>
       <AutocompleteInput
         ref={ref}
+        name={name}
         onChange={ev => {
           onUpdate(ev.target.value)
         }}
@@ -203,6 +206,7 @@ const AutocompleteComponent = React.forwardRef(function AutocompleteComponent(
           }
         }}
         value={input}
+        error={error}
         {...props}
       />
       {showSuggestions && (
