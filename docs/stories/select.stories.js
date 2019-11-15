@@ -10,6 +10,11 @@ storiesOf('API|Select', module)
       <Select label="Téléphone" options={['Mobile', 'Fixe']} style={{background: 'white'}} />
     </Showcase>
   ))
+  .add('Empty is an option', () => (
+    <Showcase>
+      <Select label="Téléphone" placeholder="Aucun" options={['Mobile', 'Fixe', '']} style={{background: 'white'}} />
+    </Showcase>
+  ))
   .add('With icon', () => (
     <Showcase>
       <Select

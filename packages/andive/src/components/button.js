@@ -179,10 +179,10 @@ const FilterText = styled.div`
   padding: ${props => (props.mobile ? '6px 18px' : '8px 24px')};
 `
 
-function textStyle(leftIcon, rightIcon) {
+function textStyle(leftIcon, rightIcon, label) {
   return {
-    paddingRight: rightIcon ? 8 : undefined,
-    paddingLeft: leftIcon ? 8 : undefined
+    paddingRight: label && rightIcon ? 8 : undefined,
+    paddingLeft: label && leftIcon ? 8 : undefined
   }
 }
 
@@ -295,7 +295,7 @@ const Button = React.forwardRef(function Button(
         ) : (
           <>
             {leftIcon && React.cloneElement(leftIcon, {color})}
-            <ButtonLabel style={textStyle(leftIcon, rightIcon)} invert={invert} color={color} mobile={mobile}>
+            <ButtonLabel style={textStyle(leftIcon, rightIcon, label)} invert={invert} color={color} mobile={mobile}>
               {label}
             </ButtonLabel>
             {rightIcon && React.cloneElement(rightIcon, {color})}

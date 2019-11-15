@@ -42,17 +42,30 @@ const iconStyle = {
   right: 0
 }
 
-function SelectComponent({label, options, optionFormat, value, onChange, icon, error, name, inputRef, ...props}) {
+function SelectComponent({
+  label,
+  placeholder,
+  options,
+  optionFormat,
+  value,
+  onChange,
+  icon,
+  error,
+  name,
+  inputRef,
+  ...props
+}) {
   const hasIcon = !!icon
 
   return (
     <div {...props}>
       <Select>
         <SelectTag ref={inputRef} name={name} value={value} onChange={onChange} style={{marginRight: hasIcon ? 16 : 0}}>
-          <option value="" disabled>
+          <option value={options.includes('') ? '__andive_label' : ''} disabled>
             {label}
           </option>
-          {options.map((option, index) => (
+          {options.includes('') ? <option value="">{placeholder}</option> : null}
+          {options.filter(Boolean).map((option, index) => (
             <option key={option} name={option} value={option}>
               {optionFormat ? optionFormat(option, index) : option}
             </option>
