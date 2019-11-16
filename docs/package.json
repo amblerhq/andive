@@ -5,7 +5,7 @@
   "author": "Ambler Team",
   "license": "MIT",
   "scripts": {
-    "dev": "start-storybook -p 3042",
+    "dev": "start-storybook -p 3042 --quiet",
     "build": "build-storybook -c .storybook -o public",
     "publish": "yarn build && now public"
   },

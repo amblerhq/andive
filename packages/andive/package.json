@@ -11,7 +11,7 @@
   "author": "Ambler team",
   "license": "MIT",
   "scripts": {
-    "dev": "yarn build --watch",
+    "dev": "yarn build --watch --verbose",
     "build": "babel src -d dist --ignore \"src/**/*.test.js\" -x '.ts,.tsx,.js'",
     "prepublish": "yarn build",
     "test": "yarn jest"
