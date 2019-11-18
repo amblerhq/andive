@@ -32,6 +32,11 @@ storiesOf('API|Dropdown', module)
       />
     </Showcase>
   ))
+  .add('Empty is an option', () => (
+    <Showcase>
+      <Dropdown label="Téléphone" placeholder="Aucun" options={['Mobile', 'Fixe', '']} style={{background: 'white'}} />
+    </Showcase>
+  ))
   .add('Disabled', () => (
     <>
       <Showcase>

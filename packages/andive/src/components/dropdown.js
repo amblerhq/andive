@@ -28,7 +28,8 @@ function DropdownComponent({
 }) {
   const color = disabled && palette.darkGrey
   const selectProps = {
-    label: placeholder,
+    label,
+    placeholder,
     value,
     onChange,
     options,
