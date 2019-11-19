@@ -1,6 +1,6 @@
 {
   "name": "docs",
-  "version": "0.12.2",
+  "version": "0.13.0",
   "private": true,
   "author": "Ambler Team",
   "license": "MIT",
@@ -10,7 +10,7 @@
     "publish": "yarn build && now public"
   },
   "dependencies": {
-    "@ambler/andive": "^0.12.2",
+    "@ambler/andive": "^0.13.0",
     "@babel/core": "7.6.4",
     "@babel/preset-env": "7.6.3",
     "@babel/preset-react": "7.6.3",
