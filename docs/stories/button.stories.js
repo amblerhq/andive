@@ -1,9 +1,15 @@
 import React from 'react'
 import {storiesOf} from '@storybook/react'
-
+import styled from 'styled-components'
 import {Button, ButtonGroup, VSpace, AmbulanceIcon, PatientIcon, Info} from '@ambler/andive'
 
 import Showcase from './showcase'
+
+const CustomButton = styled(Button)`
+  button {
+    background: pink;
+  }
+`
 
 function ButtonStory(props) {
   return (
@@ -237,4 +243,7 @@ storiesOf('API|Button', module)
         <VSpace px={32} />
       </>
     )
+  })
+  .add('Forward className', () => {
+    return <CustomButton label="Custom button" />
   })

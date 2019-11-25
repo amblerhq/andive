@@ -188,6 +188,7 @@ function textStyle(leftIcon, rightIcon, label) {
 
 const Button = React.forwardRef(function Button(
   {
+    className,
     label,
     rightIcon,
     leftIcon,
@@ -273,7 +274,7 @@ const Button = React.forwardRef(function Button(
   }, [variant, loading, invert])
 
   return (
-    <ButtonRoot disabled={disabled} loading={loading} invert={invert} variant={variant}>
+    <ButtonRoot className={className} disabled={disabled} loading={loading} invert={invert} variant={variant}>
       <ButtonComponent
         ref={ref}
         onClick={!disabled && !loading ? onClick : undefined}
@@ -307,6 +308,7 @@ const Button = React.forwardRef(function Button(
 })
 
 Button.propTypes = {
+  className: PropTypes.string,
   label: PropTypes.string,
   rightIcon: PropTypes.node,
   leftIcon: PropTypes.node,
