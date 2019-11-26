@@ -60,9 +60,7 @@ const Error = styled(Body2)`
   color: ${palette.error};
 `
 
-export default function NativeCheckbox({label, name, error, radio, disabled, inputRef, onChange, ...props}) {
-  const [checked, setChecked] = React.useState(false)
-
+export default function NativeCheckbox({label, name, checked, error, radio, disabled, inputRef, onChange, ...props}) {
   return (
     <div>
       <NativeCheckboxRoot>
@@ -72,8 +70,6 @@ export default function NativeCheckbox({label, name, error, radio, disabled, inp
           ref={inputRef}
           checked={checked}
           onChange={ev => {
-            const value = ev.target.checked
-            setChecked(value)
             if (onChange) {
               onChange(ev)
             }
