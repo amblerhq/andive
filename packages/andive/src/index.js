@@ -109,6 +109,9 @@ export FlatrateTdIcon from './components/icons/flatrate-td'
 export FlatrateTsIcon from './components/icons/flatrate-ts'
 
 export TrashIcon from './components/icons/trash'
+
+export DragIcon from './components/icons/drag'
+
 /**
  * Illustrations
  */
