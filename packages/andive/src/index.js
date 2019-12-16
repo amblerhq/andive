@@ -2,6 +2,8 @@
  * Icons
  */
 
+export AgreementIcon from './components/icons/agreement'
+
 export AddressIcon from './components/icons/address'
 
 export AddressRemoveIcon from './components/icons/address-remove'
