@@ -7,25 +7,10 @@
         "./docs"
     ],
     "editor.formatOnSave": false,
-    "eslint.autoFixOnSave": true,
     "eslint.enable": true,
     "eslint.packageManager": "yarn",
-    "eslint.validate": [
-        {
-            "language": "javascript",
-            "autoFix": true
-        },
-        {
-            "language": "javascriptreact",
-            "autoFix": true
-        },
-        {
-            "language": "typescript",
-            "autoFix": true
-        },
-        {
-            "language": "typescriptreact",
-            "autoFix": true
-        },
-    ],
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": true
+    },
+    "editor.codeActionsOnSaveTimeout": 5000
 }
