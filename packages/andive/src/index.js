@@ -100,6 +100,8 @@ export PassengerIcon from './components/icons/passenger'
 
 export EuroIcon from './components/icons/euro'
 
+export InvoiceIcon from './components/icons/invoice'
+
 export FlatrateSt1Icon from './components/icons/flatrate-st1'
 
 export FlatrateSt2Icon from './components/icons/flatrate-st2'
