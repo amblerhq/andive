@@ -50,7 +50,7 @@ import {
   PatientAddIcon,
   PatientRemoveIcon,
   EuroIcon,
-  EuroCardIcon,
+  InvoiceIcon,
   FlatrateSt1Icon,
   FlatrateSt2Icon,
   FlatrateSt3Icon,
@@ -116,7 +116,7 @@ const icons = [
   PatientAddIcon,
   PatientRemoveIcon,
   EuroIcon,
-  EuroCardIcon,
+  InvoiceIcon,
   FlatrateSt1Icon,
   FlatrateSt2Icon,
   FlatrateSt3Icon,
@@ -177,7 +177,7 @@ storiesOf('API|Icon', module)
       </Showcase>
       {[
         EuroIcon,
-        EuroCardIcon,
+        InvoiceIcon,
         ForbiddenIcon,
         FlatrateSt1Icon,
         FlatrateSt2Icon,
