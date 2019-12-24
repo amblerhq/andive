@@ -25,4 +25,4 @@ InvoiceIcon.propTypes = {
 InvoiceOverride.size = 40
 
 export default InvoiceIcon
-export const InvoiceIconSvg = InvoiceIcon
+export const InvoiceSvg = Invoice
