@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="40" height="40" viewBox="0 0 40 40">
     <g fill="none" fill-rule="evenodd">
-        <image id="Calque_2" data-name="Calque 2" x="10" y="12" width="16" height="16" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABJ0lEQVQ4jZWSMUvDMRDFf6XVocV20U1Q6Ork7qarn0ArODg4dNfNxY462KHgIvgJ7CSCs2N1cBQEFenU4iCC8iR/rpiGJOCDG3KXe3fvJSVJZLAMtIB1oAoMgT5wCXwUbY4gET394VnSo6R3L9cuhkeaZyW92KU9SeWg3pB0bPXbmIQnYBFoAJ8ZeRvATjj9yJhz0qZicqhJqltz13LVIOopgpam8a00LkIC50ENWAK2gANgBagApUCz82QE3PvJilcYWW5o+dDdQdRKSTeZlX2cxDyYSHBRBt6AU+AQmAtmjYGv2AZ+nP33GWMfyXnhpjljc1gFtmOsC/aUP5I2E5P3bdNBarUZSX275MjuJF1JevBM7aQk+GgCu8AaMA+8AtfAeSEV+AU8xAvOxSyHvgAAAABJRU5ErkJggg=="/>
+        <image id="Calque_2" x="10" y="12" width="16" height="16" xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABJ0lEQVQ4jZWSMUvDMRDFf6XVocV20U1Q6Ork7qarn0ArODg4dNfNxY462KHgIvgJ7CSCs2N1cBQEFenU4iCC8iR/rpiGJOCDG3KXe3fvJSVJZLAMtIB1oAoMgT5wCXwUbY4gET394VnSo6R3L9cuhkeaZyW92KU9SeWg3pB0bPXbmIQnYBFoAJ8ZeRvATjj9yJhz0qZicqhJqltz13LVIOopgpam8a00LkIC50ENWAK2gANgBagApUCz82QE3PvJilcYWW5o+dDdQdRKSTeZlX2cxDyYSHBRBt6AU+AQmAtmjYGv2AZ+nP33GWMfyXnhpjljc1gFtmOsC/aUP5I2E5P3bdNBarUZSX275MjuJF1JevBM7aQk+GgCu8AaMA+8AtfAeSEV+AU8xAvOxSyHvgAAAABJRU5ErkJggg=="/>
         <path stroke="#FFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 35V5a1 1 0 0 1 1-1l30 .002a1 1 0 0 1 1 1V35a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1z"/>
     </g>
 </svg>
