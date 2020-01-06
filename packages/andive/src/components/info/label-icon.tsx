@@ -1,10 +1,10 @@
 import React from 'react'
-import PropTypes from 'prop-types'
+import {ReactNodeLike} from 'prop-types'
 import styled, {css} from 'styled-components'
 
-import {Body1, TypographyPropTypes} from '../typography'
+import {Body1} from '../typography'
 
-const LabelIcon = styled.div`
+const LabelIcon = styled.div<Pick<Props, "stickyIcon" | "iconSize">>`
   width: 100%;
   display: flex;
   flex-flow: row nowrap;
@@ -14,7 +14,7 @@ const LabelIcon = styled.div`
     props.stickyIcon &&
     css`
       position: relative;
-      padding-left: ${props => props.iconSize}px;
+      padding-left: ${props.iconSize}px;
     `}
 `
 
@@ -22,7 +22,7 @@ const Label = styled(Body1)`
   padding-left: 16px;
 `
 
-const IconWrapper = styled.div`
+const IconWrapper = styled.div<Pick<Props, "stickyIcon" | "iconSize">>`
   width: ${props => props.iconSize}px;
 
   ${props =>
@@ -34,7 +34,15 @@ const IconWrapper = styled.div`
     `}
 `
 
-export default function LabelIconComponent({className, icon, iconSize = 24, stickyIcon, label, ...typographyProps}) {
+interface Props {
+  label: ReactNodeLike
+  iconSize: number
+  className?: string
+  icon?: ReactNodeLike
+  stickyIcon?: ReactNodeLike
+}
+
+export default function LabelIconComponent({className, icon, iconSize = 24, stickyIcon, label, ...typographyProps}: Props) {
   return (
     <LabelIcon className={className} iconSize={iconSize} stickyIcon={stickyIcon}>
       {icon ? (
@@ -45,13 +53,4 @@ export default function LabelIconComponent({className, icon, iconSize = 24, stic
       <Label {...typographyProps}>{label}</Label>
     </LabelIcon>
   )
-}
-
-LabelIconComponent.propTypes = {
-  className: PropTypes.string,
-  icon: PropTypes.node,
-  iconSize: PropTypes.number,
-  stickyIcon: PropTypes.bool,
-  label: PropTypes.string,
-  ...TypographyPropTypes
 }

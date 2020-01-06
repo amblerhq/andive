@@ -1,6 +1,16 @@
 import React from 'react'
 import {storiesOf} from '@storybook/react'
-import {palette, Info, VslIcon, AlertIcon, CheckIcon, WarningIcon, ForbiddenIcon, QuestionIcon} from '@ambler/andive'
+import {
+  palette,
+  Info,
+  VslIcon,
+  AlertIcon,
+  CheckIcon,
+  WarningIcon,
+  ForbiddenIcon,
+  QuestionIcon,
+  Typography
+} from '@ambler/andive'
 
 import Showcase from './showcase'
 
@@ -50,9 +60,21 @@ storiesOf('API|Info', module)
   .add('Label Icon', () => {
     return (
       <>
-        <Showcase legend="Label with icon">
+        <Showcase legend="Label with icon (label as string)">
           <Info style={{background: 'white'}}>
-            <Info.LabelIcon label={'Voiture de Phil'} icon={<VslIcon inline />} />
+            <Info.LabelIcon label="Voiture de Phil" icon={<VslIcon inline />} />
+          </Info>
+        </Showcase>
+        <Showcase legend="Label with icon (label as react node)">
+          <Info style={{background: 'white'}}>
+            <Info.LabelIcon
+              label={
+                <>
+                  <Typography.Body1>Voiture de Phil</Typography.Body1>
+                </>
+              }
+              icon={<VslIcon inline />}
+            />
           </Info>
         </Showcase>
         <Showcase legend="Fixed width (2 lines)">
