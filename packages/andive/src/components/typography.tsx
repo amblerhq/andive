@@ -1,7 +1,8 @@
-import styled, {css} from 'styled-components'
-import PropTypes from 'prop-types'
+import styled, {css, FlattenInterpolation, ThemeProps} from 'styled-components'
+import PropTypes, { ReactNodeLike } from 'prop-types'
 
 import * as palette from '../constants/palette'
+import { ReactNode } from 'react'
 
 export const fontWeights = {
   regular: 400,
@@ -11,13 +12,24 @@ export const fontWeights = {
 
 export const fontFamily = 'Asap'
 
+interface StyleAPI {
+  color: string,
+  textTransform: string
+  fontStyle: string
+}
+
+export interface TypographyProps extends StyleAPI {
+  className?: string
+  children: ReactNodeLike
+}
+
 // Every Typography component accept override through
 // this unified interface.
 // We could simply use the "style" props but this is better
 // to convey intention from the product and not just an
 // edge-case -- one time -- style override.
-function interpolateCss(baseCss) {
-  return ({color, textTransform, fontStyle}) => css`
+function interpolateCss(baseCss: FlattenInterpolation<ThemeProps<any>>) {
+  return ({color, textTransform, fontStyle}: StyleAPI) => css`
     ${baseCss}
     ${color && `color: ${color};`}
     ${textTransform && `text-transform: ${textTransform};`}
@@ -42,7 +54,7 @@ export const h1Css = css`
   color: ${palette.mainText};
 `
 
-export const H1 = styled.div.attrs({
+export const H1 = styled.div.attrs<TypographyProps>({
   'data-andive-type': 'typography'
 })`
   ${interpolateCss(h1Css)}
@@ -59,7 +71,7 @@ export const h2Css = css`
   color: ${palette.mainText};
 `
 
-export const H2 = styled.div.attrs({
+export const H2 = styled.div.attrs<TypographyProps>({
   'data-andive-type': 'typography'
 })`
   ${interpolateCss(h2Css)}
@@ -76,7 +88,7 @@ export const body1Css = css`
   color: ${palette.mainText};
 `
 
-export const Body1 = styled.div.attrs({
+export const Body1 = styled.div.attrs<TypographyProps>({
   'data-andive-type': 'typography'
 })`
   ${interpolateCss(body1Css)}
@@ -110,7 +122,7 @@ export const body3Css = css`
   color: ${palette.mainText};
 `
 
-export const Body3 = styled.div.attrs({
+export const Body3 = styled.div.attrs<TypographyProps>({
   'data-andive-type': 'typography'
 })`
   ${interpolateCss(body3Css)}

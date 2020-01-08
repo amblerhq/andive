@@ -1,10 +1,9 @@
-import React from 'react'
+import React, { ReactChild } from 'react'
 import styled from 'styled-components'
-import PropTypes from 'prop-types'
 
 import * as palette from '../../constants/palette'
 
-const BlockRoot = styled.div`
+const BlockRoot = styled.div<{ backgroundColor: string }>`
   padding: 8px;
   background-color: ${props => props.backgroundColor};
   display: flex;
@@ -18,6 +17,15 @@ const Icon = styled.div`
   padding-right: 16px;
 `
 
+type BlockVariant = "success" | "error" | "warning" | "info" | "disabled"
+interface Props {
+  icon: any
+  variant?: BlockVariant
+  colors?: { forground: string, background: string }
+  className?: string
+  children?: ReactChild
+}
+
 /**
  * A informative block of color.
  *
@@ -25,8 +33,9 @@ const Icon = styled.div`
  *
  * @param {Variant} variant
  */
-function Block({icon, variant, className, children}) {
-  const textColor =
+function Block({icon, variant, colors, className, children}: Props) {
+  const textColor: string =
+  colors ? colors.forground :
     variant === 'success'
       ? palette.successText
       : variant === 'error'
@@ -39,7 +48,8 @@ function Block({icon, variant, className, children}) {
       ? palette.darkPrimary
       : palette.black
 
-  const backgroundColor =
+  const backgroundColor: string =
+  colors ? colors.background :
     variant === 'success'
       ? palette.lightLettuceGreen
       : variant === 'error'
@@ -52,20 +62,14 @@ function Block({icon, variant, className, children}) {
       ? palette.border
       : palette.white
 
+  // TODO: Fix the icon's React.cloneElement issue (remove the 'as any' cast to see).
   return (
     <BlockRoot className={className} backgroundColor={backgroundColor}>
-      {icon ? <Icon>{React.cloneElement(icon, {color: textColor})}</Icon> : null}
+      {icon && React.isValidElement(icon) ? <Icon>{React.cloneElement(icon, {color: textColor} as any)}</Icon> : null}
       {/** Passing the color, expecting a Label/Item/LabelIcon component or else the custom children to use the color */}
-      <div>{React.Children.map(children, child => React.cloneElement(child, {color: textColor}))}</div>
+      <div>{React.Children.map(children, child => React.isValidElement(child) ? React.cloneElement(child, {color: textColor}) : null)}</div>
     </BlockRoot>
   )
-}
-
-Block.propTypes = {
-  icon: PropTypes.node,
-  variant: PropTypes.oneOf(['success', 'error', 'warning', 'info', 'disabled']),
-  className: PropTypes.string,
-  children: PropTypes.node
 }
 
 export default Block

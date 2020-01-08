@@ -195,6 +195,17 @@ storiesOf('API|Info', module)
             </Info.Block>
           </Info>
         </Showcase>
+        <Showcase legend="Custom colors">
+          <Info style={{background: 'white', width: 320}}>
+            <Info.Block colors={{forground: 'white', background: palette.darkPrimary}} icon={<WarningIcon />}>
+              <Info.Item item={shortLabel} />
+              <Info.Item item={shortLabel} />
+              <div>
+                <Typography.Body3 color="white">{shortLabel}</Typography.Body3>
+              </div>
+            </Info.Block>
+          </Info>
+        </Showcase>
       </>
     )
   })
