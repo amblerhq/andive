@@ -19,11 +19,20 @@ module.exports = async ({ config }) => {
       },
     ],
   });
+
   config.module.rules.push({
     test: /\.(stories|story)\.[tj]sx?$/,
-    loader: require.resolve('@storybook/source-loader'),
+    loader: [
+      {
+      loader: require.resolve('@storybook/source-loader'),
+      options: {
+          parser: 'typescript'
+        }
+      }
+    ], 
     exclude: [/node_modules/],
     enforce: 'pre',
   });
+  
   return config;
 };
