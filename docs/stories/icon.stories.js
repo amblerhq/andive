@@ -58,7 +58,8 @@ import {
   FlatrateTdIcon,
   TrashIcon,
   DragIcon,
-  AgreementIcon
+  AgreementIcon,
+  TaskIcon
 } from '@ambler/andive'
 
 import Showcase from './showcase'
@@ -124,7 +125,8 @@ const icons = [
   FlatrateTdIcon,
   TrashIcon,
   DragIcon,
-  AgreementIcon
+  AgreementIcon,
+  TaskIcon
 ]
 
 function TimedColor({interval, colors, children}) {

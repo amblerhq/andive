@@ -116,6 +116,8 @@ export TrashIcon from './components/icons/trash'
 
 export DragIcon from './components/icons/drag'
 
+export TaskIcon from './components/icons/task'
+
 /**
  * Illustrations
  */
