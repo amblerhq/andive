@@ -206,7 +206,14 @@ export {defaultTheme , default as ThemeProvider} from './components/theme-provid
 
 import * as TypographyComponents from './components/typography'
 export const Typography = TypographyComponents
-export {ZIndexes} from './constants/enum'
+import ToastContainer, * as toastActions from './components/toast'
+
+export const Toast = ToastContainer
+export const toast = toastActions.toast
+export const toastSuccess = toastActions.toastSuccess
+export const toastWarning = toastActions.toastWarning
+export const toastError = toastActions.toastError
+export const toastInfo = toastActions.toastInfo
 
 /**
  * Constants
@@ -214,11 +221,4 @@ export {ZIndexes} from './constants/enum'
 
 import * as paletteObject from './constants/palette'
 export const palette = paletteObject
-
-import ToastContainer, * as toastActions from './components/toast'
-export const Toast = ToastContainer
-export const toast = toastActions.toast
-export const toastSuccess = toastActions.toastSuccess
-export const toastWarning = toastActions.toastWarning
-export const toastError = toastActions.toastError
-export const toastInfo = toastActions.toastInfo
+export {ZIndexes} from './constants/enum'
