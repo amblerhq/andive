@@ -44,6 +44,12 @@ const Dropdown = styled(
       `
     }
 
+    if (openVariant === OpenVariant.UP) {
+      return css`
+        bottom: 0;
+      `
+    }
+
     throw new Error(`openVariant prop (${openVariant}) of type oneOf(OpenVariant) is not valid`)
   }}
 
@@ -71,7 +77,8 @@ const defaultButton = React.forwardRef((props, ref) => <DefaultButton ref={ref} 
 
 const OpenVariant = {
   RIGHT: 'RIGHT',
-  LEFT: 'LEFT'
+  LEFT: 'LEFT',
+  UP: 'UP'
 }
 
 function DropdownMenu({
