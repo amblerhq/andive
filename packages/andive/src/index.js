@@ -2,208 +2,216 @@
  * Icons
  */
 
-export AgreementIcon from './components/icons/agreement'
+export {default as AgreementIcon} from './components/icons/agreement'
 
-export AddressIcon from './components/icons/address'
+export {default as AddressIcon} from './components/icons/address'
 
-export AddressRemoveIcon from './components/icons/address-remove'
+export {default as AddressRemoveIcon} from './components/icons/address-remove'
 
-export AlertIcon from './components/icons/alert'
+export {default as AlertIcon} from './components/icons/alert'
 
-export AmbulanceIcon from './components/icons/ambulance'
+export {default as AmbulanceIcon} from './components/icons/ambulance'
 
-export ArrowDownIcon from './components/icons/arrow-down'
+export {default as ArrowDownIcon} from './components/icons/arrow-down'
 
-export ArrowRightIcon from './components/icons/arrow-right'
+export {default as ArrowRightIcon} from './components/icons/arrow-right'
 
-export ArrowLeftIcon from './components/icons/arrow-left'
+export {default as ArrowLeftIcon} from './components/icons/arrow-left'
 
-export ArrowUpIcon from './components/icons/arrow-up'
+export {default as ArrowUpIcon} from './components/icons/arrow-up'
 
-export BackIcon from './components/icons/back'
+export {default as BackIcon} from './components/icons/back'
 
-export BariatricIcon from './components/icons/bariatric'
+export {default as BariatricIcon} from './components/icons/bariatric'
 
-export CancelIcon from './components/icons/cancel'
+export {default as CancelIcon} from './components/icons/cancel'
 
-export CloseIcon from './components/icons/close'
+export {default as CloseIcon} from './components/icons/close'
 
-export EditIcon from './components/icons/edit'
+export {default as EditIcon} from './components/icons/edit'
 
-export FlagIcon from './components/icons/flag'
+export {default as FlagIcon} from './components/icons/flag'
 
-export HistoryIcon from './components/icons/history'
+export {default as HistoryIcon} from './components/icons/history'
 
-export LogoutIcon from './components/icons/logout'
+export {default as LogoutIcon} from './components/icons/logout'
 
-export LyingIcon from './components/icons/lying'
+export {default as LyingIcon} from './components/icons/lying'
 
-export MedicalFacilityIcon from './components/icons/medical-facility'
+export {default as MedicalFacilityIcon} from './components/icons/medical-facility'
 
-export NewIcon from './components/icons/new'
+export {default as NewIcon} from './components/icons/new'
 
-export SeatedIcon from './components/icons/seated'
+export {default as SeatedIcon} from './components/icons/seated'
 
-export TpmrIcon from './components/icons/tpmr'
+export {default as TpmrIcon} from './components/icons/tpmr'
 
-export CheckboxOnIcon from './components/icons/checkbox-on'
+export {default as CheckboxOnIcon} from './components/icons/checkbox-on'
 
-export CheckboxOffIcon from './components/icons/checkbox-off'
+export {default as CheckboxOffIcon} from './components/icons/checkbox-off'
 
-export RadioOnIcon from './components/icons/radio-on'
+export {default as RadioOnIcon} from './components/icons/radio-on'
 
-export RadioOffIcon from './components/icons/radio-off'
+export {default as RadioOffIcon} from './components/icons/radio-off'
 
-export VslIcon from './components/icons/vsl'
+export {default as VslIcon} from './components/icons/vsl'
 
-export QuestionIcon from './components/icons/question'
+export {default as QuestionIcon} from './components/icons/question'
 
-export Art80Icon from './components/icons/art80'
+export {default as Art80Icon} from './components/icons/art80'
 
-export PatientIcon from './components/icons/patient'
+export {default as PatientIcon} from './components/icons/patient'
 
-export CerfaIcon from './components/icons/cerfa'
+export {default as CerfaIcon} from './components/icons/cerfa'
 
-export DelegateIcon from './components/icons/delegate'
+export {default as DelegateIcon} from './components/icons/delegate'
 
-export MapIcon from './components/icons/map'
+export {default as MapIcon} from './components/icons/map'
 
-export ExportIcon from './components/icons/export'
+export {default as ExportIcon} from './components/icons/export'
 
-export CheckIcon from './components/icons/check'
+export {default as CheckIcon} from './components/icons/check'
 
-export WarningIcon from './components/icons/warning'
+export {default as WarningIcon} from './components/icons/warning'
 
-export ForbiddenIcon from './components/icons/forbidden'
+export {default as ForbiddenIcon} from './components/icons/forbidden'
 
-export IncidentIcon from './components/icons/incident'
+export {default as IncidentIcon} from './components/icons/incident'
 
-export MfIcon from './components/icons/mf'
+export {default as MfIcon} from './components/icons/mf'
 
-export MfuIcon from './components/icons/mfu'
+export {default as MfuIcon} from './components/icons/mfu'
 
-export MtIcon from './components/icons/mt'
+export {default as MtIcon} from './components/icons/mt'
 
-export RidesIcon from './components/icons/rides'
+export {default as RidesIcon} from './components/icons/rides'
 
-export OrdersIcon from './components/icons/orders'
+export {default as OrdersIcon} from './components/icons/orders'
 
-export DashboardIcon from './components/icons/dashboard'
+export {default as DashboardIcon} from './components/icons/dashboard'
 
-export BurgerIcon from './components/icons/burger'
+export {default as BurgerIcon} from './components/icons/burger'
 
-export PatientAddIcon from './components/icons/patient-add'
+export {default as PatientAddIcon} from './components/icons/patient-add'
 
-export PatientRemoveIcon from './components/icons/patient-remove'
+export {default as PatientRemoveIcon} from './components/icons/patient-remove'
 
-export PassengerIcon from './components/icons/passenger'
+export {default as PassengerIcon} from './components/icons/passenger'
 
-export EuroIcon from './components/icons/euro'
+export {default as EuroIcon} from './components/icons/euro'
 
-export InvoiceIcon from './components/icons/invoice'
+export {default as InvoiceIcon} from './components/icons/invoice'
 
-export FlatrateSt1Icon from './components/icons/flatrate-st1'
+export {default as FlatrateSt1Icon} from './components/icons/flatrate-st1'
 
-export FlatrateSt2Icon from './components/icons/flatrate-st2'
+export {default as FlatrateSt2Icon} from './components/icons/flatrate-st2'
 
-export FlatrateSt3Icon from './components/icons/flatrate-st3'
+export {default as FlatrateSt3Icon} from './components/icons/flatrate-st3'
 
-export FlatrateTdIcon from './components/icons/flatrate-td'
+export {default as FlatrateTdIcon} from './components/icons/flatrate-td'
 
-export FlatrateTsIcon from './components/icons/flatrate-ts'
+export {default as FlatrateTsIcon} from './components/icons/flatrate-ts'
 
-export TrashIcon from './components/icons/trash'
+export {default as TrashIcon} from './components/icons/trash'
 
-export DragIcon from './components/icons/drag'
+export {default as DragIcon} from './components/icons/drag'
 
-export TaskIcon from './components/icons/task'
+export {default as TaskIcon} from './components/icons/task'
 
 /**
  * Illustrations
  */
 
-export DirectionIllustration from './components/illustrations/direction'
+export {default as DirectionIllustration} from './components/illustrations/direction'
 
-export DoctorIllustration from './components/illustrations/doctor'
+export {default as DoctorIllustration} from './components/illustrations/doctor'
 
-export ErrorIllustration from './components/illustrations/error'
+export {default as ErrorIllustration} from './components/illustrations/error'
 
-export HospitalIllustration from './components/illustrations/hospital'
+export {default as HospitalIllustration} from './components/illustrations/hospital'
 
-export OrderOnlineIllustration from './components/illustrations/order-online'
+export {default as OrderOnlineIllustration} from './components/illustrations/order-online'
 
-export PatientIllustration from './components/illustrations/patient'
+export {default as PatientIllustration} from './components/illustrations/patient'
 
-export StandardIllustration from './components/illustrations/standard'
+export {default as StandardIllustration} from './components/illustrations/standard'
 
-export SuccessIllustration from './components/illustrations/success'
+export {default as SuccessIllustration} from './components/illustrations/success'
 
 /**
  * Components
  */
 
-export Info from './components/info'
+export {default as Info} from './components/info'
+
+export {default as AppBar} from './components/app-bar'
+
+export {default as Autocomplete} from './components/autocomplete'
+
+export {default as Baseline} from './components/baseline'
+
+export {default as Button} from './components/button'
+
+export {default as ButtonGroup} from './components/button-group'
+
+export {default as Card} from './components/card'
+
+export {default as Checkbox} from './components/checkbox'
+
+export {default as CheckboxGroup} from './components/checkbox-group'
+
+export {default as DialogTitle} from './components/dialog-title'
+
+export {default as Dialog} from './components/dialog'
+
+export {default as Direction} from './components/direction'
+
+export {default as Dropdown} from './components/dropdown'
+
+export {default as DropdownMenu} from './components/dropdown-menu'
+
+export {default as DropdownFilter} from './components/dropdown-filter'
+
+export {default as Hover} from './components/hover'
+
+export {default as Icon} from './components/icon'
+
+export {default as Input} from './components/input'
+
+export {default as RideStatusBar} from './components/ride-status-bar'
+
+export {default as RideStatus} from './components/ride-status'
+
+export {default as Select} from './components/select'
+
+export {default as Menu} from './components/menu'
+
+export {default as Title} from './components/title'
+
+export {default as VSpace} from './components/v-space'
+
+export {default as HSpace} from './components/h-space'
+
+export {default as Modal} from './components/modal'
+
+export {default as Loader} from './components/loader'
+
+export {default as NativeCheckbox} from './components/native/checkbox'
 
 export {default as Accordeon} from './components/accordeon'
 
-export AppBar from './components/app-bar'
+export {defaultTheme, default as ThemeProvider} from './components/theme-provider'
 
-export Autocomplete from './components/autocomplete'
-
-export Baseline from './components/baseline'
-
-export Button from './components/button'
-
-export ButtonGroup from './components/button-group'
-
-export Card from './components/card'
-
-export Checkbox from './components/checkbox'
-
-export CheckboxGroup from './components/checkbox-group'
-
-export DialogTitle from './components/dialog-title'
-
-export Dialog from './components/dialog'
-
-export Direction from './components/direction'
-
-export Dropdown from './components/dropdown'
-
-export DropdownMenu from './components/dropdown-menu'
-
-export DropdownFilter from './components/dropdown-filter'
-
-export Hover from './components/hover'
-
-export Icon from './components/icon'
-
-export Input from './components/input'
-
-export RideStatusBar from './components/ride-status-bar'
-
-export RideStatus from './components/ride-status'
-
-export Select from './components/select'
-
-export Menu from './components/menu'
-
-export ThemeProvider, {defaultTheme} from './components/theme-provider'
-
-export Title from './components/title'
-
-export VSpace from './components/v-space'
-
-export HSpace from './components/h-space'
-
-export Modal from './components/modal'
-
-export Loader from './components/loader'
 import * as TypographyComponents from './components/typography'
 export const Typography = TypographyComponents
-export {ZIndexes} from './constants/enum'
+import ToastContainer, * as toastActions from './components/toast'
 
-export NativeCheckbox from './components/native/checkbox'
+export const Toast = ToastContainer
+export const toast = toastActions.toast
+export const toastSuccess = toastActions.toastSuccess
+export const toastWarning = toastActions.toastWarning
+export const toastError = toastActions.toastError
+export const toastInfo = toastActions.toastInfo
 
 /**
  * Constants
@@ -211,11 +219,4 @@ export NativeCheckbox from './components/native/checkbox'
 
 import * as paletteObject from './constants/palette'
 export const palette = paletteObject
-
-import ToastContainer, * as toastActions from './components/toast'
-export const Toast = ToastContainer
-export const toast = toastActions.toast
-export const toastSuccess = toastActions.toastSuccess
-export const toastWarning = toastActions.toastWarning
-export const toastError = toastActions.toastError
-export const toastInfo = toastActions.toastInfo
+export {ZIndexes} from './constants/enum'

@@ -1,15 +1,16 @@
 {
-    "eslint.workingDirectories": [
-        {
-            "directory": "./packages/andive",
-            "changeProcessCWD": true
-        },
-        "./docs"
-    ],
-    "eslint.enable": true,
-    "eslint.packageManager": "yarn",
-    "editor.codeActionsOnSave": {
-        "source.fixAll.eslint": true
+  "eslint.workingDirectories": [
+    {
+      "directory": "./packages/andive",
+      "changeProcessCWD": true
     },
-    "editor.codeActionsOnSaveTimeout": 5000
+    "./docs"
+  ],
+  "eslint.enable": true,
+  "eslint.packageManager": "yarn",
+  "editor.formatOnSave": false,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "editor.codeActionsOnSaveTimeout": 5000
 }
