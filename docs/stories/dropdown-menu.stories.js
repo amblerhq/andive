@@ -329,21 +329,65 @@ function WithCustomButton() {
   )
 }
 
-storiesOf('API|DropdownMenu', module)
-  .add('Default', () => <DefaultStory />)
-  .add('With many options', () => <LongStory />)
-  .add('With Footer', () => <WithFooterStory />)
-  .add('Navigate should scroll to top', () => <ScrollToStory />)
-  .add('With disabled options', () => <WithDisabledOptions />)
-  .add('With custom button', () => <WithCustomButton />)
-  .add('Should not leave viewport', () => {
-    return (
-      <Showcase style={{justifyContent: 'flex-end'}}>
+function WithOpenVariantLeft() {
+  return (
+    <Showcase style={{justifyContent: 'flex-end'}}>
+      <DropdownMenu
+        buttonComponent={PrimaryButton}
+        label="Save"
+        valueToString={artistToString}
+        openVariant={DropdownMenu.OpenVariant.LEFT}
+      >
+        <DropdownMenu.OptionGroup label="Chanteur">
+          <DropdownMenu.Option id={'PHIL_C'}>
+            <Info>
+              <Info.Label label={artistToString('PHIL_C')} />
+            </Info>
+          </DropdownMenu.Option>
+          <DropdownMenu.Option id={'CHARLES_A'}>
+            <Info>
+              <Info.Label label={artistToString('CHARLES_A')} />
+            </Info>
+          </DropdownMenu.Option>
+        </DropdownMenu.OptionGroup>
+        <DropdownMenu.OptionGroup label="Groupe">
+          <DropdownMenu.Option id={'DAFT_P'}>
+            <Info>
+              <Info.Label label={artistToString('DAFT_P')} />
+            </Info>
+          </DropdownMenu.Option>
+          <DropdownMenu.Option id={'JUSTICE'}>
+            <Info>
+              <Info.Label label={artistToString('JUSTICE')} />
+            </Info>
+          </DropdownMenu.Option>
+        </DropdownMenu.OptionGroup>
+      </DropdownMenu>
+    </Showcase>
+  )
+}
+
+function WithOpenVariantUp() {
+  return (
+    <Showcase>
+      <div
+        style={{
+          height: 72,
+          width: '100%',
+          position: 'fixed',
+          top: 'calc(100% - 72px)',
+          left: 0,
+          background: '#8EFFC1',
+          zIndex: ZIndexes.FIXED
+        }}
+      >
         <DropdownMenu
           buttonComponent={PrimaryButton}
+          bottomFootprint={72}
           label="Save"
           valueToString={artistToString}
-          openVariant={DropdownMenu.OpenVariant.LEFT}
+          openVariant={DropdownMenu.OpenVariant.UP}
+          mobile
         >
           <DropdownMenu.OptionGroup label="Chanteur">
             <DropdownMenu.Option id={'PHIL_C'}>
@@ -370,6 +414,17 @@ storiesOf('API|DropdownMenu', module)
             </DropdownMenu.Option>
           </DropdownMenu.OptionGroup>
         </DropdownMenu>
-      </Showcase>
-    )
-  })
+      </div>
+    </Showcase>
+  )
+}
+
+storiesOf('API|DropdownMenu', module)
+  .add('Default', () => <DefaultStory />)
+  .add('With many options', () => <LongStory />)
+  .add('With Footer', () => <WithFooterStory />)
+  .add('Navigate should scroll to top', () => <ScrollToStory />)
+  .add('With disabled options', () => <WithDisabledOptions />)
+  .add('With custom button', () => <WithCustomButton />)
+  .add('Should not leave viewport', () => <WithOpenVariantLeft />)
+  .add('Opening up in a footer', () => <WithOpenVariantUp />)
