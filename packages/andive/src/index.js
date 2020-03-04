@@ -2,6 +2,8 @@
  * Icons
  */
 
+export {default as AccountIcon} from './components/icons/account'
+
 export {default as AgreementIcon} from './components/icons/agreement'
 
 export {default as AddressIcon} from './components/icons/address'
@@ -117,6 +119,8 @@ export {default as TrashIcon} from './components/icons/trash'
 export {default as DragIcon} from './components/icons/drag'
 
 export {default as TaskIcon} from './components/icons/task'
+
+export {default as FleetIcon} from './components/icons/fleet'
 
 /**
  * Illustrations

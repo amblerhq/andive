@@ -1,8 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40">
-    <g fill="none" fill-rule="evenodd">
-        <text fill="#FFF" font-family="Asap-SemiBold, Asap SemiBold" font-size="14" font-weight="500">
-            <tspan x="10.578" y="26">MF</tspan>
-        </text>
-        <path stroke="#FFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 35V5a1 1 0 0 1 1-1l30 .002a1 1 0 0 1 1 1V35a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1z"/>
+    <g fill="none" fill-rule="evenodd" stroke="#FFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+        <path d="M6 32V1c0-.552.448-1 1-1 0 0 0 0 0 0l18 .002c.552 0 1 .448 1 1V32h0H6zM26 32V18h1c2.761.001 5 2.24 5 5v8c0 .552-.448 1-1 1h-5 0zM6 32V18H5c-2.761.001-5 2.24-5 5v8c0 .552.448 1 1 1h5z" transform="translate(4 4)"/>
+        <path d="M11 31v-4c0-.552.448-1 1-1 0 0 0 0 0 0h8c.552 0 1 .448 1 1v4c0 .552-.448 1-1 1h-8c-.552 0-1-.448-1-1zM10 21L11 21M10 17L11 17M10 13L11 13M10 9L11 9M10 5L11 5M21 21L22 21M21 17L22 17M21 9L22 9M21 5L22 5M15.5 21L16.5 21M15.5 17L16.5 17M15.5 13L16.5 13M15.5 9L16.5 9M15.5 5L16.5 5M21 13L22 13" transform="translate(4 4)"/>
     </g>
 </svg>

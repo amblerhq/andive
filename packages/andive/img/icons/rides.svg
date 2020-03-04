@@ -1,6 +1,9 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40">
-    <g fill="none" fill-rule="evenodd">
-        <path stroke="#FFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 17V5a1 1 0 0 1 1-1h30a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1zM4 35V23a1 1 0 0 1 1-1h30a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1zM16 11h6.456M24 29h-6"/>
-        <path stroke="#FFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 8l3 3-3 3M19 32l-3-3 3-3"/>
+    <g fill="none" fill-rule="evenodd" stroke="#FFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+        <path d="M0 11V3c0-1.657 1.343-3 3-3 0 0 0 0 0 0h26c1.657 0 3 1.344 3 3v8c0 1.657-1.343 3-3 3H3c-1.657 0-3-1.343-3-3zM0 29v-8c0-1.657 1.343-3 3-3 0 0 0 0 0 0h26c1.657 0 3 1.344 3 3v8c0 1.657-1.343 3-3 3H3c-1.657 0-3-1.343-3-3z" transform="translate(4 4)"/>
+        <path d="M6 25L13 25" transform="translate(4 4) rotate(-180 9.5 25)"/>
+        <path d="M24 4L27 7 24 10" transform="translate(4 4)"/>
+        <path d="M5 22L8 25 5 28" transform="translate(4 4) rotate(-180 6.5 25)"/>
+        <path d="M19 7L27 7M5 7L8 7M12 7L15 7M24 25L27 25M17 25L20 25" transform="translate(4 4)"/>
     </g>
 </svg>

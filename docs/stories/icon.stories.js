@@ -3,6 +3,8 @@ import {storiesOf} from '@storybook/react'
 import styled from 'styled-components'
 import {
   palette,
+  AccountIcon,
+  FleetIcon,
   AmbulanceIcon,
   VslIcon,
   TpmrIcon,
@@ -126,7 +128,9 @@ const icons = [
   TrashIcon,
   DragIcon,
   AgreementIcon,
-  TaskIcon
+  TaskIcon,
+  AccountIcon,
+  FleetIcon
 ]
 
 function TimedColor({interval, colors, children}) {
