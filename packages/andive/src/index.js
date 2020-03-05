@@ -142,6 +142,10 @@ export {default as StandardIllustration} from './components/illustrations/standa
 
 export {default as SuccessIllustration} from './components/illustrations/success'
 
+export {default as EmptyIllustration} from './components/illustrations/empty'
+
+export {default as TooLateIllustration} from './components/illustrations/too-late'
+
 /**
  * Components
  */

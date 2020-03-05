@@ -61,7 +61,9 @@ import {
   TrashIcon,
   DragIcon,
   AgreementIcon,
-  TaskIcon
+  TaskIcon,
+  Typography,
+  Info
 } from '@ambler/andive'
 
 import Showcase from './showcase'
@@ -153,8 +155,48 @@ function TimedColor({interval, colors, children}) {
   return children(color)
 }
 
-storiesOf('API|Icon', module)
-  .add('All', () => {
+storiesOf('Assets|Icons', module)
+  .add('New 👀', () => {
+    return (
+      <>
+        <Info>
+          <Typography.Body1>Newly added icons</Typography.Body1>
+        </Info>
+        <Icons>
+          <Showcase variant="squared" size={160} invert legend={FleetIcon.name}>
+            <FleetIcon />
+          </Showcase>
+          <Showcase variant="squared" size={160} invert legend={AccountIcon.name}>
+            <AccountIcon />
+          </Showcase>
+        </Icons>
+        <Info>
+          <Typography.Body1>Recently updated icons</Typography.Body1>
+        </Info>
+        <Icons>
+          <Showcase variant="squared" size={160} invert legend={DashboardIcon.name}>
+            <DashboardIcon />
+          </Showcase>
+          <Showcase variant="squared" size={160} invert legend={RidesIcon.name}>
+            <RidesIcon />
+          </Showcase>
+          <Showcase variant="squared" size={160} invert legend={MtIcon.name}>
+            <MtIcon />
+          </Showcase>
+          <Showcase variant="squared" size={160} invert legend={MfIcon.name}>
+            <MfIcon />
+          </Showcase>
+          <Showcase variant="squared" size={160} invert legend={MfuIcon.name}>
+            <MfuIcon />
+          </Showcase>
+          <Showcase variant="squared" size={160} invert legend={InvoiceIcon.name}>
+            <InvoiceIcon />
+          </Showcase>
+        </Icons>
+      </>
+    )
+  })
+  .add('Library', () => {
     return (
       <>
         <TimedColor interval={5000} colors={[palette.darkPrimary, palette.mediumBerryBlue]}>
@@ -206,6 +248,9 @@ storiesOf('API|Icon', module)
       </Showcase>
       <Showcase variant="squared" invert>
         <AddressIcon color={palette.white} />
+      </Showcase>
+      <Showcase variant="squared" invert>
+        <MtIcon color="grey" />
       </Showcase>
     </Icons>
   ))

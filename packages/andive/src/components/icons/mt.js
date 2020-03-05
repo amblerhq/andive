@@ -6,7 +6,7 @@ import Mt from '../../../img/icons/mt.svg'
 import Icon from '../icon'
 
 const MtOverride = styled(Mt)`
-  & > g > text {
+  & path:nth-of-type(3) {
     fill: ${props => props.color};
   }
 `

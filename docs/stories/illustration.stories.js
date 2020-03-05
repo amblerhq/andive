@@ -9,7 +9,9 @@ import {
   HospitalIllustration,
   OrderOnlineIllustration,
   PatientIllustration,
-  StandardIllustration
+  StandardIllustration,
+  TooLateIllustration,
+  EmptyIllustration
 } from '@ambler/andive'
 
 import Showcase from './showcase'
@@ -19,33 +21,52 @@ const Story = styled.div`
     flex-flow row wrap;
 `
 
-storiesOf('API|Illustration', module).add('Library', () => {
-  return (
-    <Story>
-      <Showcase variant="squared" size={400} invert legend="Success">
-        <SuccessIllustration />
-      </Showcase>
-      <Showcase variant="squared" size={400} style={{background: 'white'}} legend="Error">
-        <ErrorIllustration />
-      </Showcase>
-      <Showcase variant="squared" size={400} style={{background: 'white'}} legend="Direction">
-        <DirectionIllustration />
-      </Showcase>
-      <Showcase variant="squared" size={400} style={{background: 'white'}} legend="Doctor">
-        <DoctorIllustration />
-      </Showcase>
-      <Showcase variant="squared" size={400} style={{background: 'white'}} legend="Hospital">
-        <HospitalIllustration />
-      </Showcase>
-      <Showcase variant="squared" size={400} style={{background: 'white'}} legend="OrderOnline">
-        <OrderOnlineIllustration />
-      </Showcase>
-      <Showcase variant="squared" size={400} style={{background: 'white'}} legend="Patient">
-        <PatientIllustration />
-      </Showcase>
-      <Showcase variant="squared" size={400} style={{background: 'white'}} legend="Standard">
-        <StandardIllustration />
-      </Showcase>
-    </Story>
-  )
-})
+storiesOf('Assets|Illustrations', module)
+  .add('New 👀', () => {
+    return (
+      <Story>
+        <Showcase variant="squared" size={400} legend="<TooLateIllustration />">
+          <TooLateIllustration />
+        </Showcase>
+        <Showcase variant="squared" size={400} legend="<EmptyIllustration />">
+          <EmptyIllustration />
+        </Showcase>
+      </Story>
+    )
+  })
+  .add('Library', () => {
+    return (
+      <Story>
+        <Showcase variant="squared" size={400} legend="<TooLateIllustration />">
+          <TooLateIllustration />
+        </Showcase>
+        <Showcase variant="squared" size={400} legend="<EmptyIllustration />">
+          <EmptyIllustration />
+        </Showcase>
+        <Showcase variant="squared" size={400} invert legend="<SuccessIllustration />">
+          <SuccessIllustration />
+        </Showcase>
+        <Showcase variant="squared" size={400} style={{background: 'white'}} legend="<ErrorIllustration />">
+          <ErrorIllustration />
+        </Showcase>
+        <Showcase variant="squared" size={400} style={{background: 'white'}} legend="<DirectionIllustration />">
+          <DirectionIllustration />
+        </Showcase>
+        <Showcase variant="squared" size={400} style={{background: 'white'}} legend="<DoctorIllustration />">
+          <DoctorIllustration />
+        </Showcase>
+        <Showcase variant="squared" size={400} style={{background: 'white'}} legend="<HospitalIllustration />">
+          <HospitalIllustration />
+        </Showcase>
+        <Showcase variant="squared" size={400} style={{background: 'white'}} legend="<OrderOnlineIllustration />">
+          <OrderOnlineIllustration />
+        </Showcase>
+        <Showcase variant="squared" size={400} style={{background: 'white'}} legend="<PatientIllustration />">
+          <PatientIllustration />
+        </Showcase>
+        <Showcase variant="squared" size={400} style={{background: 'white'}} legend="<StandardIllustration />">
+          <StandardIllustration />
+        </Showcase>
+      </Story>
+    )
+  })

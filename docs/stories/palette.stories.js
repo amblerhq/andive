@@ -68,7 +68,7 @@ ColorRange.propTypes = {
   color: PropTypes.string
 }
 
-storiesOf('API|Palette', module)
+storiesOf('Assets|Palette', module)
   .addDecorator(storyFn => {
     return (
       <>
