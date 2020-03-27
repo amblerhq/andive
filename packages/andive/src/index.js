@@ -122,6 +122,8 @@ export {default as TaskIcon} from './components/icons/task'
 
 export {default as FleetIcon} from './components/icons/fleet'
 
+export {default as PhoneIcon} from './components/icons/phone'
+
 /**
  * Illustrations
  */
@@ -175,6 +177,10 @@ export {default as Dialog} from './components/dialog'
 export {default as Direction} from './components/direction'
 
 export {default as Dropdown} from './components/dropdown'
+
+export {DropdownBase} from './components/dropdown-base'
+
+export {DropdownComposer} from './components/dropdown-composer'
 
 export {default as DropdownMenu} from './components/dropdown-menu'
 

@@ -1,6 +1,16 @@
 import React from 'react'
 import {storiesOf} from '@storybook/react'
-import {ArrowDownIcon, Dropdown} from '@ambler/andive'
+import {
+  Info,
+  Button,
+  ArrowDownIcon,
+  Dropdown,
+  DropdownBase,
+  DropdownComposer,
+  Typography,
+  KebabIcon
+} from '@ambler/andive'
+import styled from 'styled-components'
 
 import Showcase from './showcase'
 
@@ -21,7 +31,58 @@ function ControlledDropdown() {
   )
 }
 
+const LargeDropdownBase = styled(DropdownBase)`
+  width: 300px;
+`
+
 storiesOf('API|Dropdown', module)
+  .add('New 👀', () => {
+    const dropdown = (
+      <LargeDropdownBase>
+        <Info>
+          <Typography.Body1>Ambulance</Typography.Body1>
+          <Typography.Body2>Une ambulance est un véhicule spécialement adapté et aménagé pour...</Typography.Body2>
+        </Info>
+      </LargeDropdownBase>
+    )
+
+    return (
+      <>
+        <Showcase legend="DropdownBase">{dropdown}</Showcase>
+
+        <Showcase legend="DropdownBase controlled">
+          <DropdownComposer
+            withOverlay
+            button={<Button label="Open and spread top-left" variant="filter" invert />}
+            dropdown={dropdown}
+            horizontal={DropdownComposer.HorizontalVariant.LEFT}
+            vertical={DropdownComposer.VerticalVariant.UP}
+          />
+          <DropdownComposer
+            withOverlay
+            button={<Button label="Ouvre en haut à droite" variant="filter" invert />}
+            dropdown={dropdown}
+            horizontal={DropdownComposer.HorizontalVariant.RIGHT}
+            vertical={DropdownComposer.VerticalVariant.UP}
+          />
+          <DropdownComposer
+            withOverlay
+            button={<Button label="Ouvre en bas à gauche" variant="filter" invert />}
+            dropdown={dropdown}
+            horizontal={DropdownComposer.HorizontalVariant.LEFT}
+            vertical={DropdownComposer.VerticalVariant.DOWN}
+          />
+          <DropdownComposer
+            withOverlay
+            button={<Button label="Ouvre en bas à droite" variant="filter" invert />}
+            dropdown={dropdown}
+            horizontal={DropdownComposer.HorizontalVariant.RIGHT}
+            vertical={DropdownComposer.VerticalVariant.DOWN}
+          />
+        </Showcase>
+      </>
+    )
+  })
   .add('Default', () => (
     <Showcase>
       <Dropdown

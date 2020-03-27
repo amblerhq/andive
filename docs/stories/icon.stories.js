@@ -62,6 +62,7 @@ import {
   DragIcon,
   AgreementIcon,
   TaskIcon,
+  PhoneIcon,
   Typography,
   Info
 } from '@ambler/andive'
@@ -132,7 +133,8 @@ const icons = [
   AgreementIcon,
   TaskIcon,
   AccountIcon,
-  FleetIcon
+  FleetIcon,
+  PhoneIcon
 ]
 
 function TimedColor({interval, colors, children}) {
@@ -155,6 +157,16 @@ function TimedColor({interval, colors, children}) {
   return children(color)
 }
 
+const newIcons = [{Icon: PhoneIcon}, {Icon: FleetIcon, invert: true}, {Icon: AccountIcon, invert: true}]
+const updatedIcons = [
+  {Icon: DashboardIcon, invert: true},
+  {Icon: RidesIcon, invert: true},
+  {Icon: MtIcon, invert: true},
+  {Icon: MfIcon, invert: true},
+  {Icon: MfuIcon, invert: true},
+  {Icon: InvoiceIcon, invert: true}
+]
+
 storiesOf('Assets|Icons', module)
   .add('New 👀', () => {
     return (
@@ -163,35 +175,33 @@ storiesOf('Assets|Icons', module)
           <Typography.Body1>Newly added icons</Typography.Body1>
         </Info>
         <Icons>
-          <Showcase variant="squared" size={160} invert legend={FleetIcon.name}>
-            <FleetIcon />
-          </Showcase>
-          <Showcase variant="squared" size={160} invert legend={AccountIcon.name}>
-            <AccountIcon />
-          </Showcase>
+          {newIcons.map(config => (
+            <Showcase
+              key={config.Icon.name}
+              variant="squared"
+              size={160}
+              invert={config.invert}
+              legend={config.Icon.name}
+            >
+              <config.Icon />
+            </Showcase>
+          ))}
         </Icons>
         <Info>
           <Typography.Body1>Recently updated icons</Typography.Body1>
         </Info>
         <Icons>
-          <Showcase variant="squared" size={160} invert legend={DashboardIcon.name}>
-            <DashboardIcon />
-          </Showcase>
-          <Showcase variant="squared" size={160} invert legend={RidesIcon.name}>
-            <RidesIcon />
-          </Showcase>
-          <Showcase variant="squared" size={160} invert legend={MtIcon.name}>
-            <MtIcon />
-          </Showcase>
-          <Showcase variant="squared" size={160} invert legend={MfIcon.name}>
-            <MfIcon />
-          </Showcase>
-          <Showcase variant="squared" size={160} invert legend={MfuIcon.name}>
-            <MfuIcon />
-          </Showcase>
-          <Showcase variant="squared" size={160} invert legend={InvoiceIcon.name}>
-            <InvoiceIcon />
-          </Showcase>
+          {updatedIcons.map(config => (
+            <Showcase
+              key={config.Icon.name}
+              variant="squared"
+              size={160}
+              invert={config.invert}
+              legend={config.Icon.name}
+            >
+              <config.Icon />
+            </Showcase>
+          ))}
         </Icons>
       </>
     )

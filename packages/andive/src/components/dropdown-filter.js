@@ -58,7 +58,7 @@ const Actions = styled.div`
   padding: 24px 16px;
 `
 
-const PageOverlay = styled.div`
+export const PageOverlay = styled.div`
   position: fixed;
 
   top: 0;
