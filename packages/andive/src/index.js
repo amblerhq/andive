@@ -124,6 +124,8 @@ export {default as FleetIcon} from './components/icons/fleet'
 
 export {default as PhoneIcon} from './components/icons/phone'
 
+export {default as MoreIcon} from './components/icons/more'
+
 /**
  * Illustrations
  */

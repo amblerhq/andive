@@ -63,6 +63,7 @@ import {
   AgreementIcon,
   TaskIcon,
   PhoneIcon,
+  MoreIcon,
   Typography,
   Info
 } from '@ambler/andive'
@@ -134,7 +135,8 @@ const icons = [
   TaskIcon,
   AccountIcon,
   FleetIcon,
-  PhoneIcon
+  PhoneIcon,
+  MoreIcon
 ]
 
 function TimedColor({interval, colors, children}) {
@@ -157,7 +159,12 @@ function TimedColor({interval, colors, children}) {
   return children(color)
 }
 
-const newIcons = [{Icon: PhoneIcon}, {Icon: FleetIcon, invert: true}, {Icon: AccountIcon, invert: true}]
+const newIcons = [
+  {Icon: PhoneIcon},
+  {Icon: MoreIcon},
+  {Icon: FleetIcon, invert: true},
+  {Icon: AccountIcon, invert: true}
+]
 const updatedIcons = [
   {Icon: DashboardIcon, invert: true},
   {Icon: RidesIcon, invert: true},
