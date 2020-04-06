@@ -8,7 +8,9 @@ import {
   DropdownBase,
   DropdownComposer,
   Typography,
-  KebabIcon
+  MoreIcon,
+  TrashIcon,
+  EditIcon
 } from '@ambler/andive'
 import styled from 'styled-components'
 
@@ -37,8 +39,8 @@ const LargeDropdownBase = styled(DropdownBase)`
 
 storiesOf('API|Dropdown', module)
   .add('New 👀', () => {
-    const dropdown = (
-      <LargeDropdownBase>
+    const Dropdown = ({onClick}) => (
+      <LargeDropdownBase oncLick={onClick}>
         <Info>
           <Typography.Body1>Ambulance</Typography.Body1>
           <Typography.Body2>Une ambulance est un véhicule spécialement adapté et aménagé pour...</Typography.Body2>
@@ -48,36 +50,58 @@ storiesOf('API|Dropdown', module)
 
     return (
       <>
-        <Showcase legend="DropdownBase">{dropdown}</Showcase>
+        <Showcase legend="DropdownBase">
+          <Dropdown />
+        </Showcase>
 
         <Showcase legend="DropdownBase controlled">
           <DropdownComposer
             withOverlay
             button={<Button label="Open and spread top-left" variant="filter" invert />}
-            dropdown={dropdown}
+            dropdown={Dropdown}
             horizontal={DropdownComposer.HorizontalVariant.LEFT}
             vertical={DropdownComposer.VerticalVariant.UP}
           />
           <DropdownComposer
             withOverlay
-            button={<Button label="Ouvre en haut à droite" variant="filter" invert />}
-            dropdown={dropdown}
+            button={<Button label="Open and spread top-right" variant="filter" invert />}
+            dropdown={Dropdown}
             horizontal={DropdownComposer.HorizontalVariant.RIGHT}
             vertical={DropdownComposer.VerticalVariant.UP}
           />
           <DropdownComposer
             withOverlay
-            button={<Button label="Ouvre en bas à gauche" variant="filter" invert />}
-            dropdown={dropdown}
+            button={<Button label="Open and spread bottom-left" variant="filter" invert />}
+            dropdown={Dropdown}
             horizontal={DropdownComposer.HorizontalVariant.LEFT}
             vertical={DropdownComposer.VerticalVariant.DOWN}
           />
           <DropdownComposer
             withOverlay
-            button={<Button label="Ouvre en bas à droite" variant="filter" invert />}
-            dropdown={dropdown}
+            button={<Button label="Open and spread bottom-right" variant="filter" invert />}
+            dropdown={Dropdown}
             horizontal={DropdownComposer.HorizontalVariant.RIGHT}
             vertical={DropdownComposer.VerticalVariant.DOWN}
+          />
+        </Showcase>
+        <Showcase legend="More Menu">
+          <DropdownComposer
+            withOverlay
+            button={<Button variant="flat" leftIcon={<MoreIcon />} />}
+            vertical={DropdownComposer.VerticalVariant.UP}
+            dropdown={({onClick}) => (
+              <DropdownBase>
+                <Button variant="flat" leftIcon={<EditIcon />} label="Editer" fill onClick={onClick} />
+                <Button
+                  variant="flat"
+                  leftIcon={<TrashIcon />}
+                  textColor="red"
+                  label="Supprimer"
+                  fill
+                  onClick={onClick}
+                />
+              </DropdownBase>
+            )}
           />
         </Showcase>
       </>

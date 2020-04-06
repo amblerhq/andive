@@ -12,10 +12,10 @@ const lightBeetrootPurpleAlpha = palette.hexToRGBA(palette.mediumBeetrootPurple,
 const mediumBeetrootPurpleAlpha = palette.hexToRGBA(palette.darkBeetrootPurple, 0.5)
 
 // eslint-disable-next-line no-unused-vars
-const ButtonRoot = styled(({loading, invert, ...props}) => <div {...props} />).attrs({
+const ButtonRoot = styled(({loading, invert, fill, ...props}) => <div {...props} />).attrs({
   'data-andive-type': 'button'
 })`
-  display: inline-block;
+  display: ${props => (props.fill ? 'block' : 'inline-block')};
 
   padding: ${props => props.theme.padding}px;
   cursor: ${props => (props.disabled ? 'not-allowed' : props.loading ? 'progress' : 'pointer')};
@@ -201,6 +201,7 @@ const Button = React.forwardRef(function Button(
     loading,
     mobile,
     wrap,
+    fill,
     ...props
   },
   ref
@@ -274,7 +275,14 @@ const Button = React.forwardRef(function Button(
   }, [variant, loading, invert])
 
   return (
-    <ButtonRoot className={className} disabled={disabled} loading={loading} invert={invert} variant={variant}>
+    <ButtonRoot
+      className={className}
+      disabled={disabled}
+      loading={loading}
+      invert={invert}
+      variant={variant}
+      fill={fill}
+    >
       <ButtonComponent
         ref={ref}
         onClick={!disabled && !loading ? onClick : undefined}
@@ -322,7 +330,8 @@ Button.propTypes = {
   disabled: PropTypes.bool,
   loading: PropTypes.bool,
   mobile: PropTypes.bool,
-  wrap: PropTypes.bool
+  wrap: PropTypes.bool,
+  fill: PropTypes.bool
 }
 
 export default Button

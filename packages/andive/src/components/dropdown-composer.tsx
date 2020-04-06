@@ -54,14 +54,14 @@ const DropdownAnchor = styled.div<{ vertical: keyof typeof VerticalVariant, hori
 
 export function DropdownComposer({ button, dropdown, withOverlay, vertical = 'DOWN', horizontal = 'RIGHT', }: any) {
   const [open, setOpen] = React.useState(false)
-  
+  const Dropdown = dropdown
   return (
     <>
       {withOverlay && open && <Overlay onClick={() => setOpen(false)}/>}
       <DropdownComposeRoot>
         {React.cloneElement(button, { onClick() { setOpen(p => !p) }})}
         {open && <DropdownAnchor vertical={vertical} horizontal={horizontal}>
-        {dropdown}
+        <Dropdown onClick={() => setOpen(false)} />
         </DropdownAnchor>}
       </DropdownComposeRoot>
     </>
