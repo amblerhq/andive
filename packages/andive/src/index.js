@@ -126,6 +126,10 @@ export {default as PhoneIcon} from './components/icons/phone'
 
 export {default as MoreIcon} from './components/icons/more'
 
+export {default as SearchIcon} from './components/icons/search'
+
+export {default as ConnectAsIcon} from './components/icons/connect-as'
+
 /**
  * Illustrations
  */

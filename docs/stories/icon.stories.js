@@ -64,6 +64,8 @@ import {
   TaskIcon,
   PhoneIcon,
   MoreIcon,
+  SearchIcon,
+  ConnectAsIcon,
   Typography,
   Info
 } from '@ambler/andive'
@@ -136,7 +138,9 @@ const icons = [
   AccountIcon,
   FleetIcon,
   PhoneIcon,
-  MoreIcon
+  MoreIcon,
+  SearchIcon,
+  ConnectAsIcon
 ]
 
 function TimedColor({interval, colors, children}) {
@@ -159,20 +163,8 @@ function TimedColor({interval, colors, children}) {
   return children(color)
 }
 
-const newIcons = [
-  {Icon: PhoneIcon},
-  {Icon: MoreIcon},
-  {Icon: FleetIcon, invert: true},
-  {Icon: AccountIcon, invert: true}
-]
-const updatedIcons = [
-  {Icon: DashboardIcon, invert: true},
-  {Icon: RidesIcon, invert: true},
-  {Icon: MtIcon, invert: true},
-  {Icon: MfIcon, invert: true},
-  {Icon: MfuIcon, invert: true},
-  {Icon: InvoiceIcon, invert: true}
-]
+const newIcons = [{Icon: SearchIcon}, {Icon: ConnectAsIcon}, {Icon: PhoneIcon}, {Icon: MoreIcon}]
+const updatedIcons = []
 
 storiesOf('Assets|Icons', module)
   .add('New 👀', () => {
@@ -182,6 +174,11 @@ storiesOf('Assets|Icons', module)
           <Typography.Body1>Newly added icons</Typography.Body1>
         </Info>
         <Icons>
+          {newIcons.length === 0 ? (
+            <Info>
+              <Info.Label label="None" />
+            </Info>
+          ) : null}
           {newIcons.map(config => (
             <Showcase
               key={config.Icon.name}
@@ -198,6 +195,11 @@ storiesOf('Assets|Icons', module)
           <Typography.Body1>Recently updated icons</Typography.Body1>
         </Info>
         <Icons>
+          {updatedIcons.length === 0 ? (
+            <Info>
+              <Info.Label label="None" />
+            </Info>
+          ) : null}
           {updatedIcons.map(config => (
             <Showcase
               key={config.Icon.name}
