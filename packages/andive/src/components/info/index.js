@@ -9,7 +9,7 @@ import Block from './block'
 
 const Info = styled.div`
   padding: ${props => props.theme.padding}px;
-  width: ${props => (props.fullWidth ? '100%' : 'auto')};
+  width: ${props => (props.autoWidth ? 'auto' : '100%')};
 
   ${({hasIcon, iconSize}) =>
     hasIcon &&
