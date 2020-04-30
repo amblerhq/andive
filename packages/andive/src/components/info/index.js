@@ -9,7 +9,7 @@ import Block from './block'
 
 const Info = styled.div`
   padding: ${props => props.theme.padding}px;
-  width: ${props => (props.autoWidth ? 'auto' : '100%')};
+  width: 100%;
 
   ${({hasIcon, iconSize}) =>
     hasIcon &&
@@ -27,11 +27,11 @@ const InfoIcon = styled.div`
   top: 8px;
 `
 
-const InfoComponent = forwardRef(function InfoComponent({children, icon, iconSize = 24, fullWidth, ...props}, ref) {
+const InfoComponent = forwardRef(function InfoComponent({children, icon, iconSize = 24, ...props}, ref) {
   const hasIcon = !!icon
 
   return (
-    <Info ref={ref} hasIcon={hasIcon} iconSize={iconSize} fullWidth={fullWidth} {...props}>
+    <Info ref={ref} hasIcon={hasIcon} iconSize={iconSize} {...props}>
       {hasIcon && <InfoIcon>{icon}</InfoIcon>}
       {children}
     </Info>
