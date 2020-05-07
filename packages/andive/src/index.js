@@ -220,6 +220,8 @@ export {default as NativeCheckbox} from './components/native/checkbox'
 
 export {default as Accordeon} from './components/accordeon'
 
+export {default as Box} from './components/box'
+
 export {defaultTheme, default as ThemeProvider} from './components/theme-provider'
 
 import * as TypographyComponents from './components/typography'
