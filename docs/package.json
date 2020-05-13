@@ -6,8 +6,7 @@
   "license": "MIT",
   "scripts": {
     "dev": "start-storybook -p 3042 --quiet",
-    "build": "build-storybook -c .storybook -o public",
-    "publish": "yarn build && now public"
+    "build": "build-storybook -c .storybook -o public --quiet"
   },
   "dependencies": {
     "@ambler/andive": "0.13.1-ci.17",
