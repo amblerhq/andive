@@ -7,12 +7,16 @@ import { Story, Meta } from '@storybook/addon-docs/blocks';
 <img width="300" src="https://files-ncvscphfon.now.sh/" alt="Andive UI Library" />
 
 Style `<div />` the Ambler way.
-
-[Storybook](https://andive.ambler.fr)
+- Master storybook: [(@ambler/andive@latest)](https://andive.ambler.fr)
+- Canary storybook: [(@ambler/andive@ci)](https://andive-ci.ambler.fr)
 
 # Getting started
 
 - `yarn add @ambler/andive react react-dom styled-components`
+
+For the canary build:
+
+- `yarn add @ambler/andive@ci react react-dom styled-components`
 
 ## Any React project
 
@@ -40,63 +44,68 @@ function HelloWorld() {
 </head>
 ```
 
-3. Enjoy the set of components and rules andive provides :)
+3. Enjoy the set of components andive provides :)
 
 # API
 
 To style our components we use `styled-components`. To avoid dependency collisions and let you configure your `styled-components` it is set as a _peerDependency_
 
-## Typography
-
-TODO
-
 ## Components
 
+### Atom
+
 TODO
 
-# Contribution
+### Molecule
+
+TODO
+
+# Contribution & Release
 
 ## How to release
 
 If you are working on andive and want to share some unstable future features or refactor, do it from the canary channel. The canary channel mirrors the stable one.
 
-### Canary workflow
+### Canary workflow (contributor)
 
-Manually you:
+On your computer:
 
+- clone the repository
 - checkout the canary branch
-- commit some changes
-- `yarn release:canary`
-- `git push origin canary --follow-tags`
+- create your own branch from the latest origin/canary
+- commit your contribution and push your branch
 
-Then CircleCI does:
+On github:
+- create a PR describing what's new and referencing the issue when possible
+- a reviewer will check your code and maybe discuss or ask for changes
+- once the PR is validated, it will be merged into canary
 
-- build the package
-- TODO: test (removed because no test exists as of now)
-- push to npm with the @canary tag
+On CircleCI (automatic):
+- builds the package
+- pushes to npm under the @canary tag
 
-### Production workflow
+On github (automatic):
+- deploy the docs/ project under https://andive-ci.ambler.fr with the Vercel/now integration
 
-Manullay you:
+### Production workflow (maintainer)
 
+To release, once the canary branch it stable and ready.
+
+On your computer:
+
+- clone the repository
 - checkout the master branch
-- merge canary, when ready and stable, into master
-- `yarn release`
+- merge canary branch onto master
+- `yarn release` to bump the @ambler/andive package version & tag the commit
 - `git push origin master --follow-tags`
 
-Then CircleCI does:
+On CircleCI (automatic):
 
-- build the package
-- push to npm with the default @latest tag
+- builds the package
+- pushes to npm under the @latest tag
 
-### Publish the storybook
-
-After a release is done, deploy the according storybook with:
-
-- `yarn share`
-
-- if canary: `now alias <outputed-now-build-url> andive-canary.ambler.fr`
-- else if prod: `now alias <outputed-now-build-url> andive.ambler.fr`
+On github (automatic):
+- deploy the docs/ project under  https://andive.ambler.fr with the Vercel/now integration
 
 ## Project dependencies and setup
 
