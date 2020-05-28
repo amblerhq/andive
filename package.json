@@ -34,7 +34,8 @@
   },
   "workspaces": [
     "packages/*",
-    "docs"
+    "docs",
+    "docs-next"
   ],
   "dependencies": {}
 }

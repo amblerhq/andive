@@ -1,0 +1,21 @@
+{
+  "name": "with-styled-components",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "@ambler/andive": "0.13.1-ci.20",
+    "next": "latest",
+    "react": "^16.8.0",
+    "react-dom": "^16.8.0",
+    "styled-components": "^5.0.0"
+  },
+  "devDependencies": {
+    "babel-plugin-styled-components": "^1.8.0",
+    "babel-plugin-transform-define": "2.0.0"
+  },
+  "license": "ISC"
+}

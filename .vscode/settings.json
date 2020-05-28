@@ -8,9 +8,9 @@
   ],
   "eslint.enable": true,
   "eslint.packageManager": "yarn",
-  "editor.formatOnSave": false,
+  "editor.formatOnSave": true,
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true
   },
-  "editor.codeActionsOnSaveTimeout": 5000
+  "eslint.alwaysShowStatus": true,
 }
