@@ -22,6 +22,7 @@ function Overlay(props: Props) {
 
   return (
       <AnimatePresence>
+        <div style={{overflowX: 'hidden', height: '100%'}}>
           <OverlayRoot
             initial={{opacity: 0, x: 200}}
             animate={{opacity: 1, x: 0}}
@@ -29,6 +30,7 @@ function Overlay(props: Props) {
           >
             {children}
           </OverlayRoot>
+          </div>
       </AnimatePresence>
   )
 }
