@@ -95,7 +95,11 @@ const DefaultButton = styled(ResetButton)`
     css`
       min-width: ${props => (props.small ? 0 : props.minWidth)}px;
     `}
-
+  ${props =>
+    props.width &&
+    css`
+      width: ${props => props.width}px;
+    `}
   ${props =>
     props.disabled &&
     css`
@@ -331,7 +335,8 @@ Button.propTypes = {
   loading: PropTypes.bool,
   mobile: PropTypes.bool,
   wrap: PropTypes.bool,
-  fill: PropTypes.bool
+  fill: PropTypes.bool,
+  width: PropTypes.number
 }
 
 export default Button
