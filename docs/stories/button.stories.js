@@ -7,7 +7,7 @@ import Showcase from './showcase'
 
 const CustomButton = styled(Button)`
   button {
-    background: pink;
+    background: midnightblue;
   }
 `
 
@@ -244,6 +244,6 @@ storiesOf('API|Button', module)
       </>
     )
   })
-  .add('Forward className', () => {
-    return <CustomButton label="Custom button" />
+  .add('Customize style', () => {
+    return <CustomButton label="👆" small width={100} />
   })
