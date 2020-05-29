@@ -245,5 +245,5 @@ storiesOf('API|Button', module)
     )
   })
   .add('Customize style', () => {
-    return <CustomButton label="👆" small width={100} />
+    return <CustomButton label="⚠️" small width={100} />
   })
