@@ -142,7 +142,9 @@ const icons = [
   PhoneIcon,
   MoreIcon,
   SearchIcon,
-  ConnectAsIcon
+  ConnectAsIcon,
+  PrebookIcon,
+  BookIcon
 ]
 
 function TimedColor({interval, colors, children}) {
@@ -187,11 +189,11 @@ storiesOf('Assets|Icons', module)
             <Icons>
               {newIcons.map(config => (
                 <Showcase
-                  key={config.Icon.name}
+                  key={config.Icon && config.Icon.name}
                   variant="squared"
                   size={160}
                   invert={config.invert}
-                  legend={config.Icon.name}
+                  legend={config.Icon && config.Icon.name}
                 >
                   <config.Icon />
                 </Showcase>
@@ -207,11 +209,11 @@ storiesOf('Assets|Icons', module)
             <Icons>
               {updatedIcons.map(config => (
                 <Showcase
-                  key={config.Icon.name}
+                  key={config.Icon && config.Icon.name}
                   variant="squared"
                   size={160}
                   invert={config.invert}
-                  legend={config.Icon.name}
+                  legend={config.Icon && config.Icon.name}
                 >
                   <config.Icon />
                 </Showcase>
