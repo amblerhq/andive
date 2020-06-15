@@ -65,6 +65,8 @@ import {
   PhoneIcon,
   MoreIcon,
   SearchIcon,
+  BookIcon,
+  PrebookIcon,
   ConnectAsIcon,
   Typography,
   Info
@@ -163,55 +165,60 @@ function TimedColor({interval, colors, children}) {
   return children(color)
 }
 
-const newIcons = [{Icon: SearchIcon}, {Icon: ConnectAsIcon}, {Icon: PhoneIcon}, {Icon: MoreIcon}]
+const newIcons = [
+  {Icon: BookIcon},
+  {Icon: PrebookIcon},
+  {Icon: SearchIcon},
+  {Icon: ConnectAsIcon},
+  {Icon: PhoneIcon},
+  {Icon: MoreIcon}
+]
 const updatedIcons = []
 
 storiesOf('Assets|Icons', module)
   .add('New 👀', () => {
     return (
       <>
-        <Info>
-          <Typography.Body1>Newly added icons</Typography.Body1>
-        </Info>
-        <Icons>
-          {newIcons.length === 0 ? (
+        {newIcons.length ? (
+          <>
             <Info>
-              <Info.Label label="None" />
+              <Typography.Body1>Newly added icons</Typography.Body1>
             </Info>
-          ) : null}
-          {newIcons.map(config => (
-            <Showcase
-              key={config.Icon.name}
-              variant="squared"
-              size={160}
-              invert={config.invert}
-              legend={config.Icon.name}
-            >
-              <config.Icon />
-            </Showcase>
-          ))}
-        </Icons>
-        <Info>
-          <Typography.Body1>Recently updated icons</Typography.Body1>
-        </Info>
-        <Icons>
-          {updatedIcons.length === 0 ? (
+            <Icons>
+              {newIcons.map(config => (
+                <Showcase
+                  key={config.Icon.name}
+                  variant="squared"
+                  size={160}
+                  invert={config.invert}
+                  legend={config.Icon.name}
+                >
+                  <config.Icon />
+                </Showcase>
+              ))}
+            </Icons>
+          </>
+        ) : null}
+        {updatedIcons.length ? (
+          <>
             <Info>
-              <Info.Label label="None" />
+              <Typography.Body1>Recently updated icons</Typography.Body1>
             </Info>
-          ) : null}
-          {updatedIcons.map(config => (
-            <Showcase
-              key={config.Icon.name}
-              variant="squared"
-              size={160}
-              invert={config.invert}
-              legend={config.Icon.name}
-            >
-              <config.Icon />
-            </Showcase>
-          ))}
-        </Icons>
+            <Icons>
+              {updatedIcons.map(config => (
+                <Showcase
+                  key={config.Icon.name}
+                  variant="squared"
+                  size={160}
+                  invert={config.invert}
+                  legend={config.Icon.name}
+                >
+                  <config.Icon />
+                </Showcase>
+              ))}
+            </Icons>
+          </>
+        ) : null}
       </>
     )
   })
