@@ -130,6 +130,10 @@ export {default as SearchIcon} from './components/icons/search'
 
 export {default as ConnectAsIcon} from './components/icons/connect-as'
 
+export {default as Book} from './components/icons/book'
+
+export {default as Prebook} from './components/icons/prebook'
+
 /**
  * Illustrations
  */
