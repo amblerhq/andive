@@ -2,10 +2,10 @@
 # yarn lockfile v1
 
 
-"@ambler/andive@0.13.1-ci.17":
-  version "0.13.1-ci.17"
-  resolved "https://registry.yarnpkg.com/@ambler/andive/-/andive-0.13.1-ci.17.tgz#a5aa42d3687a491c2bd3d8ef50a8694cf761db16"
-  integrity sha512-HAbkrf74hT1fGUj+3LOYfpMz87tZUTuTiv34rJMImjnSY+pORfsMNXl4Yo/27W+eU/cbYXM6SghFcbWc/gArUg==
+"@ambler/andive@0.13.1-ci.25":
+  version "0.13.1-ci.25"
+  resolved "https://registry.yarnpkg.com/@ambler/andive/-/andive-0.13.1-ci.25.tgz#c2d339b53426829cd8f1f98e4955948915920285"
+  integrity sha512-dstg4fXTKI/TyyfVbSWZLKM9xc9TsZJkQDiRsD6JeKLO9dtBNq24siIleUawISoklAbm/0+A+kL0hunjw0qvaw==
   dependencies:
     lodash.throttle "4.1.1"
     prop-types "15.7.2"
