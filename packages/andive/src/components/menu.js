@@ -95,7 +95,9 @@ function OptionGroup({children, label, onClick, leftIcon, color = palette.medium
 OptionGroup.propTypes = {
   children: PropTypes.node,
   label: PropTypes.string,
-  onClick: PropTypes.func
+  onClick: PropTypes.func,
+  leftIcon: PropTypes.node,
+  color: PropTypes.string
 }
 
 const initialState = children => ({
