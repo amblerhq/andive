@@ -92,7 +92,8 @@ function DropdownMenu({
   bottomFootprint,
   buttonComponent = defaultButton,
   openVariant = OpenVariant.RIGHT,
-  loading = false
+  loading = false,
+  noScroll = false
 }) {
   const [open, setOpen] = React.useState(false)
   const [fullWidth, setFullWidth] = React.useState(false)
@@ -177,7 +178,13 @@ function DropdownMenu({
               fullWidth={fullWidth}
               openVariant={openVariant}
             >
-              <Menu ref={menuRef} onClick={onItemClick} bottomFootprint={bottomFootprint} mobile={fullWidth}>
+              <Menu
+                ref={menuRef}
+                onClick={onItemClick}
+                bottomFootprint={bottomFootprint}
+                mobile={fullWidth}
+                noScroll={noScroll}
+              >
                 {children}
               </Menu>
             </Dropdown>
@@ -203,6 +210,7 @@ DropdownMenu.propTypes = {
   bottomFootprint: PropTypes.number,
   buttonComponent: PropTypes.elementType,
   loading: PropTypes.bool,
+  noScroll: PropTypes.bool,
   openVariant: PropTypes.oneOf(Object.keys(OpenVariant))
 }
 

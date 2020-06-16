@@ -84,7 +84,7 @@ function DefaultStory() {
 
 const range = n => [...new Array(n).keys()]
 
-function LongStory() {
+function LongStory({noScroll = false}) {
   const [value, setValue] = React.useState('')
   const onClick = React.useCallback(id => setValue(id))
 
@@ -100,6 +100,7 @@ function LongStory() {
             onClick={onClick}
             valueToString={artistToString}
             value={value}
+            noScroll={noScroll}
           >
             {range(42).map(i => {
               return (
@@ -422,6 +423,7 @@ function WithOpenVariantUp() {
 storiesOf('API|DropdownMenu', module)
   .add('Default', () => <DefaultStory />)
   .add('With many options', () => <LongStory />)
+  .add('With many options (no scroll)', () => <LongStory noScroll />)
   .add('With Footer', () => <WithFooterStory />)
   .add('Navigate should scroll to top', () => <ScrollToStory />)
   .add('With disabled options', () => <WithDisabledOptions />)

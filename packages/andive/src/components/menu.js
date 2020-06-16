@@ -146,7 +146,10 @@ const Container = styled.div`
   padding: 0 8px;
 `
 
-const Menu = React.forwardRef(function Menu({className, children, bottomFootprint, onClick, mobile}, ref) {
+const Menu = React.forwardRef(function Menu(
+  {className, children, bottomFootprint, onClick, mobile, noScroll = false},
+  ref
+) {
   const [state, dispatch] = React.useReducer(reducer, initialState(children))
   const length = React.Children.count(state.options)
   const menuRef = React.useRef(null)
@@ -189,7 +192,9 @@ const Menu = React.forwardRef(function Menu({className, children, bottomFootprin
                     return () => {
                       if (child.type === OptionGroup) {
                         dispatch({type: 'navigate/push', options: children, label: child.props.label})
-                        scrollTo({x: 0, y: menuRect ? menuRect.top - 16 : 0, smooth: true})
+                        if (!noScroll) {
+                          scrollTo({x: 0, y: menuRect ? menuRect.top - 16 : 0, smooth: true})
+                        }
                       }
                     }
                   }
@@ -218,7 +223,8 @@ Menu.propTypes = {
   children: PropTypes.node,
   onClick: PropTypes.func,
   bottomFootprint: PropTypes.number,
-  mobile: PropTypes.bool
+  mobile: PropTypes.bool,
+  noScroll: PropTypes.bool
 }
 
 export default Menu
