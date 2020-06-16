@@ -80,9 +80,10 @@ const OptionGroupLayout = styled.div`
   cursor: pointer;
 `
 
-function OptionGroup({children, label, onClick, ...props}) {
+function OptionGroup({children, label, onClick, leftIcon, color, ...props}) {
   return (
     <OptionGroupLayout onClick={onClick(children)} {...props}>
+      {leftIcon && React.cloneElement(leftIcon, {color})}
       <Info>
         <Info.Label label={label} />
       </Info>
