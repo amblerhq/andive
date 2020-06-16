@@ -80,13 +80,23 @@ const OptionGroupLayout = styled.div`
   cursor: pointer;
 `
 
+const OptionGroupLabel = styled(Info)`
+  display: flex;
+`
+const IconWrapper = styled.div`
+  display: flex;
+  align-items: center;
+`
+
 function OptionGroup({children, label, onClick, leftIcon, color = palette.mediumPrimary, ...props}) {
   return (
     <OptionGroupLayout onClick={onClick(children)} {...props}>
-      {leftIcon && React.cloneElement(leftIcon, {color})}
-      <Info>
-        <Info.Label label={label} color={color} />
-      </Info>
+      <OptionGroupLabel>
+        <IconWrapper>{leftIcon && React.cloneElement(leftIcon, {color})}</IconWrapper>
+        <Info>
+          <Info.Label label={label} color={color} />
+        </Info>
+      </OptionGroupLabel>
       <ArrowRightIcon color={color} />
     </OptionGroupLayout>
   )
