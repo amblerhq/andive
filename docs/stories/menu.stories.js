@@ -1,6 +1,6 @@
 import React from 'react'
 import {storiesOf} from '@storybook/react'
-import {Info, Menu} from '@ambler/andive'
+import {Info, Menu, AmbulanceIcon, VslIcon} from '@ambler/andive'
 
 import Showcase from './showcase'
 
@@ -184,3 +184,27 @@ storiesOf('API|Menu', module)
   .add('Default', () => <DefaultStory />)
   .add('Deep', () => <DeepStory />)
   .add('OptionGroup navigate trigger scrollTo', () => <ScrollToStory />)
+  .add('Custom icon in OptionGroup', () => (
+    <>
+      <Showcase>
+        <div style={{display: 'flex', flexFlow: 'column nowrap', width: 300}}>
+          <Menu onClick={() => {}}>
+            <Menu.OptionGroup leftIcon={<AmbulanceIcon inline />} label="Ambulance">
+              <Menu.Option id="asap">
+                <Info>
+                  <Info.Label label="Dès que possible" />
+                </Info>
+              </Menu.Option>
+            </Menu.OptionGroup>
+            <Menu.OptionGroup leftIcon={<VslIcon inline />} label="TAP">
+              <Menu.Option id="asap">
+                <Info>
+                  <Info.Label label="Dès que possible" />
+                </Info>
+              </Menu.Option>
+            </Menu.OptionGroup>
+          </Menu>
+        </div>
+      </Showcase>
+    </>
+  ))

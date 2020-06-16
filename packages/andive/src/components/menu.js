@@ -80,14 +80,11 @@ const OptionGroupLayout = styled.div`
   cursor: pointer;
 `
 
-function OptionGroup({children, label, onClick, leftIcon, color = palette.mediumPrimary, ...props}) {
+function OptionGroup({children, label, onClick, leftIcon, ...props}) {
   return (
     <OptionGroupLayout onClick={onClick(children)} {...props}>
-      {leftIcon && React.cloneElement(leftIcon, {color})}
-      <Info>
-        <Info.Label label={label} color={color} />
-      </Info>
-      <ArrowRightIcon color={color} />
+      <Info>{leftIcon ? <Info.LabelIcon icon={leftIcon} label={label} /> : <Info.Label label={label} />}</Info>
+      <ArrowRightIcon color={palette.mediumPrimary} />
     </OptionGroupLayout>
   )
 }
@@ -96,8 +93,7 @@ OptionGroup.propTypes = {
   children: PropTypes.node,
   label: PropTypes.string,
   onClick: PropTypes.func,
-  leftIcon: PropTypes.node,
-  color: PropTypes.string
+  leftIcon: PropTypes.node
 }
 
 const initialState = children => ({
