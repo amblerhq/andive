@@ -57,12 +57,12 @@ function typeToColor(type) {
 
 const Toast = posed.div({
   enter: {
-    y: -64,
+    y: 0,
     delay: 300,
     transition: {duration: 250}
   },
   exit: {
-    y: 0,
+    y: 64,
     transition: {duration: 150}
   }
 })
@@ -74,7 +74,7 @@ const ToastContainerRoot = styled.div`
 
   z-index: ${ZIndexes.MODALS};
 
-  top: 100vh;
+  top: calc(100% - 64px);
   left: 0;
 
   width: 100vw;

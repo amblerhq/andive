@@ -7,10 +7,9 @@ import {fontFamily} from './typography'
 
 const meyerResetCss = css`
   /* http://meyerweb.com/eric/tools/css/reset/ 
-v2.0 | 20110126
-License: none (public domain)
-*/
-
+    v2.0 | 20110126
+    License: none (public domain)
+  */
   html,
   body,
   div,
@@ -149,8 +148,9 @@ const andiveResetCss = css`
     text-decoration: none;
   }
 
-  svg {
-    // fill: transparent;
+  button {
+    /* iPhone SE Safari browser injected CSS override */
+    margin: 0;
   }
 `
 
