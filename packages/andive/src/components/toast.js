@@ -55,26 +55,15 @@ function typeToColor(type) {
   }
 }
 
-const Toast = posed.div({
-  enter: {
-    y: 0,
-    delay: 300,
-    transition: {duration: 250}
-  },
-  exit: {
-    y: 64,
-    transition: {duration: 150}
-  }
-})
-
 const toastHeight = 64
 
 const ToastContainerRoot = styled.div`
+  pointer-events: none;
   position: fixed;
 
   z-index: ${ZIndexes.MODALS};
 
-  top: calc(100% - 64px);
+  bottom: -${toastHeight}px;
   left: 0;
 
   width: 100vw;
@@ -82,6 +71,8 @@ const ToastContainerRoot = styled.div`
 `
 
 const ToastComponent = styled.div`
+  pointer-events: none;
+
   font-size: 24px;
   color: white;
   height: ${toastHeight}px;
@@ -91,10 +82,22 @@ const ToastComponent = styled.div`
   justify-content: center;
   align-items: center;
 
-  > svg {
+  & > :last-child {
     margin-left: 15px;
   }
 `
+
+const Toast = posed.div({
+  enter: {
+    y: -toastHeight,
+    delay: 300,
+    transition: {duration: 250}
+  },
+  exit: {
+    y: 0,
+    transition: {duration: 150}
+  }
+})
 
 export default function ToastContainer() {
   const [toastValue, setState] = useState(undefined)
