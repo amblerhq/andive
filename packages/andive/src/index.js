@@ -136,6 +136,10 @@ export {default as PrebookIcon} from './components/icons/prebook'
 
 export {default as GyroIcon} from './components/icons/gyro'
 
+export {default as PickUpIcon} from './components/icons/pick-up'
+
+export {default as DropOffIcon} from './components/icons/drop-off'
+
 /**
  * Illustrations
  */

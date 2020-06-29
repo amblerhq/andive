@@ -69,6 +69,8 @@ import {
   PrebookIcon,
   ConnectAsIcon,
   GyroIcon,
+  PickUpIcon,
+  DropOffIcon,
   Typography,
   Info
 } from '@ambler/andive'
@@ -146,7 +148,9 @@ const icons = [
   ConnectAsIcon,
   PrebookIcon,
   BookIcon,
-  GyroIcon
+  GyroIcon,
+  PickUpIcon,
+  DropOffIcon
 ]
 
 function TimedColor({interval, colors, children}) {
@@ -170,6 +174,8 @@ function TimedColor({interval, colors, children}) {
 }
 
 const newIcons = [
+  {Icon: PickUpIcon},
+  {Icon: DropOffIcon},
   {Icon: GyroIcon},
   {Icon: BookIcon},
   {Icon: PrebookIcon},
