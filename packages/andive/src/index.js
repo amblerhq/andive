@@ -134,6 +134,8 @@ export {default as BookIcon} from './components/icons/book'
 
 export {default as PrebookIcon} from './components/icons/prebook'
 
+export {default as GyroIcon} from './components/icons/gyro'
+
 /**
  * Illustrations
  */
