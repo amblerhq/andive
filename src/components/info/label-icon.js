@@ -8,7 +8,7 @@ const LabelIcon = styled.div`
   width: 100%;
   display: flex;
   flex-flow: row nowrap;
-  align-items: center;
+  align-items: flex-start;
 
   ${props =>
     props.stickyIcon &&
