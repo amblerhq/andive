@@ -88,6 +88,11 @@ const Error = styled(Body3)`
   color: ${palette.darkRadishRed};
   background-color: ${palette.lightRadishRed};
   border-radius: 4px;
+
+  & a {
+    text-decoration: underline;
+    color: ${palette.darkRadishRed};
+  }
 `
 
 const Icon = styled.div`
