@@ -2,10 +2,11 @@ import React from 'react'
 
 import Ambulance from '../../../img/icons/ambulance.svg'
 import Icon from '../icon'
+import {palette} from '../..'
 
-const AmbulanceIcon = props => {
+const AmbulanceIcon = ({color = palette.darkPrimary, ...rest}) => {
   return (
-    <Icon {...props}>
+    <Icon color={color} {...rest}>
       <Ambulance />
     </Icon>
   )

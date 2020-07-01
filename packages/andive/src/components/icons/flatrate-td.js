@@ -4,10 +4,9 @@ import FlatrateTd from '../../../img/icons/flatrate-td.svg'
 import Icon from '../icon'
 import {palette} from '../..'
 
-const FlatrateTdIcon = ({color, ...props}) => {
-  const isNativeColor = color === palette.white || color === 'white'
+const FlatrateTdIcon = ({color = palette.white, ...rest}) => {
   return (
-    <Icon color={isNativeColor ? undefined : color} {...props}>
+    <Icon color={color} {...rest}>
       <FlatrateTd />
     </Icon>
   )

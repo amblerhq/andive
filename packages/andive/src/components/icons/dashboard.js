@@ -2,10 +2,11 @@ import React from 'react'
 
 import Dashboard from '../../../img/icons/dashboard.svg'
 import Icon from '../icon'
+import {palette} from '../..'
 
-const DashboardIcon = props => {
+const DashboardIcon = ({color = palette.white, ...rest}) => {
   return (
-    <Icon {...props}>
+    <Icon color={color} {...rest}>
       <Dashboard />
     </Icon>
   )

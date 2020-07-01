@@ -2,10 +2,11 @@ import React from 'react'
 
 import CheckboxOff from '../../../img/icons/off-squared.svg'
 import Icon from '../icon'
+import {palette} from '../..'
 
-const CheckboxOffIcon = props => {
+const CheckboxOffIcon = ({color = palette.mediumBerryBlue, ...rest}) => {
   return (
-    <Icon {...props}>
+    <Icon color={color} {...rest}>
       <CheckboxOff />
     </Icon>
   )

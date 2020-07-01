@@ -2,10 +2,11 @@ import React from 'react'
 
 import Map from '../../../img/icons/map.svg'
 import Icon from '../icon'
+import {palette} from '../..'
 
-const MapIcon = props => {
+const MapIcon = ({color = palette.mediumBerryBlue, ...rest}) => {
   return (
-    <Icon {...props}>
+    <Icon color={color} {...rest}>
       <Map />
     </Icon>
   )

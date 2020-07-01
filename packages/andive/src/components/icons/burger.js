@@ -2,10 +2,11 @@ import React from 'react'
 
 import Burger from '../../../img/icons/burger.svg'
 import Icon from '../icon'
+import {palette} from '../..'
 
-const BurgerIcon = props => {
+const BurgerIcon = ({color = palette.mediumBerryBlue, ...rest}) => {
   return (
-    <Icon {...props}>
+    <Icon color={color} {...rest}>
       <Burger />
     </Icon>
   )

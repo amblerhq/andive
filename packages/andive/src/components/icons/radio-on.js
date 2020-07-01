@@ -2,10 +2,11 @@ import React from 'react'
 
 import RadioOn from '../../../img/icons/on-round.svg'
 import Icon from '../icon'
+import {palette} from '../..'
 
-const RadioOnIcon = props => {
+const RadioOnIcon = ({color = palette.mediumBerryBlue, ...rest}) => {
   return (
-    <Icon {...props}>
+    <Icon color={color} {...rest}>
       <RadioOn />
     </Icon>
   )

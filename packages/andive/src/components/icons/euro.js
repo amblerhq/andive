@@ -2,10 +2,11 @@ import React from 'react'
 
 import Euro from '../../../img/icons/euro.svg'
 import Icon from '../icon'
+import {palette} from '../..'
 
-const EuroIcon = props => {
+const EuroIcon = ({color = palette.white, ...rest}) => {
   return (
-    <Icon {...props}>
+    <Icon color={color} {...rest}>
       <Euro />
     </Icon>
   )

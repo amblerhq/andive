@@ -2,10 +2,11 @@ import React from 'react'
 
 import Agreement from '../../../img/icons/agreement.svg'
 import Icon from '../icon'
+import {palette} from '../..'
 
-const AgreementIcon = props => {
+const AgreementIcon = ({color = palette.white, ...rest}) => {
   return (
-    <Icon {...props}>
+    <Icon color={color} {...rest}>
       <Agreement />
     </Icon>
   )

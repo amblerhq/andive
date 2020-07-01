@@ -2,10 +2,11 @@ import React from 'react'
 
 import Task from '../../../img/icons/task.svg'
 import Icon from '../icon'
+import {palette} from '../..'
 
-const TaskIcon = props => {
+const TaskIcon = ({color = palette.white, ...rest}) => {
   return (
-    <Icon {...props}>
+    <Icon color={color} {...rest}>
       <Task />
     </Icon>
   )

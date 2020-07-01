@@ -2,10 +2,11 @@ import React from 'react'
 
 import Mf from '../../../img/icons/mf.svg'
 import Icon from '../icon'
+import {palette} from '../..'
 
-const MfIcon = props => {
+const MfIcon = ({color = palette.white, ...rest}) => {
   return (
-    <Icon {...props}>
+    <Icon color={color} {...rest}>
       <Mf />
     </Icon>
   )

@@ -2,16 +2,17 @@ import React from 'react'
 
 import Cerfa from '../../../img/icons/cerfa.svg'
 import Icon from '../icon'
+import {palette} from '../..'
 
-const CerfaIcon = props => {
+const CerfaIcon = ({color = palette.white, ...rest}) => {
   return (
-    <Icon {...props}>
-      <Cerfa color={props.color} />
+    <Icon color={color} {...rest}>
+      <Cerfa />
     </Icon>
   )
 }
 
-Cerfa.size = 24
+CerfaIcon.size = 24
 
 export default CerfaIcon
 export const CerfaSvg = Cerfa

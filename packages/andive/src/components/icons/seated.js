@@ -2,10 +2,11 @@ import React from 'react'
 
 import Seated from '../../../img/icons/seated.svg'
 import Icon from '../icon'
+import {palette} from '../..'
 
-const SeatedIcon = props => {
+const SeatedIcon = ({color = palette.darkPrimary, ...rest}) => {
   return (
-    <Icon {...props}>
+    <Icon color={color} {...rest}>
       <Seated />
     </Icon>
   )

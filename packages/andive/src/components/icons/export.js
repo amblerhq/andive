@@ -2,10 +2,11 @@ import React from 'react'
 
 import Export from '../../../img/icons/export.svg'
 import Icon from '../icon'
+import {palette} from '../..'
 
-const ExportIcon = props => {
+const ExportIcon = ({color = palette.mediumBerryBlue, ...rest}) => {
   return (
-    <Icon {...props}>
+    <Icon color={color} {...rest}>
       <Export />
     </Icon>
   )
