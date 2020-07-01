@@ -26,7 +26,6 @@ function DropdownComponent({
   error,
   ...props
 }) {
-  const color = disabled && palette.darkGrey
   const selectProps = {
     label,
     placeholder,
@@ -42,7 +41,7 @@ function DropdownComponent({
 
   return (
     <Dropdown fullWidth={fullWidth} {...props}>
-      <Body1 color={color}>{label}</Body1>
+      <Body1 color={palette.mediumPrimary}>{label}</Body1>
       {disabled ? <Body1 color={palette.darkGrey}>{value || '—'}</Body1> : <Select {...selectProps} />}
     </Dropdown>
   )
