@@ -1,28 +1,17 @@
 import React from 'react'
-import PropTypes from 'prop-types'
-import styled from 'styled-components'
 
 import Question from '../../../img/icons/question.svg'
 import Icon from '../icon'
 
-const QuestionOverride = styled(Question)`
-  & > g > path:nth-of-type(2) {
-    fill: ${props => props.color};
-  }
-`
-
 const QuestionIcon = props => {
   return (
     <Icon {...props}>
-      <QuestionOverride color={props.color} />
+      <Question />
     </Icon>
   )
 }
 
-QuestionIcon.propTypes = {
-  color: PropTypes.string
-}
-QuestionOverride.size = 24
+QuestionIcon.size = 24
 
 export default QuestionIcon
 export const QuestionSvg = Question
