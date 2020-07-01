@@ -19,11 +19,12 @@ const LabelIcon = styled.div<Pick<Props, "stickyIcon" | "iconSize">>`
 `
 
 const Label = styled(Body1)`
-  padding-left: 16px;
+  padding-left: 8px;
 `
 
 const IconWrapper = styled.div<Pick<Props, "stickyIcon" | "iconSize">>`
-  width: ${props => props.iconSize}px;
+  width: ${props => props.iconSize + 8}px;
+  padding: 4px;
 
   ${props =>
     props.stickyIcon &&
