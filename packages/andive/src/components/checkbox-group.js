@@ -2,14 +2,26 @@ import React, {createContext, useEffect, useState, useCallback, useMemo} from 'r
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
-import {error} from '../constants/palette'
-import {Body2} from './typography'
+import * as palette from '../constants/palette'
+import {Body3} from './typography'
+import Box from './box'
 
 export const CheckboxGroupContext = createContext(null)
 
-const Error = styled(Body2)`
-  color: ${error};
-  padding: 4px 8px 8px 8px;
+const Error = styled(Body3)`
+  padding: 8px 16px;
+  color: ${palette.darkRadishRed};
+  background-color: ${palette.lightRadishRed};
+  border-radius: 4px;
+
+  & a {
+    text-decoration: underline;
+    color: ${palette.darkRadishRed};
+  }
+`
+
+const FlexBox = styled(Box)`
+  display: flex;
 `
 
 function CheckboxGroup({children, onChange, value, radio, error, ...props}) {
@@ -53,7 +65,11 @@ function CheckboxGroup({children, onChange, value, radio, error, ...props}) {
   return (
     <div {...props}>
       <CheckboxGroupContext.Provider value={contextValue}>{children}</CheckboxGroupContext.Provider>
-      {error && <Error>{error}</Error>}
+      {error && (
+        <FlexBox>
+          <Error>{error}</Error>
+        </FlexBox>
+      )}
     </div>
   )
 }
