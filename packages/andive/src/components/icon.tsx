@@ -2,8 +2,6 @@ import React from 'react'
 import { ReactNodeLike } from 'prop-types'
 import styled from 'styled-components'
 
-import {Body1} from './typography'
-
 const Icon = styled.div<Pick<Props, 'align' | 'direction'>>`
   width: 100%;
   display: flex;
@@ -13,28 +11,18 @@ const Icon = styled.div<Pick<Props, 'align' | 'direction'>>`
 
 `
 
-const IconWrapper = styled.div<Pick<Props, 'iconSize' | 'padding'>>`
+const IconWrapper = styled.div<Pick<Props, 'iconSize'>>`
   display: flex;
+  flex: 0 0 ${({iconSize}) => iconSize}px;
   justify-content: center;
   align-items: center;
-  ${({iconSize, padding}) =>
-    iconSize &&
-    `
-    width: ${iconSize + (padding ? 2 * padding : 0)}px;
-    height: ${iconSize + (padding ? 2 * padding : 0)}px;
-  `}
-  ${({padding}) => padding && `padding: ${padding}px;`}
-`
-
-const ChildrenWrapper = styled<any>(Body1)`
-  align-self: center;
+  height: ${({iconSize}) => iconSize}px;
 `
 
 interface Props {
   className?: string
   icon: ReactNodeLike
   iconSize?: number
-  padding?: number,
   align?: string,
   direction?: string,
   children?: ReactNodeLike
@@ -43,16 +31,15 @@ interface Props {
 export default function IconComponent({
   className,
   icon,
-  iconSize = 32,
-  padding = 4,
+  iconSize = 40,
   align = "flex-start",
   direction,
   children
 }: Props) {
   return (
     <Icon className={className} align={align} direction={direction}>
-      <IconWrapper iconSize={iconSize} padding={padding}>{icon}</IconWrapper>
-      {children && <ChildrenWrapper>{children}</ChildrenWrapper>}
+      <IconWrapper iconSize={iconSize}>{icon}</IconWrapper>
+      {children}
     </Icon>
   )
 }
