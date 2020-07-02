@@ -1,13 +1,13 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22">
     <g fill="none" fill-rule="evenodd">
-        <g stroke="#054752" transform="translate(2 6)">
+        <g stroke="currentcolor" transform="translate(2 6)">
             <circle cx="3.5" cy="10.722" r="1.5"/>
             <circle cx="13.5" cy="10.722" r="1.5"/>
             <path stroke-linecap="round" d="M5 10.722h6.64"/>
             <path stroke-linejoin="round" d="M2.233 10.722H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h11.225a2 2 0 0 1 1.641.858l2.776 3.988A2 2 0 0 1 18 5.988v3.734a1 1 0 0 1-1 1h-2"/>
             <path d="M0 4.776h17.35"/>
         </g>
-        <path stroke="#054752" stroke-linecap="round" d="M11 3.987L9.675 2.663M16 3.987l1.324-1.324M13.5 2.886V1"/>
-        <path fill="#054752" d="M14.928 6a1.5 1.5 0 0 0-3 0c0 .314 3 .29 3 0z"/>
+        <path stroke="currentcolor" stroke-linecap="round" d="M11 3.987L9.675 2.663M16 3.987l1.324-1.324M13.5 2.886V1"/>
+        <path fill="currentcolor" d="M14.928 6a1.5 1.5 0 0 0-3 0c0 .314 3 .29 3 0z"/>
     </g>
 </svg>

@@ -2,10 +2,11 @@ import React from 'react'
 
 import Lying from '../../../img/icons/lying.svg'
 import Icon from '../icon'
+import {palette} from '../..'
 
-const LyingIcon = props => {
+const LyingIcon = ({color = palette.darkPrimary, ...rest}) => {
   return (
-    <Icon {...props}>
+    <Icon color={color} {...rest}>
       <Lying />
     </Icon>
   )

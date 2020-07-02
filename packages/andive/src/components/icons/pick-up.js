@@ -2,10 +2,11 @@ import React from 'react'
 
 import PickUp from '../../../img/icons/pick-up.svg'
 import Icon from '../icon'
+import {palette} from '../..'
 
-const PickUpIcon = props => {
+const PickUpIcon = ({color = palette.darkPrimary, ...rest}) => {
   return (
-    <Icon {...props}>
+    <Icon color={color} {...rest}>
       <PickUp />
     </Icon>
   )

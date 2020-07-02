@@ -1,28 +1,18 @@
 import React from 'react'
-import PropTypes from 'prop-types'
-import styled from 'styled-components'
 
 import Mt from '../../../img/icons/mt.svg'
 import Icon from '../icon'
+import {palette} from '../..'
 
-const MtOverride = styled(Mt)`
-  & path:nth-of-type(3) {
-    fill: ${props => props.color};
-  }
-`
-
-const MtIcon = props => {
+const MtIcon = ({color = palette.white, ...rest}) => {
   return (
-    <Icon {...props}>
-      <MtOverride color={props.color} />
+    <Icon color={color} {...rest}>
+      <Mt />
     </Icon>
   )
 }
 
-MtIcon.propTypes = {
-  color: PropTypes.string
-}
-MtOverride.size = 40
+MtIcon.size = 40
 
 export default MtIcon
 export const MtSvg = Mt

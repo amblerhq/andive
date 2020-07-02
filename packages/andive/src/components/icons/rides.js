@@ -2,10 +2,11 @@ import React from 'react'
 
 import Rides from '../../../img/icons/rides.svg'
 import Icon from '../icon'
+import {palette} from '../..'
 
-const RidesIcon = props => {
+const RidesIcon = ({color = palette.white, ...rest}) => {
   return (
-    <Icon {...props}>
+    <Icon color={color} {...rest}>
       <Rides />
     </Icon>
   )

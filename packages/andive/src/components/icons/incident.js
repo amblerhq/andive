@@ -2,10 +2,11 @@ import React from 'react'
 
 import Incident from '../../../img/icons/incident.svg'
 import Icon from '../icon'
+import {palette} from '../..'
 
-const IncidentIcon = props => {
+const IncidentIcon = ({color = palette.darkPotatoYellow, ...rest}) => {
   return (
-    <Icon {...props}>
+    <Icon color={color} {...rest}>
       <Incident />
     </Icon>
   )

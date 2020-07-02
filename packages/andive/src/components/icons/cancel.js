@@ -2,10 +2,11 @@ import React from 'react'
 
 import Cancel from '../../../img/icons/cancel.svg'
 import Icon from '../icon'
+import {palette} from '../..'
 
-const CancelIcon = props => {
+const CancelIcon = ({color = palette.mediumBerryBlue, ...rest}) => {
   return (
-    <Icon {...props}>
+    <Icon color={color} {...rest}>
       <Cancel />
     </Icon>
   )

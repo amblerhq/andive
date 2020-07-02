@@ -2,10 +2,11 @@ import React from 'react'
 
 import Flag from '../../../img/icons/flag.svg'
 import Icon from '../icon'
+import {palette} from '../..'
 
-const FlagIcon = props => {
+const FlagIcon = ({color = palette.mediumBerryBlue, ...rest}) => {
   return (
-    <Icon {...props}>
+    <Icon color={color} {...rest}>
       <Flag />
     </Icon>
   )

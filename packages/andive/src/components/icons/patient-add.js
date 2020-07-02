@@ -2,10 +2,11 @@ import React from 'react'
 
 import PatientAdd from '../../../img/icons/patient-add.svg'
 import Icon from '../icon'
+import {palette} from '../..'
 
-const PatientAddIcon = props => {
+const PatientAddIcon = ({color = palette.mediumBeetrootPurple, ...rest}) => {
   return (
-    <Icon {...props}>
+    <Icon color={color} {...rest}>
       <PatientAdd />
     </Icon>
   )

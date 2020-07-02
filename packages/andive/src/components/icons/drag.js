@@ -3,9 +3,9 @@ import React from 'react'
 import Drag from '../../../img/icons/drag.svg'
 import Icon from '../icon'
 
-const DragIcon = props => {
+const DragIcon = ({color = '#ddd', ...rest}) => {
   return (
-    <Icon {...props}>
+    <Icon color={color} {...rest}>
       <Drag />
     </Icon>
   )

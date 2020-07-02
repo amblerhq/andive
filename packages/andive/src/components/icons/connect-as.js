@@ -2,10 +2,11 @@ import React from 'react'
 
 import ConnectAs from '../../../img/icons/connect-as.svg'
 import Icon from '../icon'
+import {palette} from '../..'
 
-const ConnectAsIcon = props => {
+const ConnectAsIcon = ({color = palette.mediumBerryBlue, ...rest}) => {
   return (
-    <Icon {...props}>
+    <Icon color={color} {...rest}>
       <ConnectAs />
     </Icon>
   )

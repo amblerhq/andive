@@ -2,10 +2,11 @@ import React from 'react'
 
 import RadioOff from '../../../img/icons/off-round.svg'
 import Icon from '../icon'
+import {palette} from '../..'
 
-const RadioOffIcon = props => {
+const RadioOffIcon = ({color = palette.mediumBerryBlue, ...rest}) => {
   return (
-    <Icon {...props}>
+    <Icon color={color} {...rest}>
       <RadioOff />
     </Icon>
   )

@@ -1,26 +1,17 @@
 import React from 'react'
-import styled from 'styled-components'
-import PropTypes from 'prop-types'
 
 import Passenger from '../../../img/icons/passenger.svg'
 import Icon from '../icon'
+import {palette} from '../..'
 
-const PassengerOverride = styled(Passenger)`
-  & > path {
-    fill: ${props => props.color};
-  }
-`
-const PassengerIcon = props => {
+const PassengerIcon = ({color = palette.darkPrimary, ...rest}) => {
   return (
-    <Icon {...props}>
-      <PassengerOverride color={props.color} />
+    <Icon color={color} {...rest}>
+      <Passenger />
     </Icon>
   )
 }
 
-PassengerIcon.propTypes = {
-  color: PropTypes.string
-}
 PassengerIcon.size = 24
 
 export default PassengerIcon

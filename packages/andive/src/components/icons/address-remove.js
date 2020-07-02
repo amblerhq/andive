@@ -2,10 +2,11 @@ import React from 'react'
 
 import AddressRemove from '../../../img/icons/address-remove.svg'
 import Icon from '../icon'
+import {palette} from '../..'
 
-const AddressRemoveIcon = props => {
+const AddressRemoveIcon = ({color = palette.darkPotatoYellow, ...rest}) => {
   return (
-    <Icon {...props}>
+    <Icon color={color} {...rest}>
       <AddressRemove />
     </Icon>
   )

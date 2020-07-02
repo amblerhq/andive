@@ -1,9 +1,9 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40">
     <g fill="none" fill-rule="evenodd">
-        <path stroke="#FFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2 31.006v-3h6v3c0 .552-.448 1-1 1H3c-.552 0-1-.448-1-1zM24 31.006v-3h6v3c0 .552-.448 1-1 1h-4c-.552 0-1-.448-1-1zM4.156 17.295l.679-7.47c.093-1.03.957-1.82 1.992-1.82l18.347.001c1.034 0 1.898.789 1.991 1.82l.68 7.469c.095 1.047-.637 1.988-1.675 2.155-2.127.342-5.517.513-10.17.513s-8.043-.17-10.17-.513c-1.038-.167-1.77-1.108-1.674-2.155z" transform="translate(4 3.994)"/>
-        <path stroke="#FFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M27.26 19.006H28c2.21 0 4 1.79 4 4v3c0 1.104-.895 2-2 2 0 0 0 0 0 0H16.007h0H2c-1.105 0-2-.896-2-2v-3c0-2.21 1.79-4 4-4h.69M11.384 4.383L9.991 2.911" transform="translate(4 3.994)"/>
-        <path stroke="#FFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M22.029 4.383L20.385 2.88" transform="translate(4 3.994) matrix(-1 0 0 1 42.414 0)"/>
-        <path fill="#FFF" d="M19 8.006c0-1.657-1.343-3-3-3-.828 0-1.578.335-2.121.878-.543.543-.879 1.293-.879 2.122 0 .627 6 .58 6 0z" transform="translate(4 3.994)"/>
-        <path stroke="#FFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M25 24.006L27 24.006M16 2.401L16 0M5 24.006L7 24.006" transform="translate(4 3.994)"/>
+        <path stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2 31.006v-3h6v3c0 .552-.448 1-1 1H3c-.552 0-1-.448-1-1zM24 31.006v-3h6v3c0 .552-.448 1-1 1h-4c-.552 0-1-.448-1-1zM4.156 17.295l.679-7.47c.093-1.03.957-1.82 1.992-1.82l18.347.001c1.034 0 1.898.789 1.991 1.82l.68 7.469c.095 1.047-.637 1.988-1.675 2.155-2.127.342-5.517.513-10.17.513s-8.043-.17-10.17-.513c-1.038-.167-1.77-1.108-1.674-2.155z" transform="translate(4 3.994)"/>
+        <path stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M27.26 19.006H28c2.21 0 4 1.79 4 4v3c0 1.104-.895 2-2 2 0 0 0 0 0 0H16.007h0H2c-1.105 0-2-.896-2-2v-3c0-2.21 1.79-4 4-4h.69M11.384 4.383L9.991 2.911" transform="translate(4 3.994)"/>
+        <path stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M22.029 4.383L20.385 2.88" transform="translate(4 3.994) matrix(-1 0 0 1 42.414 0)"/>
+        <path fill="currentcolor" d="M19 8.006c0-1.657-1.343-3-3-3-.828 0-1.578.335-2.121.878-.543.543-.879 1.293-.879 2.122 0 .627 6 .58 6 0z" transform="translate(4 3.994)"/>
+        <path stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M25 24.006L27 24.006M16 2.401L16 0M5 24.006L7 24.006" transform="translate(4 3.994)"/>
     </g>
 </svg>
