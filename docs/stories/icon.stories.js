@@ -1,6 +1,6 @@
 import React from 'react'
 import {storiesOf} from '@storybook/react'
-import {Info, VslIcon, AlertIcon, Typography, Box, Icon} from '@ambler/andive'
+import {Info, VslIcon, AlertIcon, EditIcon, Typography, Box, Icon, palette} from '@ambler/andive'
 
 import Showcase from './showcase'
 
@@ -50,38 +50,6 @@ storiesOf('API|Icon', module).add('Icon with label', () => {
           <Info.Item item={shortLabel} />
           <Icon icon={<AlertIcon inline />} iconSize={22} padding={0}>
             <div style={{paddingLeft: '8px'}}>{longLabel}</div>
-          </Icon>
-        </Info>
-      </Showcase>
-      <Showcase legend="Icon with title and label (fixed iconSize 22 and padding 4)">
-        <Info style={{background: 'white'}}>
-          <Info.Item item={shortLabel} />
-          <Icon icon={<AlertIcon inline />} iconSize={22} padding={4}>
-            <div style={{paddingLeft: '8px'}}>{shortLabel}</div>
-          </Icon>
-        </Info>
-      </Showcase>
-      <Showcase legend="Icon with title and label (fixed iconSize 22 and padding 8)">
-        <Info style={{background: 'white'}}>
-          <Info.Item item={shortLabel} />
-          <Icon icon={<AlertIcon inline />} iconSize={22} padding={8}>
-            <div style={{paddingLeft: '8px'}}>{shortLabel}</div>
-          </Icon>
-        </Info>
-      </Showcase>
-      <Showcase legend="Icon with title and label (fixed iconSize 32 and padding 4)">
-        <Info style={{background: 'white'}}>
-          <Info.Item item={shortLabel} />
-          <Icon icon={<AlertIcon inline />} iconSize={32} padding={4}>
-            <div style={{paddingLeft: '8px'}}>{shortLabel}</div>
-          </Icon>
-        </Info>
-      </Showcase>
-      <Showcase legend="Icon with title and label (fixed iconSize 32 and padding 8)">
-        <Info style={{background: 'white'}}>
-          <Info.Item item={shortLabel} />
-          <Icon icon={<AlertIcon inline />} iconSize={32} padding={8}>
-            <div style={{paddingLeft: '8px'}}>{shortLabel}</div>
           </Icon>
         </Info>
       </Showcase>

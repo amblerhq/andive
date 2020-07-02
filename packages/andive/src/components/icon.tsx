@@ -4,7 +4,7 @@ import styled from 'styled-components'
 
 import {Body1} from './typography'
 
-const Icon = styled.div<Pick<Props, 'iconSize' | 'align' | 'direction'>>`
+const Icon = styled.div<Pick<Props, 'align' | 'direction'>>`
   width: 100%;
   display: flex;
   flex-flow: row nowrap;
@@ -50,7 +50,7 @@ export default function IconComponent({
   children
 }: Props) {
   return (
-    <Icon className={className} iconSize={iconSize} align={align} direction={direction}>
+    <Icon className={className} align={align} direction={direction}>
       <IconWrapper iconSize={iconSize} padding={padding}>{icon}</IconWrapper>
       {children && <ChildrenWrapper>{children}</ChildrenWrapper>}
     </Icon>
