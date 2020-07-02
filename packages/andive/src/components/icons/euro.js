@@ -1,7 +1,7 @@
 import React from 'react'
 
 import Euro from '../../../img/icons/euro.svg'
-import SvgIcon from '..//svg-icon'
+import SvgIcon from '../svg-icon'
 
 const EuroIcon = props => {
   return (

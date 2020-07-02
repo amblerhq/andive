@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 import Cerfa from '../../../img/icons/cerfa.svg'
-import SvgIcon from '..//svg-icon'
+import SvgIcon from '../svg-icon'
 
 const CerfaOverride = styled(Cerfa)`
   & > path {

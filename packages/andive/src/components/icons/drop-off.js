@@ -1,7 +1,7 @@
 import React from 'react'
 
 import DropOff from '../../../img/icons/drop-off.svg'
-import SvgIcon from '..//svg-icon'
+import SvgIcon from '../svg-icon'
 
 const DropOffIcon = props => {
   return (

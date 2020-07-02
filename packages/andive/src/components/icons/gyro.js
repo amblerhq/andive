@@ -1,7 +1,7 @@
 import React from 'react'
 
 import Gyro from '../../../img/icons/gyro.svg'
-import SvgIcon from '..//svg-icon'
+import SvgIcon from '../svg-icon'
 
 const GyroIcon = props => {
   return (

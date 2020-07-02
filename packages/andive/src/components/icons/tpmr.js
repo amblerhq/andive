@@ -1,7 +1,7 @@
 import React from 'react'
 
 import Tpmr from '../../../img/icons/tpmr.svg'
-import SvgIcon from '..//svg-icon'
+import SvgIcon from '../svg-icon'
 
 const TpmrIcon = props => {
   return (

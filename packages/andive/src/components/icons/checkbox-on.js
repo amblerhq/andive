@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 import CheckboxOn from '../../../img/icons/on-squared.svg'
-import SvgIcon from '..//svg-icon'
+import SvgIcon from '../svg-icon'
 
 const CheckboxOnOverride = styled(CheckboxOn)`
   & > g > rect {

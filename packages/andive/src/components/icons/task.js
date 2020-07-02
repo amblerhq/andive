@@ -1,7 +1,7 @@
 import React from 'react'
 
 import Task from '../../../img/icons/task.svg'
-import SvgIcon from '..//svg-icon'
+import SvgIcon from '../svg-icon'
 
 const TaskIcon = props => {
   return (

@@ -1,7 +1,7 @@
 import React from 'react'
 
 import Burger from '../../../img/icons/burger.svg'
-import SvgIcon from '..//svg-icon'
+import SvgIcon from '../svg-icon'
 
 const BurgerIcon = props => {
   return (

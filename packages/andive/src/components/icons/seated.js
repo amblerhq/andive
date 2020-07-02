@@ -1,7 +1,7 @@
 import React from 'react'
 
 import Seated from '../../../img/icons/seated.svg'
-import SvgIcon from '..//svg-icon'
+import SvgIcon from '../svg-icon'
 
 const SeatedIcon = props => {
   return (

@@ -1,7 +1,7 @@
 import React from 'react'
 
 import Dashboard from '../../../img/icons/dashboard.svg'
-import SvgIcon from '..//svg-icon'
+import SvgIcon from '../svg-icon'
 
 const DashboardIcon = props => {
   return (

@@ -1,7 +1,7 @@
 import React from 'react'
 
 import Phone from '../../../img/icons/phone.svg'
-import SvgIcon from '..//svg-icon'
+import SvgIcon from '../svg-icon'
 
 const PhoneIcon = props => {
   return (

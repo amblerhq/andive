@@ -1,7 +1,7 @@
 import React from 'react'
 
 import Edit from '../../../img/icons/edit.svg'
-import SvgIcon from '..//svg-icon'
+import SvgIcon from '../svg-icon'
 
 const EditIcon = props => {
   return (

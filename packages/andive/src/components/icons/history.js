@@ -1,7 +1,7 @@
 import React from 'react'
 
 import History from '../../../img/icons/history.svg'
-import SvgIcon from '..//svg-icon'
+import SvgIcon from '../svg-icon'
 
 const HistoryIcon = props => {
   return (

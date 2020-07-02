@@ -1,7 +1,7 @@
 import React from 'react'
 
 import Drag from '../../../img/icons/drag.svg'
-import SvgIcon from '..//svg-icon'
+import SvgIcon from '../svg-icon'
 
 const DragIcon = props => {
   return (

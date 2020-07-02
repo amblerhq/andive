@@ -1,7 +1,7 @@
 import React from 'react'
 
 import Check from '../../../img/icons/check.svg'
-import SvgIcon from '..//svg-icon'
+import SvgIcon from '../svg-icon'
 
 const CheckIcon = props => {
   return (

@@ -1,7 +1,7 @@
 import React from 'react'
 
 import Flag from '../../../img/icons/flag.svg'
-import SvgIcon from '..//svg-icon'
+import SvgIcon from '../svg-icon'
 
 const FlagIcon = props => {
   return (

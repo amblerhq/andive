@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 import Warning from '../../../img/icons/warning.svg'
-import SvgIcon from '..//svg-icon'
+import SvgIcon from '../svg-icon'
 
 const WarningOverride = styled(Warning)`
   & > g > path:nth-of-type(2) {

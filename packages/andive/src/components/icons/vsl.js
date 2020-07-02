@@ -1,7 +1,7 @@
 import React from 'react'
 
 import Vsl from '../../../img/icons/vsl-taxi.svg'
-import SvgIcon from '..//svg-icon'
+import SvgIcon from '../svg-icon'
 
 const VslIcon = props => {
   return (

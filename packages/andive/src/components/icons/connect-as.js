@@ -1,7 +1,7 @@
 import React from 'react'
 
 import ConnectAs from '../../../img/icons/connect-as.svg'
-import SvgIcon from '..//svg-icon'
+import SvgIcon from '../svg-icon'
 
 const ConnectAsIcon = props => {
   return (

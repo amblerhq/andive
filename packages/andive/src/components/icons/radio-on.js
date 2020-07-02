@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 import RadioOn from '../../../img/icons/on-round.svg'
-import SvgIcon from '..//svg-icon'
+import SvgIcon from '../svg-icon'
 
 const RadioOnOverride = styled(RadioOn)`
   & > g > circle:nth-of-type(1) {

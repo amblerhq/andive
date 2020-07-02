@@ -1,7 +1,7 @@
 import React from 'react'
 
 import Lying from '../../../img/icons/lying.svg'
-import SvgIcon from '..//svg-icon'
+import SvgIcon from '../svg-icon'
 
 const LyingIcon = props => {
   return (
