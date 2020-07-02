@@ -203,6 +203,13 @@ storiesOf('API|Menu', module)
                 </Info>
               </Menu.Option>
             </Menu.OptionGroup>
+            <Menu.OptionGroup label="Autre">
+              <Menu.Option id="asap">
+                <Info>
+                  <Info.Label label="Dès que possible" />
+                </Info>
+              </Menu.Option>
+            </Menu.OptionGroup>
           </Menu>
         </div>
       </Showcase>

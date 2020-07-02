@@ -1,16 +1,6 @@
 import React from 'react'
 import {storiesOf} from '@storybook/react'
-import {
-  palette,
-  Info,
-  VslIcon,
-  AlertIcon,
-  CheckIcon,
-  WarningIcon,
-  ForbiddenIcon,
-  QuestionIcon,
-  Typography
-} from '@ambler/andive'
+import {palette, Info, VslIcon, CheckIcon, WarningIcon, ForbiddenIcon, QuestionIcon, Typography} from '@ambler/andive'
 
 import Showcase from './showcase'
 
@@ -52,63 +42,6 @@ storiesOf('API|Info', module)
           <Info style={{background: 'white', width: 300}}>
             <Info.Item item={longLabel} />
             <Info.Label label={shortLabel} />
-          </Info>
-        </Showcase>
-      </>
-    )
-  })
-  .add('Label Icon', () => {
-    return (
-      <>
-        <Showcase legend="Label with icon (label as string)">
-          <Info style={{background: 'white'}}>
-            <Info.LabelIcon label="Voiture de Phil" icon={<VslIcon inline />} />
-          </Info>
-        </Showcase>
-        <Showcase legend="Label with icon (label as react node)">
-          <Info style={{background: 'white'}}>
-            <Info.LabelIcon
-              label={
-                <>
-                  <Typography.Body1>Voiture de Phil</Typography.Body1>
-                </>
-              }
-              icon={<VslIcon inline />}
-            />
-          </Info>
-        </Showcase>
-        <Showcase legend="Fixed width (2 lines)">
-          <Info style={{background: 'white', width: 300}}>
-            <Info.LabelIcon label={longLabel.substr(0, 64)} icon={<VslIcon inline />} />
-          </Info>
-        </Showcase>
-        <Showcase legend="Fixed width (long label)">
-          <Info style={{background: 'white', width: 300}}>
-            <Info.LabelIcon label={longLabel} icon={<VslIcon inline />} />
-          </Info>
-        </Showcase>
-        <Showcase legend="With sticky icon">
-          <Info style={{background: 'white', width: 300}}>
-            <Info.LabelIcon label={shortLabel} icon={<VslIcon inline />} stickyIcon />
-            <Info.LabelIcon label={longLabel} icon={<VslIcon circle />} stickyIcon iconSize={32} />
-          </Info>
-        </Showcase>
-        <Showcase legend="Item / Label with icon">
-          <Info style={{background: 'white'}}>
-            <Info.Item item={shortLabel} />
-            <Info.LabelIcon label={shortLabel} icon={<AlertIcon inline />} />
-          </Info>
-        </Showcase>
-        <Showcase legend="Fixed width (2 lines)">
-          <Info style={{background: 'white', width: 300}}>
-            <Info.Item item={shortLabel} />
-            <Info.LabelIcon label={longLabel.substr(0, 64)} icon={<AlertIcon inline />} />
-          </Info>
-        </Showcase>
-        <Showcase legend="Fixed width (long label)">
-          <Info style={{background: 'white', width: 300}}>
-            <Info.Item item={shortLabel} />
-            <Info.LabelIcon label={longLabel} icon={<AlertIcon inline />} stickyIcon />
           </Info>
         </Showcase>
       </>

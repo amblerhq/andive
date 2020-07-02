@@ -1,300 +1,175 @@
 import React from 'react'
 import {storiesOf} from '@storybook/react'
-import styled from 'styled-components'
 import {
-  palette,
-  AccountIcon,
-  FleetIcon,
-  AmbulanceIcon,
+  Info,
   VslIcon,
-  TpmrIcon,
-  BariatricIcon,
-  SeatedIcon,
-  LyingIcon,
-  EditIcon,
-  BackIcon,
-  CloseIcon,
-  ArrowRightIcon,
-  ArrowLeftIcon,
-  ArrowDownIcon,
-  ArrowUpIcon,
-  LogoutIcon,
-  HistoryIcon,
-  MedicalFacilityIcon,
-  AddressIcon,
-  CheckboxOnIcon,
-  CheckboxOffIcon,
-  NewIcon,
-  RadioOnIcon,
-  RadioOffIcon,
-  CancelIcon,
-  FlagIcon,
-  QuestionIcon,
-  Art80Icon,
-  CerfaIcon,
-  PatientIcon,
-  DelegateIcon,
-  ExportIcon,
-  CheckIcon,
-  WarningIcon,
-  MapIcon,
-  ForbiddenIcon,
-  MfIcon,
-  MfuIcon,
-  MtIcon,
-  RidesIcon,
-  OrdersIcon,
-  DashboardIcon,
-  BurgerIcon,
-  IncidentIcon,
-  PassengerIcon,
-  AddressRemoveIcon,
-  PatientAddIcon,
-  PatientRemoveIcon,
-  EuroIcon,
-  InvoiceIcon,
-  FlatrateSt1Icon,
-  FlatrateSt2Icon,
-  FlatrateSt3Icon,
-  FlatrateTsIcon,
-  FlatrateTdIcon,
-  TrashIcon,
-  DragIcon,
-  AgreementIcon,
-  TaskIcon,
-  PhoneIcon,
-  MoreIcon,
-  SearchIcon,
-  BookIcon,
-  PrebookIcon,
-  ConnectAsIcon,
-  GyroIcon,
-  PickUpIcon,
-  DropOffIcon,
+  AlertIcon,
   Typography,
-  Info
+  Box,
+  Icon,
+  palette,
+  AmbulanceIcon,
+  MedicalFacilityIcon,
+  Art80Icon
 } from '@ambler/andive'
 
 import Showcase from './showcase'
 
-const Icons = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-`
+const shortLabel = 'Fan de Phil Collins'
+const longLabel =
+  'Philip David Charles Collins dit Phil Collins, né le 30 janvier 1951 à Chiswick (Londres), est un musicien, auteur-compositeur-interprète, acteur et producteur de disques britannique.'
 
-const icons = [
-  AmbulanceIcon,
-  VslIcon,
-  TpmrIcon,
-  BariatricIcon,
-  SeatedIcon,
-  LyingIcon,
-  CloseIcon,
-  ArrowRightIcon,
-  ArrowLeftIcon,
-  ArrowDownIcon,
-  ArrowUpIcon,
-  LogoutIcon,
-  HistoryIcon,
-  MedicalFacilityIcon,
-  AddressIcon,
-  AddressRemoveIcon,
-  NewIcon,
-  CancelIcon,
-  FlagIcon,
-  QuestionIcon,
-  Art80Icon,
-  CerfaIcon,
-  PatientIcon,
-  DelegateIcon,
-  MapIcon,
-  ExportIcon,
-  CheckIcon,
-  WarningIcon,
-  ForbiddenIcon,
-  IncidentIcon,
-  MfIcon,
-  MfuIcon,
-  MtIcon,
-  RidesIcon,
-  OrdersIcon,
-  DashboardIcon,
-  EditIcon,
-  BackIcon,
-  BurgerIcon,
-  RadioOnIcon,
-  RadioOffIcon,
-  CheckboxOnIcon,
-  CheckboxOffIcon,
-  PassengerIcon,
-  PatientAddIcon,
-  PatientRemoveIcon,
-  EuroIcon,
-  InvoiceIcon,
-  FlatrateSt1Icon,
-  FlatrateSt2Icon,
-  FlatrateSt3Icon,
-  FlatrateTsIcon,
-  FlatrateTdIcon,
-  TrashIcon,
-  DragIcon,
-  AgreementIcon,
-  TaskIcon,
-  AccountIcon,
-  FleetIcon,
-  PhoneIcon,
-  MoreIcon,
-  SearchIcon,
-  ConnectAsIcon,
-  PrebookIcon,
-  BookIcon,
-  GyroIcon,
-  PickUpIcon,
-  DropOffIcon
-]
-
-function TimedColor({interval, colors, children}) {
-  const [index, setIndex] = React.useState(0)
-
-  React.useEffect(() => {
-    function tick() {
-      setIndex(prev => (prev >= colors.length - 1 ? 0 : prev + 1))
-    }
-
-    const handle = setInterval(tick, interval || 1000)
-
-    return () => {
-      clearInterval(handle)
-    }
-  }, [setIndex])
-
-  const color = colors[index % icons.length]
-
-  return children(color)
-}
-
-const newIcons = [
-  {Icon: PickUpIcon},
-  {Icon: DropOffIcon},
-  {Icon: GyroIcon},
-  {Icon: BookIcon},
-  {Icon: PrebookIcon},
-  {Icon: SearchIcon},
-  {Icon: ConnectAsIcon},
-  {Icon: PhoneIcon},
-  {Icon: MoreIcon}
-]
-const updatedIcons = []
-
-storiesOf('Assets|Icons', module)
-  .add('New 👀', () => {
+storiesOf('API|Icon', module)
+  .add(`How it's built`, () => {
     return (
       <>
-        {newIcons.length ? (
-          <>
-            <Info>
-              <Typography.Body1>Newly added icons</Typography.Body1>
-            </Info>
-            <Icons>
-              {newIcons.map(config => (
-                <Showcase
-                  key={config.Icon && config.Icon.name}
-                  variant="squared"
-                  size={160}
-                  invert={config.invert}
-                  legend={config.Icon && config.Icon.name}
-                >
-                  <config.Icon />
-                </Showcase>
-              ))}
-            </Icons>
-          </>
-        ) : null}
-        {updatedIcons.length ? (
-          <>
-            <Info>
-              <Typography.Body1>Recently updated icons</Typography.Body1>
-            </Info>
-            <Icons>
-              {updatedIcons.map(config => (
-                <Showcase
-                  key={config.Icon && config.Icon.name}
-                  variant="squared"
-                  size={160}
-                  invert={config.invert}
-                  legend={config.Icon && config.Icon.name}
-                >
-                  <config.Icon />
-                </Showcase>
-              ))}
-            </Icons>
-          </>
-        ) : null}
+        <Showcase legend="2 Body">
+          <Box style={{background: 'white', width: 300}}>
+            <Icon icon={<AmbulanceIcon circle />}>
+              <Typography.Body1 color={palette.mediumBerryBlue}>Transporter name</Typography.Body1>
+              <Typography.Body2 color={palette.secondaryText}>06 61 65 23 86</Typography.Body2>
+            </Icon>
+          </Box>
+        </Showcase>
+        <Showcase legend="2 Body (overflown)">
+          <Box style={{background: 'white', width: 200}}>
+            <Icon icon={<AmbulanceIcon circle />}>
+              <Typography.Body1 color={palette.mediumBerryBlue}>Transporter name</Typography.Body1>
+              <Typography.Body2 color={palette.secondaryText}>06 61 65 23 86</Typography.Body2>
+            </Icon>
+          </Box>
+        </Showcase>
+        <Showcase legend="Intermediate MT (BO)">
+          <Box style={{background: 'white', width: 300}}>
+            <Icon icon={<AmbulanceIcon circle />}>
+              <Typography.Body1 color={palette.mediumBerryBlue}>Intermediate Name</Typography.Body1>
+              <Typography.Body2 color={palette.secondaryText}>06 61 65 23 86</Typography.Body2>
+            </Icon>
+            <Icon icon={<AmbulanceIcon circle />}>
+              <Typography.Body1 color={palette.mediumBerryBlue}>Assigned name</Typography.Body1>
+              <Typography.Body2 color={palette.secondaryText}>06 61 65 23 86</Typography.Body2>
+            </Icon>
+          </Box>
+        </Showcase>
+        <Showcase legend="Intermediate MT (BO) (overflown)">
+          <Box style={{background: 'white', width: 200}}>
+            <Icon icon={<AmbulanceIcon circle />}>
+              <Typography.Body1 color={palette.mediumBerryBlue}>Intermediate Name</Typography.Body1>
+              <Typography.Body2 color={palette.secondaryText}>06 61 65 23 86</Typography.Body2>
+            </Icon>
+            <Icon icon={<AmbulanceIcon circle />}>
+              <Typography.Body1 color={palette.mediumBerryBlue}>Assigned name</Typography.Body1>
+              <Typography.Body2 color={palette.secondaryText}>06 61 65 23 86</Typography.Body2>
+            </Icon>
+          </Box>
+        </Showcase>
+        <Showcase legend="1 Body">
+          <Box style={{background: 'white', width: 300}}>
+            <Icon icon={<AmbulanceIcon circle />}>
+              <Typography.Body1>M Jean POOLING</Typography.Body1>
+            </Icon>
+          </Box>
+        </Showcase>
+        <Showcase legend="1 Body (overflown)">
+          <Box style={{background: 'white', width: 200}}>
+            <Icon icon={<AmbulanceIcon circle />}>
+              <Typography.Body1>M Jean POOLING</Typography.Body1>
+            </Icon>
+          </Box>
+        </Showcase>
+        <Showcase legend="Examples">
+          <Box style={{background: 'white', width: 300}}>
+            <Icon icon={<AmbulanceIcon circle />}>
+              <Typography.Body1 color={palette.mediumBerryBlue}>AMBULANCES RAYER SARL</Typography.Body1>
+              <Typography.Body2 color={palette.secondaryText}>06 61 65 23 86</Typography.Body2>
+            </Icon>
+          </Box>
+        </Showcase>
+        <Showcase legend="Examples">
+          <Box style={{background: 'white', width: 300}}>
+            <Icon icon={<MedicalFacilityIcon circle />}>
+              <Typography.Body1 color={palette.mediumBerryBlue}>Clinique les Tournelles</Typography.Body1>
+              <Typography.Body2 color={palette.secondaryText}>01 41 24 32 74</Typography.Body2>
+            </Icon>
+          </Box>
+        </Showcase>
+        <Showcase legend="Examples">
+          <Box style={{background: 'white', width: 600}}>
+            <Icon icon={<Art80Icon circle circleColor={palette.mediumBeetrootPurple} />}>
+              <Typography.Body1>Vous n’êtes pas prescripteur</Typography.Body1>
+              <Typography.Body2 color={palette.secondaryText}>
+                Ce trajet est à la charge de l’autre établissement
+              </Typography.Body2>
+            </Icon>
+          </Box>
+        </Showcase>
+        <Showcase legend="Examples">
+          <Box style={{background: 'white', width: 600}}>
+            <Icon icon={<Art80Icon circle circleColor={palette.mediumBeetrootPurple} />}>
+              <Typography.Body1>PMT Art80 à fournir au transporteur</Typography.Body1>
+            </Icon>
+          </Box>
+        </Showcase>
+        <Showcase legend="Examples">
+          <Box style={{background: 'white', width: 600}}>
+            <Icon icon={<Art80Icon circle circleColor={palette.mediumBeetrootPurple} />}>
+              <Typography.Body1>Transport facturable à votre établissement</Typography.Body1>
+            </Icon>
+          </Box>
+        </Showcase>
+        <Showcase legend="Examples">
+          <Box style={{background: 'white', width: 300}}>
+            <Icon icon={<AmbulanceIcon circle />}>
+              <Typography.Body1 color={palette.mediumBerryBlue}>AMBULANCES RAYER SARL</Typography.Body1>
+              <Typography.Body2 color={palette.secondaryText}>06 61 65 23 86</Typography.Body2>
+            </Icon>
+            <Icon icon={<AmbulanceIcon circle />}>
+              <Typography.Body1 color={palette.mediumBerryBlue}>AMBULANCES FRANCILIENNES</Typography.Body1>
+              <Typography.Body2 color={palette.secondaryText}>01 34 28 03 85</Typography.Body2>
+            </Icon>
+          </Box>
+        </Showcase>
       </>
     )
   })
-  .add('Library', () => {
+
+  .add('Icon with label', () => {
     return (
       <>
-        <TimedColor interval={5000} colors={[palette.darkPrimary, palette.mediumBerryBlue]}>
-          {color => (
-            <Icons>
-              {icons.map((Icon, index) => {
-                return (
-                  <Showcase key={index} variant="squared" size={160} legend={Icon.name}>
-                    <Icon color={color} />
-                  </Showcase>
-                )
-              })}
-            </Icons>
-          )}
-        </TimedColor>
+        <Showcase legend="Icon with label (children as string)">
+          <Box style={{background: 'white', width: 300}}>
+            <Icon icon={<VslIcon inline />}>{shortLabel}</Icon>
+          </Box>
+        </Showcase>
+        <Showcase legend="Icon with label (children as react node)">
+          <Box style={{background: 'white', width: 300}}>
+            <Icon icon={<VslIcon inline />}>
+              <Typography.Body1>Voiture de Phil</Typography.Body1>
+            </Icon>
+          </Box>
+        </Showcase>
+        <Showcase legend="Icon with boxed label">
+          <Box style={{background: 'white', width: 300}}>
+            <Icon icon={<VslIcon circle />}>{shortLabel}</Icon>
+          </Box>
+        </Showcase>
+        <Showcase legend="Icon with boxed label">
+          <Box style={{background: 'white', width: 300}}>
+            <Icon icon={<VslIcon circle />}>{longLabel}</Icon>
+          </Box>
+        </Showcase>
+        <Showcase legend="Icon with title and label (fixed iconSize 22 and padding 0)">
+          <Box style={{background: 'white', width: 300}}>
+            <Info.Item item={shortLabel} />
+            <Icon icon={<AlertIcon inline />}>{shortLabel}</Icon>
+          </Box>
+        </Showcase>
+        <Showcase legend="Icon with title and long label (fixed iconSize 22 and padding 0)">
+          <Box style={{background: 'white', width: 300}}>
+            <Info.Item item={shortLabel} />
+            <Icon icon={<AlertIcon inline />}>{longLabel}</Icon>
+          </Box>
+        </Showcase>
       </>
     )
   })
-  .add('With circle', () => (
-    <Icons>
-      <Showcase variant="squared">
-        <MedicalFacilityIcon circle circleColor="white" />
-      </Showcase>
-      <Showcase variant="squared">
-        <AmbulanceIcon circle circleColor={palette.mediumBeetrootPurple} color="white" />
-      </Showcase>
-      {[EuroIcon, ForbiddenIcon, FlatrateSt1Icon, FlatrateSt2Icon, FlatrateSt3Icon, FlatrateTsIcon, FlatrateTdIcon].map(
-        (Icon, index) => (
-          <Showcase variant="squared" key={index}>
-            <Icon circle circleColor={palette.mediumBeetrootPurple} color="white" />
-          </Showcase>
-        )
-      )}
-    </Icons>
-  ))
-  .add('With color', () => (
-    <Icons>
-      <Showcase variant="squared">
-        <AddressIcon color={palette.mediumBerryBlue} />
-      </Showcase>
-      <Showcase variant="squared">
-        <AddressIcon color={palette.mediumRadishRed} />
-      </Showcase>
-      <Showcase variant="squared">
-        <AddressIcon color={palette.mediumLettuceGreen} />
-      </Showcase>
-      <Showcase variant="squared" invert>
-        <AddressIcon color={palette.mediumPotatoYellow} />
-      </Showcase>
-      <Showcase variant="squared" invert>
-        <AddressIcon color={palette.white} />
-      </Showcase>
-      <Showcase variant="squared" invert>
-        <MtIcon color="grey" />
-      </Showcase>
-    </Icons>
-  ))
-  .add('Inline', () => (
-    <Showcase>
-      En concert à {"l'"}Olympiade
-      <AddressIcon inline color={palette.lightRadishRed} />
-      dès 2020 !
-    </Showcase>
-  ))

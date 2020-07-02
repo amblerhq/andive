@@ -47,7 +47,7 @@ storiesOf('API|Accordeon', module)
     return (
       <Showcase>
         <div style={{background: 'white'}}>
-          <Accordeon icon={icon} iconSize={32} label="CERFA n° 11574*04 à fournir au transporteur">
+          <Accordeon icon={icon} label="CERFA n° 11574*04 à fournir au transporteur">
             <Info>
               <Info.Label label="de Phil Colins !" />
             </Info>
@@ -63,7 +63,7 @@ storiesOf('API|Accordeon', module)
     return (
       <Showcase>
         <div style={{background: 'white'}}>
-          <Accordeon icon={icon} iconSize={32} openByDefault label="T'es fan">
+          <Accordeon icon={icon} openByDefault label="T'es fan">
             <Info>
               <Info.Label label="de Phil Colins !" />
             </Info>
@@ -77,7 +77,7 @@ storiesOf('API|Accordeon', module)
 
     return (
       <Showcase>
-        <Accordeon icon={icon} iconSize={32} label="Toujours fan" href="https://fr.wikipedia.org/wiki/Phil_Collins" />
+        <Accordeon icon={icon} label="Toujours fan" href="https://fr.wikipedia.org/wiki/Phil_Collins" />
       </Showcase>
     )
   })
