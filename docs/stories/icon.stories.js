@@ -89,7 +89,7 @@ storiesOf('API|Icon', module)
           <Box style={{background: 'white', width: 300}}>
             <Icon icon={<MedicalFacilityIcon circle />}>
               <Typography.Body1 color={palette.mediumBerryBlue}>Clinique les Tournelles</Typography.Body1>
-              <Typography.Body2 color={palette.secondaryText}>01 41 24 32 74</Typography.Body2>s
+              <Typography.Body2 color={palette.secondaryText}>01 41 24 32 74</Typography.Body2>
             </Icon>
           </Box>
         </Showcase>
