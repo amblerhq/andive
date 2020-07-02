@@ -37,11 +37,18 @@ storiesOf('API|Icon', module).add('Icon with label', () => {
           </Icon>
         </Info>
       </Showcase>
-      <Showcase legend="Icon with title and 2 lines label (fixed iconSize 22 and padding 0)">
+      <Showcase legend="Icon with boxed label (align center and direction column)">
+        <Info style={{background: 'white', width: 300}}>
+          <Icon icon={<VslIcon circle />} align="center" direction="column">
+            <Box>{longLabel}</Box>
+          </Icon>
+        </Info>
+      </Showcase>
+      <Showcase legend="Icon with title and label (fixed iconSize 22 and padding 0)">
         <Info style={{background: 'white', width: 300}}>
           <Info.Item item={shortLabel} />
           <Icon icon={<AlertIcon inline />} iconSize={22} padding={0}>
-            <div style={{paddingLeft: '8px'}}>{longLabel.substr(0, 64)}</div>
+            <div style={{paddingLeft: '8px'}}>{shortLabel}</div>
           </Icon>
         </Info>
       </Showcase>
