@@ -2,10 +2,11 @@ import React from 'react'
 
 import Forbidden from '../../../img/icons/forbidden.svg'
 import SvgIcon from '../svg-icon'
+import {palette} from '../..'
 
-const ForbiddenIcon = props => {
+const ForbiddenIcon = ({color = palette.darkRadishRed, ...rest}) => {
   return (
-    <SvgIcon {...props}>
+    <SvgIcon color={color} {...rest}>
       <Forbidden />
     </SvgIcon>
   )

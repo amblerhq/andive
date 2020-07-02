@@ -2,10 +2,11 @@ import React from 'react'
 
 import Trash from '../../../img/icons/trash.svg'
 import SvgIcon from '../svg-icon'
+import {palette} from '../..'
 
-const TrashIcon = props => {
+const TrashIcon = ({color = palette.mediumBerryBlue, ...rest}) => {
   return (
-    <SvgIcon {...props}>
+    <SvgIcon color={color} {...rest}>
       <Trash />
     </SvgIcon>
   )

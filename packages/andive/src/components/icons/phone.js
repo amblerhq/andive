@@ -2,10 +2,11 @@ import React from 'react'
 
 import Phone from '../../../img/icons/phone.svg'
 import SvgIcon from '../svg-icon'
+import {palette} from '../..'
 
-const PhoneIcon = props => {
+const PhoneIcon = ({color = palette.mediumPrimary, ...rest}) => {
   return (
-    <SvgIcon {...props}>
+    <SvgIcon color={color} {...rest}>
       <Phone />
     </SvgIcon>
   )

@@ -2,10 +2,11 @@ import React from 'react'
 
 import Art80 from '../../../img/icons/art80.svg'
 import SvgIcon from '../svg-icon'
+import {palette} from '../..'
 
-const Art80Icon = props => {
+const Art80Icon = ({color = palette.white, ...rest}) => {
   return (
-    <SvgIcon {...props}>
+    <SvgIcon color={color} {...rest}>
       <Art80 />
     </SvgIcon>
   )

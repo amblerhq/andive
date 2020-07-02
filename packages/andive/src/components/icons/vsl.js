@@ -2,10 +2,11 @@ import React from 'react'
 
 import Vsl from '../../../img/icons/vsl-taxi.svg'
 import SvgIcon from '../svg-icon'
+import {palette} from '../..'
 
-const VslIcon = props => {
+const VslIcon = ({color = palette.darkPrimary, ...rest}) => {
   return (
-    <SvgIcon {...props}>
+    <SvgIcon color={color} {...rest}>
       <Vsl />
     </SvgIcon>
   )

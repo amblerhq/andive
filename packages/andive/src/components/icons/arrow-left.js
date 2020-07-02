@@ -2,10 +2,11 @@ import React from 'react'
 
 import ArrowLeft from '../../../img/icons/arrow-left.svg'
 import SvgIcon from '../svg-icon'
+import {palette} from '../..'
 
-const ArrowLeftIcon = props => {
+const ArrowLeftIcon = ({color = palette.mediumBerryBlue, ...rest}) => {
   return (
-    <SvgIcon {...props}>
+    <SvgIcon color={color} {...rest}>
       <ArrowLeft />
     </SvgIcon>
   )

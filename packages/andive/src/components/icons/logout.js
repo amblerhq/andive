@@ -2,10 +2,11 @@ import React from 'react'
 
 import Logout from '../../../img/icons/log-out.svg'
 import SvgIcon from '../svg-icon'
+import {palette} from '../..'
 
-const LogoutIcon = props => {
+const LogoutIcon = ({color = palette.mediumPrimary, ...rest}) => {
   return (
-    <SvgIcon {...props}>
+    <SvgIcon color={color} {...rest}>
       <Logout />
     </SvgIcon>
   )

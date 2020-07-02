@@ -2,10 +2,11 @@ import React from 'react'
 
 import Close from '../../../img/icons/close.svg'
 import SvgIcon from '../svg-icon'
+import {palette} from '../..'
 
-const CloseIcon = props => {
+const CloseIcon = ({color = palette.mediumPrimary, ...rest}) => {
   return (
-    <SvgIcon {...props}>
+    <SvgIcon color={color} {...rest}>
       <Close />
     </SvgIcon>
   )

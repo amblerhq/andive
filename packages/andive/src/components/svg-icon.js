@@ -1,18 +1,9 @@
 import React from 'react'
-import styled, {css} from 'styled-components'
+import styled from 'styled-components'
 import PropTypes from 'prop-types'
 
 const SvgRoot = styled.div`
-  ${props =>
-    props.color &&
-    css`
-      svg,
-      path,
-      g,
-      circle {
-        stroke: ${props => props.color};
-      }
-    `}
+  color: ${props => props.color};
 `
 
 const IconRoot = styled(SvgRoot)`

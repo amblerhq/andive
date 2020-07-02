@@ -2,10 +2,11 @@ import React from 'react'
 
 import Address from '../../../img/icons/address.svg'
 import SvgIcon from '../svg-icon'
+import {palette} from '../..'
 
-const AddressIcon = props => {
+const AddressIcon = ({color = palette.darkPrimary, ...rest}) => {
   return (
-    <SvgIcon {...props}>
+    <SvgIcon color={color} {...rest}>
       <Address />
     </SvgIcon>
   )

@@ -2,15 +2,16 @@ import React from 'react'
 import styled, {css} from 'styled-components'
 import PropTypes from 'prop-types'
 
-import {body1Css, Body2} from './typography'
+import {body1Css, Body3} from './typography'
 import CloseIcon from './icons/close'
 import Loader from './loader'
 import * as palette from '../constants/palette'
+import Box from './box'
 
 const InputRoot = styled.div`
-  width: ${props => (props.fullWidth ? '100%' : 'auto')};
   position: relative;
-  padding: 8px;
+
+  width: ${props => (props.fullWidth ? '100%' : 'auto')};
 `
 
 const inputCss = ({error: error_, canClear, hasIcon, disabled}) => css`
@@ -21,8 +22,8 @@ const inputCss = ({error: error_, canClear, hasIcon, disabled}) => css`
   width: 100%;
   height: 56px;
   border-radius: 16px;
-  background-color: ${error_ ? palette.hexToRGBA(palette.error, 0.6) : '#ededed'};
-  color: ${error_ ? palette.error : palette.darkPrimary}
+  background-color: #ededed;
+  color: ${palette.darkPrimary}
 
   padding: 16px ${canClear ? 48 : 16}px 16px ${hasIcon ? '64px' : '16px'};
 
@@ -35,11 +36,19 @@ const inputCss = ({error: error_, canClear, hasIcon, disabled}) => css`
     color: ${palette.mediumPrimary};
   }
 
-  border: 1px solid transparent;
+  ${
+    error_
+      ? css`
+          border: 1px solid ${palette.error};
+        `
+      : css`
+          border: 1px solid transparent;
 
-  :focus {
-    border: 1px solid ${palette.darkPrimary};
-    background-color: white;
+          :focus {
+            border: 1px solid ${palette.darkPrimary};
+            background-color: white;
+          }
+        `
   }
 
   ${disabled &&
@@ -74,9 +83,16 @@ const Loading = styled.div`
   cursor: loading;
 `
 
-const Error = styled(Body2)`
-  padding: 4px 8px 8px 8px;
-  color: ${palette.error};
+const Error = styled(Body3)`
+  padding: 8px 16px;
+  color: ${palette.darkRadishRed};
+  background-color: ${palette.lightRadishRed};
+  border-radius: 4px;
+
+  & a {
+    text-decoration: underline;
+    color: ${palette.darkRadishRed};
+  }
 `
 
 const Icon = styled.div`
@@ -84,6 +100,10 @@ const Icon = styled.div`
 
   left: 24px;
   top: 20px;
+`
+
+const FlexBox = styled(Box)`
+  display: flex;
 `
 
 /** This input component is intended to be used the controlled way, by always - at least - passing (value, onChange).
@@ -95,8 +115,8 @@ const InputComponent = React.forwardRef(function InputComponent(
   {value, onChange, onClear, error: error_, inputRef, fullWidth, icon, disabled, loading, textarea, onBlur, ...props},
   ref
 ) {
-  const canClear = !!(onChange && value && value.length > 0)
-  const hasIcon = !!icon
+  const canClear = Boolean(onChange && value && value.length > 0)
+  const hasIcon = Boolean(icon)
   const TextField = textarea ? TextArea : Input
   const innerInputRef = React.useRef(null)
   const [skipNextBlur, setSkipNextBlur] = React.useState(false)
@@ -129,36 +149,44 @@ const InputComponent = React.forwardRef(function InputComponent(
   )
 
   return (
-    <InputRoot ref={ref} fullWidth={fullWidth}>
-      <TextField
-        onBlur={handleBlur}
-        ref={el => {
-          innerInputRef.current = el
-          if (inputRef) {
-            inputRef(el)
-          }
-        }}
-        value={value}
-        onChange={onChange}
-        canClear={canClear}
-        hasIcon={hasIcon}
-        error={error_}
-        disabled={disabled}
-        {...props}
-      />
-      {hasIcon && <Icon>{icon}</Icon>}
-      {canClear && !disabled && !loading && (
-        <Close onMouseDown={handleClear}>
-          <CloseIcon inline />
-        </Close>
-      )}
-      {loading && (
-        <Loading>
-          <Loader inline color={palette.darkGrey} />
-        </Loading>
-      )}
-      {error_ && <Error>{error_}</Error>}
-    </InputRoot>
+    <>
+      <InputRoot ref={ref} fullWidth={fullWidth}>
+        <Box>
+          <TextField
+            onBlur={handleBlur}
+            ref={el => {
+              innerInputRef.current = el
+              if (inputRef) {
+                inputRef(el)
+              }
+            }}
+            value={value}
+            onChange={onChange}
+            canClear={canClear}
+            hasIcon={hasIcon}
+            error={error_}
+            disabled={disabled}
+            {...props}
+          />
+          {hasIcon && <Icon>{icon}</Icon>}
+          {canClear && !disabled && !loading && (
+            <Close onMouseDown={handleClear}>
+              <CloseIcon inline />
+            </Close>
+          )}
+          {loading && (
+            <Loading>
+              <Loader inline color={palette.darkGrey} />
+            </Loading>
+          )}
+        </Box>
+        {error_ && (
+          <FlexBox>
+            <Error>{error_}</Error>
+          </FlexBox>
+        )}
+      </InputRoot>
+    </>
   )
 })
 

@@ -2,10 +2,11 @@ import React from 'react'
 
 import Delegate from '../../../img/icons/delegate.svg'
 import SvgIcon from '../svg-icon'
+import {palette} from '../..'
 
-const DelegateIcon = props => {
+const DelegateIcon = ({color = palette.mediumBerryBlue, ...rest}) => {
   return (
-    <SvgIcon {...props}>
+    <SvgIcon color={color} {...rest}>
       <Delegate />
     </SvgIcon>
   )

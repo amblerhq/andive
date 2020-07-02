@@ -2,10 +2,11 @@ import React from 'react'
 
 import Tpmr from '../../../img/icons/tpmr.svg'
 import SvgIcon from '../svg-icon'
+import {palette} from '../..'
 
-const TpmrIcon = props => {
+const TpmrIcon = ({color = palette.darkPrimary, ...rest}) => {
   return (
-    <SvgIcon {...props}>
+    <SvgIcon color={color} {...rest}>
       <Tpmr />
     </SvgIcon>
   )

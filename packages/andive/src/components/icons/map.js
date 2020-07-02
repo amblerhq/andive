@@ -1,28 +1,18 @@
 import React from 'react'
-import PropTypes from 'prop-types'
-import styled from 'styled-components'
 
 import Map from '../../../img/icons/map.svg'
 import SvgIcon from '../svg-icon'
+import {palette} from '../..'
 
-const MapOverride = styled(Map)`
-  & circle {
-    fill: ${props => props.color};
-  }
-`
-
-const MapIcon = props => {
+const MapIcon = ({color = palette.mediumBerryBlue, ...rest}) => {
   return (
-    <SvgIcon {...props}>
-      <MapOverride color={props.color} />
+    <SvgIcon color={color} {...rest}>
+      <Map />
     </SvgIcon>
   )
 }
 
-MapIcon.propTypes = {
-  color: PropTypes.string
-}
-MapOverride.size = 24
+MapIcon.size = 24
 
 export default MapIcon
 export const MapSvg = Map

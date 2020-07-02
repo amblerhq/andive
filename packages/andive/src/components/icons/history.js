@@ -2,10 +2,11 @@ import React from 'react'
 
 import History from '../../../img/icons/history.svg'
 import SvgIcon from '../svg-icon'
+import {palette} from '../..'
 
-const HistoryIcon = props => {
+const HistoryIcon = ({color = palette.darkPrimary, ...rest}) => {
   return (
-    <SvgIcon {...props}>
+    <SvgIcon color={color} {...rest}>
       <History />
     </SvgIcon>
   )

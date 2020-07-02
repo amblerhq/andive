@@ -4,11 +4,9 @@ import FlatrateSt3 from '../../../img/icons/flatrate-st3.svg'
 import SvgIcon from '../svg-icon'
 import {palette} from '../..'
 
-const FlatrateSt3Icon = ({color, ...props}) => {
-  const isNativeColor = color === palette.white || color === 'white'
-
+const FlatrateSt3Icon = ({color = palette.white, ...rest}) => {
   return (
-    <SvgIcon color={isNativeColor ? undefined : color} {...props}>
+    <SvgIcon color={color} {...rest}>
       <FlatrateSt3 />
     </SvgIcon>
   )

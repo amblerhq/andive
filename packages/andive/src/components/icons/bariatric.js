@@ -2,10 +2,11 @@ import React from 'react'
 
 import Bariatric from '../../../img/icons/bariatric.svg'
 import SvgIcon from '../svg-icon'
+import {palette} from '../..'
 
-const BariatricIcon = props => {
+const BariatricIcon = ({color = palette.darkPrimary, ...rest}) => {
   return (
-    <SvgIcon {...props}>
+    <SvgIcon color={color} {...rest}>
       <Bariatric />
     </SvgIcon>
   )

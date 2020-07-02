@@ -2,10 +2,11 @@ import React from 'react'
 
 import PatientRemove from '../../../img/icons/patient-remove.svg'
 import SvgIcon from '../svg-icon'
+import {palette} from '../..'
 
-const PatientRemoveIcon = props => {
+const PatientRemoveIcon = ({color = palette.mediumBerryBlue, ...rest}) => {
   return (
-    <SvgIcon {...props}>
+    <SvgIcon color={color} {...rest}>
       <PatientRemove />
     </SvgIcon>
   )

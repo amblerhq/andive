@@ -2,10 +2,11 @@ import React from 'react'
 
 import Fleet from '../../../img/icons/fleet.svg'
 import SvgIcon from '../svg-icon'
+import {palette} from '../..'
 
-const FleetIcon = props => {
+const FleetIcon = ({color = palette.white, ...rest}) => {
   return (
-    <SvgIcon {...props}>
+    <SvgIcon color={color} {...rest}>
       <Fleet />
     </SvgIcon>
   )

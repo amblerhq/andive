@@ -2,10 +2,11 @@ import React from 'react'
 
 import Check from '../../../img/icons/check.svg'
 import SvgIcon from '../svg-icon'
+import {palette} from '../..'
 
-const CheckIcon = props => {
+const CheckIcon = ({color = palette.mediumLettuceGreen, ...rest}) => {
   return (
-    <SvgIcon {...props}>
+    <SvgIcon color={color} {...rest}>
       <Check />
     </SvgIcon>
   )

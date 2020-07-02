@@ -2,10 +2,11 @@ import React from 'react'
 
 import Account from '../../../img/icons/account.svg'
 import SvgIcon from '../svg-icon'
+import {palette} from '../..'
 
-const AccountIcon = props => {
+const AccountIcon = ({color = palette.white, ...rest}) => {
   return (
-    <SvgIcon {...props}>
+    <SvgIcon color={color} {...rest}>
       <Account />
     </SvgIcon>
   )

@@ -2,10 +2,11 @@ import React from 'react'
 
 import DropOff from '../../../img/icons/drop-off.svg'
 import SvgIcon from '../svg-icon'
+import {palette} from '../..'
 
-const DropOffIcon = props => {
+const DropOffIcon = ({color = palette.darkPrimary, ...rest}) => {
   return (
-    <SvgIcon {...props}>
+    <SvgIcon color={color} {...rest}>
       <DropOff />
     </SvgIcon>
   )

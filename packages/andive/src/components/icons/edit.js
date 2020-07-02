@@ -2,10 +2,11 @@ import React from 'react'
 
 import Edit from '../../../img/icons/edit.svg'
 import SvgIcon from '../svg-icon'
+import {palette} from '../..'
 
-const EditIcon = props => {
+const EditIcon = ({color = palette.mediumBerryBlue, ...rest}) => {
   return (
-    <SvgIcon {...props}>
+    <SvgIcon color={color} {...rest}>
       <Edit />
     </SvgIcon>
   )

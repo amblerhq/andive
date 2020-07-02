@@ -1,28 +1,18 @@
 import React from 'react'
-import PropTypes from 'prop-types'
-import styled from 'styled-components'
 
 import Cerfa from '../../../img/icons/cerfa.svg'
 import SvgIcon from '../svg-icon'
+import {palette} from '../..'
 
-const CerfaOverride = styled(Cerfa)`
-  & > path {
-    fill: ${props => props.color};
-  }
-`
-
-const CerfaIcon = props => {
+const CerfaIcon = ({color = palette.white, ...rest}) => {
   return (
-    <SvgIcon {...props}>
-      <CerfaOverride color={props.color} />
+    <SvgIcon color={color} {...rest}>
+      <Cerfa />
     </SvgIcon>
   )
 }
 
-CerfaIcon.propTypes = {
-  color: PropTypes.string
-}
-CerfaOverride.size = 24
+CerfaIcon.size = 24
 
 export default CerfaIcon
 export const CerfaSvg = Cerfa

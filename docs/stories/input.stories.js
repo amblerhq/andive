@@ -70,6 +70,30 @@ function WithErrorStory() {
   )
 }
 
+function WithReactNodeAsErrorMessage() {
+  const [value, setValue] = React.useState('0142424242')
+  // const [error, setError] = React.useState("Le numéro n'est pas celui d'un téléphone mobile")
+
+  return (
+    <Showcase>
+      <div style={{width: 300, background: 'white'}}>
+        <Input
+          placeholder="Numéro de téléphone"
+          value={value}
+          onChange={ev => {
+            setValue(ev.target.value)
+          }}
+          error={
+            <>
+              Ce numéro est déjà attribué <a href="#">à cet utilisateur</a>
+            </>
+          }
+        />
+      </div>
+    </Showcase>
+  )
+}
+
 function WithDisabledStory() {
   const [value, setValue] = React.useState('07/12/1993')
 
@@ -204,6 +228,7 @@ storiesOf('API|Input', module)
   .add('Default', () => <DefaultStory />)
   .add('With clear', () => <WithClearStory />)
   .add('With error', () => <WithErrorStory />)
+  .add('With ReactNode error', () => <WithReactNodeAsErrorMessage />)
   .add('With disabled', () => <WithDisabledStory />)
   .add('With icon', () => <WithIconStory />)
   .add('As text area', () => <AsTextAreaStory />)

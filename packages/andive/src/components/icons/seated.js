@@ -2,10 +2,11 @@ import React from 'react'
 
 import Seated from '../../../img/icons/seated.svg'
 import SvgIcon from '../svg-icon'
+import {palette} from '../..'
 
-const SeatedIcon = props => {
+const SeatedIcon = ({color = palette.darkPrimary, ...rest}) => {
   return (
-    <SvgIcon {...props}>
+    <SvgIcon color={color} {...rest}>
       <Seated />
     </SvgIcon>
   )

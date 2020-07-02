@@ -2,10 +2,11 @@ import React from 'react'
 
 import Book from '../../../img/icons/book.svg'
 import SvgIcon from '../svg-icon'
+import {palette} from '../..'
 
-const BookIcon = props => {
+const BookIcon = ({color = palette.darkPrimary, ...rest}) => {
   return (
-    <SvgIcon {...props}>
+    <SvgIcon color={color} {...rest}>
       <Book />
     </SvgIcon>
   )

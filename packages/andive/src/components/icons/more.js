@@ -2,10 +2,11 @@ import React from 'react'
 
 import More from '../../../img/icons/more.svg'
 import SvgIcon from '../svg-icon'
+import {palette} from '../..'
 
-const MoreIcon = props => {
+const MoreIcon = ({color = palette.mediumPrimary, ...rest}) => {
   return (
-    <SvgIcon {...props}>
+    <SvgIcon color={color} {...rest}>
       <More />
     </SvgIcon>
   )

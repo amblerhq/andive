@@ -3,9 +3,9 @@ import React from 'react'
 import Back from '../../../img/icons/back.svg'
 import SvgIcon from '../svg-icon'
 
-const BackIcon = props => {
+const BackIcon = ({color = '#00aef5', ...rest}) => {
   return (
-    <SvgIcon {...props}>
+    <SvgIcon color={color} {...rest}>
       <Back />
     </SvgIcon>
   )

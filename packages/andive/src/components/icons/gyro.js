@@ -2,10 +2,11 @@ import React from 'react'
 
 import Gyro from '../../../img/icons/gyro.svg'
 import SvgIcon from '../svg-icon'
+import {palette} from '../..'
 
-const GyroIcon = props => {
+const GyroIcon = ({color = palette.darkPrimary, ...rest}) => {
   return (
-    <SvgIcon {...props}>
+    <SvgIcon color={color} {...rest}>
       <Gyro />
     </SvgIcon>
   )
