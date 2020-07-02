@@ -1,7 +1,8 @@
 import * as React from 'react'
 import styled from 'styled-components'
 
-import Info from './info'
+import Box from './box'
+import Icon from './icon'
 import ArrowDownIcon from './icons/arrow-down'
 import ArrowUpIcon from './icons/arrow-up'
 import * as palette from '../constants/palette'
@@ -62,9 +63,16 @@ function AccordeonComponent({className, label, openByDefault, open, onToggle, ic
           <AccordeonButton onClick={href ? undefined : onToggle || (() => setLocalOpen(prev => !prev))}>
             {/* `min-width: 0` is required if the `label` wants to truncate with ellipsis its content. */}
             {icon ? (
-              <Info style={{minWidth: 0, padding: 0}}>
-                <Info.LabelIcon iconSize={iconSize} icon={icon} label={label} />
-              </Info>
+              <Box>
+                <Icon icon={icon}>
+                  <Box>
+                  <Typography.Body1>
+                    {label}
+                  </Typography.Body1>
+                    </Box>
+                </Icon>
+              </Box>
+
             ) : (
               <Typography.Body1 style={{minWidth: 0}}>{label}</Typography.Body1>
             )}

@@ -82,7 +82,7 @@ storiesOf('Assets|Palette', module)
       <>
         <Info>
           <Info.Block variant="info" icon={<QuestionIcon />} iconSize={24}>
-            <Info.LabelIcon label="Click on any color block to copy its value !" />
+            <Info.Item item="Click on any color block to copy its value !" />
           </Info.Block>
         </Info>
 
