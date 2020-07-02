@@ -4,7 +4,8 @@ import styled from 'styled-components'
 
 import Box from './box'
 
-const Icon = styled.div<Pick<Props, 'align' | 'direction'>>`
+
+const Icon = styled(({align, direction, ...props}) => <div {...props} />)`
   width: 100%;
   display: flex;
   flex-flow: row nowrap;

@@ -92,7 +92,9 @@ function OptionGroup({children, label, onClick, leftIcon, ...props}) {
             <Body1>{label}</Body1>
           </Icon>
         ) : (
-          <Body1>{label}</Body1>
+          <Box>
+            <Body1>{label}</Body1>
+          </Box>
         )}
       </Box>
       <ArrowRightIcon color={palette.mediumPrimary} />
