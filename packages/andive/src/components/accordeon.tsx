@@ -35,7 +35,6 @@ export interface Props {
   open?: any;
   onToggle?: any;
   icon?: ReactNodeLike;
-  iconSize?: number;
   href?: string;
   overflow?: number;
   children?: any;
@@ -53,7 +52,7 @@ function OptionalLink({href, children}) {
   return children
 }
 
-function AccordeonComponent({className, label, openByDefault, open, onToggle, icon, iconSize, href, children}: Props) {
+function AccordeonComponent({className, label, openByDefault, open, onToggle, icon, href, children}: Props) {
   const [localOpen, setLocalOpen] = React.useState(openByDefault || false)
   return (
     <>
