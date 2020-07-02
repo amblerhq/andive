@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 import Ambulance from '../../../img/icons/ambulance.svg'
-import SvgIcon from '..//svg-icon'
+import SvgIcon from '../svg-icon'
 
 const AmbulanceOverride = styled(Ambulance)`
   & > g > path {
