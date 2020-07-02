@@ -65,11 +65,9 @@ function AccordeonComponent({className, label, openByDefault, open, onToggle, ic
             {icon ? (
               <Box>
                 <Icon icon={icon}>
-                  <Box>
                   <Typography.Body1>
                     {label}
                   </Typography.Body1>
-                    </Box>
                 </Icon>
               </Box>
 

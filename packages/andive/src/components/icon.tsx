@@ -2,6 +2,8 @@ import React from 'react'
 import { ReactNodeLike } from 'prop-types'
 import styled from 'styled-components'
 
+import Box from './box'
+
 const Icon = styled.div<Pick<Props, 'align' | 'direction'>>`
   width: 100%;
   display: flex;
@@ -39,7 +41,7 @@ export default function IconComponent({
   return (
     <Icon className={className} align={align} direction={direction}>
       <IconWrapper iconSize={iconSize}>{icon}</IconWrapper>
-      {children}
+      <Box>{children}</Box>
     </Icon>
   )
 }

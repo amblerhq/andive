@@ -14,6 +14,7 @@ import BackIcon from './icons/back'
 import useElementRect from '../lib/use-element-rect'
 import Box from './box'
 import Icon from './icon'
+import {Body1} from './typography'
 
 const MenuContext = createContext({onClick() {}})
 
@@ -85,15 +86,15 @@ const OptionGroupLayout = styled.div`
 function OptionGroup({children, label, onClick, leftIcon, ...props}) {
   return (
     <OptionGroupLayout onClick={onClick(children)} {...props}>
-      <Info>
+      <Box>
         {leftIcon ? (
-          <Icon icon={leftIcon} iconSize={32}>
-            <Box>{label}</Box>
+          <Icon icon={leftIcon}>
+            <Body1>{label}</Body1>
           </Icon>
         ) : (
-          <Info.Label label={label} />
+          <Body1>{label}</Body1>
         )}
-      </Info>
+      </Box>
       <ArrowRightIcon color={palette.mediumPrimary} />
     </OptionGroupLayout>
   )
