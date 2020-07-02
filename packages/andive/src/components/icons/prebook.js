@@ -1,13 +1,13 @@
 import React from 'react'
 
 import Prebook from '../../../img/icons/prebook.svg'
-import Icon from '../icon'
+import SvgIcon from '..//svg-icon'
 
 const PrebookIcon = props => {
   return (
-    <Icon {...props}>
+    <SvgIcon {...props}>
       <Prebook />
-    </Icon>
+    </SvgIcon>
   )
 }
 

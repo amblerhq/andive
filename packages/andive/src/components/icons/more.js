@@ -1,13 +1,13 @@
 import React from 'react'
 
 import More from '../../../img/icons/more.svg'
-import Icon from '../icon'
+import SvgIcon from '..//svg-icon'
 
 const MoreIcon = props => {
   return (
-    <Icon {...props}>
+    <SvgIcon {...props}>
       <More />
-    </Icon>
+    </SvgIcon>
   )
 }
 

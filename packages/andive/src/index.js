@@ -204,7 +204,7 @@ export {default as DropdownFilter} from './components/dropdown-filter'
 
 export {default as Hover} from './components/hover'
 
-export {default as Icon} from './components/icon'
+export {default as SvgIcon} from './components/svg-icon'
 
 export {default as Input} from './components/input'
 
@@ -231,6 +231,8 @@ export {default as NativeCheckbox} from './components/native/checkbox'
 export {default as Accordeon} from './components/accordeon'
 
 export {default as Box} from './components/box'
+
+export {default as Icon} from './components/icon'
 
 export {defaultTheme, default as ThemeProvider} from './components/theme-provider'
 

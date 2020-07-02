@@ -1,13 +1,13 @@
 import React from 'react'
 
 import Alert from '../../../img/icons/alert.svg'
-import Icon from '../icon'
+import SvgIcon from '../svg-icon'
 
 const AlertIcon = props => {
   return (
-    <Icon {...props}>
+    <SvgIcon {...props}>
       <Alert />
-    </Icon>
+    </SvgIcon>
   )
 }
 

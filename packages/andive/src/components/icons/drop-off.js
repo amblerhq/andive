@@ -1,13 +1,13 @@
 import React from 'react'
 
 import DropOff from '../../../img/icons/drop-off.svg'
-import Icon from '../icon'
+import SvgIcon from '..//svg-icon'
 
 const DropOffIcon = props => {
   return (
-    <Icon {...props}>
+    <SvgIcon {...props}>
       <DropOff />
-    </Icon>
+    </SvgIcon>
   )
 }
 

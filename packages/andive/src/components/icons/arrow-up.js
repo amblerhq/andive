@@ -1,13 +1,13 @@
 import React from 'react'
 
 import ArrowUp from '../../../img/icons/arrow-up.svg'
-import Icon from '../icon'
+import SvgIcon from '../svg-icon'
 
 const ArrowUpIcon = props => {
   return (
-    <Icon {...props}>
+    <SvgIcon {...props}>
       <ArrowUp />
-    </Icon>
+    </SvgIcon>
   )
 }
 

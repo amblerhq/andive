@@ -1,13 +1,13 @@
 import React from 'react'
 
 import Logout from '../../../img/icons/log-out.svg'
-import Icon from '../icon'
+import SvgIcon from '..//svg-icon'
 
 const LogoutIcon = props => {
   return (
-    <Icon {...props}>
+    <SvgIcon {...props}>
       <Logout />
-    </Icon>
+    </SvgIcon>
   )
 }
 

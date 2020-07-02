@@ -1,13 +1,13 @@
 import React from 'react'
 
 import Tpmr from '../../../img/icons/tpmr.svg'
-import Icon from '../icon'
+import SvgIcon from '..//svg-icon'
 
 const TpmrIcon = props => {
   return (
-    <Icon {...props}>
+    <SvgIcon {...props}>
       <Tpmr />
-    </Icon>
+    </SvgIcon>
   )
 }
 

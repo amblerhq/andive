@@ -1,13 +1,13 @@
 import React from 'react'
 
 import PatientAdd from '../../../img/icons/patient-add.svg'
-import Icon from '../icon'
+import SvgIcon from '..//svg-icon'
 
 const PatientAddIcon = props => {
   return (
-    <Icon {...props}>
+    <SvgIcon {...props}>
       <PatientAdd />
-    </Icon>
+    </SvgIcon>
   )
 }
 

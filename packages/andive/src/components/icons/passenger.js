@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import PropTypes from 'prop-types'
 
 import Passenger from '../../../img/icons/passenger.svg'
-import Icon from '../icon'
+import SvgIcon from '..//svg-icon'
 
 const PassengerOverride = styled(Passenger)`
   & > path {
@@ -12,9 +12,9 @@ const PassengerOverride = styled(Passenger)`
 `
 const PassengerIcon = props => {
   return (
-    <Icon {...props}>
+    <SvgIcon {...props}>
       <PassengerOverride color={props.color} />
-    </Icon>
+    </SvgIcon>
   )
 }
 

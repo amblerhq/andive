@@ -1,13 +1,13 @@
 import React from 'react'
 
 import Close from '../../../img/icons/close.svg'
-import Icon from '../icon'
+import SvgIcon from '..//svg-icon'
 
 const CloseIcon = props => {
   return (
-    <Icon {...props}>
+    <SvgIcon {...props}>
       <Close />
-    </Icon>
+    </SvgIcon>
   )
 }
 

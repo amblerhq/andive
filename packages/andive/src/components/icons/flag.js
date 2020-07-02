@@ -1,13 +1,13 @@
 import React from 'react'
 
 import Flag from '../../../img/icons/flag.svg'
-import Icon from '../icon'
+import SvgIcon from '..//svg-icon'
 
 const FlagIcon = props => {
   return (
-    <Icon {...props}>
+    <SvgIcon {...props}>
       <Flag />
-    </Icon>
+    </SvgIcon>
   )
 }
 

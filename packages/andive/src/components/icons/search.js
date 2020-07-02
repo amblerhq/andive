@@ -1,13 +1,13 @@
 import React from 'react'
 
 import Search from '../../../img/icons/search.svg'
-import Icon from '../icon'
+import SvgIcon from '..//svg-icon'
 
 const SearchIcon = props => {
   return (
-    <Icon {...props}>
+    <SvgIcon {...props}>
       <Search />
-    </Icon>
+    </SvgIcon>
   )
 }
 

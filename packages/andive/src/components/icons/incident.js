@@ -1,13 +1,13 @@
 import React from 'react'
 
 import Incident from '../../../img/icons/incident.svg'
-import Icon from '../icon'
+import SvgIcon from '..//svg-icon'
 
 const IncidentIcon = props => {
   return (
-    <Icon {...props}>
+    <SvgIcon {...props}>
       <Incident />
-    </Icon>
+    </SvgIcon>
   )
 }
 

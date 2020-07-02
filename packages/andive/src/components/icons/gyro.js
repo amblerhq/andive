@@ -1,13 +1,13 @@
 import React from 'react'
 
 import Gyro from '../../../img/icons/gyro.svg'
-import Icon from '../icon'
+import SvgIcon from '..//svg-icon'
 
 const GyroIcon = props => {
   return (
-    <Icon {...props}>
+    <SvgIcon {...props}>
       <Gyro />
-    </Icon>
+    </SvgIcon>
   )
 }
 

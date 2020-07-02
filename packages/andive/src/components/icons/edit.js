@@ -1,13 +1,13 @@
 import React from 'react'
 
 import Edit from '../../../img/icons/edit.svg'
-import Icon from '../icon'
+import SvgIcon from '..//svg-icon'
 
 const EditIcon = props => {
   return (
-    <Icon {...props}>
+    <SvgIcon {...props}>
       <Edit />
-    </Icon>
+    </SvgIcon>
   )
 }
 

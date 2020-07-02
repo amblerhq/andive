@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 import Mt from '../../../img/icons/mt.svg'
-import Icon from '../icon'
+import SvgIcon from '..//svg-icon'
 
 const MtOverride = styled(Mt)`
   & path:nth-of-type(3) {
@@ -13,9 +13,9 @@ const MtOverride = styled(Mt)`
 
 const MtIcon = props => {
   return (
-    <Icon {...props}>
+    <SvgIcon {...props}>
       <MtOverride color={props.color} />
-    </Icon>
+    </SvgIcon>
   )
 }
 

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 import CheckboxOn from '../../../img/icons/on-squared.svg'
-import Icon from '../icon'
+import SvgIcon from '..//svg-icon'
 
 const CheckboxOnOverride = styled(CheckboxOn)`
   & > g > rect {
@@ -18,9 +18,9 @@ const CheckboxOnOverride = styled(CheckboxOn)`
 
 const CheckboxOnIcon = props => {
   return (
-    <Icon {...props}>
+    <SvgIcon {...props}>
       <CheckboxOnOverride color={props.color} />
-    </Icon>
+    </SvgIcon>
   )
 }
 

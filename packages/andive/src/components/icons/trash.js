@@ -1,13 +1,13 @@
 import React from 'react'
 
 import Trash from '../../../img/icons/trash.svg'
-import Icon from '../icon'
+import SvgIcon from '..//svg-icon'
 
 const TrashIcon = props => {
   return (
-    <Icon {...props}>
+    <SvgIcon {...props}>
       <Trash />
-    </Icon>
+    </SvgIcon>
   )
 }
 

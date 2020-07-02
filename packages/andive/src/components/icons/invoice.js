@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 import Invoice from '../../../img/icons/invoice.svg'
-import Icon from '../icon'
+import SvgIcon from '..//svg-icon'
 
 const InvoiceOverride = styled(Invoice)`
   & > g > text {
@@ -13,9 +13,9 @@ const InvoiceOverride = styled(Invoice)`
 
 const InvoiceIcon = props => {
   return (
-    <Icon {...props}>
+    <SvgIcon {...props}>
       <InvoiceOverride color={props.color} />
-    </Icon>
+    </SvgIcon>
   )
 }
 

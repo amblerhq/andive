@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 import Ambulance from '../../../img/icons/ambulance.svg'
-import Icon from '../icon'
+import SvgIcon from '..//svg-icon'
 
 const AmbulanceOverride = styled(Ambulance)`
   & > g > path {
@@ -17,9 +17,9 @@ const AmbulanceOverride = styled(Ambulance)`
 
 const AmbulanceIcon = props => {
   return (
-    <Icon {...props}>
+    <SvgIcon {...props}>
       <AmbulanceOverride color={props.color} />
-    </Icon>
+    </SvgIcon>
   )
 }
 

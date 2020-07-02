@@ -4,7 +4,6 @@ import PropTypes from 'prop-types'
 
 import Item from './item'
 import Label from './label'
-import LabelIcon from './label-icon'
 import Block from './block'
 
 const Info = styled.div`
@@ -46,7 +45,6 @@ InfoComponent.propTypes = {
 }
 
 InfoComponent.Label = Label
-InfoComponent.LabelIcon = LabelIcon
 InfoComponent.Item = Item
 InfoComponent.Block = Block
 

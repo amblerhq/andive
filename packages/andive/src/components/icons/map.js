@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 import Map from '../../../img/icons/map.svg'
-import Icon from '../icon'
+import SvgIcon from '..//svg-icon'
 
 const MapOverride = styled(Map)`
   & circle {
@@ -13,9 +13,9 @@ const MapOverride = styled(Map)`
 
 const MapIcon = props => {
   return (
-    <Icon {...props}>
+    <SvgIcon {...props}>
       <MapOverride color={props.color} />
-    </Icon>
+    </SvgIcon>
   )
 }
 

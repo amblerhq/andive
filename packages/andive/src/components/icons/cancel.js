@@ -1,13 +1,13 @@
 import React from 'react'
 
 import Cancel from '../../../img/icons/cancel.svg'
-import Icon from '../icon'
+import SvgIcon from '..//svg-icon'
 
 const CancelIcon = props => {
   return (
-    <Icon {...props}>
+    <SvgIcon {...props}>
       <Cancel />
-    </Icon>
+    </SvgIcon>
   )
 }
 

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 import Cerfa from '../../../img/icons/cerfa.svg'
-import Icon from '../icon'
+import SvgIcon from '..//svg-icon'
 
 const CerfaOverride = styled(Cerfa)`
   & > path {
@@ -13,9 +13,9 @@ const CerfaOverride = styled(Cerfa)`
 
 const CerfaIcon = props => {
   return (
-    <Icon {...props}>
+    <SvgIcon {...props}>
       <CerfaOverride color={props.color} />
-    </Icon>
+    </SvgIcon>
   )
 }
 

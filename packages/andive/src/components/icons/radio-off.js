@@ -1,13 +1,13 @@
 import React from 'react'
 
 import RadioOff from '../../../img/icons/off-round.svg'
-import Icon from '../icon'
+import SvgIcon from '..//svg-icon'
 
 const RadioOffIcon = props => {
   return (
-    <Icon {...props}>
+    <SvgIcon {...props}>
       <RadioOff />
-    </Icon>
+    </SvgIcon>
   )
 }
 

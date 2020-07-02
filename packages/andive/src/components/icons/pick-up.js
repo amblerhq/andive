@@ -1,13 +1,13 @@
 import React from 'react'
 
 import PickUp from '../../../img/icons/pick-up.svg'
-import Icon from '../icon'
+import SvgIcon from '..//svg-icon'
 
 const PickUpIcon = props => {
   return (
-    <Icon {...props}>
+    <SvgIcon {...props}>
       <PickUp />
-    </Icon>
+    </SvgIcon>
   )
 }
 

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 import Question from '../../../img/icons/question.svg'
-import Icon from '../icon'
+import SvgIcon from '..//svg-icon'
 
 const QuestionOverride = styled(Question)`
   & > g > path:nth-of-type(2) {
@@ -13,9 +13,9 @@ const QuestionOverride = styled(Question)`
 
 const QuestionIcon = props => {
   return (
-    <Icon {...props}>
+    <SvgIcon {...props}>
       <QuestionOverride color={props.color} />
-    </Icon>
+    </SvgIcon>
   )
 }
 

@@ -1,300 +1,76 @@
 import React from 'react'
 import {storiesOf} from '@storybook/react'
-import styled from 'styled-components'
-import {
-  palette,
-  AccountIcon,
-  FleetIcon,
-  AmbulanceIcon,
-  VslIcon,
-  TpmrIcon,
-  BariatricIcon,
-  SeatedIcon,
-  LyingIcon,
-  EditIcon,
-  BackIcon,
-  CloseIcon,
-  ArrowRightIcon,
-  ArrowLeftIcon,
-  ArrowDownIcon,
-  ArrowUpIcon,
-  LogoutIcon,
-  HistoryIcon,
-  MedicalFacilityIcon,
-  AddressIcon,
-  CheckboxOnIcon,
-  CheckboxOffIcon,
-  NewIcon,
-  RadioOnIcon,
-  RadioOffIcon,
-  CancelIcon,
-  FlagIcon,
-  QuestionIcon,
-  Art80Icon,
-  CerfaIcon,
-  PatientIcon,
-  DelegateIcon,
-  ExportIcon,
-  CheckIcon,
-  WarningIcon,
-  MapIcon,
-  ForbiddenIcon,
-  MfIcon,
-  MfuIcon,
-  MtIcon,
-  RidesIcon,
-  OrdersIcon,
-  DashboardIcon,
-  BurgerIcon,
-  IncidentIcon,
-  PassengerIcon,
-  AddressRemoveIcon,
-  PatientAddIcon,
-  PatientRemoveIcon,
-  EuroIcon,
-  InvoiceIcon,
-  FlatrateSt1Icon,
-  FlatrateSt2Icon,
-  FlatrateSt3Icon,
-  FlatrateTsIcon,
-  FlatrateTdIcon,
-  TrashIcon,
-  DragIcon,
-  AgreementIcon,
-  TaskIcon,
-  PhoneIcon,
-  MoreIcon,
-  SearchIcon,
-  BookIcon,
-  PrebookIcon,
-  ConnectAsIcon,
-  GyroIcon,
-  PickUpIcon,
-  DropOffIcon,
-  Typography,
-  Info
-} from '@ambler/andive'
+import {Info, VslIcon, AlertIcon, Typography, Box, Icon} from '@ambler/andive'
 
 import Showcase from './showcase'
 
-const Icons = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-`
+const shortLabel = 'Fan de Phil Collins'
+const longLabel =
+  'Philip David Charles Collins dit Phil Collins, né le 30 janvier 1951 à Chiswick (Londres), est un musicien, auteur-compositeur-interprète, acteur et producteur de disques britannique.'
 
-const icons = [
-  AmbulanceIcon,
-  VslIcon,
-  TpmrIcon,
-  BariatricIcon,
-  SeatedIcon,
-  LyingIcon,
-  CloseIcon,
-  ArrowRightIcon,
-  ArrowLeftIcon,
-  ArrowDownIcon,
-  ArrowUpIcon,
-  LogoutIcon,
-  HistoryIcon,
-  MedicalFacilityIcon,
-  AddressIcon,
-  AddressRemoveIcon,
-  NewIcon,
-  CancelIcon,
-  FlagIcon,
-  QuestionIcon,
-  Art80Icon,
-  CerfaIcon,
-  PatientIcon,
-  DelegateIcon,
-  MapIcon,
-  ExportIcon,
-  CheckIcon,
-  WarningIcon,
-  ForbiddenIcon,
-  IncidentIcon,
-  MfIcon,
-  MfuIcon,
-  MtIcon,
-  RidesIcon,
-  OrdersIcon,
-  DashboardIcon,
-  EditIcon,
-  BackIcon,
-  BurgerIcon,
-  RadioOnIcon,
-  RadioOffIcon,
-  CheckboxOnIcon,
-  CheckboxOffIcon,
-  PassengerIcon,
-  PatientAddIcon,
-  PatientRemoveIcon,
-  EuroIcon,
-  InvoiceIcon,
-  FlatrateSt1Icon,
-  FlatrateSt2Icon,
-  FlatrateSt3Icon,
-  FlatrateTsIcon,
-  FlatrateTdIcon,
-  TrashIcon,
-  DragIcon,
-  AgreementIcon,
-  TaskIcon,
-  AccountIcon,
-  FleetIcon,
-  PhoneIcon,
-  MoreIcon,
-  SearchIcon,
-  ConnectAsIcon,
-  PrebookIcon,
-  BookIcon,
-  GyroIcon,
-  PickUpIcon,
-  DropOffIcon
-]
-
-function TimedColor({interval, colors, children}) {
-  const [index, setIndex] = React.useState(0)
-
-  React.useEffect(() => {
-    function tick() {
-      setIndex(prev => (prev >= colors.length - 1 ? 0 : prev + 1))
-    }
-
-    const handle = setInterval(tick, interval || 1000)
-
-    return () => {
-      clearInterval(handle)
-    }
-  }, [setIndex])
-
-  const color = colors[index % icons.length]
-
-  return children(color)
-}
-
-const newIcons = [
-  {Icon: PickUpIcon},
-  {Icon: DropOffIcon},
-  {Icon: GyroIcon},
-  {Icon: BookIcon},
-  {Icon: PrebookIcon},
-  {Icon: SearchIcon},
-  {Icon: ConnectAsIcon},
-  {Icon: PhoneIcon},
-  {Icon: MoreIcon}
-]
-const updatedIcons = []
-
-storiesOf('Assets|Icons', module)
-  .add('New 👀', () => {
-    return (
-      <>
-        {newIcons.length ? (
-          <>
-            <Info>
-              <Typography.Body1>Newly added icons</Typography.Body1>
-            </Info>
-            <Icons>
-              {newIcons.map(config => (
-                <Showcase
-                  key={config.Icon && config.Icon.name}
-                  variant="squared"
-                  size={160}
-                  invert={config.invert}
-                  legend={config.Icon && config.Icon.name}
-                >
-                  <config.Icon />
-                </Showcase>
-              ))}
-            </Icons>
-          </>
-        ) : null}
-        {updatedIcons.length ? (
-          <>
-            <Info>
-              <Typography.Body1>Recently updated icons</Typography.Body1>
-            </Info>
-            <Icons>
-              {updatedIcons.map(config => (
-                <Showcase
-                  key={config.Icon && config.Icon.name}
-                  variant="squared"
-                  size={160}
-                  invert={config.invert}
-                  legend={config.Icon && config.Icon.name}
-                >
-                  <config.Icon />
-                </Showcase>
-              ))}
-            </Icons>
-          </>
-        ) : null}
-      </>
-    )
-  })
-  .add('Library', () => {
-    return (
-      <>
-        <TimedColor interval={5000} colors={[palette.darkPrimary, palette.mediumBerryBlue]}>
-          {color => (
-            <Icons>
-              {icons.map((Icon, index) => {
-                return (
-                  <Showcase key={index} variant="squared" size={160} legend={Icon.name}>
-                    <Icon color={color} />
-                  </Showcase>
-                )
-              })}
-            </Icons>
-          )}
-        </TimedColor>
-      </>
-    )
-  })
-  .add('With circle', () => (
-    <Icons>
-      <Showcase variant="squared">
-        <MedicalFacilityIcon circle circleColor="white" />
+storiesOf('API|Icon', module).add('Icon with children', () => {
+  return (
+    <>
+      <Showcase legend="Label with icon (children as string)">
+        <Info style={{background: 'white'}}>
+          <Icon icon={<VslIcon inline />}>Voiture de Phil</Icon>
+        </Info>
       </Showcase>
-      <Showcase variant="squared">
-        <AmbulanceIcon circle circleColor={palette.mediumBeetrootPurple} color="white" />
+      <Showcase legend="Label with icon (children as react node)">
+        <Info style={{background: 'white'}}>
+          <Icon icon={<VslIcon inline />}>
+            <Typography.Body1>Voiture de Phil</Typography.Body1>
+          </Icon>
+        </Info>
       </Showcase>
-      {[EuroIcon, ForbiddenIcon, FlatrateSt1Icon, FlatrateSt2Icon, FlatrateSt3Icon, FlatrateTsIcon, FlatrateTdIcon].map(
-        (Icon, index) => (
-          <Showcase variant="squared" key={index}>
-            <Icon circle circleColor={palette.mediumBeetrootPurple} color="white" />
-          </Showcase>
-        )
-      )}
-    </Icons>
-  ))
-  .add('With color', () => (
-    <Icons>
-      <Showcase variant="squared">
-        <AddressIcon color={palette.mediumBerryBlue} />
+      <Showcase legend="Boxed label with icon (2 lines)">
+        <Info style={{background: 'white', width: 300}}>
+          <Icon icon={<VslIcon inline />}>
+            <Box>{longLabel.substr(0, 64)}</Box>
+          </Icon>
+        </Info>
       </Showcase>
-      <Showcase variant="squared">
-        <AddressIcon color={palette.mediumRadishRed} />
+      <Showcase legend="Boxed label with icon (long label)">
+        <Info style={{background: 'white', width: 300}}>
+          <Icon icon={<VslIcon inline />}>
+            <Box>{longLabel}</Box>
+          </Icon>
+        </Info>
       </Showcase>
-      <Showcase variant="squared">
-        <AddressIcon color={palette.mediumLettuceGreen} />
+      <Showcase legend="Boxed labels with icon (fixed iconSize)">
+        <Info style={{background: 'white', width: 300}}>
+          <Icon icon={<VslIcon inline />} iconSize={32}>
+            <Box>{shortLabel}</Box>
+          </Icon>
+          <Icon icon={<VslIcon circle />} iconSize={32}>
+            <Box>{longLabel}</Box>
+          </Icon>
+        </Info>
       </Showcase>
-      <Showcase variant="squared" invert>
-        <AddressIcon color={palette.mediumPotatoYellow} />
+      <Showcase legend="Label with icon (1 line)">
+        <Info style={{background: 'white'}}>
+          <Info.Item item={shortLabel} />
+          <Icon icon={<AlertIcon inline />}>
+            <div style={{paddingLeft: '8px'}}>{shortLabel}</div>
+          </Icon>
+        </Info>
       </Showcase>
-      <Showcase variant="squared" invert>
-        <AddressIcon color={palette.white} />
+      <Showcase legend="Label with icon (2 lines)">
+        <Info style={{background: 'white', width: 300}}>
+          <Info.Item item={shortLabel} />
+          <Icon icon={<AlertIcon inline />}>
+            <div style={{paddingLeft: '8px'}}>{longLabel.substr(0, 64)}</div>
+          </Icon>
+        </Info>
       </Showcase>
-      <Showcase variant="squared" invert>
-        <MtIcon color="grey" />
+      <Showcase legend="Label with icon (long label)">
+        <Info style={{background: 'white', width: 300}}>
+          <Info.Item item={shortLabel} />
+          <Icon icon={<AlertIcon inline />}>
+            <div style={{paddingLeft: '8px'}}>{longLabel}</div>
+          </Icon>
+        </Info>
       </Showcase>
-    </Icons>
-  ))
-  .add('Inline', () => (
-    <Showcase>
-      En concert à {"l'"}Olympiade
-      <AddressIcon inline color={palette.lightRadishRed} />
-      dès 2020 !
-    </Showcase>
-  ))
+    </>
+  )
+})

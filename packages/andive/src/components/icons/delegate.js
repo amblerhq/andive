@@ -1,13 +1,13 @@
 import React from 'react'
 
 import Delegate from '../../../img/icons/delegate.svg'
-import Icon from '../icon'
+import SvgIcon from '..//svg-icon'
 
 const DelegateIcon = props => {
   return (
-    <Icon {...props}>
+    <SvgIcon {...props}>
       <Delegate />
-    </Icon>
+    </SvgIcon>
   )
 }
 

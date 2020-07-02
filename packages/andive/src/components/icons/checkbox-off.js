@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 import CheckboxOff from '../../../img/icons/off-squared.svg'
-import Icon from '../icon'
+import SvgIcon from '..//svg-icon'
 
 const CheckboxOffOverride = styled(CheckboxOff)`
   & > rect {
@@ -13,9 +13,9 @@ const CheckboxOffOverride = styled(CheckboxOff)`
 
 const CheckboxOffIcon = props => {
   return (
-    <Icon {...props}>
+    <SvgIcon {...props}>
       <CheckboxOffOverride color={props.color} />
-    </Icon>
+    </SvgIcon>
   )
 }
 
