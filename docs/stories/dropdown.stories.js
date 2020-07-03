@@ -38,64 +38,44 @@ const LargeDropdownBase = styled(DropdownBase)`
   width: 150px;
 `
 
-storiesOf('API|Dropdown', module)
-  .add('New 👀', () => {
-    const Dropdown = ({onClick}) => (
-      <LargeDropdownBase onClick={onClick}>
-        <Box>
-          <Typography.Body1>Ambulance</Typography.Body1>
-          <Typography.Body2>Une ambulance est un véhicule spécialement adapté et aménagé pour...</Typography.Body2>
-        </Box>
-      </LargeDropdownBase>
-    )
+const AmbulanceInfo = ({onClick}) => (
+  <LargeDropdownBase onClick={onClick}>
+    <Box>
+      <Typography.Body1>Ambulance</Typography.Body1>
+      <Typography.Body2>Une ambulance est un véhicule spécialement adapté et aménagé pour...</Typography.Body2>
+    </Box>
+  </LargeDropdownBase>
+)
 
+storiesOf('Next|Dropdown', module)
+  .add('DropdownBase', () => {
     return (
       <>
-        <Showcase legend="DropdownBase">
-          <Dropdown />
-        </Showcase>
-
-        <Showcase legend="DropdownBase controlled">
-          <DropdownComposer
-            button={<Button label="Open and spread top-left" variant="filter" invert />}
-            dropdown={Dropdown}
-            horizontal={DropdownComposer.HorizontalVariant.LEFT}
-            vertical={DropdownComposer.VerticalVariant.UP}
-          />
-          <DropdownComposer
-            button={<Button label="Open and spread top-right" variant="filter" invert />}
-            dropdown={Dropdown}
-            horizontal={DropdownComposer.HorizontalVariant.RIGHT}
-            vertical={DropdownComposer.VerticalVariant.UP}
-          />
-          <DropdownComposer
-            button={<Button label="Open and spread bottom-left" variant="filter" invert />}
-            dropdown={Dropdown}
-            horizontal={DropdownComposer.HorizontalVariant.LEFT}
-            vertical={DropdownComposer.VerticalVariant.DOWN}
-          />
-          <DropdownComposer
-            button={<Button label="Open and spread bottom-right" variant="filter" invert />}
-            dropdown={Dropdown}
-            horizontal={DropdownComposer.HorizontalVariant.RIGHT}
-            vertical={DropdownComposer.VerticalVariant.DOWN}
-          />
-        </Showcase>
-        <Showcase legend="More Menu">
-          <DropdownComposer
-            button={<FlatButton icon={<MoreIcon />} />}
-            horizontal={DropdownComposer.HorizontalVariant.LEFT}
-            dropdown={({onClick}) => (
-              <DropdownBase>
-                <FlatButton icon={<EditIcon />} label="Editer" onClick={onClick} />
-                <FlatButton icon={<TrashIcon color="red" />} color="red" label="Supprimer" onClick={onClick} />
-              </DropdownBase>
-            )}
-          />
-        </Showcase>
+        <DropdownBase>
+          <Box>
+            <Typography.Body1>Ambulance</Typography.Body1>
+            <Typography.Body2>Une ambulance est un véhicule spécialement adapté et aménagé pour...</Typography.Body2>
+          </Box>
+        </DropdownBase>
       </>
     )
   })
+  .add('More Menu', () => {
+    return (
+      <DropdownComposer
+        button={<FlatButton icon={<MoreIcon />} />}
+        horizontal={DropdownComposer.HorizontalVariant.LEFT}
+        dropdown={({onClick}) => (
+          <DropdownBase>
+            <FlatButton icon={<EditIcon />} label="Editer" onClick={onClick} />
+            <FlatButton icon={<TrashIcon color="red" />} color="red" label="Supprimer" onClick={onClick} />
+          </DropdownBase>
+        )}
+      />
+    )
+  })
+
+storiesOf('API|Dropdown', module)
   .add('Default', () => (
     <Showcase>
       <Dropdown
@@ -186,3 +166,35 @@ storiesOf('API|Dropdown', module)
       />
     </Showcase>
   ))
+  .add('DropdownComposer', () => {
+    return (
+      <>
+        <Showcase legend="DropdownBase controlled">
+          <DropdownComposer
+            button={<Button label="Open and spread top-left" variant="filter" invert />}
+            dropdown={AmbulanceInfo}
+            horizontal={DropdownComposer.HorizontalVariant.LEFT}
+            vertical={DropdownComposer.VerticalVariant.UP}
+          />
+          <DropdownComposer
+            button={<Button label="Open and spread top-right" variant="filter" invert />}
+            dropdown={AmbulanceInfo}
+            horizontal={DropdownComposer.HorizontalVariant.RIGHT}
+            vertical={DropdownComposer.VerticalVariant.UP}
+          />
+          <DropdownComposer
+            button={<Button label="Open and spread bottom-left" variant="filter" invert />}
+            dropdown={AmbulanceInfo}
+            horizontal={DropdownComposer.HorizontalVariant.LEFT}
+            vertical={DropdownComposer.VerticalVariant.DOWN}
+          />
+          <DropdownComposer
+            button={<Button label="Open and spread bottom-right" variant="filter" invert />}
+            dropdown={AmbulanceInfo}
+            horizontal={DropdownComposer.HorizontalVariant.RIGHT}
+            vertical={DropdownComposer.VerticalVariant.DOWN}
+          />
+        </Showcase>
+      </>
+    )
+  })

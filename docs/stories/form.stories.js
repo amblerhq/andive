@@ -159,14 +159,4 @@ function ReactStory() {
   )
 }
 
-function FormikStory() {
-  return (
-    <Showcase>
-      <Card>TODO</Card>
-    </Showcase>
-  )
-}
-
-storiesOf('Form|Interoperability', module)
-  .add('React', () => <ReactStory />)
-  .add('Formik v2', () => <FormikStory />)
+storiesOf('Form|Interoperability', module).add('React', () => <ReactStory />)
