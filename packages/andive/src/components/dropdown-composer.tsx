@@ -26,7 +26,7 @@ const Overlay = styled.div`
 `
 
 const DropdownComposeRoot = styled.div`
-display: inline-block;
+  display: inline-block;
   position: relative;
 `
 

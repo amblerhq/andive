@@ -51,27 +51,37 @@ storiesOf('Next|Dropdown', module)
   .add('DropdownBase', () => {
     return (
       <>
-        <DropdownBase>
-          <Box>
-            <Typography.Body1>Ambulance</Typography.Body1>
-            <Typography.Body2>Une ambulance est un véhicule spécialement adapté et aménagé pour...</Typography.Body2>
-          </Box>
-        </DropdownBase>
+        <Showcase>
+          <div style={{width: 300, background: 'white'}}>
+            <DropdownBase>
+              <Box>
+                <Typography.Body1>Ambulance</Typography.Body1>
+                <Typography.Body2>
+                  Une ambulance est un véhicule spécialement adapté et aménagé pour...
+                </Typography.Body2>
+              </Box>
+            </DropdownBase>
+          </div>
+        </Showcase>
       </>
     )
   })
   .add('More Menu', () => {
     return (
-      <DropdownComposer
-        button={<FlatButton icon={<MoreIcon />} />}
-        horizontal={DropdownComposer.HorizontalVariant.LEFT}
-        dropdown={({onClick}) => (
-          <DropdownBase>
-            <FlatButton icon={<EditIcon />} label="Editer" onClick={onClick} />
-            <FlatButton icon={<TrashIcon color="red" />} color="red" label="Supprimer" onClick={onClick} />
-          </DropdownBase>
-        )}
-      />
+      <Showcase>
+        <div style={{width: 300, background: 'white'}}>
+          <DropdownComposer
+            button={<FlatButton icon={<MoreIcon />} />}
+            horizontal={DropdownComposer.HorizontalVariant.LEFT}
+            dropdown={({onClick}) => (
+              <DropdownBase>
+                <FlatButton icon={<EditIcon />} label="Editer" onClick={onClick} />
+                <FlatButton icon={<TrashIcon color="red" />} color="red" label="Supprimer" onClick={onClick} />
+              </DropdownBase>
+            )}
+          />
+        </div>
+      </Showcase>
     )
   })
 
