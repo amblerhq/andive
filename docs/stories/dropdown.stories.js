@@ -1,8 +1,9 @@
 import React from 'react'
 import {storiesOf} from '@storybook/react'
 import {
-  Info,
+  Box,
   Button,
+  FlatButton,
   ArrowDownIcon,
   Dropdown,
   DropdownBase,
@@ -34,17 +35,17 @@ function ControlledDropdown() {
 }
 
 const LargeDropdownBase = styled(DropdownBase)`
-  width: 300px;
+  width: 150px;
 `
 
 storiesOf('API|Dropdown', module)
   .add('New 👀', () => {
     const Dropdown = ({onClick}) => (
-      <LargeDropdownBase oncLick={onClick}>
-        <Info>
+      <LargeDropdownBase onClick={onClick}>
+        <Box>
           <Typography.Body1>Ambulance</Typography.Body1>
           <Typography.Body2>Une ambulance est un véhicule spécialement adapté et aménagé pour...</Typography.Body2>
-        </Info>
+        </Box>
       </LargeDropdownBase>
     )
 
@@ -56,28 +57,24 @@ storiesOf('API|Dropdown', module)
 
         <Showcase legend="DropdownBase controlled">
           <DropdownComposer
-            withOverlay
             button={<Button label="Open and spread top-left" variant="filter" invert />}
             dropdown={Dropdown}
             horizontal={DropdownComposer.HorizontalVariant.LEFT}
             vertical={DropdownComposer.VerticalVariant.UP}
           />
           <DropdownComposer
-            withOverlay
             button={<Button label="Open and spread top-right" variant="filter" invert />}
             dropdown={Dropdown}
             horizontal={DropdownComposer.HorizontalVariant.RIGHT}
             vertical={DropdownComposer.VerticalVariant.UP}
           />
           <DropdownComposer
-            withOverlay
             button={<Button label="Open and spread bottom-left" variant="filter" invert />}
             dropdown={Dropdown}
             horizontal={DropdownComposer.HorizontalVariant.LEFT}
             vertical={DropdownComposer.VerticalVariant.DOWN}
           />
           <DropdownComposer
-            withOverlay
             button={<Button label="Open and spread bottom-right" variant="filter" invert />}
             dropdown={Dropdown}
             horizontal={DropdownComposer.HorizontalVariant.RIGHT}
@@ -86,20 +83,12 @@ storiesOf('API|Dropdown', module)
         </Showcase>
         <Showcase legend="More Menu">
           <DropdownComposer
-            withOverlay
-            button={<Button variant="flat" leftIcon={<MoreIcon />} />}
-            vertical={DropdownComposer.VerticalVariant.UP}
+            button={<FlatButton icon={<MoreIcon />} />}
+            horizontal={DropdownComposer.HorizontalVariant.LEFT}
             dropdown={({onClick}) => (
               <DropdownBase>
-                <Button variant="flat" leftIcon={<EditIcon />} label="Editer" fill onClick={onClick} />
-                <Button
-                  variant="flat"
-                  leftIcon={<TrashIcon />}
-                  textColor="red"
-                  label="Supprimer"
-                  fill
-                  onClick={onClick}
-                />
+                <FlatButton icon={<EditIcon />} label="Editer" onClick={onClick} />
+                <FlatButton icon={<TrashIcon color="red" />} color="red" label="Supprimer" onClick={onClick} />
               </DropdownBase>
             )}
           />

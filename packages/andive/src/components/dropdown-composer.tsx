@@ -21,7 +21,7 @@ const VerticalVariant = {
   width: 100%;
   height: 100%;
 
-  background: rgba(255, 255, 255, 0.8);
+  background: transparent;
   z-index: ${ZIndexes.MODALS};
 `
 
@@ -29,16 +29,16 @@ const DropdownComposeRoot = styled.div`
   position: relative;
 `
 
-const DropdownAnchor = styled.div<{ vertical: keyof typeof VerticalVariant, horizontal: keyof typeof HorizontalVariant  }>`
+const DropdownAnchor = styled.div<{ vertical: keyof typeof VerticalVariant, horizontal: keyof typeof HorizontalVariant }>`
   display: inline-block;
   position: absolute;
 
   ${props => props.horizontal === 'LEFT' && css`
-    right: 8px;
+    right: 0;
   `}
 
   ${props => props.horizontal === 'RIGHT' && css`
-    left: 8px;
+    left: 0;
   `}
 
   ${props => props.vertical === 'UP' && css`
@@ -52,14 +52,14 @@ const DropdownAnchor = styled.div<{ vertical: keyof typeof VerticalVariant, hori
   z-index: ${ZIndexes.MODALS + 1};
 `
 
-export function DropdownComposer({ button, dropdown, withOverlay, vertical = 'DOWN', horizontal = 'RIGHT', }: any) {
+export function DropdownComposer({ button, dropdown, vertical = 'DOWN', horizontal = 'RIGHT', }: any) {
   const [open, setOpen] = React.useState(false)
   const Dropdown = dropdown
   return (
     <>
-      {withOverlay && open && <Overlay onClick={() => setOpen(false)}/>}
+      {open && <Overlay onClick={() => setOpen(false)}/>}
       <DropdownComposeRoot>
-        {React.cloneElement(button, { onClick() { setOpen(p => !p) }})}
+        {React.cloneElement(button, { onClick() { setOpen(p => !p)}, active: open })}
         {open && <DropdownAnchor vertical={vertical} horizontal={horizontal}>
         <Dropdown onClick={() => setOpen(false)} />
         </DropdownAnchor>}

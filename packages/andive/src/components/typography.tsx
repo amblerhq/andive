@@ -1,8 +1,7 @@
 import styled, {css, FlattenInterpolation, ThemeProps} from 'styled-components'
-import PropTypes, { ReactNodeLike } from 'prop-types'
+import PropTypes from 'prop-types'
 
 import * as palette from '../constants/palette'
-import { ReactNode } from 'react'
 
 export const fontWeights = {
   regular: 400,
@@ -13,14 +12,14 @@ export const fontWeights = {
 export const fontFamily = 'Asap'
 
 interface StyleAPI {
-  color: string,
-  textTransform: string
-  fontStyle: string
+  color?: string,
+  textTransform?: string
+  fontStyle?: string
 }
 
 export interface TypographyProps extends StyleAPI {
   className?: string
-  children: ReactNodeLike
+  children: React.ReactNode
 }
 
 // Every Typography component accept override through

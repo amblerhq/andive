@@ -1,7 +1,19 @@
 import React from 'react'
 import {storiesOf} from '@storybook/react'
 import styled from 'styled-components'
-import {Button, ButtonGroup, VSpace, AmbulanceIcon, PatientIcon, Info} from '@ambler/andive'
+import {
+  FlatButton,
+  Button,
+  ButtonGroup,
+  VSpace,
+  AmbulanceIcon,
+  PatientIcon,
+  Info,
+  MoreIcon,
+  EditIcon,
+  Typography,
+  palette
+} from '@ambler/andive'
 
 import Showcase from './showcase'
 
@@ -246,4 +258,14 @@ storiesOf('API|Button', module)
   })
   .add('Customize style', () => {
     return <CustomButton label="⚠️" small width={100} />
+  })
+  .add('Active button', () => {
+    return (
+      <>
+        <FlatButton icon={<MoreIcon />} active />
+        <FlatButton icon={<EditIcon />} label="Modifier" active>
+          <Typography.Body2 color={palette.mediumBerryBlue}>Modifier</Typography.Body2>
+        </FlatButton>
+      </>
+    )
   })
