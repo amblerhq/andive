@@ -86,17 +86,15 @@ const OptionGroupLayout = styled.div`
 function OptionGroup({children, label, onClick, leftIcon, ...props}) {
   return (
     <OptionGroupLayout onClick={onClick(children)} {...props}>
-      <Box>
-        {leftIcon ? (
-          <Icon icon={leftIcon}>
-            <Body1>{label}</Body1>
-          </Icon>
-        ) : (
-          <Box>
-            <Body1>{label}</Body1>
-          </Box>
-        )}
-      </Box>
+      {leftIcon ? (
+        <Icon icon={leftIcon}>
+          <Body1>{label}</Body1>
+        </Icon>
+      ) : (
+        <Box>
+          <Body1>{label}</Body1>
+        </Box>
+      )}
       <ArrowRightIcon color={palette.mediumPrimary} />
     </OptionGroupLayout>
   )
