@@ -24,6 +24,7 @@ const FlatButtonWrapper = styled.div<{ invert?: boolean; active?: boolean, hasLa
 
   ${props => !props.hasLabel && css`
     width: 40px;
+    height: 40px;
   `}
 
   button {
@@ -46,8 +47,8 @@ const IconWrapper = styled.div`
   width: 40px;
   height: 40px;
 `
-const LabelWrapper = styled.div`
-  padding: 8px 8px 8px 0;
+const LabelWrapper = styled.div<{ hasIcon: boolean }>`
+  padding: 8px 8px 8px ${props => props.hasIcon ? 0 : 8}px;
 `
 
 interface FlatButtonProps {
@@ -65,7 +66,7 @@ export const FlatButton = ({ color = palette.mediumBerryBlue, onClick, className
         {icon && <IconWrapper>
           {icon}
         </IconWrapper>}
-        {label && <LabelWrapper>
+        {label && <LabelWrapper hasIcon={Boolean(icon)}>
             <Body2 color={color}>{label}</Body2>
         </LabelWrapper>}
       </button>

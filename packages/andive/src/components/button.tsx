@@ -312,6 +312,12 @@ const Button = React.forwardRef(function Button(
   }: ButtonProps,
   ref
 ) {
+  React.useEffect(() => {
+    if (variant === "flat") {
+      console.warn("Andive: variant == 'flat' on Button component is deprecated. Use FlatButton instead.")
+    }
+  }, [variant])
+
   const buttonGroupContext = React.useContext<any>(ButtonGroupContext)
 
   // TODO: Type this properly
