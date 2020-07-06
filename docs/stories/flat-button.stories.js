@@ -9,7 +9,12 @@ storiesOf('Next|FlatButton', module)
     return (
       <Showcase>
         <div style={{width: 300, background: 'white'}}>
-          <FlatButton label="Carte" />
+          <FlatButton
+            label="Carte"
+            onClick={() => {
+              alert('On click triggered')
+            }}
+          />
         </div>
       </Showcase>
     )
@@ -18,7 +23,12 @@ storiesOf('Next|FlatButton', module)
     return (
       <Showcase>
         <div style={{width: 300, background: 'white'}}>
-          <FlatButton icon={<MoreIcon />} />
+          <FlatButton
+            icon={<MoreIcon />}
+            onClick={() => {
+              alert('On click triggered')
+            }}
+          />
         </div>
       </Showcase>
     )
@@ -27,7 +37,13 @@ storiesOf('Next|FlatButton', module)
     return (
       <Showcase>
         <div style={{width: 300, background: 'white'}}>
-          <FlatButton icon={<MapIcon />} label="Carte" />
+          <FlatButton
+            icon={<MapIcon />}
+            label="Carte"
+            onClick={() => {
+              alert('On click triggered')
+            }}
+          />
         </div>
       </Showcase>
     )
@@ -36,7 +52,14 @@ storiesOf('Next|FlatButton', module)
     return (
       <Showcase>
         <div style={{width: 300, background: 'white'}}>
-          <FlatButton icon={<MapIcon />} label="Carte" active />
+          <FlatButton
+            icon={<MapIcon />}
+            label="Carte"
+            active
+            onClick={() => {
+              alert('On click triggered')
+            }}
+          />
         </div>
       </Showcase>
     )
@@ -61,7 +84,30 @@ storiesOf('Next|FlatButton', module)
     return (
       <Showcase>
         <div style={{width: 300, background: 'white'}}>
-          <FlatButton icon={<MapIcon />} label="Carte" reverse />
+          <FlatButton
+            icon={<MapIcon />}
+            label="Carte"
+            reverse
+            onClick={() => {
+              alert('On click triggered')
+            }}
+          />
+        </div>
+      </Showcase>
+    )
+  })
+  .add('Loading', () => {
+    return (
+      <Showcase>
+        <div style={{width: 300, background: 'white'}}>
+          <FlatButton
+            icon={<MapIcon />}
+            label="Carte"
+            loading
+            onClick={() => {
+              alert('On click triggered')
+            }}
+          />
         </div>
       </Showcase>
     )

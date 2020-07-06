@@ -3,6 +3,7 @@ import styled, { css } from 'styled-components'
 
 import HSpace from './h-space'
 import { Body2 } from './typography'
+import Loader from './loader'
 import * as palette from '../constants/palette'
 
 const FlatButtonWrapper = styled.div<{
@@ -11,9 +12,11 @@ const FlatButtonWrapper = styled.div<{
   hasLabel?: boolean
   disabled?: boolean
   reverse?: boolean
+  loading?: boolean
 }>`
   ${props =>
     !props.disabled &&
+    !props.loading &&
     css`
       &:hover {
         background-color: ${props.invert
@@ -33,9 +36,10 @@ const FlatButtonWrapper = styled.div<{
     `}
 
   ${props =>
-    props.disabled &&
+    (props.disabled || props.loading) &&
     css`
-      *[data-andive-type='typography'], svg {
+      *[data-andive-type='typography'],
+      svg {
         color: ${palette.lightPrimary};
       }
     `}
@@ -51,7 +55,7 @@ const FlatButtonWrapper = styled.div<{
     outline: none;
     border: none;
     background: none;
-    cursor: ${props => (props.disabled ? 'not-allowed' : 'pointer')};
+    cursor: ${props => (props.disabled ? 'not-allowed' : props.loading ? 'progress' : 'pointer')};
     margin: 0;
     padding: 0;
 
@@ -86,6 +90,7 @@ interface FlatButtonProps {
   active?: boolean
   disabled?: boolean
   reverse?: boolean
+  loading?: boolean
 }
 export const FlatButton = ({
   color = palette.mediumBerryBlue,
@@ -95,8 +100,11 @@ export const FlatButton = ({
   label,
   active,
   disabled,
-  reverse
+  reverse,
+  loading
 }: FlatButtonProps) => {
+  const hasIcon = Boolean(icon || loading)
+
   return (
     <FlatButtonWrapper
       className={className}
@@ -104,10 +112,15 @@ export const FlatButton = ({
       active={active}
       disabled={disabled}
       reverse={reverse}
+      loading={loading}
     >
-      <button onClick={disabled ? undefined : onClick}>
-        {icon && <IconWrapper>{icon}</IconWrapper>}
-        {!icon && <HSpace px={8} />}
+      <button onClick={disabled || loading ? undefined : onClick}>
+        {hasIcon && (
+          <IconWrapper>
+            {loading ? <Loader inline color={color} size={24} /> : icon}
+          </IconWrapper>
+        )}
+        {!hasIcon && <HSpace px={8} />}
         {label && (
           <LabelWrapper>
             <Body2 color={color}>{label}</Body2>
