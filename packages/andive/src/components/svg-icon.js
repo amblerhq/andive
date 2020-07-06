@@ -23,7 +23,7 @@ const Icon = ({circle, circleColor, color, children, iconProps, inline, ...props
   const size = children.props.width || children.type.size || 24
 
   if (inline) {
-    return <SvgRoot>{React.cloneElement(children, {...(iconProps || props || {})})}</SvgRoot>
+    return <SvgRoot color={color}>{React.cloneElement(children, {...(iconProps || props || {})})}</SvgRoot>
   }
 
   return (
