@@ -412,6 +412,7 @@ const Button = React.forwardRef(function Button(
       loading={loading}
       invert={invert}
       variant={variant}
+      mobile={mobile}
       fill={fill}
     >
       <ButtonComponent
