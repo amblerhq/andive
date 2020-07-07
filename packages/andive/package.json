@@ -5,14 +5,16 @@
   "main": "dist/index.js",
   "files": [
     "dist/**/*.js",
+    "dist/**/*.d.ts",
     "img/*"
   ],
   "repository": "git@github.com:amblerhq/ambler.git",
   "author": "Ambler team",
   "license": "MIT",
   "scripts": {
-    "dev": "yarn build --watch --verbose",
-    "build": "babel src -d dist --ignore \"src/**/*.test.js\" -x '.ts,.tsx,.js'",
+    "build:babel": "babel src -d dist --ignore \"src/**/*.test.js\" -x '.ts,.tsx,.js'",
+    "dev": "yarn build:babel --watch --verbose",
+    "build": "yarn build:babel && tsc --emitDeclarationOnly",
     "prepublish": "yarn build",
     "test": "yarn jest"
   },

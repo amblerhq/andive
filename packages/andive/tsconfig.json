@@ -1,6 +1,6 @@
 {
     "compilerOptions": {
-        "outDir": "build/lib",
+        "outDir": "dist",
         "module": "commonjs",
         "target": "es5",
         "lib": [
@@ -9,6 +9,9 @@
             "es7",
             "es2017",
             "dom"
+        ],
+        "types": [
+            "react"
         ],
         "sourceMap": true,
         "allowJs": false,
