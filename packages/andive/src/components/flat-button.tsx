@@ -6,14 +6,19 @@ import { Body2 } from './typography'
 import Loader from './loader'
 import * as palette from '../constants/palette'
 
-const FlatButtonWrapper = styled(({ invert, active, hasLabel, disabled, reverse, loading, ...props }) => <div {...props} />)<{
+const FlatButtonWrapper = styled(({ invert, active, hasLabel, disabled, reverse, loading, shrink, ...props }) => <div {...props} />)<{
   invert?: boolean
   active?: boolean
   hasLabel?: boolean
   disabled?: boolean
   reverse?: boolean
   loading?: boolean
+  shrink?: boolean
 }>`
+  ${props => props.shrink && css`
+    display: inline-block;
+  `}
+
   ${props =>
     !props.disabled &&
     !props.loading &&
@@ -88,6 +93,7 @@ interface FlatButtonProps {
   disabled?: boolean
   reverse?: boolean
   loading?: boolean
+  shrink?: boolean
 }
 export const FlatButton = ({
   color = palette.mediumBerryBlue,
@@ -99,6 +105,7 @@ export const FlatButton = ({
   disabled,
   reverse,
   loading,
+  shrink,
   ...buttonProps
 }: FlatButtonProps) => {
   const hasIcon = Boolean(icon || loading)
@@ -110,6 +117,7 @@ export const FlatButton = ({
       disabled={disabled}
       reverse={reverse}
       loading={loading}
+      shrink={shrink}
     >
       <button onClick={disabled || loading ? undefined : onClick} {...buttonProps}>
         {hasIcon && (

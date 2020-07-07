@@ -129,3 +129,20 @@ storiesOf('Next|FlatButton', module)
       </Showcase>
     )
   })
+  .add('Shrink', () => {
+    return (
+      <Showcase>
+        <div style={{width: 300, background: palette.mediumGrey}}>
+          <FlatButton
+            icon={<MapIcon />}
+            label="Carte"
+            onClick={() => {
+              alert('On click triggered')
+            }}
+            active
+            shrink
+          />
+        </div>
+      </Showcase>
+    )
+  })
