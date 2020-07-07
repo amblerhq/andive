@@ -12,7 +12,7 @@ const FleetIcon = ({color = palette.white, ...rest}) => {
   )
 }
 
-FleetIcon.size = 24
+FleetIcon.size = 40
 
 export default FleetIcon
 export const FleetSvg = Fleet

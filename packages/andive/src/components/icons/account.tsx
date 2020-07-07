@@ -12,7 +12,7 @@ const AccountIcon = ({color = palette.white, ...rest}) => {
   )
 }
 
-AccountIcon.size = 24
+AccountIcon.size = 40
 
 export default AccountIcon
 export const AccountSvg = Account

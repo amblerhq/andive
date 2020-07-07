@@ -1,5 +1,4 @@
 import React from 'react'
-import { ReactNodeLike } from 'prop-types'
 import styled from 'styled-components'
 
 import Box from './box'
@@ -24,11 +23,11 @@ const IconWrapper = styled.div<Pick<Props, 'iconSize'>>`
 
 interface Props {
   className?: string
-  icon: ReactNodeLike
+  icon: React.ReactNode
   iconSize?: number
   align?: string,
   direction?: string,
-  children?: ReactNodeLike
+  children?: React.ReactNode
 }
 
 export default function IconComponent({
