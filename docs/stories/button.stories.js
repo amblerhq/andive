@@ -175,7 +175,7 @@ storiesOf('API|Button', module)
       </Showcase>
       <Showcase legend="Flat/Third">
         <ButtonGroup>
-          <Button variant="flat" label="Ambulance" leftIcon={<AmbulanceIcon />} />
+          <Button variant="flat" leftIcon={<AmbulanceIcon />} />
           <Button variant="flat" label="Ambulance" rightIcon={<AmbulanceIcon />} />
         </ButtonGroup>
       </Showcase>

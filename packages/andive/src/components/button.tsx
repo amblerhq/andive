@@ -53,7 +53,8 @@ const ButtonWrapper = styled(({ loading, invert, fill, ...props }) => (
 
   display: ${props => (props.fill ? 'block' : 'inline-block')};
 
-  padding: ${props => props.variant !== "flat" ? `${props.theme.padding}px` : 0};
+  padding: ${props =>
+    props.variant !== 'flat' ? `${props.theme.padding}px` : 0};
   cursor: ${props =>
     props.disabled ? 'not-allowed' : props.loading ? 'progress' : 'pointer'};
 
@@ -281,6 +282,10 @@ const FlatText = styled.div<{ mobile?: boolean; color: string }>`
   color: ${props => props.color};
 `
 
+const Flexbox = styled(Box)`
+  display: flex;
+`
+
 function textStyle(
   leftIcon?: React.ReactNode,
   rightIcon?: React.ReactNode,
@@ -313,8 +318,10 @@ const Button = React.forwardRef(function Button(
   ref
 ) {
   React.useEffect(() => {
-    if (variant === "flat") {
-      console.warn("Andive: variant == 'flat' on Button component is deprecated. Use FlatButton instead.")
+    if (variant === 'flat') {
+      console.warn(
+        "Andive: variant == 'flat' on Button component is deprecated. Use FlatButton instead."
+      )
     }
   }, [variant])
 
@@ -383,14 +390,20 @@ const Button = React.forwardRef(function Button(
     return palette.mediumBeetrootPurple
   }, [variant, loading, invert])
 
-  const labelJsx =  <ButtonLabel
-  style={textStyle(leftIcon, rightIcon, label)}
-  invert={invert}
-  color={color}
-  mobile={mobile}
->
-  {label}
-</ButtonLabel>
+  const contentJsx = (
+    <>
+      {leftIcon && React.cloneElement(leftIcon, { color })}
+      <ButtonLabel
+        style={textStyle(leftIcon, rightIcon, label)}
+        invert={invert}
+        color={color}
+        mobile={mobile}
+      >
+        {label}
+      </ButtonLabel>
+      {rightIcon && React.cloneElement(rightIcon, { color })}
+    </>
+  )
 
   return (
     <ButtonWrapper
@@ -419,12 +432,10 @@ const Button = React.forwardRef(function Button(
       >
         {loading ? (
           <Loader inline color={loaderColor} />
+        ) : variant === 'flat' ? (
+          <Flexbox>{contentJsx}</Flexbox>
         ) : (
-          <>
-            {leftIcon && React.cloneElement(leftIcon, { color })}
-            {variant === "flat" && label ? <Box>{labelJsx}</Box> : labelJsx}
-            {rightIcon && React.cloneElement(rightIcon, { color })}
-          </>
+          contentJsx
         )}
       </ButtonComponent>
     </ButtonWrapper>
