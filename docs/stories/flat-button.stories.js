@@ -1,10 +1,11 @@
 import React from 'react'
 import {storiesOf} from '@storybook/react'
-import {FlatButton, MoreIcon, MapIcon} from '@ambler/andive'
+import {FlatButton, MoreIcon, MapIcon, TrashIcon, palette} from '@ambler/andive'
 
 import Showcase from './showcase'
 
 storiesOf('Next|FlatButton', module)
+  .addParameters({component: FlatButton})
   .add('Label only', () => {
     return (
       <Showcase>
@@ -104,6 +105,22 @@ storiesOf('Next|FlatButton', module)
             icon={<MapIcon />}
             label="Carte"
             loading
+            onClick={() => {
+              alert('On click triggered')
+            }}
+          />
+        </div>
+      </Showcase>
+    )
+  })
+  .add('Color', () => {
+    return (
+      <Showcase>
+        <div style={{width: 300, background: 'white'}}>
+          <FlatButton
+            icon={<TrashIcon />}
+            label="Supprimer"
+            color={palette.error}
             onClick={() => {
               alert('On click triggered')
             }}

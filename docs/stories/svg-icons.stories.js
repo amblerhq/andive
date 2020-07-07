@@ -3,6 +3,9 @@ import {storiesOf} from '@storybook/react'
 import styled from 'styled-components'
 import {
   palette,
+  Box,
+  Card,
+  FlatButton,
   AccountIcon,
   FleetIcon,
   AmbulanceIcon,
@@ -298,3 +301,33 @@ storiesOf('Assets|Icons', module)
       dès 2020 !
     </Showcase>
   ))
+  .add('In FlatButton', () => {
+    return (
+      <Box style={{display: 'flex'}}>
+        <Box style={{width: 300}}>
+          <Card>
+            <Box>
+              <Typography.Body1>Size of 16px</Typography.Body1>
+            </Box>
+            {icons
+              .filter(Icon => Icon.size === 16)
+              .map(Icon => {
+                return <FlatButton key={Icon.name} label="Button" icon={<Icon color={palette.lightBerryBlue} />} />
+              })}
+          </Card>
+        </Box>
+        <Box style={{width: 300}}>
+          <Card>
+            <Box>
+              <Typography.Body1>Size of 24px</Typography.Body1>
+            </Box>
+            {icons
+              .filter(Icon => Icon.size === 24)
+              .map(Icon => {
+                return <FlatButton key={Icon.name} label="Button" color={palette.lightBerryBlue} icon={<Icon />} />
+              })}
+          </Card>
+        </Box>
+      </Box>
+    )
+  })

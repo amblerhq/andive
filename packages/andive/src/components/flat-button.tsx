@@ -6,7 +6,7 @@ import { Body2 } from './typography'
 import Loader from './loader'
 import * as palette from '../constants/palette'
 
-const FlatButtonWrapper = styled.div<{
+const FlatButtonWrapper = styled(({ invert, active, hasLabel, disabled, reverse, loading, ...props }) => <div {...props} />)<{
   invert?: boolean
   active?: boolean
   hasLabel?: boolean
@@ -19,9 +19,7 @@ const FlatButtonWrapper = styled.div<{
     !props.loading &&
     css`
       &:hover {
-        background-color: ${props.invert
-          ? palette.hexToRGBA(palette.darkGrey, 0.2)
-          : props.theme.hover.backgroundColor};
+        background-color: ${props.theme.hover.backgroundColor};
         border-radius: ${props.theme.hover.borderRadius}px;
       }
     `}
@@ -29,9 +27,7 @@ const FlatButtonWrapper = styled.div<{
   ${props =>
     props.active &&
     css`
-      background-color: ${props.invert
-        ? palette.hexToRGBA(palette.darkGrey, 0.2)
-        : props.theme.hover.backgroundColor};
+      background-color: ${props.theme.hover.backgroundColor};
       border-radius: ${props.theme.hover.borderRadius}px;
     `}
 
@@ -75,6 +71,7 @@ const IconWrapper = styled.div`
   padding: 8px;
   width: 40px;
   height: 40px;
+  flex-grow: 0;
 `
 const LabelWrapper = styled.div`
   padding: 8px 0;
@@ -101,10 +98,10 @@ export const FlatButton = ({
   active,
   disabled,
   reverse,
-  loading
+  loading,
+  ...buttonProps
 }: FlatButtonProps) => {
   const hasIcon = Boolean(icon || loading)
-
   return (
     <FlatButtonWrapper
       className={className}
@@ -114,10 +111,11 @@ export const FlatButton = ({
       reverse={reverse}
       loading={loading}
     >
-      <button onClick={disabled || loading ? undefined : onClick}>
+      <button onClick={disabled || loading ? undefined : onClick} {...buttonProps}>
         {hasIcon && (
           <IconWrapper>
-            {loading ? <Loader inline color={color} size={24} /> : icon}
+            {loading && <Loader inline color={color} size={24} />}
+            {!loading && icon && React.cloneElement(icon, { color })}
           </IconWrapper>
         )}
         {!hasIcon && <HSpace px={8} />}
