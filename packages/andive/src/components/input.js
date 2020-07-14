@@ -23,7 +23,7 @@ const inputCss = ({error: error_, canClear, hasIcon, disabled}) => css`
   height: 56px;
   border-radius: 16px;
   background-color: #ededed;
-  color: ${palette.darkPrimary}
+  color: ${palette.darkPrimary};
 
   padding: 16px ${canClear ? 48 : 16}px 16px ${hasIcon ? '64px' : '16px'};
 
@@ -36,20 +36,18 @@ const inputCss = ({error: error_, canClear, hasIcon, disabled}) => css`
     color: ${palette.mediumPrimary};
   }
 
-  ${
-    error_
-      ? css`
-          border: 1px solid ${palette.error};
-        `
-      : css`
-          border: 1px solid transparent;
+  ${error_
+    ? css`
+        border: 1px solid ${palette.error};
+      `
+    : css`
+        border: 1px solid transparent;
 
-          :focus {
-            border: 1px solid ${palette.darkPrimary};
-            background-color: white;
-          }
-        `
-  }
+        :focus {
+          border: 1px solid ${palette.darkPrimary};
+          background-color: white;
+        }
+      `}
 
   ${disabled &&
     css`

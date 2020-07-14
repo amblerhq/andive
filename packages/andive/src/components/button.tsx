@@ -269,7 +269,7 @@ const FilterButton = styled(ResetButton)<{
     backgroundColor || (invert ? palette.white : palette.mediumBerryBlue)};
 `
 
-const FilterText = styled.div<{ mobile?: boolean; color: string }>`
+const FilterText = styled(({mobile, color, ...props}) => <div {...props} />)<{ mobile?: boolean; color: string }>`
   ${props => (props.mobile ? body3Css : body1Css)};
 
   color: ${props => props.color};
