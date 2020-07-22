@@ -372,7 +372,7 @@ const Button = React.forwardRef(function Button(
       : variant === 'filter'
       ? filterColor({ invert, disabled })
       : defaultColor({ disabled })
-  }, [variant, disabled, textColor])
+  }, [variant, disabled, textColor, invert])
 
   const loaderColor = React.useMemo(() => {
     if (!loading) {
