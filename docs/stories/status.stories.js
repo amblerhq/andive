@@ -1,6 +1,6 @@
 import React from 'react'
 import {storiesOf} from '@storybook/react'
-import {Typography, TripStatus, Box, palette} from '@ambler/andive'
+import {TripStatus, Box, palette} from '@ambler/andive'
 
 import Showcase from './showcase'
 
@@ -10,47 +10,51 @@ storiesOf('Next|Status', module).add(`How it's built`, () => {
       <Showcase legend="Statuses">
         <div style={{display: 'flex', flexFlow: 'column nowrap', width: 300}}>
           <Box style={{background: 'white', width: 300}}>
-            <TripStatus color={palette.darkLettuceGreen} backgroundColor={palette.lightLettuceGreen}>
-              Confirmé
-            </TripStatus>
+            <TripStatus
+              primary={'Confirmé'}
+              color={palette.darkLettuceGreen}
+              backgroundColor={palette.lightLettuceGreen}
+            />
           </Box>
           <Box style={{background: 'white', width: 300}}>
-            <TripStatus color={palette.darkLettuceGreen} backgroundColor={palette.lightLettuceGreen}>
-              Réalisé
-            </TripStatus>
+            <TripStatus
+              primary={'Réalisé'}
+              color={palette.darkLettuceGreen}
+              backgroundColor={palette.lightLettuceGreen}
+            />
           </Box>
           <Box style={{background: 'white', width: 300}}>
-            <TripStatus color={palette.darkRadishRed} backgroundColor={palette.lightRadishRed}>
-              Annulé
-            </TripStatus>
+            <TripStatus primary={'Annulé'} color={palette.darkRadishRed} backgroundColor={palette.lightRadishRed} />
           </Box>
           <Box style={{background: 'white', width: 300}}>
-            <TripStatus color={palette.darkRadishRed} backgroundColor={palette.lightRadishRed}>
-              Non réalisé
-            </TripStatus>
+            <TripStatus
+              primary={'Non réalisé'}
+              color={palette.darkRadishRed}
+              backgroundColor={palette.lightRadishRed}
+            />
           </Box>
           <Box style={{background: 'white', width: 300}}>
-            <TripStatus color={palette.darkRadishRed} backgroundColor={palette.lightRadishRed}>
-              <>
-                <Typography.Body2 color={palette.darkRadishRed}>Transport non réalisé</Typography.Body2>
-                <Typography.Body2 color={palette.darkRadishRed}>{`Responsabilité de l'établissement`}</Typography.Body2>
-              </>
-            </TripStatus>
+            <TripStatus
+              primary={'Transport non réalisé'}
+              secondary={`Responsabilité de l'établissement`}
+              color={palette.darkRadishRed}
+              backgroundColor={palette.lightRadishRed}
+            />
           </Box>
           <Box style={{background: 'white', width: 300}}>
-            <TripStatus color={palette.darkPotatoYellow} backgroundColor={palette.lightPotatoYellow}>
-              Incident signalé
-            </TripStatus>
+            <TripStatus
+              primary="Incident signalé"
+              color={palette.darkPotatoYellow}
+              backgroundColor={palette.lightPotatoYellow}
+            />
           </Box>
           <Box style={{background: 'white', width: 300}}>
-            <TripStatus color={palette.darkPotatoYellow} backgroundColor={palette.lightPotatoYellow}>
-              <>
-                <Typography.Body2 color={palette.darkPotatoYellow}>Transport non réalisé</Typography.Body2>
-                <Typography.Body2 color={palette.darkPotatoYellow}>
-                  En attente de réponse du transporteur
-                </Typography.Body2>
-              </>
-            </TripStatus>
+            <TripStatus
+              primary="Transport non réalisé"
+              secondary="En attente de réponse du transporteur"
+              color={palette.darkPotatoYellow}
+              backgroundColor={palette.lightPotatoYellow}
+            />
           </Box>
         </div>
       </Showcase>
@@ -60,10 +64,10 @@ storiesOf('Next|Status', module).add(`How it's built`, () => {
             <TripStatus color={palette.darkLettuceGreen} backgroundColor={palette.lightLettuceGreen} />
           </Box>
           <Box style={{background: 'white', width: 300}}>
-            <TripStatus backgroundColor={palette.lightLettuceGreen}>Confirmé</TripStatus>
+            <TripStatus primary="Confirmé" backgroundColor={palette.lightLettuceGreen} />
           </Box>
           <Box style={{background: 'white', width: 300}}>
-            <TripStatus color={palette.darkLettuceGreen}>Confirmé</TripStatus>
+            <TripStatus primary="Confirmé" color={palette.darkLettuceGreen} />
           </Box>
         </div>
       </Showcase>

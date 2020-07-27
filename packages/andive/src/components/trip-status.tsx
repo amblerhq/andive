@@ -8,7 +8,7 @@ const StatusWrapper = styled(({ color, backgroundColor, ...props }) => (
   <div {...props} />
 ))`
   display: inline-flex;
-  align-items: center;
+  flex-direction: column;
   justify-content: center;
 
   min-height: 40px;
@@ -26,12 +26,14 @@ const Status = styled(({ color, ...props }) => <Body2 {...props} />)`
 export default function TripStatusComponent({
   color,
   backgroundColor,
-  children,
+  primary,
+  secondary,
   ...props
 }) {
   return (
     <StatusWrapper backgroundColor={backgroundColor} {...props}>
-      {children && <Status color={color}>{children}</Status>}
+      {primary && <Status color={color}>{primary}</Status>}
+      {secondary && <Status color={color}>{secondary}</Status>}
     </StatusWrapper>
   )
 }
@@ -39,5 +41,7 @@ export default function TripStatusComponent({
 TripStatusComponent.propTypes = {
   status: PropTypes.string,
   color: PropTypes.string,
-  backgroundColor: PropTypes.string
+  backgroundColor: PropTypes.string,
+  primary: PropTypes.string,
+  secondary: PropTypes.string,
 }
