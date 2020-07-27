@@ -24,14 +24,14 @@ const Status = styled(({ color, ...props }) => <Body2 {...props} />)`
 `
 
 export default function TripStatusComponent({
-  status,
   color,
   backgroundColor,
+  children,
   ...props
 }) {
   return (
     <StatusWrapper backgroundColor={backgroundColor} {...props}>
-      {status && <Status color={color}>{status}</Status>}
+      {children && <Status color={color}>{children}</Status>}
     </StatusWrapper>
   )
 }
