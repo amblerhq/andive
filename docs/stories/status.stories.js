@@ -58,19 +58,6 @@ storiesOf('Next|Status', module).add(`How it's built`, () => {
           </Box>
         </div>
       </Showcase>
-      <Showcase legend="Missing props">
-        <div style={{display: 'flex', flexFlow: 'column nowrap', width: 300}}>
-          <Box style={{background: 'white', width: 300}}>
-            <TripStatus color={palette.darkLettuceGreen} backgroundColor={palette.lightLettuceGreen} />
-          </Box>
-          <Box style={{background: 'white', width: 300}}>
-            <TripStatus primary="Confirmé" backgroundColor={palette.lightLettuceGreen} />
-          </Box>
-          <Box style={{background: 'white', width: 300}}>
-            <TripStatus primary="Confirmé" color={palette.darkLettuceGreen} />
-          </Box>
-        </div>
-      </Showcase>
     </>
   )
 })
