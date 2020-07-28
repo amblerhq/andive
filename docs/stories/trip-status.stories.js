@@ -4,7 +4,7 @@ import {TripStatus, Box, palette} from '@ambler/andive'
 
 import Showcase from './showcase'
 
-storiesOf('Next|Status', module).add(`How it's built`, () => {
+storiesOf('Next|Trip Status', module).add(`How it's built`, () => {
   return (
     <>
       <Showcase legend="Statuses">

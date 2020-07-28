@@ -19,7 +19,7 @@ const shortLabel = 'Fan de Phil Collins'
 const longLabel =
   'Philip David Charles Collins dit Phil Collins, né le 30 janvier 1951 à Chiswick (Londres), est un musicien, auteur-compositeur-interprète, acteur et producteur de disques britannique.'
 
-storiesOf('Next|Icon', module)
+storiesOf('Next|Icon (Component)', module)
   .add(`How it's built`, () => {
     return (
       <>

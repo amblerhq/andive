@@ -140,6 +140,8 @@ export {default as PickUpIcon} from './components/icons/pick-up'
 
 export {default as DropOffIcon} from './components/icons/drop-off'
 
+export {default as DropdownArrowIcon} from './components/icons/dropdown-arrow'
+
 /**
  * Illustrations
  */

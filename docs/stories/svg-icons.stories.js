@@ -74,6 +74,7 @@ import {
   GyroIcon,
   PickUpIcon,
   DropOffIcon,
+  DropdownArrowIcon,
   Typography,
   Info
 } from '@ambler/andive'
@@ -153,7 +154,8 @@ const icons = [
   BookIcon,
   GyroIcon,
   PickUpIcon,
-  DropOffIcon
+  DropOffIcon,
+  DropdownArrowIcon
 ]
 
 function TimedColor({interval, colors, children}) {
@@ -185,7 +187,8 @@ const newIcons = [
   {Icon: SearchIcon},
   {Icon: ConnectAsIcon},
   {Icon: PhoneIcon},
-  {Icon: MoreIcon}
+  {Icon: MoreIcon},
+  {Icon: DropdownArrowIcon}
 ]
 const updatedIcons = []
 
