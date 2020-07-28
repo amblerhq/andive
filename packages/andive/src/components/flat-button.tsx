@@ -62,6 +62,7 @@ const FlatButtonWrapper = styled(({ invert, active, hasLabel, disabled, reverse,
 
     display: flex;
     flex-flow: ${props => (props.reverse ? 'row-reverse' : 'row')} nowrap;
+    align-items: center;
 
     ${props =>
       props.hasLabel &&
