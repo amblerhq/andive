@@ -106,7 +106,7 @@ const StickyFooter = styled.div`
   z-index: ${ZIndexes.MODALS + 1};
 `
 
-function MenuFilter({label, selected, onSave, onClear, onClose, mobile, children, openLeft = false, ...props}) {
+function MenuFilter({label, button, selected, onSave, onClear, onClose, mobile, children, openLeft = false, ...props}) {
   const [open, setOpen] = React.useState(false)
   const onClick = React.useCallback(() => {
     setOpen(prev => !prev)
@@ -124,7 +124,16 @@ function MenuFilter({label, selected, onSave, onClear, onClose, mobile, children
     <>
       {open && <PageOverlay onClick={onCloseAndSave} />}
       <MenuFilterRoot open={open}>
-        <Button variant="filter" invert={!selected && !open} label={label} onClick={onClick} mobile={mobile} />
+        {button &&
+          React.cloneElement(button, {
+            onClick() {
+              onClick()
+            },
+            active: open
+          })}
+        {!button && (
+          <Button variant="filter" invert={!selected && !open} label={label} onClick={onClick} mobile={mobile} />
+        )}
         {open && (
           <Menu openLeft={openLeft} mobile={mobile} {...props}>
             {mobile && (
