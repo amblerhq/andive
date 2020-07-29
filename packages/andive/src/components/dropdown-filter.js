@@ -139,25 +139,29 @@ function MenuFilter({label, button, selected, onSave, onClear, onClose, mobile, 
             {mobile && (
               <MobileHeader>
                 <CloseButton onClick={onCloseOnly} />
-                <Button variant="flat" label="Effacer" onClick={onClear} />
+                {onClear && <Button variant="flat" label="Effacer" onClick={onClear} />}
               </MobileHeader>
             )}
             {children}
-            {mobile ? (
-              <StickyFooter>
-                <Button
-                  variant="primary"
-                  color={palette.mediumBerryBlue}
-                  label="Enregistrer"
-                  onClick={onCloseAndSave}
-                />
-              </StickyFooter>
-            ) : (
-              <Actions>
-                <Button variant="flat" textColor={palette.darkPrimary} label="Effacer" onClick={onClear} />
-                <Button variant="flat" label="Enregistrer" onClick={onCloseAndSave} />
-              </Actions>
-            )}
+            {mobile
+              ? onSave && (
+                  <StickyFooter>
+                    <Button
+                      variant="primary"
+                      color={palette.mediumBerryBlue}
+                      label="Enregistrer"
+                      onClick={onCloseAndSave}
+                    />
+                  </StickyFooter>
+                )
+              : (onClear || onSave) && (
+                  <Actions>
+                    {onClear && (
+                      <Button variant="flat" textColor={palette.darkPrimary} label="Effacer" onClick={onClear} />
+                    )}
+                    {onSave && <Button variant="flat" label="Enregistrer" onClick={onCloseAndSave} />}
+                  </Actions>
+                )}
           </Menu>
         )}
       </MenuFilterRoot>
