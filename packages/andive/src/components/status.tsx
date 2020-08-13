@@ -23,7 +23,7 @@ const Status = styled(({ color, ...props }) => <Body2 {...props} />)`
   ${({ color }) => color && `color: ${color};`}
 `
 
-export default function TripStatusComponent({
+export default function StatusComponent({
   color,
   backgroundColor,
   primary,
@@ -38,7 +38,7 @@ export default function TripStatusComponent({
   )
 }
 
-TripStatusComponent.propTypes = {
+StatusComponent.propTypes = {
   status: PropTypes.string,
   color: PropTypes.string,
   backgroundColor: PropTypes.string,
