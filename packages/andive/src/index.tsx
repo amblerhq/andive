@@ -222,9 +222,9 @@ export {default as Menu} from './components/menu'
 
 export {default as Title} from './components/title'
 
-export {default as VSpace} from './components/v-space'
+export {VSpace} from './components/v-space'
 
-export {default as HSpace} from './components/h-space'
+export {HSpace} from './components/h-space'
 
 export {default as Modal} from './components/modal'
 

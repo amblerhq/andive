@@ -1,7 +1,7 @@
 import React, { DOMAttributes } from 'react'
 import styled, { css } from 'styled-components'
 
-import HSpace from './h-space'
+import {HSpace} from './h-space'
 import { Body2 } from './typography'
 import Loader from './loader'
 import * as palette from '../constants/palette'
