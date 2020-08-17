@@ -236,7 +236,7 @@ export {default as Accordeon} from './components/accordeon'
 
 export {default as Box} from './components/box'
 
-export {default as Status} from './components/status'
+export {Status} from './components/status'
 
 export {defaultTheme, default as ThemeProvider} from './components/theme-provider'
 
