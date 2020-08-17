@@ -19,6 +19,7 @@ const mediumBeetrootPurpleAlpha = palette.hexToRGBA(
 
 interface ButtonProps {
   className?: string
+  type?: HTMLButtonElement["type"]
   label?: string
   rightIcon?: JSX.Element
   leftIcon?: JSX.Element
@@ -300,6 +301,7 @@ function textStyle(
 const Button = React.forwardRef(function Button(
   {
     className,
+    type,
     label,
     rightIcon,
     leftIcon,
