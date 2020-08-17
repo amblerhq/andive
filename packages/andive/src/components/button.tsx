@@ -301,7 +301,6 @@ function textStyle(
 const Button = React.forwardRef(function Button(
   {
     className,
-    type,
     label,
     rightIcon,
     leftIcon,
