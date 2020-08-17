@@ -1,13 +1,13 @@
 import React from 'react'
 import styled from 'styled-components'
-import PropTypes from 'prop-types'
 
 import * as palette from '../constants/palette'
 import {ZIndexes} from '../constants/enum'
 import Input from './input'
 import HistoryIcon from './icons/history'
-import Info from './info'
 import Hover from './hover'
+import Icon from './icon'
+import { Body1, Body2 } from './typography'
 
 export const Divider = styled.div`
   width: calc(100% - 16px);
@@ -26,7 +26,7 @@ export const FullWidthDivider = styled.div`
   left: -8px;
 `
 
-const Autocomplete = styled.div`
+const AutocompleteRoot = styled.div`
   position: relative;
 `
 
@@ -46,7 +46,7 @@ const SuggestionsUl = styled.ul`
   overflow: hidden;
 `
 
-const Suggestions = styled.div`
+const Suggestions = styled(({ bottomFootprint, ...props }) => <div {...props} />)`
   position: absolute;
 
   width: calc(100% - 16px);
@@ -67,10 +67,10 @@ const AutocompleteInput = styled(Input)``
 const defaultRenderSuggestion = item => {
   return (
     <Hover>
-      <Info icon={<HistoryIcon circle />}>
-        <Info.Label label={item.mainText} />
-        {item.secondaryText && <Info.Item item={item.secondaryText} />}
-      </Info>
+      <Icon icon={<HistoryIcon circle />}>
+        <Body1>{item.mainText}</Body1>
+        {item.secondaryText && <Body2 color={palette.secondaryText}>{item.secondaryText}</Body2>}
+      </Icon>
     </Hover>
   )
 }
@@ -80,59 +80,74 @@ const defaultCanShowSuggestions = (_suggestions, input) => {
   return input.length >= 3
 }
 
-const AutocompleteComponent = React.forwardRef(function AutocompleteComponent(
+interface AutocompleteProps<AutocompleteItem> {
+  /**
+   * The "value" of the autocomplete is the Object either selected in suggestions or provided by the parent component.
+   */
+  value: AutocompleteItem,
+  /**
+   * The "onChange" function is called when a suggestion is selected. Its the callee responsability to handle the
+   * update of the "value" prop accordingly.
+   */
+  onChange: (nextInput: string | null) => void,
+  /**
+   * The "onSearch" method is called with the updated <Input /> content. When a user select a suggestion it is also called
+   * with a "null" value.
+   */
+  onSearch: (input: string | null) => void
+  /**
+   * Customize the JSX rendered for each suggestion item.
+   */
+  renderSuggestion?: (item: AutocompleteItem, index: number, length: number) => React.ReactNode,
+  /**
+   * Customize the JSX rendered for each favorite item.
+   */
+  renderFavorite?: (item: AutocompleteItem, index: number, length: number) => React.ReactNode,
+  /**
+   * Customize how an item is rendered in the input.
+   */
+  renderInputValue?: (item: AutocompleteItem) => string,
+  /**
+   * The list of suggestions returns by the data source after "onSearch" has been called. It must always be an array and if
+   * it has no elements then the autocomplete does not display the suggestion div bellow the input.
+   */
+  suggestions: AutocompleteItem[],
+  /**
+   * The list of favorites to display when the user click on the autocomplete and the input is empty.
+   */
+  favorites?: AutocompleteItem[],
+  /**
+   * When true, any input value is a valid value. Therefore the "onChange" is called as if the user selected an item in
+   * the suggestion list.
+   */
+  freeInput?: boolean,
+  /**
+   * Control when to show suggestions according to the search result and the input value. Default behavior is to wait for at
+   * least 3 characters. Still, whatever function you pass, it also checks if the suggestion list has at least 1 element.
+   * To show a list on focus, use the `favorites` prop.
+   */
+  canShowSuggestions: (suggestions: AutocompleteItem[], input: string) => boolean,
+  bottomFootprint?: number,
+  name?: string,
+  error?: string
+}
+export const Autocomplete = React.forwardRef(function Autocomplete<AutocompleteItem>(
   {
-    /**
-     * The "value" of the autocomplete is the Object either selected in suggestions or provided by the parent component.
-     */
     value,
-    /**
-     * The "onChange" function is called when a suggestion is selected. Its the callee responsability to handle the
-     * update of the "value" prop accordingly.
-     */
     onChange,
-    /**
-     * The "onSearch" method is called with the updated <Input /> content. When a user select a suggestion it is also called
-     * with a "null" value.
-     */
     onSearch,
-    /**
-     * Customize the JSX rendered for each suggestion item.
-     */
     renderSuggestion = defaultRenderSuggestion,
-    /**
-     * Customize the JSX rendered for each favorite item.
-     */
     renderFavorite = defaultRenderSuggestion,
-    /**
-     * Customize how an item is rendered in the input. Should map an Object to a string.
-     */
     renderInputValue = defaultRenderInputValue,
-    /**
-     * The list of suggestions returns by the data source after "onSearch" has been called. It must always be an array and if
-     * it has no elements then the autocomplete does not display the suggestion div bellow the input.
-     */
-    suggestions,
-    /**
-     * The list of favorites to display when the user click on the autocomplete and the input is empty.
-     */
-    favorites,
-    /**
-     * When true, any input value is a valid value. Therefore the "onChange" is called as if the user selected an item in
-     * the suggestion list.
-     */
+    suggestions = [],
+    favorites = [],
     freeInput,
-    /**
-     * Control when to show suggestions according to the search result and the input value. Default behavior is to wait for at
-     * least 3 characters. Still, whatever function you pass, it also checks if the suggestion list has at least 1 element.
-     * To show a list on focus, use the `favorites` prop.
-     */
     canShowSuggestions = defaultCanShowSuggestions,
     bottomFootprint,
     name,
     error,
     ...props
-  },
+  }: AutocompleteProps<AutocompleteItem>,
   ref
 ) {
   const [input, setInput] = React.useState('')
@@ -143,7 +158,7 @@ const AutocompleteComponent = React.forwardRef(function AutocompleteComponent(
   const showFavorites = favorites && favorites.length > 0 && focus && !input
 
   const onUpdate = React.useCallback(
-    nextInput => {
+    (nextInput: string) => {
       setInput(nextInput)
       onSearch(nextInput || null)
 
@@ -184,7 +199,7 @@ const AutocompleteComponent = React.forwardRef(function AutocompleteComponent(
   )
 
   return (
-    <Autocomplete>
+    <AutocompleteRoot>
       <AutocompleteInput
         ref={ref}
         name={name}
@@ -247,22 +262,6 @@ const AutocompleteComponent = React.forwardRef(function AutocompleteComponent(
           </SuggestionsUl>
         </Suggestions>
       )}
-    </Autocomplete>
+    </AutocompleteRoot>
   )
 })
-
-AutocompleteComponent.propTypes = {
-  value: PropTypes.any,
-  onChange: PropTypes.func,
-  onSearch: PropTypes.func,
-  suggestions: PropTypes.array,
-  favorites: PropTypes.array,
-  renderSuggestion: PropTypes.func,
-  renderFavorite: PropTypes.func,
-  renderInputValue: PropTypes.func,
-  canShowSuggestions: PropTypes.func,
-  freeInput: PropTypes.bool,
-  bottomFootprint: PropTypes.number
-}
-
-export default AutocompleteComponent

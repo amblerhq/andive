@@ -174,7 +174,7 @@ export {default as Info} from './components/info'
 
 export {default as AppBar} from './components/app-bar'
 
-export {default as Autocomplete} from './components/autocomplete'
+export {Autocomplete} from './components/autocomplete'
 
 export {default as Baseline} from './components/baseline'
 
