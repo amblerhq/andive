@@ -1,17 +1,16 @@
 import React, {useRef} from 'react'
 import styled, {css} from 'styled-components'
-import PropTypes from 'prop-types'
 
 import useElementRect from '../../lib/use-element-rect'
 import * as palette from '../../constants/palette'
 import {Body1} from '../typography'
 
-const Origin = styled.div`
+const OriginRoot = styled(({label, ...props}) => <div {...props} />)`
   position: relative;
   padding-left: ${props => (props.label ? 24 + 61 : 24)}px;
 `
 
-const OriginIcon = styled.div`
+const OriginIcon = styled(({label, ...props}) => <div {...props} />)`
   position: absolute;
   left: ${props => (props.label ? 69 : 0)}px;
   top: 0;
@@ -20,7 +19,7 @@ const OriginIcon = styled.div`
   height: 100%;
 `
 
-const OriginPoint = styled.div`
+const OriginPoint = styled(({offsetY, ...props}) => <div {...props} />)`
   position: absolute;
 
   width: 8px;
@@ -34,7 +33,7 @@ const OriginPoint = styled.div`
   border: 2px solid ${palette.darkPrimary};
   background: white;
 `
-const OriginRoad = styled.div`
+const OriginRoad = styled(({offsetY, height, ...props}) => <div {...props} />)`
   position: absolute;
 
   left: calc(50% - 10px);
@@ -43,22 +42,22 @@ const OriginRoad = styled.div`
   ${props => {
     if (props.offsetY) {
       return css`
-        top: ${props => props.offsetY}px;
-        height: ${props => props.height - props.offsetY}px;
+        top: ${props.offsetY}px;
+        height: ${props.height - props.offsetY}px;
       `
     }
 
     // Old use-case. Should be removed.
     return css`
       top: 8px;
-      height: ${props => props.height - 8}px;
+      height: ${props.height - 8}px;
     `
   }}
 
   background: ${palette.darkPrimary};
 `
 
-const AsideLabel = styled(Body1)`
+const AsideLabel = styled(({ offsetY, ...props }) => <Body1 {...props}/>)`
   position: absolute;
   top: ${props => (props.offsetY ? props.offsetY - 20 : -8)}px;
   left: 0;
@@ -71,7 +70,12 @@ const AsideLabel = styled(Body1)`
   text-align: right;
 `
 
-function OriginComponent({label, children, ...props}) {
+interface OriginProps<PointRefElementType> {
+  className?: string,
+  label?: string,
+  children: React.ReactNode | ((ref: React.Ref<HTMLDivElement>, pointRef: React.Ref<PointRefElementType>) => React.ReactNode)
+}
+export function Origin<PointRefElementType>({className, label, children}: OriginProps<PointRefElementType>) {
   const ref = useRef(null)
   const pointRef = useRef(null)
   const size = useElementRect(ref)
@@ -81,7 +85,7 @@ function OriginComponent({label, children, ...props}) {
   const offsetY = (pointSize && size && pointSize.y - size.y + pointSize.height / 2) || 0
 
   return (
-    <Origin label={label} {...props}>
+    <OriginRoot className={className} label={label}>
       <OriginIcon label={label} size={size ? size.height : 46}>
         <OriginRoad height={size ? size.height : 46} offsetY={offsetY} />
         <OriginPoint offsetY={offsetY} />
@@ -93,13 +97,6 @@ function OriginComponent({label, children, ...props}) {
           {typeof children !== 'function' && <div ref={ref}>{children}</div>}
         </>
       )}
-    </Origin>
+    </OriginRoot>
   )
 }
-
-OriginComponent.propTypes = {
-  label: PropTypes.string,
-  children: PropTypes.oneOfType([PropTypes.node, PropTypes.func])
-}
-
-export default OriginComponent

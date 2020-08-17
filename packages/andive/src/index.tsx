@@ -194,7 +194,7 @@ export {default as DialogTitle} from './components/dialog-title'
 
 export {default as Dialog} from './components/dialog'
 
-export {default as Direction} from './components/direction'
+export {Direction} from './components/direction'
 
 export {default as Dropdown} from './components/dropdown'
 

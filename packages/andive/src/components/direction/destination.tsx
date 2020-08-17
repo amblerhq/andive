@@ -1,17 +1,16 @@
 import React, {useRef} from 'react'
 import styled, {css} from 'styled-components'
-import PropTypes from 'prop-types'
 
 import useElementRect from '../../lib/use-element-rect'
 import {Body1, isTypography} from '../typography'
 import * as palette from '../../constants/palette'
 
-const Destination = styled.div`
+const DestinationRoot = styled(({label, ...props}) => <div {...props} />)`
   position: relative;
   padding-left: ${props => (props.label ? 24 + 61 : 24)}px;
 `
 
-const DestinationIcon = styled.div`
+const DestinationIcon = styled(({label, ...props}) => <div {...props} />)`
   position: absolute;
   left: ${props => (props.label ? 69 : 0)}px;
   top: 0;
@@ -20,7 +19,7 @@ const DestinationIcon = styled.div`
   height: 100%;
 `
 
-const DestinationPoint = styled.div`
+const DestinationPoint = styled(({ offsetY, ...props }) => <div {...props} />)`
   position: absolute;
 
   width: 8px;
@@ -34,7 +33,7 @@ const DestinationPoint = styled.div`
   border: 2px solid ${palette.darkPrimary};
   background: white;
 `
-const DestinationRoad = styled.div`
+const DestinationRoad = styled(({ offsetY, ...props }) => <div {...props} />)`
   position: absolute;
 
   left: calc(50% - 10px);
@@ -44,7 +43,7 @@ const DestinationRoad = styled.div`
     if (props.offsetY) {
       return css`
         top: 0;
-        height: ${props => props.offsetY + 4}px;
+        height: ${props.offsetY + 4}px;
       `
     }
 
@@ -58,7 +57,7 @@ const DestinationRoad = styled.div`
   background: ${palette.darkPrimary};
 `
 
-const AsideLabel = styled(Body1)`
+const AsideLabel = styled(({ offsetY, ...props }) => <Body1 {...props} />)`
   position: absolute;
   top: ${props => (props.offsetY ? props.offsetY - 16 : -10)}px;
   left: 0;
@@ -71,7 +70,12 @@ const AsideLabel = styled(Body1)`
   text-align: right;
 `
 
-function DestinationComponent({label, children, ...props}) {
+interface DestinationProps<PointRefElementType> {
+  className?: string,
+  label?: string,
+  children: React.ReactNode | ((ref: React.Ref<HTMLDivElement>, pointRef: React.Ref<PointRefElementType>) => React.ReactNode)
+}
+export function Destination<PointRefElementType>({label, children, ...props}: DestinationProps<PointRefElementType>) {
   const ref = useRef(null)
   const size = useElementRect(ref)
   const pointRef = useRef(null)
@@ -94,7 +98,7 @@ function DestinationComponent({label, children, ...props}) {
   }
 
   return (
-    <Destination label={label} {...props}>
+    <DestinationRoot label={label} {...props}>
       <DestinationIcon label={label}>
         <DestinationRoad offsetY={offsetY} />
         <DestinationPoint offsetY={offsetY} />
@@ -106,13 +110,6 @@ function DestinationComponent({label, children, ...props}) {
           {typeof children !== 'function' && children}
         </>
       )}
-    </Destination>
+    </DestinationRoot>
   )
 }
-
-DestinationComponent.propTypes = {
-  label: PropTypes.string,
-  children: PropTypes.oneOfType([PropTypes.func, PropTypes.node])
-}
-
-export default DestinationComponent
