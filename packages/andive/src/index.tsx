@@ -204,7 +204,7 @@ export {DropdownComposer} from './components/dropdown-composer'
 
 export {default as DropdownMenu} from './components/dropdown-menu'
 
-export {default as DropdownFilter} from './components/dropdown-filter'
+export {DropdownFilter} from './components/dropdown-filter'
 
 export {default as Hover} from './components/hover'
 

@@ -1,18 +1,17 @@
 import React from 'react'
 import styled, {css} from 'styled-components'
-import PropTypes from 'prop-types'
 
 import * as palette from '../constants/palette'
 import Button from './button'
 import {ZIndexes} from '../constants/enum'
 import {CloseIcon} from '..'
 
-const MenuFilterRoot = styled.div`
+const MenuFilterRoot = styled.div<{ open?: boolean }>`
   position: relative;
   z-index: ${props => (props.open ? ZIndexes.MODALS + 1 : undefined)};
 `
 
-const Menu = styled.div`
+const Menu = styled.div<{ openLeft?: boolean, mobile?: boolean }>`
   position: absolute;
 
   ${props =>
@@ -82,10 +81,6 @@ const MobileHeader = styled.div`
   height: 56px;
 `
 
-function CloseButton(props) {
-  return <CloseIcon {...props} />
-}
-
 const StickyFooter = styled.div`
   position: fixed;
 
@@ -106,19 +101,35 @@ const StickyFooter = styled.div`
   z-index: ${ZIndexes.MODALS + 1};
 `
 
-function MenuFilter({label, button, selected, onSave, onClear, onClose, mobile, children, openLeft = false, ...props}) {
+interface MenuFilterProps {
+  className?: string,
+  label: string,
+  button?: JSX.Element,
+  selected?: boolean,
+  mobile?: boolean,
+  onSave: () => void,
+  onClear: () => void,
+  onClose: () => void,
+  children: React.ReactNode,
+  openLeft?: boolean
+}
+export function DropdownFilter({className, label, button, selected, onSave, onClear, onClose, mobile, children, openLeft = false}: MenuFilterProps) {
   const [open, setOpen] = React.useState(false)
   const onClick = React.useCallback(() => {
     setOpen(prev => !prev)
   }, [setOpen])
   const onCloseAndSave = React.useCallback(() => {
     setOpen(false)
-    onSave && onSave()
+    if (onSave) {
+      onSave()
+    }
   }, [setOpen, onSave])
   const onCloseOnly = React.useCallback(() => {
     setOpen(false)
-    onClose && onClose()
-  })
+    if (onClose) {
+      onClose()
+    }
+  }, [])
 
   return (
     <>
@@ -135,10 +146,10 @@ function MenuFilter({label, button, selected, onSave, onClear, onClose, mobile, 
           <Button variant="filter" invert={!selected && !open} label={label} onClick={onClick} mobile={mobile} />
         )}
         {open && (
-          <Menu openLeft={openLeft} mobile={mobile} {...props}>
+          <Menu className={className} openLeft={openLeft} mobile={mobile}>
             {mobile && (
               <MobileHeader>
-                <CloseButton onClick={onCloseOnly} />
+                <CloseIcon onClick={onCloseOnly} />
                 {onClear && <Button variant="flat" label="Effacer" onClick={onClear} />}
               </MobileHeader>
             )}
@@ -148,7 +159,7 @@ function MenuFilter({label, button, selected, onSave, onClear, onClose, mobile, 
                   <StickyFooter>
                     <Button
                       variant="primary"
-                      color={palette.mediumBerryBlue}
+                      textColor={palette.mediumBerryBlue}
                       label="Enregistrer"
                       onClick={onCloseAndSave}
                     />
@@ -168,16 +179,3 @@ function MenuFilter({label, button, selected, onSave, onClear, onClose, mobile, 
     </>
   )
 }
-
-MenuFilter.propTypes = {
-  label: PropTypes.string,
-  selected: PropTypes.bool,
-  onSave: PropTypes.func,
-  onClear: PropTypes.func,
-  onClose: PropTypes.func,
-  mobile: PropTypes.bool,
-  children: PropTypes.node,
-  openLeft: PropTypes.bool
-}
-
-export default MenuFilter
