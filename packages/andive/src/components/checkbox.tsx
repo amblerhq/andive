@@ -52,8 +52,8 @@ const Label = styled(Body1)<{disabled?: boolean}>`
 
 interface CheckboxProps {
   name: string,
-  checked: boolean,
 
+  checked?: boolean,
   className?: string,
   label?: string,
   onChange?: () => void,

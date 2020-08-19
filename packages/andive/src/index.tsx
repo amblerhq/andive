@@ -188,7 +188,7 @@ export {default as Card} from './components/card'
 
 export {Checkbox} from './components/checkbox'
 
-export {CheckboxGroup} from './components/checkbox-group'
+export {CheckboxGroup, CheckboxGroupValue} from './components/checkbox-group'
 
 export {default as DialogTitle} from './components/dialog-title'
 

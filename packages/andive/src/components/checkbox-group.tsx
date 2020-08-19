@@ -27,7 +27,7 @@ const FlexBox = styled(Box)`
   display: flex;
 `
 
-interface CheckboxGroupValue {
+export interface CheckboxGroupValue {
   [name: string]: boolean
 }
 interface CheckboxGroupProps {
