@@ -15,8 +15,8 @@ const CardRoot = styled.div`
 `
 
 export interface Props {
-  className: string;
-  component: React.ElementType;
+  className?: string;
+  component?: React.ElementType;
   children?: any;
 }
 
