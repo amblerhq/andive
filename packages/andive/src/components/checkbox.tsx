@@ -1,6 +1,5 @@
-import React, {useContext} from 'react'
+import React from 'react'
 import styled, {css} from 'styled-components'
-import PropTypes from 'prop-types'
 import posed, {PoseGroup} from 'react-pose'
 
 import CheckboxOnIcon from './icons/checkbox-on'
@@ -30,7 +29,7 @@ const FadeInOut = posed.div({
   }
 })
 
-const Checkbox = styled.div`
+const CheckboxRoot = styled.div<{fullWidth?: boolean, disabled?: boolean}>`
   width: ${props => (props.fullWidth ? '100%' : 'auto')};
   padding: 8px;
 
@@ -40,7 +39,7 @@ const Checkbox = styled.div`
   cursor: ${props => (props.disabled ? 'not-allowed' : 'pointer')};
 `
 
-const Label = styled(Body1)`
+const Label = styled(Body1)<{disabled?: boolean}>`
   padding-left: 12px;
 
   ${props =>
@@ -51,21 +50,20 @@ const Label = styled(Body1)`
       : undefined}
 `
 
-// function isNullable(value) {
-//   return value === undefined || value === null
-// }
+interface CheckboxProps {
+  name: string,
+  checked: boolean,
 
-function CheckboxComponent({label, checked, onChange, name, disabled, fullWidth, ...props}) {
-  const context = useContext(CheckboxGroupContext)
+  className?: string,
+  label?: string,
+  onChange?: () => void,
+  disabled?: boolean,
+  fullWidth?: boolean,
+  radio?: boolean
+}
 
-  // if (!context && (isNullable(checked) || isNullable(onChange))) {
-  //   throw new Error(
-  //     `A controlled checkbox needs the "checked" and "onChange" props.
-  //     If you want to control a group of <Checkbox /> components, do not control them instead wrap
-  //     them inside a <CheckboxGroup /> component.
-  //     `
-  //   )
-  // }
+export function Checkbox({className, label, checked, onChange, name, disabled, fullWidth, ...props}: CheckboxProps) {
+  const context: any /* FixType */ = React.useContext(CheckboxGroupContext)
 
   let radio = props.radio || false
   // This is a group of checkboxes controlled by a <CheckboxGroup />
@@ -82,12 +80,11 @@ function CheckboxComponent({label, checked, onChange, name, disabled, fullWidth,
   }
 
   return (
-    <Checkbox
+    <CheckboxRoot
+      className={className}
       fullWidth={fullWidth}
       onClick={disabled ? undefined : onChange}
-      checked={checked}
       disabled={disabled}
-      {...props}
     >
       <PoseGroup>
         {!checked && (
@@ -99,7 +96,7 @@ function CheckboxComponent({label, checked, onChange, name, disabled, fullWidth,
             )}
           </FadeInOut>
         )}
-        {!!checked && (
+        {checked && (
           <FadeInOut key="on">
             {radio ? (
               <RadioOnIcon inline color={disabled ? palette.lightPrimary : undefined} />
@@ -109,19 +106,7 @@ function CheckboxComponent({label, checked, onChange, name, disabled, fullWidth,
           </FadeInOut>
         )}
       </PoseGroup>
-      {label ? <Label disabled={disabled}>{label}</Label> : null}
-    </Checkbox>
+      {label && <Label disabled={disabled}>{label}</Label>}
+    </CheckboxRoot>
   )
 }
-
-CheckboxComponent.propTypes = {
-  label: PropTypes.string,
-  checked: PropTypes.bool,
-  onChange: PropTypes.func,
-  disabled: PropTypes.bool,
-  name: PropTypes.string,
-  fullWidth: PropTypes.bool,
-  radio: PropTypes.bool
-}
-
-export default CheckboxComponent

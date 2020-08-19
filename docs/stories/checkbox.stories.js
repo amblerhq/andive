@@ -46,9 +46,9 @@ function CheckboxGroupStory({radio}) {
         }}
         radio={radio}
       >
-        <Checkbox label="A" name="a" style={{background: 'white'}} />
-        <Checkbox label="B" name="b" style={{background: 'white'}} />
-        <Checkbox label="C" name="c" style={{background: 'white'}} />
+        <Checkbox label="A" name="a" />
+        <Checkbox label="B" name="b" />
+        <Checkbox label="C" name="c" />
       </CheckboxGroup>
       <pre style={{padding: 8}}>values: {JSON.stringify(values, null, 2)}</pre>
     </div>
@@ -80,9 +80,9 @@ function CheckboxGroupWithErrorStory() {
         }}
         error={error}
       >
-        <Checkbox label="A" name="a" style={{background: 'white'}} />
-        <Checkbox label="B" name="b" style={{background: 'white'}} />
-        <Checkbox label="C" name="c" style={{background: 'white'}} />
+        <Checkbox label="A" name="a" />
+        <Checkbox label="B" name="b" />
+        <Checkbox label="C" name="c" />
       </CheckboxGroup>
       <pre style={{padding: 8}}>values: {JSON.stringify(values, null, 2)}</pre>
     </div>
@@ -113,9 +113,9 @@ function UpdateableCheckboxGroupStory() {
           setValues(values_)
         }}
       >
-        <Checkbox label="A" name="a" style={{background: 'white'}} />
-        <Checkbox label="B" name="b" style={{background: 'white'}} />
-        <Checkbox label="C" name="c" style={{background: 'white'}} />
+        <Checkbox label="A" name="a" />
+        <Checkbox label="B" name="b" />
+        <Checkbox label="C" name="c" />
       </CheckboxGroup>
     </div>
   )
@@ -124,12 +124,16 @@ function UpdateableCheckboxGroupStory() {
 storiesOf('API|Checkbox', module)
   .add('False', () => (
     <Showcase>
-      <Checkbox label="Bariatrique" checked={false} onChange={() => null} style={{background: 'white'}} />
+      <div style={{background: 'white'}}>
+        <Checkbox label="Bariatrique" checked={false} onChange={() => null} />
+      </div>
     </Showcase>
   ))
   .add('True', () => (
     <Showcase>
-      <Checkbox label="Bariatrique" checked={true} onChange={() => null} style={{background: 'white'}} />
+      <div style={{background: 'white'}}>
+        <Checkbox label="Bariatrique" checked={true} onChange={() => null} />
+      </div>
     </Showcase>
   ))
   .add('Controlled', () => (
@@ -154,6 +158,13 @@ storiesOf('API|Checkbox', module)
         <Checkbox radio label="2e Patient" checked onChange={() => null} style={{background: 'white'}} />
       </Showcase>
     </>
+  ))
+  .add('Without label', () => (
+    <Showcase>
+      <div style={{background: 'white'}}>
+        <Checkbox />
+      </div>
+    </Showcase>
   ))
   .add('Checkbox Group', () => (
     <Showcase>
