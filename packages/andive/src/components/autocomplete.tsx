@@ -62,9 +62,7 @@ const SuggestionLi = styled.li`
   cursor: pointer;
 `
 
-const AutocompleteInput = styled(Input)``
-
-const defaultRenderSuggestion = item => {
+function defaultRenderSuggestion(item: {mainText: string, secondaryText?: string}): React.ReactNode {
   return (
     <Hover>
       <Icon icon={<HistoryIcon circle />}>
@@ -80,11 +78,11 @@ const defaultCanShowSuggestions = (_suggestions, input) => {
   return input.length >= 3
 }
 
-interface AutocompleteProps<AutocompleteItem> {
+export interface AutocompleteProps<T> {
   /**
    * The "value" of the autocomplete is the Object either selected in suggestions or provided by the parent component.
    */
-  value: AutocompleteItem,
+  value: T,
   /**
    * The "onChange" function is called when a suggestion is selected. Its the callee responsability to handle the
    * update of the "value" prop accordingly.
@@ -98,24 +96,24 @@ interface AutocompleteProps<AutocompleteItem> {
   /**
    * Customize the JSX rendered for each suggestion item.
    */
-  renderSuggestion?: (item: AutocompleteItem, index: number, length: number) => React.ReactNode,
+  renderSuggestion?: (item: T, index: number, length: number) => React.ReactNode,
   /**
    * Customize the JSX rendered for each favorite item.
    */
-  renderFavorite?: (item: AutocompleteItem, index: number, length: number) => React.ReactNode,
+  renderFavorite?: (item: T, index: number, length: number) => React.ReactNode,
   /**
    * Customize how an item is rendered in the input.
    */
-  renderInputValue?: (item: AutocompleteItem) => string,
+  renderInputValue?: (item: T) => string,
   /**
    * The list of suggestions returns by the data source after "onSearch" has been called. It must always be an array and if
    * it has no elements then the autocomplete does not display the suggestion div bellow the input.
    */
-  suggestions: AutocompleteItem[],
+  suggestions: T[],
   /**
    * The list of favorites to display when the user click on the autocomplete and the input is empty.
    */
-  favorites?: AutocompleteItem[],
+  favorites?: T[],
   /**
    * When true, any input value is a valid value. Therefore the "onChange" is called as if the user selected an item in
    * the suggestion list.
@@ -126,12 +124,13 @@ interface AutocompleteProps<AutocompleteItem> {
    * least 3 characters. Still, whatever function you pass, it also checks if the suggestion list has at least 1 element.
    * To show a list on focus, use the `favorites` prop.
    */
-  canShowSuggestions: (suggestions: AutocompleteItem[], input: string) => boolean,
+  canShowSuggestions: (suggestions: T[], input: string) => boolean,
   bottomFootprint?: number,
   name?: string,
-  error?: string
+  error?: string,
+  inputRef: React.Ref<HTMLInputElement>
 }
-export const Autocomplete = React.forwardRef(function Autocomplete<AutocompleteItem>(
+export function Autocomplete<T extends {mainText: string, secondaryText?: string}>(
   {
     value,
     onChange,
@@ -146,9 +145,9 @@ export const Autocomplete = React.forwardRef(function Autocomplete<AutocompleteI
     bottomFootprint,
     name,
     error,
+    inputRef,
     ...props
-  }: AutocompleteProps<AutocompleteItem>,
-  ref
+  }: AutocompleteProps<T>
 ) {
   const [input, setInput] = React.useState('')
   const [unstable, setUnstable] = React.useState(false)
@@ -200,8 +199,8 @@ export const Autocomplete = React.forwardRef(function Autocomplete<AutocompleteI
 
   return (
     <AutocompleteRoot>
-      <AutocompleteInput
-        ref={ref}
+      <Input
+        ref={inputRef}
         name={name}
         onChange={ev => {
           onUpdate(ev.target.value)
@@ -264,4 +263,4 @@ export const Autocomplete = React.forwardRef(function Autocomplete<AutocompleteI
       )}
     </AutocompleteRoot>
   )
-})
+}
