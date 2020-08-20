@@ -4,10 +4,9 @@ import styled from 'styled-components'
 import * as palette from '../constants/palette'
 import {ZIndexes} from '../constants/enum'
 import Input from './input'
-import HistoryIcon from './icons/history'
 import Hover from './hover'
-import Icon from './icon'
-import { Body1, Body2 } from './typography'
+import { Body1 } from './typography'
+import Box from './box'
 
 export const Divider = styled.div`
   width: calc(100% - 16px);
@@ -62,22 +61,6 @@ const SuggestionLi = styled.li`
   cursor: pointer;
 `
 
-function defaultRenderSuggestion(item: {mainText: string, secondaryText?: string}): React.ReactNode {
-  return (
-    <Hover>
-      <Icon icon={<HistoryIcon circle />}>
-        <Body1>{item.mainText}</Body1>
-        {item.secondaryText && <Body2 color={palette.secondaryText}>{item.secondaryText}</Body2>}
-      </Icon>
-    </Hover>
-  )
-}
-
-const defaultRenderInputValue = item => [item.mainText, item.secondaryText].filter(Boolean).join(', ')
-const defaultCanShowSuggestions = (_suggestions, input) => {
-  return input.length >= 3
-}
-
 export interface AutocompleteProps<T> {
   /**
    * The "value" of the autocomplete is the Object either selected in suggestions or provided by the parent component.
@@ -130,18 +113,18 @@ export interface AutocompleteProps<T> {
   error?: string,
   inputRef: React.Ref<HTMLInputElement>
 }
-export function Autocomplete<T extends {mainText: string, secondaryText?: string}>(
+export function Autocomplete<T>(
   {
     value,
     onChange,
     onSearch,
-    renderSuggestion = defaultRenderSuggestion,
-    renderFavorite = defaultRenderSuggestion,
-    renderInputValue = defaultRenderInputValue,
+    renderSuggestion = (item) => <Hover><Box><Body1>{String(item)}</Body1></Box></Hover>,
+    renderFavorite = (item) => <Hover><Box><Body1>{String(item)}</Body1></Box></Hover>,
+    renderInputValue = (item) => String(item),
     suggestions = [],
     favorites = [],
     freeInput,
-    canShowSuggestions = defaultCanShowSuggestions,
+    canShowSuggestions = (_suggestions, input) => input.length >= 3,
     bottomFootprint,
     name,
     error,

@@ -1,7 +1,17 @@
 import React from 'react'
 import {storiesOf} from '@storybook/react'
 import {Provider, createClient, useQuery} from 'urql'
-import {Autocomplete, Hover, Info, MedicalFacilityIcon, AddressIcon, palette, ZIndexes} from '@ambler/andive'
+import {
+  Autocomplete,
+  Hover,
+  Info,
+  MedicalFacilityIcon,
+  AddressIcon,
+  palette,
+  ZIndexes,
+  Typography,
+  Box
+} from '@ambler/andive'
 
 import Showcase from './showcase'
 
@@ -74,6 +84,17 @@ function useSuggestions(currentValue, hasRawString = false) {
   return [suggestions, onSearch]
 }
 
+const renderSuggestion = item => (
+  <Hover>
+    <Box>
+      <Typography.Body1>{item.mainText}</Typography.Body1>
+      <Typography.Body2 color={palette.secondaryText}>{item.secondaryText}</Typography.Body2>
+    </Box>
+  </Hover>
+)
+
+const renderInputValue = item => item.mainText + ', ' + item.secondaryText
+
 function DefaultStory() {
   const [item, setItem] = React.useState(null)
   const onChange = React.useCallback(value => {
@@ -92,6 +113,8 @@ function DefaultStory() {
           onChange={onChange}
           onSearch={onSearch}
           suggestions={suggestions}
+          renderSuggestion={renderSuggestion}
+          renderInputValue={renderInputValue}
         />
         <FakeList />
       </div>
@@ -119,6 +142,8 @@ function CustomCanShowSuggestionStory() {
           onChange={onChange}
           onSearch={onSearch}
           suggestions={suggestions}
+          renderSuggestion={renderSuggestion}
+          renderInputValue={renderInputValue}
         />
         <FakeList />
       </div>
@@ -149,7 +174,9 @@ function InitialValueStory() {
           onChange={onChange}
           onSearch={onSearch}
           suggestions={suggestions}
-          errorMessage="Vous devez choisir une adresse"
+          renderSuggestion={renderSuggestion}
+          renderInputValue={renderInputValue}
+          error={item === null ? 'Vous devez choisir une adresse' : undefined}
         />
         <FakeList />
       </div>
@@ -191,7 +218,10 @@ function WithFavoritesStory() {
           onSearch={onSearch}
           suggestions={suggestions}
           favorites={favorites}
-          errorMessage="Vous devez choisir une adresse"
+          renderSuggestion={renderSuggestion}
+          renderFavorite={renderSuggestion}
+          renderInputValue={renderInputValue}
+          error={item === null ? 'Vous devez choisir une adresse' : undefined}
         />
         <FakeList />
       </div>
@@ -266,7 +296,9 @@ function WithGraphqlQueryStory() {
           onChange={onChange}
           onSearch={onSearch}
           suggestions={suggestions}
-          errorMessage="Vous devez choisir une planète"
+          renderSuggestion={renderSuggestion}
+          renderInputValue={renderInputValue}
+          error={item === null ? 'Vous devez choisir une planète' : undefined}
           loading={loading}
         />
         <FakeList />
@@ -305,8 +337,9 @@ function WithCustomSuggestion() {
           onChange={onChange}
           onSearch={onSearch}
           suggestions={suggestions}
-          errorMessage="Vous devez choisir une adresse"
           renderSuggestion={renderSuggestion}
+          renderInputValue={renderInputValue}
+          error={item === null ? 'Vous devez choisir une adresse' : undefined}
         />
         <FakeList />
       </div>
@@ -323,16 +356,6 @@ function WithFreeInputValue() {
   })
   const [suggestions, onSearch] = useSuggestions(item, true)
 
-  const renderSuggestion = React.useCallback(item => {
-    return (
-      <Hover>
-        <Info>
-          <Info.Item item={item} />
-        </Info>
-      </Hover>
-    )
-  })
-
   return (
     <Showcase style={{background: 'white'}}>
       <div style={{width: 600}}>
@@ -343,8 +366,6 @@ function WithFreeInputValue() {
           onChange={onChange}
           onSearch={onSearch}
           suggestions={suggestions}
-          renderSuggestion={renderSuggestion}
-          renderInputValue={item => item}
           freeInput
         />
         <FakeList />
@@ -373,6 +394,8 @@ function WithFooter() {
           onChange={onChange}
           onSearch={onSearch}
           suggestions={suggestions}
+          renderSuggestion={renderSuggestion}
+          renderInputValue={renderInputValue}
           bottomFootprint={80}
         />
         <FakeList />
