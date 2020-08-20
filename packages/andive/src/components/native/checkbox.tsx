@@ -60,7 +60,17 @@ const Error = styled(Body2)`
   color: ${palette.error};
 `
 
-export default function NativeCheckbox({label, name, checked, error, radio, disabled, inputRef, onChange, ...props}) {
+interface NativeCheckboxProps {
+  name?: string
+  label?: string
+  checked?: boolean
+  error?: string
+  radio?: boolean
+  disabled?: boolean
+  inputRef?: React.Ref<HTMLInputElement>,
+  onChange?: (ev: React.ChangeEvent<HTMLInputElement>) => void
+}
+export function NativeCheckbox({label, name, checked, error, radio, disabled, inputRef, onChange, ...props}: NativeCheckboxProps) {
   return (
     <div>
       <NativeCheckboxRoot>
