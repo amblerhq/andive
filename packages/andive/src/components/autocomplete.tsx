@@ -111,7 +111,7 @@ export interface AutocompleteProps<T> {
   bottomFootprint?: number,
   name?: string,
   error?: string,
-  inputRef: React.Ref<HTMLInputElement>
+  inputRef?: React.Ref<HTMLInputElement>
 }
 export function Autocomplete<T>(
   {
