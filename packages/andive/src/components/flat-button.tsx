@@ -90,7 +90,7 @@ interface FlatButtonProps {
   className?: string
   icon?: JSX.Element
   rightIcon?: JSX.Element
-  label?: string
+  label?: string | JSX.Element
   onClick: DOMAttributes<HTMLButtonElement>['onClick']
   color?: string
   active?: boolean

@@ -103,13 +103,13 @@ const StickyFooter = styled.div`
 
 interface MenuFilterProps {
   className?: string,
-  label: string,
+  label?: string,
   button?: JSX.Element,
   selected?: boolean,
   mobile?: boolean,
-  onSave: () => void,
-  onClear: () => void,
-  onClose: () => void,
+  onSave?: () => void,
+  onClear?: () => void,
+  onClose?: () => void,
   children: React.ReactNode,
   openLeft?: boolean
 }
