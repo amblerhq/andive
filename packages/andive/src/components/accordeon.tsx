@@ -30,7 +30,7 @@ const AccordeonButton = styled.div`
 
 export interface Props {
   className?: string;
-  label: string | React.ElementType;
+  label: React.ReactNode;
   openByDefault?: boolean;
   open?: any;
   onToggle?: any;
