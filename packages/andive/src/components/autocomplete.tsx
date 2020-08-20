@@ -107,7 +107,7 @@ export interface AutocompleteProps<T> {
    * least 3 characters. Still, whatever function you pass, it also checks if the suggestion list has at least 1 element.
    * To show a list on focus, use the `favorites` prop.
    */
-  canShowSuggestions: (suggestions: T[], input: string) => boolean,
+  canShowSuggestions?: (suggestions: T[], input: string) => boolean,
   bottomFootprint?: number,
   name?: string,
   error?: string,
