@@ -11,7 +11,11 @@ const DropdownBaseRoot = styled.div`
   box-shadow: 0 1px 4px 0 ${palette.hexToRGBA(palette.darkPrimary, 0.3)};
 `
 
-export function DropdownBase({ className, children }) {
+interface DropdownBaseProps {
+  className?: string
+  children: React.ReactNode
+}
+export function DropdownBase({ className, children }: DropdownBaseProps) {
   return <DropdownBaseRoot className={className}>
     {children}
   </DropdownBaseRoot>
