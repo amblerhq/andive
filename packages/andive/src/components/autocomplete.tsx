@@ -70,7 +70,7 @@ export interface AutocompleteProps<T> {
    * The "onChange" function is called when a suggestion is selected. Its the callee responsability to handle the
    * update of the "value" prop accordingly.
    */
-  onChange: (nextInput: string | null) => void,
+  onChange: (nextInput: T | null) => void,
   /**
    * The "onSearch" method is called with the updated <Input /> content. When a user select a suggestion it is also called
    * with a "null" value.
@@ -145,7 +145,9 @@ export function Autocomplete<T>(
       onSearch(nextInput || null)
 
       if (freeInput) {
-        onChange(nextInput)
+        // When we use freeInput, T = string.
+        const nextValue: T = nextInput as any
+        onChange(nextValue)
       } else {
         setUnstable(nextInput ? nextInput !== input : false)
       }
@@ -171,7 +173,7 @@ export function Autocomplete<T>(
   }, [value, focus, mapValueToInput])
 
   const onSelectItem = React.useCallback(
-    item => {
+    (item: T) => {
       onChange(item)
       onSearch(null)
       setInput(mapValueToInput(item))
