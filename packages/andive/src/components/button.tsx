@@ -110,6 +110,7 @@ const ResetButton = styled(
   border: none;
   background: none;
   cursor: inherit;
+  padding: 0;
 
   display: flex;
   justify-content: center;
@@ -259,9 +260,6 @@ const FilterButton = styled(ResetButton)<{
   mobile?: boolean
   backgroundColor?: string
 }>`
-  /* The padding is ruled by the text, not the button. */
-  padding: 0;
-
   border-radius: 20px;
   border: 1px solid
     ${props => (props.invert ? palette.darkPrimary : 'transparent')};
