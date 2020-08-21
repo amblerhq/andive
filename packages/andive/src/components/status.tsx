@@ -23,11 +23,11 @@ const SecondaryStatus = styled(({secondayItalic, ...props}) => (<Body3 {...props
 `
 
 interface StatusProps {
-  primary: string,
+  primary: string | React.ReactNode,
   className?: string,
   color?: string,
   backgroundColor?: string
-  secondary?: string
+  secondary?: string | React.ReactNode,
   secondaryItalic?: boolean
 }
 export function Status({
