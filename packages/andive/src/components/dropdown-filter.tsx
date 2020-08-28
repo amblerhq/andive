@@ -159,7 +159,6 @@ export function DropdownFilter({className, label, button, selected, onSave, onCl
                   <StickyFooter>
                     <Button
                       variant="primary"
-                      textColor={palette.mediumBerryBlue}
                       label="Enregistrer"
                       onClick={onCloseAndSave}
                     />
