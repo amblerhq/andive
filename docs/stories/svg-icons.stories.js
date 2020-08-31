@@ -77,7 +77,7 @@ import {
   DropdownArrowIcon,
   Typography,
   Info,
-  Filter
+  FilterIcon
 } from '@ambler/andive'
 
 import Showcase from './showcase'
@@ -157,7 +157,7 @@ const icons = [
   PickUpIcon,
   DropOffIcon,
   DropdownArrowIcon,
-  Filter
+  FilterIcon
 ]
 
 function TimedColor({interval, colors, children}) {
@@ -191,7 +191,7 @@ const newIcons = [
   {Icon: PhoneIcon},
   {Icon: MoreIcon},
   {Icon: DropdownArrowIcon},
-  {Icon: Filter}
+  {Icon: FilterIcon}
 ]
 const updatedIcons = []
 
