@@ -142,6 +142,8 @@ export {default as DropOffIcon} from './components/icons/drop-off'
 
 export {default as DropdownArrowIcon} from './components/icons/dropdown-arrow'
 
+export {default as Filter} from './components/icons/filter'
+
 /**
  * Illustrations
  */
