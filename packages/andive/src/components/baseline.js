@@ -152,6 +152,12 @@ const andiveResetCss = css`
     /* iPhone SE Safari browser injected CSS override */
     margin: 0;
   }
+
+  /* Firefox injects padding on option tags */
+  select > option {
+    padding-left: 0;
+    padding-right: 0;
+  }
 `
 
 const BaselineCss = createGlobalStyle`
