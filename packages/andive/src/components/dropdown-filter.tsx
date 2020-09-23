@@ -153,7 +153,7 @@ export function DropdownFilter({className, label, button, selected, onSave, onCl
                 {onClear && <Button variant="flat" label="Effacer" onClick={onClear} />}
               </MobileHeader>
             )}
-            {children}
+            {typeof children === 'function' ? children({ close: onCloseOnly }) : children}
             {mobile
               ? onSave && (
                   <StickyFooter>
