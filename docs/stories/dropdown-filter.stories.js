@@ -3,7 +3,16 @@ import PropTypes from 'prop-types'
 import {storiesOf} from '@storybook/react'
 import styled from 'styled-components'
 import range from 'lodash.range'
-import {Checkbox, CheckboxGroup, DropdownFilter, Typography, palette, RideStatus, Info} from '@ambler/andive'
+import {
+  Checkbox,
+  CheckboxGroup,
+  DropdownFilter,
+  Typography,
+  palette,
+  RideStatus,
+  Info,
+  FlatButton
+} from '@ambler/andive'
 
 import Showcase from './showcase'
 
@@ -113,7 +122,21 @@ function RideSideFilterStory() {
   )
 }
 
+function RenderPropsWithCloseStory() {
+  return (
+    <>
+      <ShowcaseFilter>
+        <DropdownFilter label="23 juin - 4 juil.">
+          {({close}) => <FlatButton label={'Fermer'} onClick={() => close()} />}
+        </DropdownFilter>
+      </ShowcaseFilter>
+      <RandomPageContent />
+    </>
+  )
+}
+
 storiesOf('API|DropdownFilter', module)
   .add('Ride Status Filter', () => <RideStatusStory />)
   .add('Mobile Filter', () => <MobileFilterStory />)
   .add('Right-side filter', () => <RideSideFilterStory />)
+  .add('Render-props with close fn', () => <RenderPropsWithCloseStory />)
