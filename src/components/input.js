@@ -2,7 +2,7 @@ import React from 'react'
 import styled, {css} from 'styled-components'
 import PropTypes from 'prop-types'
 
-import {body1Css, Body2} from './typography'
+import {body1Css, body2Css, Body2} from './typography'
 import CloseIcon from './icons/close'
 import Loader from './loader'
 import * as palette from '../constants/palette'
@@ -13,25 +13,25 @@ const InputRoot = styled.div`
   padding: 8px;
 `
 
-const inputCss = ({error: error_, canClear, hasIcon, disabled}) => css`
+const inputCss = ({error: error_, canClear, hasIcon, disabled, small}) => css`
   box-sizing: border-box;
   border: none;
   outline: none;
 
   width: 100%;
-  height: 56px;
+  height: ${small ? 40 : 56}px;
   border-radius: 16px;
   background-color: ${error_ ? palette.hexToRGBA(palette.error, 0.6) : '#ededed'};
   color: ${error_ ? palette.error : palette.darkPrimary}
 
-  padding: 16px ${canClear ? 48 : 16}px 16px ${hasIcon ? '64px' : '16px'};
+  padding: ${small ? 8 : 16}px ${canClear ? 48 : 16}px ${small ? 8 : 16}px ${hasIcon ? '64px' : '16px'};
 
   caret-color: ${palette.mediumBerryBlue};
 
-  ${body1Css};
+  ${small ? body2Css : body1Css};
 
   ::placeholder {
-    ${body1Css};
+    ${small ? body2Css : body1Css};
     color: ${palette.mediumPrimary};
   }
 
@@ -61,7 +61,7 @@ const TextArea = styled.textarea`
 const Close = styled.div`
   position: absolute;
   left: calc(100% - 40px);
-  top: 24px;
+  top: ${p => (p.small ? 16 : 24)}px;
 
   cursor: pointer;
 `
@@ -69,7 +69,7 @@ const Close = styled.div`
 const Loading = styled.div`
   position: absolute;
   left: calc(100% - 50px);
-  top: 20px;
+  top: ${p => (p.small ? 12 : 20)}px;
 
   cursor: loading;
 `
@@ -83,7 +83,7 @@ const Icon = styled.div`
   position: absolute;
 
   left: 24px;
-  top: 20px;
+  top: ${p => (p.small ? 12 : 20)}px;
 `
 
 /** This input component is intended to be used the controlled way, by always - at least - passing (value, onChange).
@@ -92,7 +92,7 @@ const Icon = styled.div`
  *  - An onClear handle called when the right hand-side <CloseIcon /> is clicked.
  */
 const InputComponent = React.forwardRef(function InputComponent(
-  {value, onChange, onClear, error: error_, fullWidth, icon, disabled, loading, textarea, onBlur, ...props},
+  {value, onChange, onClear, error: error_, fullWidth, icon, disabled, loading, textarea, onBlur, small, ...props},
   ref
 ) {
   const canClear = !!(onChange && value && value.length > 0)
@@ -139,16 +139,17 @@ const InputComponent = React.forwardRef(function InputComponent(
         hasIcon={hasIcon}
         error={error_}
         disabled={disabled}
+        small={small}
         {...props}
       />
-      {hasIcon && <Icon>{icon}</Icon>}
+      {hasIcon && <Icon small={small}>{icon}</Icon>}
       {canClear && !disabled && !loading && (
-        <Close onMouseDown={handleClear}>
+        <Close small={small} onMouseDown={handleClear}>
           <CloseIcon inline />
         </Close>
       )}
       {loading && (
-        <Loading>
+        <Loading small={small}>
           <Loader inline color={palette.darkGrey} />
         </Loading>
       )}
@@ -176,6 +177,7 @@ InputComponent.propTypes = {
   loading: PropTypes.bool,
   /** must render a <textarea /> */
   textarea: PropTypes.bool,
+  small: PropTypes.bool,
   onBlur: PropTypes.func
 }
 
