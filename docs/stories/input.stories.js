@@ -14,11 +14,18 @@ function DefaultStory() {
   }
 
   return (
-    <Showcase>
-      <div style={{width: 300, background: 'white'}}>
-        <Input placeholder={'Adresse de départ...'} value={value} onChange={onChange} />
-      </div>
-    </Showcase>
+    <>
+      <Showcase>
+        <div style={{width: 300, background: 'white'}}>
+          <Input placeholder={'Adresse de départ...'} value={value} onChange={onChange} />
+        </div>
+      </Showcase>
+      <Showcase>
+        <div style={{width: 300, background: 'white'}}>
+          <Input small placeholder={'Adresse de départ...'} value={value} onChange={onChange} />
+        </div>
+      </Showcase>
+    </>
   )
 }
 
@@ -34,11 +41,18 @@ function WithClearStory() {
   }
 
   return (
-    <Showcase>
-      <div style={{width: 300, background: 'white'}}>
-        <Input placeholder={'Date de naissance'} value={value} onChange={onChange} onClear={onClear} />
-      </div>
-    </Showcase>
+    <>
+      <Showcase>
+        <div style={{width: 300, background: 'white'}}>
+          <Input placeholder={'Date de naissance'} value={value} onChange={onChange} onClear={onClear} />
+        </div>
+      </Showcase>
+      <Showcase>
+        <div style={{width: 300, background: 'white'}}>
+          <Input small placeholder={'Date de naissance'} value={value} onChange={onChange} onClear={onClear} />
+        </div>
+      </Showcase>
+    </>
   )
 }
 
@@ -62,11 +76,18 @@ function WithErrorStory() {
   }
 
   return (
-    <Showcase>
-      <div style={{width: 300, background: 'white'}}>
-        <Input placeholder="Numéro de téléphone" value={value} onChange={onChange} error={error} />
-      </div>
-    </Showcase>
+    <>
+      <Showcase>
+        <div style={{width: 300, background: 'white'}}>
+          <Input placeholder="Numéro de téléphone" value={value} onChange={onChange} error={error} />
+        </div>
+      </Showcase>
+      <Showcase>
+        <div style={{width: 300, background: 'white'}}>
+          <Input small placeholder="Numéro de téléphone" value={value} onChange={onChange} error={error} />
+        </div>
+      </Showcase>
+    </>
   )
 }
 
@@ -102,11 +123,18 @@ function WithDisabledStory() {
   }
 
   return (
-    <Showcase>
-      <div style={{width: 300, background: 'white'}}>
-        <Input disabled placeholder="Numéro de téléphone" value={value} onChange={onChange} />
-      </div>
-    </Showcase>
+    <>
+      <Showcase>
+        <div style={{width: 300, background: 'white'}}>
+          <Input disabled placeholder="Numéro de téléphone" value={value} onChange={onChange} />
+        </div>
+      </Showcase>
+      <Showcase>
+        <div style={{width: 300, background: 'white'}}>
+          <Input small disabled placeholder="Numéro de téléphone" value={value} onChange={onChange} />
+        </div>
+      </Showcase>
+    </>
   )
 }
 
@@ -122,17 +150,31 @@ function WithIconStory() {
   }
 
   return (
-    <Showcase>
-      <div style={{width: 300, background: 'white'}}>
-        <Input
-          icon={<BariatricIcon circle circleColor={'white'} />}
-          placeholder="Type de véhicule"
-          value={value}
-          onChange={onChange}
-          onClear={onClear}
-        />
-      </div>
-    </Showcase>
+    <>
+      <Showcase>
+        <div style={{width: 300, background: 'white'}}>
+          <Input
+            icon={<BariatricIcon circle circleColor={'white'} />}
+            placeholder="Type de véhicule"
+            value={value}
+            onChange={onChange}
+            onClear={onClear}
+          />
+        </div>
+      </Showcase>
+      <Showcase>
+        <div style={{width: 300, background: 'white'}}>
+          <Input
+            icon={<BariatricIcon circle circleColor={'white'} />}
+            placeholder="Type de véhicule"
+            value={value}
+            onChange={onChange}
+            onClear={onClear}
+            small
+          />
+        </div>
+      </Showcase>
+    </>
   )
 }
 
@@ -148,18 +190,33 @@ function AsTextAreaStory() {
   }
 
   return (
-    <Showcase>
-      <div style={{width: 300, background: 'white'}}>
-        <Input
-          style={{height: 128}}
-          placeholder="Commentaire..."
-          value={value}
-          onChange={onChange}
-          onClear={onClear}
-          textarea
-        />
-      </div>
-    </Showcase>
+    <>
+      <Showcase>
+        <div style={{width: 300, background: 'white'}}>
+          <Input
+            style={{height: 128}}
+            placeholder="Commentaire..."
+            value={value}
+            onChange={onChange}
+            onClear={onClear}
+            textarea
+          />
+        </div>
+      </Showcase>
+      <Showcase>
+        <div style={{width: 300, background: 'white'}}>
+          <Input
+            style={{height: 128}}
+            placeholder="Commentaire..."
+            value={value}
+            onChange={onChange}
+            onClear={onClear}
+            textarea
+            small
+          />
+        </div>
+      </Showcase>
+    </>
   )
 }
 
@@ -172,11 +229,18 @@ function WithLoaderStory() {
   function onClear() {}
 
   return (
-    <Showcase>
-      <div style={{width: 300, background: 'white'}}>
-        <Input placeholder="Commentaire..." value={value} onChange={onChange} onClear={onClear} loading />
-      </div>
-    </Showcase>
+    <>
+      <Showcase>
+        <div style={{width: 300, background: 'white'}}>
+          <Input placeholder="Commentaire..." value={value} onChange={onChange} onClear={onClear} loading />
+        </div>
+      </Showcase>
+      <Showcase>
+        <div style={{width: 300, background: 'white'}}>
+          <Input small placeholder="Commentaire..." value={value} onChange={onChange} onClear={onClear} loading />
+        </div>
+      </Showcase>
+    </>
   )
 }
 
