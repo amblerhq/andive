@@ -16,9 +16,8 @@ const HoverLayout = styled.div`
       position: absolute;
 
       left: ${({overflow, padding}) => (padding ? -(padding + overflow) : -overflow)}px;
-      top: -${props => props.overflow}px;
       width: calc(100% + ${props => (props.padding ? props.padding * 2 + props.overflow * 2 : props.overflow * 2)}px);
-      height: ${props => props.height + props.overflow * 2}px;
+      height: ${props => props.height}px;
 
       content: '';
       background: #fafafa;

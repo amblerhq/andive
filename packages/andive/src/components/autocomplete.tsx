@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 
 import * as palette from '../constants/palette'
-import {ZIndexes} from '../constants/enum'
+import { ZIndexes } from '../constants/enum'
 import Input from './input'
 import Hover from './hover'
 import { Body1 } from './typography'
@@ -112,6 +112,7 @@ export interface AutocompleteProps<T> {
   name?: string,
   error?: string,
   inputRef?: React.Ref<HTMLInputElement>
+  noHintError?: React.ReactNode
 }
 export function Autocomplete<T>(
   {
@@ -129,6 +130,7 @@ export function Autocomplete<T>(
     name,
     error,
     inputRef,
+    noHintError,
     ...props
   }: AutocompleteProps<T>
 ) {
@@ -208,10 +210,11 @@ export function Autocomplete<T>(
         error={error}
         {...props}
       />
-      {showSuggestions && (
+
+      {(showFavorites || showSuggestions || noHintError) && (
         <Suggestions bottomFootprint={bottomFootprint}>
           <SuggestionsUl>
-            {suggestions.map((item, index) => {
+            {showSuggestions && suggestions.map((item, index) => {
               return (
                 <SuggestionLi
                   key={index}
@@ -224,13 +227,7 @@ export function Autocomplete<T>(
                 </SuggestionLi>
               )
             })}
-          </SuggestionsUl>
-        </Suggestions>
-      )}
-      {showFavorites && (
-        <Suggestions bottomFootprint={bottomFootprint}>
-          <SuggestionsUl>
-            {favorites.map((item, index) => {
+            {showFavorites && favorites.map((item, index) => {
               return (
                 <SuggestionLi
                   key={index}
@@ -243,6 +240,7 @@ export function Autocomplete<T>(
                 </SuggestionLi>
               )
             })}
+            {noHintError && <SuggestionLi>{noHintError}</SuggestionLi>}
           </SuggestionsUl>
         </Suggestions>
       )}
