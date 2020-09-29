@@ -122,6 +122,46 @@ function DefaultStory() {
   )
 }
 
+const NoResultHint = () => {
+  return (
+    <Hover>
+      <Box>
+        <Typography.Body3 color={palette.mediumPrimary}>
+          Vous ne trouvez pas votre adresse dans notre liste ?
+        </Typography.Body3>
+      </Box>
+    </Hover>
+  )
+}
+
+function WithNoResultHintSuggestionStory() {
+  const [item, setItem] = React.useState(null)
+  const onChange = React.useCallback(value => {
+    setItem(value)
+  })
+  const [suggestions, onSearch] = useSuggestions(item)
+
+  return (
+    <Showcase style={{background: 'white'}}>
+      <div style={{width: 600}}>
+        <pre style={{padding: '4px 24px', overflow: 'auto'}}>{item ? JSON.stringify(item) : 'No selection'}</pre>
+        <Autocomplete
+          placeholder="Adresse de départ"
+          /* Do not wait for the default "at least 3 characters" to show suggestions. */
+          value={item}
+          onChange={onChange}
+          onSearch={onSearch}
+          suggestions={suggestions}
+          renderSuggestion={renderSuggestion}
+          renderInputValue={renderInputValue}
+          noHintError={<NoResultHint />}
+        />
+        <FakeList />
+      </div>
+    </Showcase>
+  )
+}
+
 // CustomCanShowSuggestion
 
 function CustomCanShowSuggestionStory() {
@@ -347,7 +387,7 @@ function WithCustomSuggestion() {
   )
 }
 
-// With custom suggestion.
+// With free input suggestion.
 
 function WithFreeInputValue() {
   const [item, setItem] = React.useState('')
@@ -417,6 +457,7 @@ function WithFooter() {
 
 storiesOf('API|Autocomplete', module)
   .add('Default', () => <DefaultStory />)
+  .add('With no result hint', () => <WithNoResultHintSuggestionStory />)
   .add('Can show suggestions directly', () => <CustomCanShowSuggestionStory />)
   .add('With initial value', () => <InitialValueStory />)
   .add('With favorites', () => <WithFavoritesStory />)
