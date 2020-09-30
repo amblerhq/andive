@@ -11,7 +11,7 @@ import {
   ZIndexes,
   Typography,
   Box,
-  Button
+  FlatButton
 } from '@ambler/andive'
 
 import Showcase from './showcase'
@@ -515,15 +515,6 @@ storiesOf('API|Autocomplete', module)
     const [suggestions, onSearch] = useSuggestions(item)
 
     const inputRef = React.useRef(null)
-    const [refValue, setRefValue] = React.useState('')
-
-    React.useEffect(() => {
-      if (inputRef.current) {
-        setRefValue('Ref captured')
-      }
-
-      return () => {}
-    }, [])
 
     return (
       <Showcase style={{background: 'white'}}>
@@ -535,7 +526,6 @@ storiesOf('API|Autocomplete', module)
               <span style={{fontWeight: 'bold'}}>ref</span> prop.
             </Typography.Body2>
           </Box>
-          {refValue}
           <Autocomplete
             inputRef={el => (inputRef.current = el)}
             placeholder="Adresse de départ"
@@ -547,7 +537,7 @@ storiesOf('API|Autocomplete', module)
             renderSuggestion={renderSuggestion}
             renderInputValue={renderInputValue}
           />
-          <Button
+          <FlatButton
             label="Use ref to focus autocomplete"
             onClick={() => {
               if (inputRef.current) {
