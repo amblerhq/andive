@@ -88,9 +88,10 @@ const LabelWrapper = styled.div`
 
 interface FlatButtonProps {
   className?: string
+  type?: "button" | "submit"
   icon?: JSX.Element
   rightIcon?: JSX.Element
-  label?: string | JSX.Element
+  label?: string | JSX.Element
   onClick?: DOMAttributes<HTMLButtonElement>['onClick']
   color?: string
   active?: boolean
