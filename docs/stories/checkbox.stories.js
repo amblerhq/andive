@@ -92,25 +92,17 @@ function CheckboxGroupWithErrorStory() {
 function UpdateableCheckboxGroupStory() {
   const [values, setValues] = React.useState({a: true})
 
-  React.useEffect(() => {
-    let int = setInterval(() => {
-      const newValues = ['a', 'b', 'c']
-        .filter(() => Math.random() > 0.5)
-        .reduce((values, val) => ({...values, [val]: true}), {})
-      setValues(newValues)
-    }, 1500)
-    return () => {
-      clearInterval(int)
-    }
-  }, [])
-
   return (
     <div style={{background: 'white', width: 300}}>
       <pre style={{padding: 8}}>values: {JSON.stringify(values, null, 2)}</pre>
       <CheckboxGroup
         value={values}
         onChange={values_ => {
-          setValues(values_)
+          setValues(
+            Object.keys(values_)
+              .filter(k => values_[k])
+              .reduce((obj, k) => ({...obj, [k]: true}), {})
+          )
         }}
       >
         <Checkbox label="A" name="a" />
