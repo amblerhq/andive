@@ -113,6 +113,7 @@ export interface AutocompleteProps<T> {
   error?: string,
   inputRef?: React.Ref<HTMLInputElement>
   noHintError?: React.ReactNode
+  onBlur?: () => void
 }
 export function Autocomplete<T>(
   {
@@ -131,6 +132,7 @@ export function Autocomplete<T>(
     error,
     inputRef,
     noHintError,
+    onBlur,
     ...props
   }: AutocompleteProps<T>
 ) {
@@ -199,6 +201,9 @@ export function Autocomplete<T>(
         onBlur={() => {
           setFocus(false)
           onSearch(null)
+          if (onBlur) {
+            onBlur()
+          }
         }}
         onFocus={() => {
           setFocus(true)

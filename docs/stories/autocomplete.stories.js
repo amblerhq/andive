@@ -469,3 +469,40 @@ storiesOf('API|Autocomplete', module)
   .add('With custom suggestion', () => <WithCustomSuggestion />)
   .add('With free input value', () => <WithFreeInputValue />)
   .add('With footer', () => <WithFooter />)
+  .add('With onBlur', () => {
+    const [item, setItem] = React.useState(null)
+    const onChange = React.useCallback(value => {
+      setItem(value)
+    })
+    const [suggestions, onSearch] = useSuggestions(item)
+
+    return (
+      <Showcase style={{background: 'white'}}>
+        <div style={{width: 600}}>
+          <Box>
+            <Typography.H1>With onBlur prop</Typography.H1>
+            <Typography.Body2>
+              When passing a `onBlur` prop to the Autocomplete component, you can get the first suggestion, if any, and
+              set the Autocomplete value to it.
+            </Typography.Body2>
+          </Box>
+          <Autocomplete
+            placeholder="Adresse de départ"
+            /* Do not wait for the default "at least 3 characters" to show suggestions. */
+            value={item}
+            onChange={onChange}
+            onSearch={onSearch}
+            suggestions={suggestions}
+            renderSuggestion={renderSuggestion}
+            renderInputValue={renderInputValue}
+            onBlur={() => {
+              if (suggestions.length > 0) {
+                setItem(suggestions[0])
+              }
+            }}
+          />
+          <FakeList />
+        </div>
+      </Showcase>
+    )
+  })
