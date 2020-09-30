@@ -75,9 +75,10 @@ import {
   PickUpIcon,
   DropOffIcon,
   DropdownArrowIcon,
+  FilterIcon,
+  ResetIcon,
   Typography,
-  Info,
-  FilterIcon
+  Info
 } from '@ambler/andive'
 
 import Showcase from './showcase'
@@ -157,7 +158,8 @@ const icons = [
   PickUpIcon,
   DropOffIcon,
   DropdownArrowIcon,
-  FilterIcon
+  FilterIcon,
+  ResetIcon
 ]
 
 function TimedColor({interval, colors, children}) {
@@ -180,19 +182,7 @@ function TimedColor({interval, colors, children}) {
   return children(color)
 }
 
-const newIcons = [
-  {Icon: PickUpIcon},
-  {Icon: DropOffIcon},
-  {Icon: GyroIcon},
-  {Icon: BookIcon},
-  {Icon: PrebookIcon},
-  {Icon: SearchIcon},
-  {Icon: ConnectAsIcon},
-  {Icon: PhoneIcon},
-  {Icon: MoreIcon},
-  {Icon: DropdownArrowIcon},
-  {Icon: FilterIcon}
-]
+const newIcons = [{Icon: ResetIcon}, {Icon: DropdownArrowIcon}, {Icon: FilterIcon}]
 const updatedIcons = []
 
 storiesOf('Assets|Icons', module)

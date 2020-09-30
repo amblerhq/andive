@@ -144,6 +144,8 @@ export {default as DropdownArrowIcon} from './components/icons/dropdown-arrow'
 
 export {default as FilterIcon} from './components/icons/filter'
 
+export {default as ResetIcon} from './components/icons/reset'
+
 /**
  * Illustrations
  */
