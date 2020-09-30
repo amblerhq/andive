@@ -1,7 +1,6 @@
 import React from 'react'
 import {storiesOf} from '@storybook/react'
-import {BariatricIcon, Input, VSpace} from '@ambler/andive'
-import useForm from 'react-hook-form'
+import {BariatricIcon, Input, VSpace, Box} from '@ambler/andive'
 import styled from 'styled-components'
 
 import Showcase from './showcase'
@@ -258,32 +257,29 @@ function CustomInput({inputRef, textarea, ...props}) {
 }
 
 function WithExposedRef() {
-  const {register, handleSubmit, errors} = useForm()
-
-  function onSubmit() {}
+  const customInputRef = React.useRef(null)
+  const nativeInputRef = React.useRef(null)
+  const textAreaRef = React.useRef(null)
 
   return (
     <Showcase>
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <CustomInput name="native" placeholder="Native" inputRef={register({required: true, minLength: 3})} />
-        {(errors.native && errors.native.type) || null}
+      <Box>
+        <CustomInput name="native" placeholder="Native" inputRef={el => (nativeInputRef.current = el)} />
         <VSpace px={8} />
-        <CustomInput
-          name="native2"
-          placeholder="Native2"
-          textarea
-          inputRef={register({required: true, minLength: 3})}
-        />
-        {(errors.native2 && errors.native2.type) || null}
+        <button onClick={() => nativeInputRef.current.focus()}>Focus</button>
+      </Box>
+
+      <Box>
+        <CustomInput name="native2" placeholder="Native2" textarea inputRef={el => (textAreaRef.current = el)} />
         <VSpace px={8} />
-        <Input
-          name="andive"
-          placeholder="Andive"
-          inputRef={register({required: true, minLength: 3})}
-          error={(errors.andive && errors.andive.type) || undefined}
-        />
-        <button type="submit">Submit</button>
-      </form>
+        <button onClick={() => textAreaRef.current.focus()}>Focus</button>
+      </Box>
+
+      <Box>
+        <Input name="andive" placeholder="Andive" inputRef={el => (customInputRef.current = el)} />
+        <VSpace px={8} />
+        <button onClick={() => customInputRef.current.focus()}>Focus</button>
+      </Box>
     </Showcase>
   )
 }

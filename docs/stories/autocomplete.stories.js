@@ -10,7 +10,8 @@ import {
   palette,
   ZIndexes,
   Typography,
-  Box
+  Box,
+  Button
 } from '@ambler/andive'
 
 import Showcase from './showcase'
@@ -498,6 +499,59 @@ storiesOf('API|Autocomplete', module)
             onBlur={() => {
               if (suggestions.length > 0) {
                 setItem(suggestions[0])
+              }
+            }}
+          />
+          <FakeList />
+        </div>
+      </Showcase>
+    )
+  })
+  .add('Can forwardRef', () => {
+    const [item, setItem] = React.useState(null)
+    const onChange = React.useCallback(value => {
+      setItem(value)
+    })
+    const [suggestions, onSearch] = useSuggestions(item)
+
+    const inputRef = React.useRef(null)
+    const [refValue, setRefValue] = React.useState('')
+
+    React.useEffect(() => {
+      if (inputRef.current) {
+        setRefValue('Ref captured')
+      }
+
+      return () => {}
+    }, [])
+
+    return (
+      <Showcase style={{background: 'white'}}>
+        <div style={{width: 600}}>
+          <Box>
+            <Typography.H1>Can forwardRef</Typography.H1>
+            <Typography.Body2>
+              The Autocomplete sub-component Input ref is exposed through the special{' '}
+              <span style={{fontWeight: 'bold'}}>ref</span> prop.
+            </Typography.Body2>
+          </Box>
+          {refValue}
+          <Autocomplete
+            inputRef={el => (inputRef.current = el)}
+            placeholder="Adresse de départ"
+            /* Do not wait for the default "at least 3 characters" to show suggestions. */
+            value={item}
+            onChange={onChange}
+            onSearch={onSearch}
+            suggestions={suggestions}
+            renderSuggestion={renderSuggestion}
+            renderInputValue={renderInputValue}
+          />
+          <Button
+            label="Use ref to focus autocomplete"
+            onClick={() => {
+              if (inputRef.current) {
+                inputRef.current.focus()
               }
             }}
           />

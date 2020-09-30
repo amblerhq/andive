@@ -189,7 +189,7 @@ export function Autocomplete<T>(
   return (
     <AutocompleteRoot>
       <Input
-        ref={inputRef}
+        inputRef={inputRef}
         name={name}
         onChange={ev => {
           onUpdate(ev.target.value)
