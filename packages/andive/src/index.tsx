@@ -146,6 +146,9 @@ export {default as FilterIcon} from './components/icons/filter'
 
 export {default as ResetIcon} from './components/icons/reset'
 
+export {default as InfosIcon} from './components/icons/infos'
+
+
 /**
  * Illustrations
  */

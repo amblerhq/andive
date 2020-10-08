@@ -78,7 +78,8 @@ import {
   FilterIcon,
   ResetIcon,
   Typography,
-  Info
+  Info,
+  InfosIcon
 } from '@ambler/andive'
 
 import Showcase from './showcase'
@@ -159,7 +160,8 @@ const icons = [
   DropOffIcon,
   DropdownArrowIcon,
   FilterIcon,
-  ResetIcon
+  ResetIcon,
+  InfosIcon
 ]
 
 function TimedColor({interval, colors, children}) {
@@ -182,7 +184,7 @@ function TimedColor({interval, colors, children}) {
   return children(color)
 }
 
-const newIcons = [{Icon: ResetIcon}, {Icon: DropdownArrowIcon}, {Icon: FilterIcon}]
+const newIcons = [{Icon: ResetIcon}, {Icon: DropdownArrowIcon}, {Icon: FilterIcon}, {Icon: InfosIcon}]
 const updatedIcons = []
 
 storiesOf('Assets|Icons', module)
