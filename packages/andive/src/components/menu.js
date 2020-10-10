@@ -6,7 +6,6 @@ import {ScrollTo} from 'react-scroll-to'
 import * as palette from '../constants/palette'
 import {ZIndexes} from '../constants/enum'
 
-import Hover from './hover'
 import {FullWidthDivider, Divider} from './autocomplete'
 import Info from './info'
 import ArrowRightIcon from './icons/arrow-right'
