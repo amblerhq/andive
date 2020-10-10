@@ -17,64 +17,17 @@ function RandomPageContent() {
   )
 }
 
-storiesOf('API|Hover', module)
-  .add('With margin', () => (
-    <>
-      <div style={{margin: 64}}>
-        <div style={{background: palette.lightBeetrootPurple, padding: 32}}>
-          <Hover>
-            <Info style={{border: '1px solid orange'}}>
-              <Info.Label label="Some text" />
-            </Info>
-          </Hover>
-        </div>
+storiesOf('API|Hover', module).add('Some text', () => (
+  <>
+    <div style={{margin: 64}}>
+      <div style={{padding: 32}}>
+        <Hover>
+          <Info>
+            <Info.Label label="Some text" />
+          </Info>
+        </Hover>
       </div>
-      <RandomPageContent />
-    </>
-  ))
-  .add('Without margin', () => (
-    <>
-      <div style={{margin: 64}}>
-        <div style={{background: palette.lightBeetrootPurple, padding: 32}}>
-          <Hover overflow={0}>
-            <Info style={{border: '1px solid orange'}}>
-              <Info.Label label="Some text" />
-            </Info>
-          </Hover>
-        </div>
-      </div>
-      <RandomPageContent />
-    </>
-  ))
-  .add('With “padding"', () => (
-    <>
-      <div style={{margin: 64}}>
-        <div style={{background: palette.lightBeetrootPurple, padding: 32}}>
-          <Hover padding={16}>
-            <Info style={{border: '1px solid orange'}}>
-              <Info.Label label="Some text" />
-            </Info>
-          </Hover>
-        </div>
-      </div>
-      <div style={{margin: 64}}>
-        <div style={{background: palette.lightBeetrootPurple, padding: 32}}>
-          <Hover overflow={0} padding={16}>
-            <Info style={{border: '1px solid orange'}}>
-              <Info.Label label="Some text" />
-            </Info>
-          </Hover>
-        </div>
-      </div>{' '}
-      <div style={{margin: 64}}>
-        <div style={{background: palette.lightBeetrootPurple, padding: 32}}>
-          <Hover overflow={0} padding={32}>
-            <Info style={{border: '1px solid orange'}}>
-              <Info.Label label="Some text" />
-            </Info>
-          </Hover>
-        </div>
-      </div>
-      <RandomPageContent />
-    </>
-  ))
+    </div>
+    <RandomPageContent />
+  </>
+))

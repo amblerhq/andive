@@ -40,6 +40,11 @@ const MenuLayout = styled.ul`
 `
 
 const OptionLayout = styled.div`
+  cursor: pointer;
+  :hover {
+    ${props => !props.disabled && `background: #fafafa;`}
+  }
+
   ${props =>
     props.disabled &&
     css`
@@ -81,6 +86,10 @@ const OptionGroupLayout = styled.div`
   align-items: center;
 
   cursor: pointer;
+
+  :hover {
+    background: #fafafa;
+  }
 `
 
 function OptionGroup({children, label, onClick, leftIcon, ...props}) {
@@ -148,12 +157,8 @@ const BackButton = styled(BackIcon)`
 
   background: white;
   :hover {
-    background: ${palette.mediumPrimary}20;
+    background: #fafafa;
   }
-`
-
-const Container = styled.div`
-  padding: 0 8px;
 `
 
 const Menu = React.forwardRef(function Menu(
@@ -176,27 +181,25 @@ const Menu = React.forwardRef(function Menu(
       <MenuLayout className={className} ref={ref} bottomFootprint={bottomFootprint} mobile={mobile}>
         {state.stack.length > 0 && (
           <>
-            <Container>
-              <BackOption>
-                <BackButton color={palette.mediumPrimary} circle onClick={() => dispatch({type: 'navigate/back'})} />
-                <div style={{width: 8}} />
-                <Info>
-                  <Info.Label
-                    label={state.stack
-                      .map(s => s.label)
-                      .reduce((acc, s) => [s, ...acc], [])
-                      .join(' / ')}
-                  />
-                </Info>
-              </BackOption>
-            </Container>
+            <BackOption>
+              <BackButton color={palette.mediumPrimary} circle onClick={() => dispatch({type: 'navigate/back'})} />
+              <div style={{width: 8}} />
+              <Info>
+                <Info.Label
+                  label={state.stack
+                    .map(s => s.label)
+                    .reduce((acc, s) => [s, ...acc], [])
+                    .join(' / ')}
+                />
+              </Info>
+            </BackOption>
             <FullWidthDivider />
           </>
         )}
         <ScrollTo>
           {({scrollTo}) => {
             return (
-              <Container ref={menuRef}>
+              <div ref={menuRef}>
                 {React.Children.map(state.options, (child, index) => {
                   function onClick(children) {
                     return () => {
@@ -211,12 +214,12 @@ const Menu = React.forwardRef(function Menu(
 
                   return (
                     <React.Fragment key={index}>
-                      <Hover padding={16}>{React.cloneElement(child, {onClick})}</Hover>
+                      {React.cloneElement(child, {onClick})}
                       {index !== length - 1 && <Divider />}
                     </React.Fragment>
                   )
                 })}
-              </Container>
+              </div>
             )
           }}
         </ScrollTo>

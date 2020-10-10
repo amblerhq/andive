@@ -213,7 +213,7 @@ export {default as DropdownMenu} from './components/dropdown-menu'
 
 export {DropdownFilter} from './components/dropdown-filter'
 
-export {default as Hover} from './components/hover'
+export {Hover} from './components/hover'
 
 export {default as Icon} from './components/icon'
 
