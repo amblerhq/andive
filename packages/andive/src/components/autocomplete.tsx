@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import * as palette from '../constants/palette'
 import { ZIndexes } from '../constants/enum'
 import Input from './input'
-import Hover from './hover'
+import {Hover} from './hover'
 import { Body1 } from './typography'
 import Box from './box'
 
