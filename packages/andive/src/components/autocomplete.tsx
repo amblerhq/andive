@@ -113,7 +113,7 @@ export interface AutocompleteProps<T> {
   error?: string,
   inputRef?: React.Ref<HTMLInputElement>
   noHintError?: React.ReactNode
-  onBlur?: () => void
+  onBlur?: (e: any) => void
 }
 export function Autocomplete<T>(
   {
@@ -198,11 +198,11 @@ export function Autocomplete<T>(
           onUpdate('')
           onChange(null)
         }}
-        onBlur={() => {
+        onBlur={ev => {
           setFocus(false)
           onSearch(null)
           if (onBlur) {
-            onBlur()
+            onBlur(ev)
           }
         }}
         onFocus={() => {
