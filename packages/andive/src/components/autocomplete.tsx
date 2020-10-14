@@ -215,7 +215,7 @@ export function Autocomplete<T>(
         }}
         value={input}
         error={error}
-        autocomplete={disableNativeAutocomplete ? 'off' : undefined}
+        autoComplete={disableNativeAutocomplete ? 'off' : undefined}
         {...props}
       />
 
