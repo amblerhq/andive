@@ -114,6 +114,7 @@ export interface AutocompleteProps<T> {
   inputRef?: React.Ref<HTMLInputElement>
   noHintError?: React.ReactNode
   onBlur?: (e: any) => void
+  disableNativeAutocomplete?: boolean
 }
 export function Autocomplete<T>(
   {
@@ -133,6 +134,7 @@ export function Autocomplete<T>(
     inputRef,
     noHintError,
     onBlur,
+    disableNativeAutocomplete,
     ...props
   }: AutocompleteProps<T>
 ) {
@@ -213,6 +215,7 @@ export function Autocomplete<T>(
         }}
         value={input}
         error={error}
+        autocomplete={disableNativeAutocomplete ? 'off' : undefined}
         {...props}
       />
 
