@@ -112,7 +112,7 @@ export interface AutocompleteProps<T> {
   canShowSuggestions?: (suggestions: T[], input: string) => boolean
   bottomFootprint?: number
   name?: string // * This is an Input allowed prop. Used by formik to track which input is touched.
-  error?: string
+  error?: React.ReactNode
   inputRef?: React.MutableRefObject<HTMLInputElement>
   noHintError?: React.ReactNode
   onBlur?: (ev: React.FocusEvent<HTMLInputElement>) => void
@@ -143,7 +143,6 @@ export function Autocomplete<T>({
   freeInput,
   canShowSuggestions = (_suggestions, input) => input.length >= 3,
   bottomFootprint,
-  error,
   inputRef,
   noHintError,
   onBlur,
@@ -232,7 +231,6 @@ export function Autocomplete<T>({
           }
         }}
         value={input}
-        error={error}
         autoComplete={disableNativeAutocomplete ? 'off' : undefined}
         {...props}
       />

@@ -16,7 +16,7 @@ type InputState = 'EMPTY' | 'DISABLED' | 'ERRORED' | 'FILLED' | 'ACTIVE'
 type GetColorProps = {
   state: InputState
 }
-const getColor = ({ state }: { state: InputState }) => {
+const getColor = ({ state }: GetColorProps) => {
   switch (state) {
     case 'ACTIVE':
       return css`
@@ -52,19 +52,33 @@ const getColor = ({ state }: { state: InputState }) => {
   }
 }
 
+type GetPlaceholderCssProps = {
+  small: boolean
+}
+function getPlaceholderCss({ small }: GetPlaceholderCssProps) {
+  if (small) {
+    return css`
+      ${body2Css}
+      color: ${palette.secondaryText};
+    `
+  }
+
+  return css`
+    ${body1Css}
+    color: ${palette.secondaryText};
+  `
+}
+
 type GetSizesProps = {
   small: boolean
 }
-function getSizes({ small }: { small: boolean }) {
+function getSizes({ small }: GetSizesProps) {
   if (small) {
     return css`
       width: 100%;
       height: 40px;
 
       ${body2Css}
-      ::placeholder {
-        ${body2Css}
-      }
     `
   }
 
@@ -73,9 +87,6 @@ function getSizes({ small }: { small: boolean }) {
     height: 56px;
 
     ${body1Css}
-    ::placeholder {
-      ${body1Css}
-    }
   `
 }
 
@@ -98,7 +109,8 @@ function getSpaces({ small, hasRightIcon, hasLeftIcon }: GetSpacesProps) {
 
 type FieldProps = GetColorProps &
   GetSizesProps &
-  GetSpacesProps & { as: 'textarea' | 'input' }
+  GetSpacesProps &
+  GetPlaceholderCssProps & { as: 'textarea' | 'input' }
 const Field = styled.input<FieldProps>`
   /* Base */
   box-sizing: border-box;
@@ -109,6 +121,10 @@ const Field = styled.input<FieldProps>`
   ${getColor}
   ${getSizes}
   ${getSpaces}
+
+  ::placeholder {
+    ${getPlaceholderCss}
+  }
 
   ${props =>
     props.as === 'textarea' &&
@@ -177,7 +193,7 @@ interface InputProps extends HTMLAttributes<HTMLInputElement> {
   onChange: (ev: React.ChangeEvent<HTMLInputElement>) => void
 
   onClear?: () => void
-  error?: string
+  error?: React.ReactNode
   icon?: React.ReactNode
   disabled?: boolean
   textarea?: boolean

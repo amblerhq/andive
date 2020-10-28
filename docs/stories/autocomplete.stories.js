@@ -108,6 +108,7 @@ function DefaultStory() {
       <div style={{width: 600}}>
         <pre style={{padding: '4px 24px', overflow: 'auto'}}>{item ? JSON.stringify(item) : 'No selection'}</pre>
         <Autocomplete
+          name="address"
           placeholder="Adresse de départ"
           /* Do not wait for the default "at least 3 characters" to show suggestions. */
           value={item}
