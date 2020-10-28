@@ -1,9 +1,17 @@
 import React from 'react'
 import {storiesOf} from '@storybook/react'
-import {BariatricIcon, Input, VSpace, Box} from '@ambler/andive'
+import {BariatricIcon, Input, VSpace, Box, Card, Typography} from '@ambler/andive'
 import styled from 'styled-components'
 
 import Showcase from './showcase'
+
+const HorizontalLayout = styled.div`
+  display: flex;
+
+  & .label-space {
+    height: calc(24px + 8px);
+  }
+`
 
 function DefaultStory() {
   const [value, setValue] = React.useState('07/12/1993')
@@ -219,30 +227,6 @@ function AsTextAreaStory() {
   )
 }
 
-function WithLoaderStory() {
-  const [value, setValue] = React.useState('')
-
-  function onChange(ev) {
-    setValue(ev.target.value)
-  }
-  function onClear() {}
-
-  return (
-    <>
-      <Showcase>
-        <div style={{width: 300, background: 'white'}}>
-          <Input placeholder="Commentaire..." value={value} onChange={onChange} onClear={onClear} loading />
-        </div>
-      </Showcase>
-      <Showcase>
-        <div style={{width: 300, background: 'white'}}>
-          <Input small placeholder="Commentaire..." value={value} onChange={onChange} onClear={onClear} loading />
-        </div>
-      </Showcase>
-    </>
-  )
-}
-
 const BaseInput = styled.input``
 const BaseTextarea = styled.textarea``
 
@@ -262,29 +246,123 @@ function WithExposedRef() {
   const textAreaRef = React.useRef(null)
 
   return (
-    <Showcase>
-      <Box>
-        <CustomInput name="native" placeholder="Native" inputRef={el => (nativeInputRef.current = el)} />
-        <VSpace px={8} />
-        <button onClick={() => nativeInputRef.current.focus()}>Focus</button>
-      </Box>
+    <Card>
+      <HorizontalLayout>
+        <Box>
+          <CustomInput name="native" placeholder="Native" inputRef={el => (nativeInputRef.current = el)} />
+          <VSpace px={8} />
+          <button onClick={() => nativeInputRef.current.focus()}>Focus</button>
+        </Box>
 
-      <Box>
-        <CustomInput name="native2" placeholder="Native2" textarea inputRef={el => (textAreaRef.current = el)} />
-        <VSpace px={8} />
-        <button onClick={() => textAreaRef.current.focus()}>Focus</button>
-      </Box>
+        <Box>
+          <CustomInput name="native2" placeholder="Native2" textarea inputRef={el => (textAreaRef.current = el)} />
+          <VSpace px={8} />
+          <button onClick={() => textAreaRef.current.focus()}>Focus</button>
+        </Box>
 
-      <Box>
-        <Input name="andive" placeholder="Andive" inputRef={el => (customInputRef.current = el)} />
-        <VSpace px={8} />
-        <button onClick={() => customInputRef.current.focus()}>Focus</button>
-      </Box>
-    </Showcase>
+        <Box>
+          <Input name="andive" placeholder="Andive" inputRef={customInputRef} />
+          <VSpace px={8} />
+          <button onClick={() => customInputRef.current.focus()}>Focus</button>
+        </Box>
+      </HorizontalLayout>
+    </Card>
   )
 }
 
+function ControlledInput({initialValue, ...props}) {
+  const [value, setValue] = React.useState(initialValue || '')
+
+  return <Input value={value} onChange={ev => setValue(ev.target.value)} onClear={() => setValue('')} {...props} />
+}
+
 storiesOf('API|Input', module)
+  .add("How it's build", () => {
+    return (
+      <>
+        <HorizontalLayout>
+          <Box>
+            <Card>
+              <Typography.Body2>Without label</Typography.Body2>
+              <div className="label-space" />
+              <ControlledInput />
+              <div className="label-space" />
+              <ControlledInput placeholder="Empty" />
+              <div className="label-space" />
+              <ControlledInput placeholder="Filled" initialValue="Filled" />
+              <div className="label-space" />
+              <ControlledInput placeholder="Error" initialValue="Invalid input" error="Invalid input" />
+              <div className="label-space" />
+              <ControlledInput placeholder="Disabled" initialValue="Filled disabled" disabled />
+            </Card>
+          </Box>
+          <Box>
+            <Card>
+              <Typography.Body2>With label</Typography.Body2>
+              <ControlledInput label="Empty without placeholder" />
+              <ControlledInput label="Empty" placeholder="Empty" />
+              <ControlledInput label="Filled" placeholder="Empty" initialValue="Filled" />
+              <ControlledInput
+                label="Error"
+                mandatory
+                placeholder="Error"
+                initialValue="Invalid input"
+                error="Invalid input"
+              />
+              <ControlledInput
+                label="Disabled"
+                mandatory
+                placeholder="Disabled"
+                initialValue="Filled disabled"
+                disabled
+              />
+            </Card>
+          </Box>
+        </HorizontalLayout>
+        <HorizontalLayout>
+          <Box>
+            <Card>
+              <Typography.Body2>Small</Typography.Body2>
+              <div className="label-space" />
+              <ControlledInput small />
+              <div className="label-space" />
+              <ControlledInput small placeholder="Empty" />
+              <div className="label-space" />
+              <ControlledInput small placeholder="Filled" initialValue="Filled" />
+              <div className="label-space" />
+              <ControlledInput small placeholder="Error" initialValue="Invalid input" error="Invalid input" />
+              <div className="label-space" />
+              <ControlledInput small placeholder="Disabled" initialValue="Filled disabled" disabled />
+            </Card>
+          </Box>
+          <Box>
+            <Card>
+              <Typography.Body2>Small with label</Typography.Body2>
+              <ControlledInput small label="Empty without placeholder" />
+              <ControlledInput small label="Empty" placeholder="Empty" />
+              <ControlledInput small label="Filled" placeholder="Empty" initialValue="Filled" />
+              <ControlledInput
+                small
+                label="Error"
+                mandatory
+                placeholder="Error"
+                initialValue="Invalid input"
+                error="Invalid input"
+              />
+              <ControlledInput
+                small
+                label="Disabled"
+                mandatory
+                placeholder="Disabled"
+                initialValue="Filled disabled"
+                disabled
+              />
+            </Card>
+          </Box>
+        </HorizontalLayout>
+      </>
+    )
+  })
   .add('Default', () => <DefaultStory />)
   .add('With clear', () => <WithClearStory />)
   .add('With error', () => <WithErrorStory />)
@@ -292,5 +370,4 @@ storiesOf('API|Input', module)
   .add('With disabled', () => <WithDisabledStory />)
   .add('With icon', () => <WithIconStory />)
   .add('As text area', () => <AsTextAreaStory />)
-  .add('With loader', () => <WithLoaderStory />)
   .add('Expose ref', () => <WithExposedRef />)

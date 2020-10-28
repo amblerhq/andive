@@ -523,11 +523,11 @@ storiesOf('API|Autocomplete', module)
             <Typography.H1>Can forwardRef</Typography.H1>
             <Typography.Body2>
               The Autocomplete sub-component Input ref is exposed through the special{' '}
-              <span style={{fontWeight: 'bold'}}>ref</span> prop.
+              <span style={{fontWeight: 'bold'}}>inputRef</span> prop.
             </Typography.Body2>
           </Box>
           <Autocomplete
-            inputRef={el => (inputRef.current = el)}
+            inputRef={inputRef}
             placeholder="Adresse de départ"
             /* Do not wait for the default "at least 3 characters" to show suggestions. */
             value={item}

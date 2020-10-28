@@ -217,7 +217,7 @@ export {Hover} from './components/hover'
 
 export {default as Icon} from './components/icon'
 
-export {default as Input} from './components/input'
+export {Input} from './components/input'
 
 export {default as RideStatusBar} from './components/ride-status-bar'
 

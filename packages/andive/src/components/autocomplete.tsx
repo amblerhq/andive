@@ -3,8 +3,8 @@ import styled from 'styled-components'
 
 import * as palette from '../constants/palette'
 import { ZIndexes } from '../constants/enum'
-import Input from './input'
-import {Hover} from './hover'
+import { Input } from './input'
+import { Hover } from './hover'
 import { Body1 } from './typography'
 import Box from './box'
 
@@ -45,7 +45,9 @@ const SuggestionsUl = styled.ul`
   overflow: hidden;
 `
 
-const Suggestions = styled(({ bottomFootprint, ...props }) => <div {...props} />)`
+const Suggestions = styled(({ bottomFootprint, ...props }) => (
+  <div {...props} />
+))`
   position: absolute;
 
   width: calc(100% - 16px);
@@ -65,12 +67,12 @@ export interface AutocompleteProps<T> {
   /**
    * The "value" of the autocomplete is the Object either selected in suggestions or provided by the parent component.
    */
-  value: T,
+  value: T
   /**
    * The "onChange" function is called when a suggestion is selected. Its the callee responsability to handle the
    * update of the "value" prop accordingly.
    */
-  onChange: (nextInput: T | null) => void,
+  onChange: (nextInput: T | null) => void
   /**
    * The "onSearch" method is called with the updated <Input /> content. When a user select a suggestion it is also called
    * with a "null" value.
@@ -79,70 +81,85 @@ export interface AutocompleteProps<T> {
   /**
    * Customize the JSX rendered for each suggestion item.
    */
-  renderSuggestion?: (item: T, index: number, length: number) => React.ReactNode,
+  renderSuggestion?: (item: T, index: number, length: number) => React.ReactNode
   /**
    * Customize the JSX rendered for each favorite item.
    */
-  renderFavorite?: (item: T, index: number, length: number) => React.ReactNode,
+  renderFavorite?: (item: T, index: number, length: number) => React.ReactNode
   /**
    * Customize how an item is rendered in the input.
    */
-  renderInputValue?: (item: T) => string,
+  renderInputValue?: (item: T) => string
   /**
    * The list of suggestions returns by the data source after "onSearch" has been called. It must always be an array and if
    * it has no elements then the autocomplete does not display the suggestion div bellow the input.
    */
-  suggestions: T[],
+  suggestions: T[]
   /**
    * The list of favorites to display when the user click on the autocomplete and the input is empty.
    */
-  favorites?: T[],
+  favorites?: T[]
   /**
    * When true, any input value is a valid value. Therefore the "onChange" is called as if the user selected an item in
    * the suggestion list.
    */
-  freeInput?: boolean,
+  freeInput?: boolean
   /**
    * Control when to show suggestions according to the search result and the input value. Default behavior is to wait for at
    * least 3 characters. Still, whatever function you pass, it also checks if the suggestion list has at least 1 element.
    * To show a list on focus, use the `favorites` prop.
    */
-  canShowSuggestions?: (suggestions: T[], input: string) => boolean,
-  bottomFootprint?: number,
-  name?: string,
-  error?: string,
-  inputRef?: React.Ref<HTMLInputElement>
+  canShowSuggestions?: (suggestions: T[], input: string) => boolean
+  bottomFootprint?: number
+  name?: string
+  error?: string
+  inputRef?: React.MutableRefObject<HTMLInputElement>
   noHintError?: React.ReactNode
-  onBlur?: (e: any) => void
+  onBlur?: (ev: React.FocusEvent<HTMLInputElement>) => void
+  onFocus?: (ev: React.FocusEvent<HTMLInputElement>) => void
   disableNativeAutocomplete?: boolean
 }
-export function Autocomplete<T>(
-  {
-    value,
-    onChange,
-    onSearch,
-    renderSuggestion = (item) => <Hover><Box><Body1>{String(item)}</Body1></Box></Hover>,
-    renderFavorite = (item) => <Hover><Box><Body1>{String(item)}</Body1></Box></Hover>,
-    renderInputValue = (item) => String(item),
-    suggestions = [],
-    favorites = [],
-    freeInput,
-    canShowSuggestions = (_suggestions, input) => input.length >= 3,
-    bottomFootprint,
-    name,
-    error,
-    inputRef,
-    noHintError,
-    onBlur,
-    disableNativeAutocomplete,
-    ...props
-  }: AutocompleteProps<T>
-) {
+export function Autocomplete<T>({
+  value,
+  onChange,
+  onSearch,
+  renderSuggestion = item => (
+    <Hover>
+      <Box>
+        <Body1>{String(item)}</Body1>
+      </Box>
+    </Hover>
+  ),
+  renderFavorite = item => (
+    <Hover>
+      <Box>
+        <Body1>{String(item)}</Body1>
+      </Box>
+    </Hover>
+  ),
+  renderInputValue = item => String(item),
+  suggestions = [],
+  favorites = [],
+  freeInput,
+  canShowSuggestions = (_suggestions, input) => input.length >= 3,
+  bottomFootprint,
+  name,
+  error,
+  inputRef,
+  noHintError,
+  onBlur,
+  onFocus,
+  disableNativeAutocomplete,
+  ...props
+}: AutocompleteProps<T>) {
   const [input, setInput] = React.useState('')
   const [unstable, setUnstable] = React.useState(false)
   const [focus, setFocus] = React.useState(false)
   const showSuggestions =
-    suggestions && suggestions.length > 0 && input.length > 0 && canShowSuggestions(suggestions, input)
+    suggestions &&
+    suggestions.length > 0 &&
+    input.length > 0 &&
+    canShowSuggestions(suggestions, input)
   const showFavorites = favorites && favorites.length > 0 && focus && !input
 
   const onUpdate = React.useCallback(
@@ -192,7 +209,6 @@ export function Autocomplete<T>(
     <AutocompleteRoot>
       <Input
         inputRef={inputRef}
-        name={name}
         onChange={ev => {
           onUpdate(ev.target.value)
         }}
@@ -200,17 +216,22 @@ export function Autocomplete<T>(
           onUpdate('')
           onChange(null)
         }}
-        onBlur={ev => {
+        onBlur={(ev: React.FocusEvent<HTMLInputElement>) => {
+          console.log('autocomplete blur 👻')
           setFocus(false)
           onSearch(null)
           if (onBlur) {
             onBlur(ev)
           }
         }}
-        onFocus={() => {
+        onFocus={(ev: React.FocusEvent<HTMLInputElement>) => {
+          console.log('autocomplete focus 🔦')
           setFocus(true)
           if (unstable && input) {
             onSearch(input)
+          }
+          if (onFocus) {
+            onFocus(ev)
           }
         }}
         value={input}
@@ -222,32 +243,34 @@ export function Autocomplete<T>(
       {(showFavorites || showSuggestions || noHintError) && (
         <Suggestions bottomFootprint={bottomFootprint}>
           <SuggestionsUl>
-            {showSuggestions && suggestions.map((item, index) => {
-              return (
-                <SuggestionLi
-                  key={index}
-                  onMouseDown={() => {
-                    onSelectItem(item)
-                  }}
-                >
-                  {renderSuggestion(item, index, suggestions.length)}
-                  {index !== suggestions.length - 1 && <Divider />}
-                </SuggestionLi>
-              )
-            })}
-            {showFavorites && favorites.map((item, index) => {
-              return (
-                <SuggestionLi
-                  key={index}
-                  onMouseDown={() => {
-                    onSelectItem(item)
-                  }}
-                >
-                  {renderFavorite(item, index, favorites.length)}
-                  {index !== favorites.length - 1 && <Divider />}
-                </SuggestionLi>
-              )
-            })}
+            {showSuggestions &&
+              suggestions.map((item, index) => {
+                return (
+                  <SuggestionLi
+                    key={index}
+                    onMouseDown={() => {
+                      onSelectItem(item)
+                    }}
+                  >
+                    {renderSuggestion(item, index, suggestions.length)}
+                    {index !== suggestions.length - 1 && <Divider />}
+                  </SuggestionLi>
+                )
+              })}
+            {showFavorites &&
+              favorites.map((item, index) => {
+                return (
+                  <SuggestionLi
+                    key={index}
+                    onMouseDown={() => {
+                      onSelectItem(item)
+                    }}
+                  >
+                    {renderFavorite(item, index, favorites.length)}
+                    {index !== favorites.length - 1 && <Divider />}
+                  </SuggestionLi>
+                )
+              })}
             {noHintError && <SuggestionLi>{noHintError}</SuggestionLi>}
           </SuggestionsUl>
         </Suggestions>
