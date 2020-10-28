@@ -217,7 +217,6 @@ export function Autocomplete<T>({
           onChange(null)
         }}
         onBlur={(ev: React.FocusEvent<HTMLInputElement>) => {
-          console.log('autocomplete blur 👻')
           setFocus(false)
           onSearch(null)
           if (onBlur) {
@@ -225,7 +224,6 @@ export function Autocomplete<T>({
           }
         }}
         onFocus={(ev: React.FocusEvent<HTMLInputElement>) => {
-          console.log('autocomplete focus 🔦')
           setFocus(true)
           if (unstable && input) {
             onSearch(input)

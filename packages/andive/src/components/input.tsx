@@ -226,8 +226,6 @@ export function Input({
     state = 'DISABLED'
   }
 
-  console.log('Render state ' + state)
-
   const handleClear = () => {
     if (state === 'DISABLED') {
       return
@@ -243,7 +241,6 @@ export function Input({
   }
 
   const handleFocus = (ev: React.FocusEvent<HTMLInputElement>) => {
-    console.log('input focus 🔦')
     setFocus(true)
     if (props.onFocus) {
       props.onFocus(ev)
@@ -251,7 +248,6 @@ export function Input({
   }
 
   const handleBlur = (ev: React.FocusEvent<HTMLInputElement>) => {
-    console.log('input blur 👻')
     setFocus(false)
 
     if (props.onBlur) {
