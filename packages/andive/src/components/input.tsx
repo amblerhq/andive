@@ -1,4 +1,4 @@
-import React, { HTMLAttributes } from 'react'
+import React, { InputHTMLAttributes } from 'react'
 import styled, { css } from 'styled-components'
 
 import { body1Css, body2Css, Body3, Body2 } from './typography'
@@ -188,22 +188,16 @@ const FlexBox = styled(Box)`
   display: flex;
 `
 
-interface InputProps extends HTMLAttributes<HTMLInputElement> {
-  value: string
-  onChange: (ev: React.ChangeEvent<HTMLInputElement>) => void
-
+// InputHTMLAttributes defines value, onChange, name, autoComplete, placeholder, and more.
+interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   onClear?: () => void
   error?: React.ReactNode
   icon?: React.ReactNode
-  disabled?: boolean
   textarea?: boolean
   small?: boolean
   mandatory?: boolean
   label?: string
   inputRef?: React.MutableRefObject<HTMLInputElement | null>
-  // * Here to make autocomplete.tsx error-less but should be typed from
-  // * a react exported type if possible.
-  autoComplete?: string
 }
 export function Input({
   value,
@@ -272,7 +266,7 @@ export function Input({
   }
 
   const hasIcon = Boolean(icon)
-  const hasClear = Boolean(onClear && value && value.length > 0)
+  const hasClear = Boolean(onClear && value)
 
   const id = label ? label.toLowerCase().replace(/ /g, '-') : undefined
 
