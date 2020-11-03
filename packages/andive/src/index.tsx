@@ -148,6 +148,14 @@ export {default as ResetIcon} from './components/icons/reset'
 
 export {default as InfosIcon} from './components/icons/infos'
 
+export {default as PostponeIcon} from './components/icons/postpone'
+
+export {default as UnlockIcon} from './components/icons/unlock'
+
+export {default as RegulatorIcon} from './components/icons/regulator'
+
+export {default as UnpoolIcon} from './components/icons/unpool'
+
 
 /**
  * Illustrations
