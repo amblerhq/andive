@@ -79,7 +79,11 @@ import {
   ResetIcon,
   Typography,
   Info,
-  InfosIcon
+  InfosIcon,
+  PostponeIcon,
+  UnlockIcon,
+  RegulatorIcon,
+  UnpoolIcon
 } from '@ambler/andive'
 
 import Showcase from './showcase'
@@ -161,7 +165,11 @@ const icons = [
   DropdownArrowIcon,
   FilterIcon,
   ResetIcon,
-  InfosIcon
+  InfosIcon,
+  PostponeIcon,
+  UnlockIcon,
+  RegulatorIcon,
+  UnpoolIcon
 ]
 
 function TimedColor({interval, colors, children}) {
