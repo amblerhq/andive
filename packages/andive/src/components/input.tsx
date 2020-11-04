@@ -300,6 +300,7 @@ export function Input({
             small={small}
             hasLeftIcon={hasIcon}
             hasRightIcon={hasClear}
+            autoComplete="ambler"
           />
           {hasIcon && <Icon small={small}>{icon}</Icon>}
           {hasClear && !props.disabled && (
