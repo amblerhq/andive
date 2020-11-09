@@ -24,6 +24,14 @@ const SelectTag = styled.select`
   margin: 0;
   width: 100%;
 
+  /*
+    Fight off Firefox default indent. The @-moz-document beeing only implemented by
+    the Gecko CSS engine (firefox one) it will be ignored by other browsers.
+  */
+  @-moz-document url-prefix() {
+    text-indent: -2px;
+  }
+
   background: transparent;
 
   ${body1Css}
