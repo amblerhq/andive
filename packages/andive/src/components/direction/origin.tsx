@@ -57,7 +57,7 @@ const OriginRoad = styled(({offsetY, height, ...props}) => <div {...props} />)`
   background: ${palette.darkPrimary};
 `
 
-const AsideLabel = styled(({ offsetY, ...props }) => <Body1 {...props}/>)`
+const AsideLabel = styled(({offsetY, ...props}) => <Body1 {...props} />)`
   position: absolute;
   top: ${props => (props.offsetY ? props.offsetY - 20 : -8)}px;
   left: 0;
@@ -71,9 +71,11 @@ const AsideLabel = styled(({ offsetY, ...props }) => <Body1 {...props}/>)`
 `
 
 interface OriginProps<PointRefElementType> {
-  className?: string,
-  label?: string,
-  children: React.ReactNode | ((ref: React.Ref<HTMLDivElement>, pointRef: React.Ref<PointRefElementType>) => React.ReactNode)
+  className?: string
+  label?: string
+  children:
+    | React.ReactNode
+    | ((ref: React.Ref<HTMLDivElement>, pointRef: React.Ref<PointRefElementType>) => React.ReactNode)
 }
 export function Origin<PointRefElementType>({className, label, children}: OriginProps<PointRefElementType>) {
   const ref = useRef(null)

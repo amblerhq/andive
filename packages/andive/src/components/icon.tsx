@@ -3,14 +3,12 @@ import styled from 'styled-components'
 
 import Box from './box'
 
-
 const Icon = styled(({align, direction, ...props}) => <div {...props} />)`
   width: 100%;
   display: flex;
   flex-flow: row nowrap;
-  ${({ align }) => align && `align-items: ${align};`}
-  ${({ direction }) => direction && `flex-direction: ${direction};`}
-
+  ${({align}) => align && `align-items: ${align};`}
+  ${({direction}) => direction && `flex-direction: ${direction};`}
 `
 
 const IconWrapper = styled.div<Pick<Props, 'iconSize'>>`
@@ -25,8 +23,8 @@ interface Props {
   className?: string
   icon: React.ReactNode
   iconSize?: number
-  align?: string,
-  direction?: string,
+  align?: string
+  direction?: string
   children?: React.ReactNode
 }
 
@@ -34,7 +32,7 @@ export default function IconComponent({
   className,
   icon,
   iconSize = 40,
-  align = "flex-start",
+  align = 'flex-start',
   direction,
   children
 }: Props) {

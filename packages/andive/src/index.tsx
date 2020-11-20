@@ -156,7 +156,6 @@ export {default as RegulatorIcon} from './components/icons/regulator'
 
 export {default as UnpoolIcon} from './components/icons/unpool'
 
-
 /**
  * Illustrations
  */

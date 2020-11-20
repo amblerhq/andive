@@ -1,7 +1,7 @@
 import React from 'react'
-import styled, { css } from 'styled-components'
+import styled, {css} from 'styled-components'
 
-import { ZIndexes } from '../constants/enum'
+import {ZIndexes} from '../constants/enum'
 
 const HorizontalVariant = {
   RIGHT: 'RIGHT',
@@ -64,13 +64,7 @@ const DropdownAnchor = styled.div<{
   z-index: ${ZIndexes.MODALS + 1};
 `
 
-export function DropdownComposer({
-  className,
-  button,
-  dropdown,
-  vertical = 'DOWN',
-  horizontal = 'RIGHT'
-}: any) {
+export function DropdownComposer({className, button, dropdown, vertical = 'DOWN', horizontal = 'RIGHT'}: any) {
   const [open, setOpen] = React.useState(false)
   const Dropdown = dropdown
   return (

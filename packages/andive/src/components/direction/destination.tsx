@@ -19,7 +19,7 @@ const DestinationIcon = styled(({label, ...props}) => <div {...props} />)`
   height: 100%;
 `
 
-const DestinationPoint = styled(({ offsetY, ...props }) => <div {...props} />)`
+const DestinationPoint = styled(({offsetY, ...props}) => <div {...props} />)`
   position: absolute;
 
   width: 8px;
@@ -33,7 +33,7 @@ const DestinationPoint = styled(({ offsetY, ...props }) => <div {...props} />)`
   border: 2px solid ${palette.darkPrimary};
   background: white;
 `
-const DestinationRoad = styled(({ offsetY, ...props }) => <div {...props} />)`
+const DestinationRoad = styled(({offsetY, ...props}) => <div {...props} />)`
   position: absolute;
 
   left: calc(50% - 10px);
@@ -57,7 +57,7 @@ const DestinationRoad = styled(({ offsetY, ...props }) => <div {...props} />)`
   background: ${palette.darkPrimary};
 `
 
-const AsideLabel = styled(({ offsetY, ...props }) => <Body1 {...props} />)`
+const AsideLabel = styled(({offsetY, ...props}) => <Body1 {...props} />)`
   position: absolute;
   top: ${props => (props.offsetY ? props.offsetY - 16 : -10)}px;
   left: 0;
@@ -71,9 +71,11 @@ const AsideLabel = styled(({ offsetY, ...props }) => <Body1 {...props} />)`
 `
 
 interface DestinationProps<PointRefElementType> {
-  className?: string,
-  label?: string,
-  children: React.ReactNode | ((ref: React.Ref<HTMLDivElement>, pointRef: React.Ref<PointRefElementType>) => React.ReactNode)
+  className?: string
+  label?: string
+  children:
+    | React.ReactNode
+    | ((ref: React.Ref<HTMLDivElement>, pointRef: React.Ref<PointRefElementType>) => React.ReactNode)
 }
 export function Destination<PointRefElementType>({label, children, ...props}: DestinationProps<PointRefElementType>) {
   const ref = useRef(null)

@@ -2,9 +2,9 @@ import React from 'react'
 
 import Filter from '../../../img/icons/filter.svg'
 import SvgIcon from '../svg-icon'
-import { palette } from '../..'
+import {palette} from '../..'
 
-const FilterIcon = ({ color = palette.mediumPrimary, ...rest }) => {
+const FilterIcon = ({color = palette.mediumPrimary, ...rest}) => {
   return (
     <SvgIcon color={color} {...rest}>
       <Filter />

@@ -8,9 +8,5 @@ const HoverEffect = styled.div`
 `
 
 export function Hover({children}) {
-  return (
-    <HoverEffect>
-      {children}
-    </HoverEffect>
-  )
+  return <HoverEffect>{children}</HoverEffect>
 }

@@ -15,9 +15,9 @@ const CardRoot = styled.div`
 `
 
 export interface Props {
-  className?: string;
-  component?: React.ElementType;
-  children?: any;
+  className?: string
+  component?: React.ElementType
+  children?: any
 }
 
 const computeCard = component => {
