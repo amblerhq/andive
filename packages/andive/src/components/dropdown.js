@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import PropTypes from 'prop-types'
 
 import * as palette from '../constants/palette'
-import {Body1} from './typography'
+import {Body1, Body2} from './typography'
 import Select from './select'
 
 const Dropdown = styled.div`
@@ -41,7 +41,7 @@ function DropdownComponent({
 
   return (
     <Dropdown fullWidth={fullWidth} {...props}>
-      <Body1 color={palette.mediumPrimary}>{label}</Body1>
+      <Body2 color={palette.mediumPrimary}>{label}</Body2>
       {disabled ? <Body1 color={palette.darkGrey}>{value || '—'}</Body1> : <Select {...selectProps} />}
     </Dropdown>
   )
