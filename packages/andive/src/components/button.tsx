@@ -220,7 +220,7 @@ const FilterButton = styled(ResetButton)<{
   mobile?: boolean
   backgroundColor?: string
 }>`
-  border-radius: 20px;
+  border-radius: 16px;
   border: 1px solid ${props => (props.invert ? palette.darkPrimary : 'transparent')};
   height: ${props => (props.mobile ? 32 : 40)}px;
   background: ${({invert, backgroundColor}) => backgroundColor || (invert ? palette.white : palette.mediumBerryBlue)};
