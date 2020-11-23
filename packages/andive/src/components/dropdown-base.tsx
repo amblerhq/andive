@@ -15,8 +15,6 @@ interface DropdownBaseProps {
   className?: string
   children: React.ReactNode
 }
-export function DropdownBase({ className, children }: DropdownBaseProps) {
-  return <DropdownBaseRoot className={className}>
-    {children}
-  </DropdownBaseRoot>
+export function DropdownBase({className, children}: DropdownBaseProps) {
+  return <DropdownBaseRoot className={className}>{children}</DropdownBaseRoot>
 }

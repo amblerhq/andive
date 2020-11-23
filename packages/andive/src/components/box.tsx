@@ -7,13 +7,13 @@ const BoxRoot = styled.div`
 `
 
 export interface Props {
-  className?: string;
+  className?: string
   children?: React.ReactNode
 }
 
 const BoxComponent = ({children, className, ...props}: Props) => {
   return (
-    <BoxRoot className={className} {...props} >
+    <BoxRoot className={className} {...props}>
       {children}
     </BoxRoot>
   )

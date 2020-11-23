@@ -2,12 +2,12 @@ import React from 'react'
 import styled from 'styled-components'
 
 import * as palette from '../constants/palette'
-import { Body3 } from './typography'
+import {Body3} from './typography'
 import Box from './box'
 
 export const CheckboxGroupContext = React.createContext<{
-  values: CheckboxGroupValue,
-  onChange: (name: string) => void,
+  values: CheckboxGroupValue
+  onChange: (name: string) => void
   radio: boolean
 } | null>(null)
 
@@ -34,22 +34,19 @@ interface CheckboxGroupProps {
   children: React.ReactNode
   value: CheckboxGroupValue
   onChange: (values: CheckboxGroupValue) => void
-  radio?: boolean,
+  radio?: boolean
   error?: string
-  className?: string,
+  className?: string
 }
-export function CheckboxGroup({ className, children, onChange, value, radio, error }: CheckboxGroupProps) {
+export function CheckboxGroup({className, children, onChange, value, radio, error}: CheckboxGroupProps) {
   const [values, setValues] = React.useState(value)
 
   React.useEffect(() => {
     if (value && value !== values) {
       if (radio) {
-        const truthyAmount = Object.keys(value).reduce<number>(
-          (count, name) => {
-            return (value[name] ? 1 : 0) + count
-          },
-          0
-        )
+        const truthyAmount = Object.keys(value).reduce<number>((count, name) => {
+          return (value[name] ? 1 : 0) + count
+        }, 0)
 
         if (truthyAmount > 1) {
           throw new Error(
@@ -65,7 +62,7 @@ export function CheckboxGroup({ className, children, onChange, value, radio, err
   const onCheckboxChange = React.useCallback(
     (name: string) => {
       const nextValues = radio
-        ? { [name]: true }
+        ? {[name]: true}
         : {
             ...values,
             [name]: !values[name]
@@ -88,9 +85,7 @@ export function CheckboxGroup({ className, children, onChange, value, radio, err
 
   return (
     <div className={className}>
-      <CheckboxGroupContext.Provider value={contextValue}>
-        {children}
-      </CheckboxGroupContext.Provider>
+      <CheckboxGroupContext.Provider value={contextValue}>{children}</CheckboxGroupContext.Provider>
       {error && (
         <FlexBox>
           <ErrorMessage>{error}</ErrorMessage>

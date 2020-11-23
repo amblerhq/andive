@@ -29,15 +29,15 @@ const AccordeonButton = styled.div`
 `
 
 export interface Props {
-  className?: string;
-  label: React.ReactNode;
-  openByDefault?: boolean;
-  open?: any;
-  onToggle?: any;
-  icon?: ReactNodeLike;
-  href?: string;
-  overflow?: number;
-  children?: any;
+  className?: string
+  label: React.ReactNode
+  openByDefault?: boolean
+  open?: any
+  onToggle?: any
+  icon?: ReactNodeLike
+  href?: string
+  overflow?: number
+  children?: any
 }
 
 function OptionalLink({href, children}) {
@@ -65,9 +65,7 @@ function AccordeonComponent({className, label, openByDefault, open, onToggle, ic
                 <Typography.Body1>{label}</Typography.Body1>
               </Icon>
             ) : (
-              <Typography.Body1 style={{ minWidth: 0 }}>
-                {label}
-              </Typography.Body1>
+              <Typography.Body1 style={{minWidth: 0}}>{label}</Typography.Body1>
             )}
             <HSpace px={8} />
             {href ? (

@@ -12,7 +12,7 @@ export const fontWeights = {
 export const fontFamily = 'Asap'
 
 interface StyleAPI {
-  color?: string,
+  color?: string
   textTransform?: string
   fontStyle?: string
 }

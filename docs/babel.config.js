@@ -1,3 +1,4 @@
+// eslint-disable-next-line
 const bpmr = require('babel-plugin-module-resolver')
 
 function resolvePath(sourcePath, currentFile, opts) {

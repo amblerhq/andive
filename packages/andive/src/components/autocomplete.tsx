@@ -2,10 +2,10 @@ import React from 'react'
 import styled from 'styled-components'
 
 import * as palette from '../constants/palette'
-import { ZIndexes } from '../constants/enum'
-import { Input } from './input'
-import { Hover } from './hover'
-import { Body1 } from './typography'
+import {ZIndexes} from '../constants/enum'
+import {Input} from './input'
+import {Hover} from './hover'
+import {Body1} from './typography'
 import Box from './box'
 
 export const Divider = styled.div`
@@ -45,9 +45,7 @@ const SuggestionsUl = styled.ul`
   overflow: hidden;
 `
 
-const Suggestions = styled(({ bottomFootprint, ...props }) => (
-  <div {...props} />
-))`
+const Suggestions = styled(({bottomFootprint, ...props}) => <div {...props} />)`
   position: absolute;
 
   width: calc(100% - 16px);
@@ -154,10 +152,7 @@ export function Autocomplete<T>({
   const [unstable, setUnstable] = React.useState(false)
   const [focus, setFocus] = React.useState(false)
   const showSuggestions =
-    suggestions &&
-    suggestions.length > 0 &&
-    input.length > 0 &&
-    canShowSuggestions(suggestions, input)
+    suggestions && suggestions.length > 0 && input.length > 0 && canShowSuggestions(suggestions, input)
   const showFavorites = favorites && favorites.length > 0 && focus && !input
 
   const onUpdate = React.useCallback(

@@ -1,7 +1,6 @@
-import React, {useRef} from 'react'
+import React from 'react'
 import styled, {css} from 'styled-components'
 
-import useElementRect from '../../lib/use-element-rect'
 import {Body1, isTypography} from '../typography'
 import * as palette from '../../constants/palette'
 
@@ -19,7 +18,7 @@ const DestinationIcon = styled(({label, ...props}) => <div {...props} />)`
   height: 100%;
 `
 
-const DestinationPoint = styled(({ offsetY, ...props }) => <div {...props} />)`
+const DestinationPoint = styled(({offsetY, ...props}) => <div {...props} />)`
   position: absolute;
 
   width: 8px;
@@ -33,7 +32,7 @@ const DestinationPoint = styled(({ offsetY, ...props }) => <div {...props} />)`
   border: 2px solid ${palette.darkPrimary};
   background: white;
 `
-const DestinationRoad = styled(({ offsetY, ...props }) => <div {...props} />)`
+const DestinationRoad = styled(({offsetY, ...props}) => <div {...props} />)`
   position: absolute;
 
   left: calc(50% - 10px);
@@ -57,7 +56,7 @@ const DestinationRoad = styled(({ offsetY, ...props }) => <div {...props} />)`
   background: ${palette.darkPrimary};
 `
 
-const AsideLabel = styled(({ offsetY, ...props }) => <Body1 {...props} />)`
+const AsideLabel = styled(({offsetY, ...props}) => <Body1 {...props} />)`
   position: absolute;
   top: ${props => (props.offsetY ? props.offsetY - 16 : -10)}px;
   left: 0;
@@ -70,23 +69,78 @@ const AsideLabel = styled(({ offsetY, ...props }) => <Body1 {...props} />)`
   text-align: right;
 `
 
+type DestinationContextType = {
+  ref: React.Ref<HTMLElement | null>
+} | null
+
+const DestinationContext = React.createContext<DestinationContextType>(null)
+
+type PointProps = {
+  children: React.ReactElement
+}
+
+function Point(props: PointProps) {
+  const contextValue = React.useContext(DestinationContext)
+  return React.cloneElement(props.children, contextValue ? {ref: contextValue.ref} : undefined)
+}
+
 interface DestinationProps<PointRefElementType> {
-  className?: string,
-  label?: string,
-  children: React.ReactNode | ((ref: React.Ref<HTMLDivElement>, pointRef: React.Ref<PointRefElementType>) => React.ReactNode)
+  className?: string
+  label?: string
+  children: React.ReactNode
 }
 export function Destination<PointRefElementType>({label, children, ...props}: DestinationProps<PointRefElementType>) {
-  const ref = useRef(null)
-  const size = useElementRect(ref)
-  const pointRef = useRef(null)
-  const pointSize = useElementRect(pointRef)
+  const [rect, setRect] = React.useState<DOMRect | ClientRect>()
+  const [pointRect, setPointRect] = React.useState<DOMRect | ClientRect>()
+  const ref = React.useRef<HTMLDivElement>(null)
+  const pointRef = React.useRef<HTMLElement>(null)
+
+  React.useLayoutEffect(() => {
+    if (ref.current) {
+      setRect(ref.current.getBoundingClientRect())
+    }
+    if (pointRef.current) {
+      setPointRect(pointRef.current.getBoundingClientRect())
+    }
+  }, [])
+
+  React.useEffect(() => {
+    const handleResize = () => {
+      if (ref.current) {
+        setRect(ref.current.getBoundingClientRect())
+      }
+      if (pointRef.current) {
+        setPointRect(pointRef.current.getBoundingClientRect())
+      }
+    }
+    window.addEventListener('resize', handleResize)
+
+    return () => window.removeEventListener('resize', handleResize)
+  }, [])
+
+  React.useEffect(() => {
+    const observer = new MutationObserver(() => {
+      if (ref.current) {
+        setRect(ref.current.getBoundingClientRect())
+      }
+      if (pointRef.current) {
+        setPointRect(pointRef.current.getBoundingClientRect())
+      }
+    })
+
+    if (ref.current) {
+      observer.observe(ref.current, {childList: true, characterData: true, subtree: true})
+      return () => observer.disconnect()
+    }
+    return
+  }, [])
 
   let offsetY = 0
   // Basic math: To get the center of the pointRef element we just:
-  if (pointSize && size) {
+  if (pointRect && rect) {
     // By calculating the distance between the top of the Destination content and the
     // pointRef element we take into account any number of previous sibling components.
-    const topToPointRef = pointSize.y - size.y
+    const topToPointRef = pointRect.top - rect.top
 
     // If the point of reference is a Typography component, because of the way we align
     // those on top of their container (leaving a small gap under the text and the bottom
@@ -94,7 +148,7 @@ export function Destination<PointRefElementType>({label, children, ...props}: De
     // to match the visual center of the Typography.
     const compensate = isTypography(pointRef) ? 2 : 0
 
-    offsetY = topToPointRef + pointSize.height / 2 - 4 - compensate
+    offsetY = topToPointRef + pointRect.height / 2 - 4 - compensate
   }
 
   return (
@@ -104,12 +158,11 @@ export function Destination<PointRefElementType>({label, children, ...props}: De
         <DestinationPoint offsetY={offsetY} />
       </DestinationIcon>
       {label && <AsideLabel offsetY={offsetY}>{label}</AsideLabel>}
-      {children && (
-        <>
-          {typeof children === 'function' && children(ref, pointRef)}
-          {typeof children !== 'function' && children}
-        </>
-      )}
+      <div ref={ref}>
+        <DestinationContext.Provider value={{ref: pointRef}}>{children}</DestinationContext.Provider>
+      </div>
     </DestinationRoot>
   )
 }
+
+Destination.Point = Point

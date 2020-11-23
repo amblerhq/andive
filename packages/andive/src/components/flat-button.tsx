@@ -1,12 +1,14 @@
-import React, { DOMAttributes } from 'react'
-import styled, { css } from 'styled-components'
+import React, {DOMAttributes} from 'react'
+import styled, {css} from 'styled-components'
 
 import {HSpace} from './h-space'
-import { Body2 } from './typography'
+import {Body2} from './typography'
 import Loader from './loader'
 import * as palette from '../constants/palette'
 
-const FlatButtonWrapper = styled(({ invert, active, hasLabel, disabled, reverse, loading, shrink, ...props }) => <div {...props} />)<{
+const FlatButtonWrapper = styled(({invert, active, hasLabel, disabled, reverse, loading, shrink, ...props}) => (
+  <div {...props} />
+))<{
   invert?: boolean
   active?: boolean
   hasLabel?: boolean
@@ -15,9 +17,11 @@ const FlatButtonWrapper = styled(({ invert, active, hasLabel, disabled, reverse,
   loading?: boolean
   shrink?: boolean
 }>`
-  ${props => props.shrink && css`
-    display: inline-block;
-  `}
+  ${props =>
+    props.shrink &&
+    css`
+      display: inline-block;
+    `}
 
   ${props =>
     !props.disabled &&
@@ -88,7 +92,7 @@ const LabelWrapper = styled.div`
 
 interface FlatButtonProps {
   className?: string
-  type?: "button" | "submit"
+  type?: 'button' | 'submit'
   icon?: JSX.Element
   rightIcon?: JSX.Element
   label?: string | JSX.Element
@@ -128,7 +132,7 @@ export const FlatButton = ({
         {hasIcon && (
           <IconWrapper>
             {loading && <Loader inline color={color} size={24} />}
-            {!loading && icon && React.cloneElement(icon, { color })}
+            {!loading && icon && React.cloneElement(icon, {color})}
           </IconWrapper>
         )}
         {!hasIcon && <HSpace px={8} />}

@@ -1,15 +1,15 @@
 import React from 'react'
-import styled, { css } from 'styled-components'
+import styled, {css} from 'styled-components'
 
 import CheckboxOnIcon from './icons/checkbox-on'
 import CheckboxOffIcon from './icons/checkbox-off'
 import RadioOnIcon from './icons/radio-on'
 import RadioOffIcon from './icons/radio-off'
-import { CheckboxGroupContext } from './checkbox-group'
-import { Body1 } from './typography'
+import {CheckboxGroupContext} from './checkbox-group'
+import {Body1} from './typography'
 import * as palette from '../constants/palette'
 
-const CheckboxRoot = styled.div<{ fullWidth?: boolean; disabled?: boolean }>`
+const CheckboxRoot = styled.div<{fullWidth?: boolean; disabled?: boolean}>`
   width: ${props => (props.fullWidth ? '100%' : 'auto')};
   padding: 8px;
 
@@ -19,7 +19,7 @@ const CheckboxRoot = styled.div<{ fullWidth?: boolean; disabled?: boolean }>`
   cursor: ${props => (props.disabled ? 'not-allowed' : 'pointer')};
 `
 
-const Label = styled(Body1)<{ disabled?: boolean }>`
+const Label = styled(Body1)<{disabled?: boolean}>`
   padding-left: 12px;
 
   ${props =>
@@ -41,25 +41,14 @@ interface CheckboxProps {
   radio?: boolean
 }
 
-export function Checkbox({
-  className,
-  label,
-  checked,
-  onChange,
-  name,
-  disabled,
-  fullWidth,
-  ...props
-}: CheckboxProps) {
+export function Checkbox({className, label, checked, onChange, name, disabled, fullWidth, ...props}: CheckboxProps) {
   const context: any /* FixType */ = React.useContext(CheckboxGroupContext)
 
   let radio = props.radio || false
   // This is a group of checkboxes controlled by a <CheckboxGroup />
   if (context) {
     if (!name) {
-      throw new Error(
-        `A checkbox controlled by a <CheckboxGroup /> must have a "name" prop.`
-      )
+      throw new Error(`A checkbox controlled by a <CheckboxGroup /> must have a "name" prop.`)
     }
 
     onChange = () => {
@@ -79,15 +68,9 @@ export function Checkbox({
       {!checked && (
         <>
           {radio ? (
-            <RadioOffIcon
-              inline
-              color={disabled ? palette.lightPrimary : undefined}
-            />
+            <RadioOffIcon inline color={disabled ? palette.lightPrimary : undefined} />
           ) : (
-            <CheckboxOffIcon
-              inline
-              color={disabled ? palette.lightPrimary : undefined}
-            />
+            <CheckboxOffIcon inline color={disabled ? palette.lightPrimary : undefined} />
           )}
         </>
       )}
@@ -95,15 +78,9 @@ export function Checkbox({
       {checked && (
         <>
           {radio ? (
-            <RadioOnIcon
-              inline
-              color={disabled ? palette.lightPrimary : undefined}
-            />
+            <RadioOnIcon inline color={disabled ? palette.lightPrimary : undefined} />
           ) : (
-            <CheckboxOnIcon
-              inline
-              color={disabled ? palette.lightPrimary : undefined}
-            />
+            <CheckboxOnIcon inline color={disabled ? palette.lightPrimary : undefined} />
           )}
         </>
       )}

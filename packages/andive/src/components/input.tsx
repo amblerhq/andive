@@ -1,12 +1,12 @@
-import React, { InputHTMLAttributes } from 'react'
-import styled, { css } from 'styled-components'
+import React, {InputHTMLAttributes} from 'react'
+import styled, {css} from 'styled-components'
 
-import { body1Css, body2Css, Body3, Body2 } from './typography'
+import {body1Css, body2Css, Body3, Body2} from './typography'
 import CloseIcon from './icons/close'
 import * as palette from '../constants/palette'
 import Box from './box'
 
-const InputRoot = styled.div<{ fullWidth?: boolean }>`
+const InputRoot = styled.div<{fullWidth?: boolean}>`
   position: relative;
   width: 100%;
 `
@@ -16,7 +16,7 @@ type InputState = 'EMPTY' | 'DISABLED' | 'ERRORED' | 'FILLED' | 'ACTIVE'
 type GetColorProps = {
   state: InputState
 }
-const getColor = ({ state }: GetColorProps) => {
+const getColor = ({state}: GetColorProps) => {
   switch (state) {
     case 'ACTIVE':
       return css`
@@ -55,7 +55,7 @@ const getColor = ({ state }: GetColorProps) => {
 type GetPlaceholderCssProps = {
   small: boolean
 }
-function getPlaceholderCss({ small }: GetPlaceholderCssProps) {
+function getPlaceholderCss({small}: GetPlaceholderCssProps) {
   if (small) {
     return css`
       ${body2Css}
@@ -72,7 +72,7 @@ function getPlaceholderCss({ small }: GetPlaceholderCssProps) {
 type GetSizesProps = {
   small: boolean
 }
-function getSizes({ small }: GetSizesProps) {
+function getSizes({small}: GetSizesProps) {
   if (small) {
     return css`
       width: 100%;
@@ -95,7 +95,7 @@ type GetSpacesProps = {
   hasRightIcon: boolean
   hasLeftIcon: boolean
 }
-function getSpaces({ small, hasRightIcon, hasLeftIcon }: GetSpacesProps) {
+function getSpaces({small, hasRightIcon, hasLeftIcon}: GetSpacesProps) {
   if (small) {
     return css`
       padding: 8px ${hasRightIcon ? 48 : 16}px 8px ${hasLeftIcon ? 64 : 16}px;
@@ -107,10 +107,7 @@ function getSpaces({ small, hasRightIcon, hasLeftIcon }: GetSpacesProps) {
   `
 }
 
-type FieldProps = GetColorProps &
-  GetSizesProps &
-  GetSpacesProps &
-  GetPlaceholderCssProps & { as: 'textarea' | 'input' }
+type FieldProps = GetColorProps & GetSizesProps & GetSpacesProps & GetPlaceholderCssProps & {as: 'textarea' | 'input'}
 const Field = styled.input<FieldProps>`
   /* Base */
   box-sizing: border-box;
@@ -141,7 +138,7 @@ type GetCloseIconPositionProps = {
   small: boolean
   hasLabel: boolean
 }
-function getCloseIconPosition({ small, hasLabel }: GetCloseIconPositionProps) {
+function getCloseIconPosition({small, hasLabel}: GetCloseIconPositionProps) {
   let top = 24
   if (small) {
     top = 16
@@ -177,7 +174,7 @@ const Error = styled(Body3)`
   }
 `
 
-const Icon = styled.div<{ small: boolean }>`
+const Icon = styled.div<{small: boolean}>`
   position: absolute;
 
   left: 24px;
@@ -304,11 +301,7 @@ export function Input({
           />
           {hasIcon && <Icon small={small}>{icon}</Icon>}
           {hasClear && !props.disabled && (
-            <Close
-              small={small}
-              hasLabel={Boolean(label)}
-              onClick={handleClear}
-            >
+            <Close small={small} hasLabel={Boolean(label)} onClick={handleClear}>
               <CloseIcon inline />
             </Close>
           )}

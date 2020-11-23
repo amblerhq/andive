@@ -1,7 +1,6 @@
-import React, {useRef} from 'react'
+import React from 'react'
 import styled, {css} from 'styled-components'
 
-import useElementRect from '../../lib/use-element-rect'
 import * as palette from '../../constants/palette'
 import {Body1} from '../typography'
 
@@ -57,7 +56,7 @@ const OriginRoad = styled(({offsetY, height, ...props}) => <div {...props} />)`
   background: ${palette.darkPrimary};
 `
 
-const AsideLabel = styled(({ offsetY, ...props }) => <Body1 {...props}/>)`
+const AsideLabel = styled(({offsetY, ...props}) => <Body1 {...props} />)`
   position: absolute;
   top: ${props => (props.offsetY ? props.offsetY - 20 : -8)}px;
   left: 0;
@@ -70,33 +69,92 @@ const AsideLabel = styled(({ offsetY, ...props }) => <Body1 {...props}/>)`
   text-align: right;
 `
 
-interface OriginProps<PointRefElementType> {
-  className?: string,
-  label?: string,
-  children: React.ReactNode | ((ref: React.Ref<HTMLDivElement>, pointRef: React.Ref<PointRefElementType>) => React.ReactNode)
+type OriginContextType = {
+  ref: React.Ref<HTMLElement | null>
+} | null
+
+const OriginContext = React.createContext<OriginContextType>(null)
+
+type PointProps = {
+  children: React.ReactElement
 }
-export function Origin<PointRefElementType>({className, label, children}: OriginProps<PointRefElementType>) {
-  const ref = useRef(null)
-  const pointRef = useRef(null)
-  const size = useElementRect(ref)
-  const pointSize = useElementRect(pointRef)
+
+function Point(props: PointProps) {
+  const contextValue = React.useContext(OriginContext)
+  return React.cloneElement(props.children, contextValue ? {ref: contextValue.ref} : undefined)
+}
+
+type OriginProps = {
+  className?: string
+  label?: string
+  children: React.ReactNode
+}
+
+export function Origin({className, label, children}: OriginProps) {
+  const [rect, setRect] = React.useState<DOMRect | ClientRect>()
+  const [pointRect, setPointRect] = React.useState<DOMRect | ClientRect>()
+  const ref = React.useRef<HTMLDivElement>(null)
+  const pointRef = React.useRef<HTMLElement>(null)
+
+  React.useLayoutEffect(() => {
+    if (ref.current) {
+      setRect(ref.current.getBoundingClientRect())
+    }
+    if (pointRef.current) {
+      setPointRect(pointRef.current.getBoundingClientRect())
+    }
+  }, [])
+
+  React.useEffect(() => {
+    const handleResize = () => {
+      if (ref.current) {
+        setRect(ref.current.getBoundingClientRect())
+      }
+      if (pointRef.current) {
+        setPointRect(pointRef.current.getBoundingClientRect())
+      }
+    }
+    window.addEventListener('resize', handleResize)
+
+    return () => window.removeEventListener('resize', handleResize)
+  }, [])
+
+  React.useEffect(() => {
+    const observer = new MutationObserver(() => {
+      if (ref.current) {
+        setRect(ref.current.getBoundingClientRect())
+      }
+      if (pointRef.current) {
+        setPointRect(pointRef.current.getBoundingClientRect())
+      }
+    })
+
+    if (ref.current) {
+      observer.observe(ref.current, {
+        childList: true,
+        characterData: true,
+        subtree: true
+      })
+      return () => observer.disconnect()
+    }
+    return
+  }, [])
 
   // Basic math: To get the center of the pointRef element we just:
-  const offsetY = (pointSize && size && pointSize.y - size.y + pointSize.height / 2) || 0
+  const offsetY = (pointRect && rect && pointRect.top - rect.top + pointRect.height / 2) || 0
 
   return (
     <OriginRoot className={className} label={label}>
-      <OriginIcon label={label} size={size ? size.height : 46}>
-        <OriginRoad height={size ? size.height : 46} offsetY={offsetY} />
+      <OriginIcon label={label} size={rect ? rect.height : 46}>
+        <OriginRoad height={rect ? rect.height : 46} offsetY={offsetY} />
         <OriginPoint offsetY={offsetY} />
       </OriginIcon>
       {label && <AsideLabel offsetY={offsetY}>{label}</AsideLabel>}
-      {children && (
-        <>
-          {typeof children === 'function' && children(ref, pointRef)}
-          {typeof children !== 'function' && <div ref={ref}>{children}</div>}
-        </>
-      )}
+      <div ref={ref}>
+        <OriginContext.Provider value={{ref: pointRef}}>{children}</OriginContext.Provider>
+      </div>
     </OriginRoot>
   )
 }
+
+Origin.Point = Point

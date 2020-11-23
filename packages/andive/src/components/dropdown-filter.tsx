@@ -6,12 +6,12 @@ import Button from './button'
 import {ZIndexes} from '../constants/enum'
 import {CloseIcon} from '..'
 
-const MenuFilterRoot = styled.div<{ open?: boolean }>`
+const MenuFilterRoot = styled.div<{open?: boolean}>`
   position: relative;
   z-index: ${props => (props.open ? ZIndexes.MODALS + 1 : undefined)};
 `
 
-const Menu = styled.div<{ openLeft?: boolean, mobile?: boolean }>`
+const Menu = styled.div<{openLeft?: boolean; mobile?: boolean}>`
   position: absolute;
 
   ${props =>
@@ -102,18 +102,29 @@ const StickyFooter = styled.div`
 `
 
 interface MenuFilterProps {
-  className?: string,
-  label?: string,
-  button?: JSX.Element,
-  selected?: boolean,
-  mobile?: boolean,
-  onSave?: () => void,
-  onClear?: () => void,
-  onClose?: () => void,
-  children: React.ReactNode,
+  className?: string
+  label?: string
+  button?: JSX.Element
+  selected?: boolean
+  mobile?: boolean
+  onSave?: () => void
+  onClear?: () => void
+  onClose?: () => void
+  children: React.ReactNode
   openLeft?: boolean
 }
-export function DropdownFilter({className, label, button, selected, onSave, onClear, onClose, mobile, children, openLeft = false}: MenuFilterProps) {
+export function DropdownFilter({
+  className,
+  label,
+  button,
+  selected,
+  onSave,
+  onClear,
+  onClose,
+  mobile,
+  children,
+  openLeft = false
+}: MenuFilterProps) {
   const [open, setOpen] = React.useState(false)
   const onClick = React.useCallback(() => {
     setOpen(prev => !prev)
@@ -153,15 +164,11 @@ export function DropdownFilter({className, label, button, selected, onSave, onCl
                 {onClear && <Button variant="flat" label="Effacer" onClick={onClear} />}
               </MobileHeader>
             )}
-            {typeof children === 'function' ? children({ close: onCloseOnly }) : children}
+            {typeof children === 'function' ? children({close: onCloseOnly}) : children}
             {mobile
               ? onSave && (
                   <StickyFooter>
-                    <Button
-                      variant="primary"
-                      label="Enregistrer"
-                      onClick={onCloseAndSave}
-                    />
+                    <Button variant="primary" label="Enregistrer" onClick={onCloseAndSave} />
                   </StickyFooter>
                 )
               : (onClear || onSave) && (
