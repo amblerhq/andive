@@ -221,15 +221,15 @@ const FilterButton = styled(ResetButton)<{
   backgroundColor?: string
 }>`
   border-radius: 16px;
+  height: 40px;
   border: 1px solid ${props => (props.invert ? palette.darkPrimary : 'transparent')};
-  height: ${props => (props.mobile ? 32 : 40)}px;
   background: ${({invert, backgroundColor}) => backgroundColor || (invert ? palette.white : palette.mediumBerryBlue)};
-  padding: ${props => (props.mobile ? '6px' : '8px')};
+  padding: 8px;
 `
 const FilterText = styled(({mobile, color, ...props}) => <div {...props} />)<{mobile?: boolean; color: string}>`
   ${props => (props.mobile ? body3Css : body1Css)};
   color: ${props => props.color};
-  padding: 0 ${props => (props.mobile ? '6px' : '8px')};
+  padding: 0 8px;
 `
 
 const FlatText = styled.div<{mobile?: boolean; color: string}>`
