@@ -224,13 +224,12 @@ const FilterButton = styled(ResetButton)<{
   border: 1px solid ${props => (props.invert ? palette.darkPrimary : 'transparent')};
   height: ${props => (props.mobile ? 32 : 40)}px;
   background: ${({invert, backgroundColor}) => backgroundColor || (invert ? palette.white : palette.mediumBerryBlue)};
+  padding: ${props => (props.mobile ? '6px' : '8px')};
 `
-
 const FilterText = styled(({mobile, color, ...props}) => <div {...props} />)<{mobile?: boolean; color: string}>`
   ${props => (props.mobile ? body3Css : body1Css)};
-
   color: ${props => props.color};
-  padding: ${props => (props.mobile ? '6px 18px' : '8px 24px')};
+  padding: 0 ${props => props.mobile ? '6px' : '8px'};
 `
 
 const FlatText = styled.div<{mobile?: boolean; color: string}>`
@@ -341,13 +340,13 @@ const Button = React.forwardRef(function Button(
 
   const contentJsx = (
     <>
-      {leftIcon && <IconWrapper>{React.cloneElement(leftIcon, {color})}</IconWrapper>}
-      {!label && (leftIcon || rightIcon) ? null : (
+      {leftIcon && React.cloneElement(leftIcon, {color})}
+      {label && (
         <ButtonLabel style={textStyle(leftIcon, rightIcon, label)} invert={invert} color={color} mobile={mobile}>
           {label}
         </ButtonLabel>
       )}
-      {rightIcon && <IconWrapper>{React.cloneElement(rightIcon, {color})}</IconWrapper>}
+      {rightIcon && React.cloneElement(rightIcon, {color})}
     </>
   )
 
