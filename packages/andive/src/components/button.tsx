@@ -221,8 +221,8 @@ const FilterButton = styled(ResetButton)<{
   backgroundColor?: string
 }>`
   border-radius: 16px;
+  height: 40px;
   border: 1px solid ${props => (props.invert ? palette.darkPrimary : 'transparent')};
-  height: ${props => (props.mobile ? 32 : 40)}px;
   background: ${({invert, backgroundColor}) => backgroundColor || (invert ? palette.white : palette.mediumBerryBlue)};
   padding: ${props => (props.mobile ? '6px' : '8px')};
 `
