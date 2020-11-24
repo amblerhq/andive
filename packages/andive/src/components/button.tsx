@@ -243,6 +243,10 @@ const Flexbox = styled(Box)`
   display: flex;
 `
 
+const IconWrapper = styled.div`
+  padding: 0 8px;
+`
+
 function textStyle(leftIcon?: React.ReactNode, rightIcon?: React.ReactNode, label?: string) {
   return {
     paddingRight: label && rightIcon ? 8 : undefined,
@@ -337,11 +341,13 @@ const Button = React.forwardRef(function Button(
 
   const contentJsx = (
     <>
-      {leftIcon && React.cloneElement(leftIcon, {color})}
-      <ButtonLabel style={textStyle(leftIcon, rightIcon, label)} invert={invert} color={color} mobile={mobile}>
-        {label}
-      </ButtonLabel>
-      {rightIcon && React.cloneElement(rightIcon, {color})}
+      {leftIcon && <IconWrapper>{React.cloneElement(leftIcon, {color})}</IconWrapper>}
+      {!label && (leftIcon || rightIcon) ? null : (
+        <ButtonLabel style={textStyle(leftIcon, rightIcon, label)} invert={invert} color={color} mobile={mobile}>
+          {label}
+        </ButtonLabel>
+      )}
+      {rightIcon && <IconWrapper>{React.cloneElement(rightIcon, {color})}</IconWrapper>}
     </>
   )
 
