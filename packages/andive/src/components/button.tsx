@@ -229,7 +229,7 @@ const FilterButton = styled(ResetButton)<{
 const FilterText = styled(({mobile, color, ...props}) => <div {...props} />)<{mobile?: boolean; color: string}>`
   ${props => (props.mobile ? body3Css : body1Css)};
   color: ${props => props.color};
-  padding: 0 ${props => props.mobile ? '6px' : '8px'};
+  padding: 0 ${props => (props.mobile ? '6px' : '8px')};
 `
 
 const FlatText = styled.div<{mobile?: boolean; color: string}>`
@@ -240,10 +240,6 @@ const FlatText = styled.div<{mobile?: boolean; color: string}>`
 
 const Flexbox = styled(Box)`
   display: flex;
-`
-
-const IconWrapper = styled.div`
-  padding: 0 8px;
 `
 
 function textStyle(leftIcon?: React.ReactNode, rightIcon?: React.ReactNode, label?: string) {
