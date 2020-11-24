@@ -2,11 +2,10 @@ import React from 'react'
 import styled, {css} from 'styled-components'
 
 import * as palette from '../../constants/palette'
-import {Body1} from '../typography'
 
 const OriginRoot = styled(({label, ...props}) => <div {...props} />)`
   position: relative;
-  padding-left: ${props => (props.label ? 24 + 61 : 24)}px;
+  padding-left: ${props => (props.label ? 32 + 69 : 24)}px;
 `
 
 const OriginIcon = styled(({label, ...props}) => <div {...props} />)`
@@ -14,7 +13,13 @@ const OriginIcon = styled(({label, ...props}) => <div {...props} />)`
   left: ${props => (props.label ? 69 : 0)}px;
   top: 0;
 
-  width: 24px;
+  width: ${props => (props.label ? 32 : 24)}px;
+  height: 100%;
+  padding: ${props => (props.label ? '0 16px 0 8px' : '0 16px 0 0')};
+`
+
+const OriginIconContent = styled.div`
+  position: relative;
   height: 100%;
 `
 
@@ -24,7 +29,7 @@ const OriginPoint = styled(({offsetY, ...props}) => <div {...props} />)`
   width: 8px;
   height: 8px;
 
-  left: calc(50% - 12px);
+  left: calc(50% - 4px);
   top: ${props => (props.offsetY ? props.offsetY - 4 : 4)}px;
 
   border-radius: 50%;
@@ -35,7 +40,7 @@ const OriginPoint = styled(({offsetY, ...props}) => <div {...props} />)`
 const OriginRoad = styled(({offsetY, height, ...props}) => <div {...props} />)`
   position: absolute;
 
-  left: calc(50% - 10px);
+  left: calc(50% - 2px);
   width: 4px;
 
   ${props => {
@@ -56,7 +61,7 @@ const OriginRoad = styled(({offsetY, height, ...props}) => <div {...props} />)`
   background: ${palette.darkPrimary};
 `
 
-const AsideLabel = styled(({offsetY, ...props}) => <Body1 {...props} />)`
+const AsideLabel = styled(({offsetY, ...props}) => <div {...props} />)`
   position: absolute;
   top: ${props => (props.offsetY ? props.offsetY - 20 : -8)}px;
   left: 0;
@@ -86,7 +91,7 @@ function Point(props: PointProps) {
 
 type OriginProps = {
   className?: string
-  label?: string
+  label?: React.ReactNode
   children: React.ReactNode
 }
 
@@ -146,8 +151,10 @@ export function Origin({className, label, children}: OriginProps) {
   return (
     <OriginRoot className={className} label={label}>
       <OriginIcon label={label} size={rect ? rect.height : 46}>
-        <OriginRoad height={rect ? rect.height : 46} offsetY={offsetY} />
-        <OriginPoint offsetY={offsetY} />
+        <OriginIconContent>
+          <OriginRoad height={rect ? rect.height : 46} offsetY={offsetY} />
+          <OriginPoint offsetY={offsetY} />
+        </OriginIconContent>
       </OriginIcon>
       {label && <AsideLabel offsetY={offsetY}>{label}</AsideLabel>}
       <div ref={ref}>
