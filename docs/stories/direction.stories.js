@@ -23,7 +23,7 @@ storiesOf('API|Direction', module)
     <>
       <Showcase>
         <Direction style={{background: 'white'}}>
-          <Direction.Origin label={'11:27'}>
+          <Direction.Origin label={<Typography.Body1>11:27</Typography.Body1>}>
             <Direction.Origin.Point>
               <Typography.Body1>Ambler</Typography.Body1>
             </Direction.Origin.Point>
@@ -51,7 +51,7 @@ storiesOf('API|Direction', module)
     <>
       <Showcase>
         <Direction style={{background: 'white'}}>
-          <Direction.Destination label={'~14:10'}>
+          <Direction.Destination label={<Typography.Body1>~14:10</Typography.Body1>}>
             <Direction.Destination.Point>
               <Typography.Body1>Phil</Typography.Body1>
             </Direction.Destination.Point>
@@ -85,13 +85,13 @@ storiesOf('API|Direction', module)
     <>
       <Showcase>
         <Direction style={{background: 'white'}}>
-          <Direction.Origin label={'~14:10'}>
+          <Direction.Origin label={<Typography.Body1>~14:10</Typography.Body1>}>
             <Direction.Origin.Point>
               <Typography.Body1>Ambler</Typography.Body1>
             </Direction.Origin.Point>
             <Typography.Body2 color={palette.mediumPrimary}>24 Quai charles pasqua, Levalois-Perret</Typography.Body2>
           </Direction.Origin>
-          <Direction.Destination label={'~14:10'}>
+          <Direction.Destination label={<Typography.Body1>~14:10</Typography.Body1>}>
             <Direction.Destination.Point>
               <Typography.Body1>Phil</Typography.Body1>
             </Direction.Destination.Point>
