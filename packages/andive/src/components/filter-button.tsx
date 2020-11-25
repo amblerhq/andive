@@ -5,22 +5,22 @@ import {body1Css, body3Css} from './typography'
 import * as palette from '../constants/palette'
 import FilterIcon from './icons/filter'
 
-const FilterButtonRoot = styled(({active, ...props}) => <button {...props} />)<{
+const FilterButtonRoot = styled(({active, backgroundColor, ...props}) => <button {...props} />)<{
   active?: boolean
+  backgroundColor?: string
 }>`
   background: ${({active, backgroundColor}) =>
     backgroundColor || (active ? palette.mediumBerryBlue : palette.mediumGrey)};
-  border: 1px solid tomato;
+  border: none;
   border-radius: 16px;
   cursor: pointer;
   height: 40px;
   padding: 8px;
-
   display: flex;
   align-items: center;
 
-  ${props =>
-    props.active &&
+  ${({active}) =>
+    active &&
     css`
       *[data-andive-type='typography'],
       svg {
