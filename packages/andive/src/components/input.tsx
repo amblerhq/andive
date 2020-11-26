@@ -206,6 +206,7 @@ export function Input({
   textarea = false,
   small = false,
   mandatory = false,
+  autoComplete = "off",
   inputRef,
   ...props
 }: InputProps) {
@@ -297,7 +298,7 @@ export function Input({
             small={small}
             hasLeftIcon={hasIcon}
             hasRightIcon={hasClear}
-            autoComplete="ambler"
+            autoComplete={autoComplete}
           />
           {hasIcon && <Icon small={small}>{icon}</Icon>}
           {hasClear && !props.disabled && (

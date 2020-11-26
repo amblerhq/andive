@@ -115,7 +115,6 @@ export interface AutocompleteProps<T> {
   noHintError?: React.ReactNode
   onBlur?: (ev: React.FocusEvent<HTMLInputElement>) => void
   onFocus?: (ev: React.FocusEvent<HTMLInputElement>) => void
-  disableNativeAutocomplete?: boolean // deprecated because it's overriden by the Input as autoComplete="ambler"
 }
 export function Autocomplete<T>({
   value,
@@ -145,7 +144,6 @@ export function Autocomplete<T>({
   noHintError,
   onBlur,
   onFocus,
-  disableNativeAutocomplete,
   ...props
 }: AutocompleteProps<T>) {
   const [input, setInput] = React.useState('')
@@ -226,7 +224,6 @@ export function Autocomplete<T>({
           }
         }}
         value={input}
-        autoComplete={disableNativeAutocomplete ? 'off' : undefined}
         {...props}
       />
 
