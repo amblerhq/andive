@@ -9,9 +9,10 @@ const FilterButtonRoot = styled(({active, backgroundColor, ...props}) => <button
   active?: boolean
   backgroundColor?: string
 }>`
+  outline: none;
+  border: none;
   background: ${({active, backgroundColor}) =>
     backgroundColor || (active ? palette.mediumBerryBlue : palette.mediumGrey)};
-  border: none;
   border-radius: 16px;
   cursor: pointer;
   height: 40px;
@@ -55,7 +56,7 @@ interface FilterButtonProps {
 export const FilterButton = ({active, color, onClick, className, label, mobile, ...buttonProps}: FilterButtonProps) => {
   return (
     <FilterButtonRoot onClick={onClick} className={className} active={active} {...buttonProps}>
-      <FilterIcon />
+      <FilterIcon color={color} />
       {label && (
         <FilterText active={active} color={color} mobile={mobile}>
           {label}
