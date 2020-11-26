@@ -6,7 +6,7 @@ import styled from 'styled-components'
 import Showcase from './showcase'
 
 const Container = styled.div`
-  background-color: white;
+  background-color: ${({backgroundColor}) => backgroundColor || palette.white};
   width: 300px;
   height: 60px;
 
@@ -59,31 +59,15 @@ storiesOf('Next|FilterButton', module)
       </Showcase>
     )
   })
-  .add('Mobile', () => {
-    return (
-      <Showcase>
-        <Container>
-          <FilterButton
-            label="Filtrer"
-            mobile
-            onClick={() => {
-              alert('On click triggered')
-            }}
-          />
-        </Container>
-      </Showcase>
-    )
-  })
   // ! Not sure backgroundColor and color should be available,
   // ! in which case the hover effect colors should be adapted to the backgoundColor specified
   .add('Custom colors', () => {
     return (
       <Showcase>
-        <Container>
+        <Container backgroundColor={palette.mediumGrey}>
           <FilterButton
             label="Custom text color"
-            backgroundColor={palette.warning}
-            color={palette.warningText}
+            backgroundColor={palette.white}
             onClick={() => {
               alert('On click triggered')
             }}
