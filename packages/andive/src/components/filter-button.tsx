@@ -16,6 +16,7 @@ const FilterButtonRoot = styled(({active, backgroundColor, ...props}) => <button
   border-radius: 16px;
   cursor: pointer;
   height: 40px;
+  min-width: 40px;
   padding: 8px;
   display: flex;
   align-items: center;
@@ -49,12 +50,19 @@ interface FilterButtonProps {
   onClick?: DOMAttributes<HTMLButtonElement>['onClick']
   color?: string
   active?: boolean
+  icon?: JSX.Element
 }
 
-export const FilterButton = ({active, color, onClick, className, label, ...buttonProps}: FilterButtonProps) => {
+export const FilterButton = ({active, color, onClick, className, label, icon, ...buttonProps}: FilterButtonProps) => {
   return (
     <FilterButtonRoot onClick={onClick} className={className} active={active} {...buttonProps}>
-      <FilterIcon color={color} />
+      {(() => {
+        if (icon) {
+          return React.cloneElement(icon, {color})
+        } else {
+          return icon === null ? null : <FilterIcon color={color} />
+        }
+      })()}
       {label && (
         <FilterText active={active} color={color}>
           {label}

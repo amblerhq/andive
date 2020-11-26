@@ -1,6 +1,6 @@
 import React from 'react'
 import {storiesOf} from '@storybook/react'
-import {FilterButton, palette} from '@ambler/andive'
+import {FilterButton, palette, MoreIcon} from '@ambler/andive'
 import styled from 'styled-components'
 
 import Showcase from './showcase'
@@ -51,6 +51,34 @@ storiesOf('Next|FilterButton', module)
       <Showcase>
         <Container>
           <FilterButton
+            onClick={() => {
+              alert('On click triggered')
+            }}
+          />
+        </Container>
+      </Showcase>
+    )
+  })
+  .add('With custom icon', () => {
+    return (
+      <Showcase>
+        <Container>
+          <FilterButton
+            icon={<MoreIcon />}
+            onClick={() => {
+              alert('On click triggered')
+            }}
+          />
+        </Container>
+      </Showcase>
+    )
+  })
+  .add('With no icon', () => {
+    return (
+      <Showcase>
+        <Container>
+          <FilterButton
+            icon={null}
             onClick={() => {
               alert('On click triggered')
             }}
