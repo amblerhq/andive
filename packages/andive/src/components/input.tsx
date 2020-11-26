@@ -206,7 +206,7 @@ export function Input({
   textarea = false,
   small = false,
   mandatory = false,
-  autoComplete = "off",
+  autoComplete = 'off',
   inputRef,
   ...props
 }: InputProps) {
