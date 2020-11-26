@@ -59,8 +59,6 @@ storiesOf('Next|FilterButton', module)
       </Showcase>
     )
   })
-  // ! Not sure backgroundColor and color should be available,
-  // ! in which case the hover effect colors should be adapted to the backgoundColor specified
   .add('Custom colors', () => {
     return (
       <Showcase>
