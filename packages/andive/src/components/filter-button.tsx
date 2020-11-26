@@ -1,7 +1,7 @@
 import React, {DOMAttributes} from 'react'
 import styled, {css} from 'styled-components'
 
-import {body1Css, body3Css} from './typography'
+import {body2Css} from './typography'
 import * as palette from '../constants/palette'
 import FilterIcon from './icons/filter'
 
@@ -34,12 +34,11 @@ const FilterButtonRoot = styled(({active, backgroundColor, ...props}) => <button
   }
 `
 
-const FilterText = styled(({active, color, mobile, ...props}) => <div {...props} />)<{
+const FilterText = styled(({active, color, ...props}) => <div {...props} />)<{
   active?: boolean
   color?: string
-  mobile?: boolean
 }>`
-  ${props => (props.mobile ? body3Css : body1Css)};
+  ${body2Css};
   color: ${({active, color}) => color || (active ? palette.white : palette.secondaryText)};
   padding: 0 8px;
 `
@@ -50,15 +49,14 @@ interface FilterButtonProps {
   onClick?: DOMAttributes<HTMLButtonElement>['onClick']
   color?: string
   active?: boolean
-  mobile?: boolean
 }
 
-export const FilterButton = ({active, color, onClick, className, label, mobile, ...buttonProps}: FilterButtonProps) => {
+export const FilterButton = ({active, color, onClick, className, label, ...buttonProps}: FilterButtonProps) => {
   return (
     <FilterButtonRoot onClick={onClick} className={className} active={active} {...buttonProps}>
       <FilterIcon color={color} />
       {label && (
-        <FilterText active={active} color={color} mobile={mobile}>
+        <FilterText active={active} color={color}>
           {label}
         </FilterText>
       )}
