@@ -66,7 +66,7 @@ storiesOf('Next|FilterButton', module)
       <Showcase>
         <Container backgroundColor={palette.mediumGrey}>
           <FilterButton
-            label="Custom text color"
+            label="Filtrer"
             backgroundColor={palette.white}
             onClick={() => {
               alert('On click triggered')
