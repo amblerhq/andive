@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import React, {DOMAttributes} from 'react'
 import styled, {css} from 'styled-components'
 
@@ -56,13 +57,7 @@ interface FilterButtonProps {
 export const FilterButton = ({active, color, onClick, className, label, icon, ...buttonProps}: FilterButtonProps) => {
   return (
     <FilterButtonRoot onClick={onClick} className={className} active={active} {...buttonProps}>
-      {(() => {
-        if (icon) {
-          return React.cloneElement(icon, {color})
-        } else {
-          return icon === null ? null : <FilterIcon color={color} />
-        }
-      })()}
+      {icon !== null && (icon ? React.cloneElement(icon, {color}) : <FilterIcon color={color} />)}
       {label && (
         <FilterText active={active} color={color}>
           {label}
