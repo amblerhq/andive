@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 import React, {DOMAttributes} from 'react'
 import styled, {css} from 'styled-components'
 
