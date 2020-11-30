@@ -152,7 +152,7 @@ export function DropdownFilter({
             onClick() {
               onClick()
             },
-            active: open
+            active: open || selected
           })}
         {!button && <FilterButton active={selected || open} label={label} onClick={onClick} />}
         {open && (
