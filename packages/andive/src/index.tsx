@@ -196,6 +196,8 @@ export {default as Button} from './components/button'
 
 export {FlatButton} from './components/flat-button'
 
+export {FilterButton} from './components/filter-button'
+
 export {default as ButtonGroup} from './components/button-group'
 
 export {default as Card} from './components/card'

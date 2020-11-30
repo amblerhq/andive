@@ -155,7 +155,6 @@ storiesOf('API|Button', module)
   .add('Primary/Main', () => <ButtonStory variant="primary" />)
   .add('Default/Secondary', () => <ButtonStory />)
   .add('Flat/Third', () => <ButtonStory variant="flat" />)
-  .add('Filter', () => <ButtonStory variant="filter" />)
   .add('With icon', () => (
     <>
       <Info>
@@ -175,14 +174,8 @@ storiesOf('API|Button', module)
       </Showcase>
       <Showcase legend="Flat/Third">
         <ButtonGroup>
-          <Button variant="flat" leftIcon={<AmbulanceIcon />} />
+          <Button variant="flat" label="Ambulance" leftIcon={<AmbulanceIcon />} />
           <Button variant="flat" label="Ambulance" rightIcon={<AmbulanceIcon />} />
-        </ButtonGroup>
-      </Showcase>
-      <Showcase legend="Flat/Third">
-        <ButtonGroup>
-          <Button variant="filter" label="Ambulance" leftIcon={<AmbulanceIcon />} />
-          <Button variant="filter" label="Ambulance" rightIcon={<AmbulanceIcon />} />
         </ButtonGroup>
       </Showcase>
       <Info>
@@ -204,12 +197,6 @@ storiesOf('API|Button', module)
         <ButtonGroup>
           <Button mobile variant="flat" label="Ambulance" leftIcon={<AmbulanceIcon />} />
           <Button mobile variant="flat" label="Ambulance" rightIcon={<AmbulanceIcon />} />
-        </ButtonGroup>
-      </Showcase>
-      <Showcase legend="Flat/Third">
-        <ButtonGroup>
-          <Button mobile variant="filter" label="Ambulance" leftIcon={<AmbulanceIcon />} />
-          <Button mobile variant="filter" label="Ambulance" rightIcon={<AmbulanceIcon />} />
         </ButtonGroup>
       </Showcase>
     </>

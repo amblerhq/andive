@@ -95,7 +95,7 @@ function RideStatusStory() {
 function MobileFilterStory() {
   return (
     <>
-      <ShowcaseFilter>
+      <ShowcaseFilter invert>
         <DropdownFilter label="23 juin - 4 juil." mobile>
           <Info>
             <Info.Label label="A l'Olympiade" />
@@ -110,7 +110,7 @@ function MobileFilterStory() {
 function RideSideFilterStory() {
   return (
     <>
-      <ShowcaseFilter style={{justifyContent: 'flex-end'}}>
+      <ShowcaseFilter invert style={{justifyContent: 'flex-end'}}>
         <DropdownFilter label="23 juin - 4 juil." openLeft>
           <Info>
             <Info.Label label="A l'Olympiade" />
@@ -125,7 +125,7 @@ function RideSideFilterStory() {
 function RenderPropsWithCloseStory() {
   return (
     <>
-      <ShowcaseFilter>
+      <ShowcaseFilter invert>
         <DropdownFilter label="23 juin - 4 juil.">
           {({close}) => <FlatButton label={'Fermer'} onClick={() => close()} />}
         </DropdownFilter>
