@@ -11,7 +11,9 @@ import {
   Typography,
   MoreIcon,
   TrashIcon,
-  EditIcon
+  EditIcon,
+  FilterButton,
+  palette
 } from '@ambler/andive'
 import styled from 'styled-components'
 
@@ -179,27 +181,27 @@ storiesOf('API|Dropdown', module)
   .add('DropdownComposer', () => {
     return (
       <>
-        <Showcase legend="DropdownBase controlled">
+        <Showcase invert legend="DropdownBase controlled">
           <DropdownComposer
-            button={<Button label="Open and spread top-left" variant="filter" invert />}
+            button={<FilterButton label="Open and spread top-left" />}
             dropdown={AmbulanceInfo}
             horizontal={DropdownComposer.HorizontalVariant.LEFT}
             vertical={DropdownComposer.VerticalVariant.UP}
           />
           <DropdownComposer
-            button={<Button label="Open and spread top-right" variant="filter" invert />}
+            button={<FilterButton label="Open and spread top-right" />}
             dropdown={AmbulanceInfo}
             horizontal={DropdownComposer.HorizontalVariant.RIGHT}
             vertical={DropdownComposer.VerticalVariant.UP}
           />
           <DropdownComposer
-            button={<Button label="Open and spread bottom-left" variant="filter" invert />}
+            button={<FilterButton label="Open and spread bottom-left" />}
             dropdown={AmbulanceInfo}
             horizontal={DropdownComposer.HorizontalVariant.LEFT}
             vertical={DropdownComposer.VerticalVariant.DOWN}
           />
           <DropdownComposer
-            button={<Button label="Open and spread bottom-right" variant="filter" invert />}
+            button={<FilterButton label="Open and spread bottom-right" />}
             dropdown={AmbulanceInfo}
             horizontal={DropdownComposer.HorizontalVariant.RIGHT}
             vertical={DropdownComposer.VerticalVariant.DOWN}

@@ -2,14 +2,13 @@ import React from 'react'
 import styled, {css} from 'styled-components'
 
 import * as palette from '../constants/palette'
-import {Body2, body1Css, body2Css, body3Css} from './typography'
+import {Body2, body2Css} from './typography'
 import Loader from './loader'
 import {ButtonGroupContext} from './button-group'
 import Box from './box'
 
 const lightGreyAlpha = palette.hexToRGBA(palette.mediumPrimary, 0.5)
 const lightBeetrootPurpleAlpha = palette.hexToRGBA(palette.mediumBeetrootPurple, 0.5)
-const mediumBeetrootPurpleAlpha = palette.hexToRGBA(palette.darkBeetrootPurple, 0.5)
 
 interface ButtonProps {
   className?: string
@@ -18,7 +17,7 @@ interface ButtonProps {
   rightIcon?: JSX.Element
   leftIcon?: JSX.Element
   onClick?: (ev: MouseEvent) => void
-  variant?: 'primary' | 'flat' | 'filter'
+  variant?: 'primary' | 'flat'
   invert?: boolean
   backgroundColor?: string
   textColor?: string
@@ -37,7 +36,7 @@ const ButtonWrapper = styled(({loading, invert, fill, ...props}) => <div {...pro
   fill?: boolean
   disabled?: boolean
   loading?: boolean
-  variant: 'primary' | 'flat' | 'filter'
+  variant: 'primary' | 'flat'
   invert?: boolean
   mobile?: boolean
 }>`
@@ -205,33 +204,6 @@ const FlatButton = styled(ResetButton)<{color?: string}>`
   color: ${props => props.color};
 `
 
-// * Filter variant
-
-function filterColor({disabled, invert}: {disabled?: boolean; invert?: boolean}) {
-  if (disabled) {
-    return invert ? lightGreyAlpha : mediumBeetrootPurpleAlpha
-  }
-
-  return invert ? palette.darkPrimary : palette.white
-}
-
-const FilterButton = styled(ResetButton)<{
-  invert?: boolean
-  mobile?: boolean
-  backgroundColor?: string
-}>`
-  border-radius: 16px;
-  height: 40px;
-  border: 1px solid ${props => (props.invert ? palette.darkPrimary : 'transparent')};
-  background: ${({invert, backgroundColor}) => backgroundColor || (invert ? palette.white : palette.mediumBerryBlue)};
-  padding: 8px;
-`
-const FilterText = styled(({mobile, color, ...props}) => <div {...props} />)<{mobile?: boolean; color: string}>`
-  ${props => (props.mobile ? body3Css : body1Css)};
-  color: ${props => props.color};
-  padding: 0 8px;
-`
-
 const FlatText = styled.div<{mobile?: boolean; color: string}>`
   ${body2Css};
 
@@ -284,18 +256,12 @@ const Button = React.forwardRef(function Button(
         return PrimaryButton
       case 'flat':
         return FlatButton
-      case 'filter':
-        return FilterButton
       default:
         return DefaultButton
     }
   }, [variant])
 
   const ButtonLabel = React.useMemo(() => {
-    if (variant === 'filter') {
-      return FilterText
-    }
-
     if (variant === 'flat') {
       return FlatText
     }
@@ -313,8 +279,6 @@ const Button = React.forwardRef(function Button(
       ? primaryColor({disabled})
       : variant === 'flat'
       ? flatColor({invert, disabled})
-      : variant === 'filter'
-      ? filterColor({invert, disabled})
       : defaultColor({disabled})
   }, [variant, disabled, textColor, invert])
 
@@ -338,7 +302,7 @@ const Button = React.forwardRef(function Button(
     <>
       {leftIcon && React.cloneElement(leftIcon, {color})}
       {label && (
-        <ButtonLabel style={textStyle(leftIcon, rightIcon, label)} invert={invert} color={color} mobile={mobile}>
+        <ButtonLabel style={textStyle(leftIcon, rightIcon, label)} color={color} mobile={mobile}>
           {label}
         </ButtonLabel>
       )}

@@ -5,6 +5,7 @@ import * as palette from '../constants/palette'
 import Button from './button'
 import {ZIndexes} from '../constants/enum'
 import {CloseIcon} from '..'
+import {FilterButton} from './filter-button'
 
 const MenuFilterRoot = styled.div<{open?: boolean}>`
   position: relative;
@@ -153,9 +154,7 @@ export function DropdownFilter({
             },
             active: open
           })}
-        {!button && (
-          <Button variant="filter" invert={!selected && !open} label={label} onClick={onClick} mobile={mobile} />
-        )}
+        {!button && <FilterButton active={selected || open} label={label} onClick={onClick} />}
         {open && (
           <Menu className={className} openLeft={openLeft} mobile={mobile}>
             {mobile && (

@@ -78,6 +78,7 @@ storiesOf('Next|FilterButton', module)
       <Showcase>
         <Container>
           <FilterButton
+            label="Filtrer"
             icon={null}
             onClick={() => {
               alert('On click triggered')
