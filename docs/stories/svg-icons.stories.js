@@ -83,7 +83,9 @@ import {
   PostponeIcon,
   UnlockIcon,
   RegulatorIcon,
-  UnpoolIcon
+  UnpoolIcon,
+  BellWithCircleBadgeIcon,
+  BellIcon
 } from '@ambler/andive'
 
 import Showcase from './showcase'
@@ -169,7 +171,9 @@ const icons = [
   PostponeIcon,
   UnlockIcon,
   RegulatorIcon,
-  UnpoolIcon
+  UnpoolIcon,
+  BellWithCircleBadgeIcon,
+  BellIcon
 ]
 
 function TimedColor({interval, colors, children}) {
@@ -249,6 +253,7 @@ storiesOf('Assets|Icons', module)
           {color => (
             <Icons>
               {icons.map((Icon, index) => {
+                console.log(Icon.name)
                 return (
                   <Showcase key={index} variant="squared" size={160} legend={Icon.name}>
                     <Icon color={color} />
