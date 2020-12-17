@@ -1,6 +1,6 @@
 import React from 'react'
 
-import Verified from '../../../img/icons/Verified.svg'
+import Verified from '../../../img/icons/verified.svg'
 import SvgIcon from '../svg-icon'
 import {palette} from '../..'
 
