@@ -156,6 +156,10 @@ export {default as RegulatorIcon} from './components/icons/regulator'
 
 export {default as UnpoolIcon} from './components/icons/unpool'
 
+export {default as BellWithCircleBadgeIcon} from './components/icons/bell-with-circle-badge'
+
+export {default as BellIcon} from './components/icons/bell'
+
 /**
  * Illustrations
  */
