@@ -160,6 +160,8 @@ export {default as BellWithCircleBadgeIcon} from './components/icons/bell-with-c
 
 export {default as BellIcon} from './components/icons/bell'
 
+export {default as VerifiedIcon} from './components/icons/verified'
+
 /**
  * Illustrations
  */

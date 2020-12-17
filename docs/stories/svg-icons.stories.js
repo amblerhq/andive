@@ -85,7 +85,8 @@ import {
   RegulatorIcon,
   UnpoolIcon,
   BellWithCircleBadgeIcon,
-  BellIcon
+  BellIcon,
+  VerifiedIcon
 } from '@ambler/andive'
 
 import Showcase from './showcase'
@@ -173,7 +174,8 @@ const icons = [
   RegulatorIcon,
   UnpoolIcon,
   BellWithCircleBadgeIcon,
-  BellIcon
+  BellIcon,
+  VerifiedIcon
 ]
 
 function TimedColor({interval, colors, children}) {
