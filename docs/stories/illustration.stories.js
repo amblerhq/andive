@@ -11,7 +11,8 @@ import {
   PatientIllustration,
   StandardIllustration,
   TooLateIllustration,
-  EmptyIllustration
+  EmptyIllustration,
+  SleepingBellIllustration
 } from '@ambler/andive'
 
 import Showcase from './showcase'
@@ -66,6 +67,9 @@ storiesOf('Assets|Illustrations', module)
         </Showcase>
         <Showcase variant="squared" size={400} style={{background: 'white'}} legend="<StandardIllustration />">
           <StandardIllustration />
+        </Showcase>
+        <Showcase variant="squared" size={400} style={{background: 'white'}} legend="<SleepingBellIllustration />">
+          <SleepingBellIllustration />
         </Showcase>
       </Story>
     )
