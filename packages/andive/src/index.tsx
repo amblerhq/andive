@@ -2,6 +2,8 @@
  * Icons
  */
 
+export {default as Alert} from './components/alert'
+
 export {default as AccountIcon} from './components/icons/account'
 
 export {default as AgreementIcon} from './components/icons/agreement'
