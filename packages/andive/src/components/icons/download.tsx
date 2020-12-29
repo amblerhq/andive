@@ -5,7 +5,6 @@ import SvgIcon from '../svg-icon'
 import {palette} from '../..'
 
 const DownloadIcon = ({color = palette.darkPrimary, ...rest}) => {
-  console.log('color :>> ', color)
   return (
     <SvgIcon color={color} {...rest}>
       <Download />
