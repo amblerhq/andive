@@ -164,6 +164,8 @@ export {default as BellIcon} from './components/icons/bell'
 
 export {default as VerifiedIcon} from './components/icons/verified'
 
+export {default as DownloadIcon} from './components/icons/download'
+
 /**
  * Illustrations
  */
