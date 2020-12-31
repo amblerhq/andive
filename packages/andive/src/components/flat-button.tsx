@@ -17,6 +17,10 @@ const FlatButtonWrapper = styled(({invert, active, hasLabel, disabled, reverse, 
   loading?: boolean
   shrink?: boolean
 }>`
+  /* When the button is used inside a "display:flex" container, its height matched the parent height.
+    To avoid that, we define its align-self property. */
+  align-self: baseline;
+
   ${props =>
     props.shrink &&
     css`
