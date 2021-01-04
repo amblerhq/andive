@@ -86,7 +86,8 @@ import {
   UnpoolIcon,
   BellWithCircleBadgeIcon,
   BellIcon,
-  VerifiedIcon
+  VerifiedIcon,
+  DoctorIcon
 } from '@ambler/andive'
 
 import Showcase from './showcase'
@@ -175,7 +176,8 @@ const icons = [
   UnpoolIcon,
   BellWithCircleBadgeIcon,
   BellIcon,
-  VerifiedIcon
+  VerifiedIcon,
+  DoctorIcon
 ]
 
 function TimedColor({interval, colors, children}) {
@@ -198,7 +200,13 @@ function TimedColor({interval, colors, children}) {
   return children(color)
 }
 
-const newIcons = [{Icon: ResetIcon}, {Icon: DropdownArrowIcon}, {Icon: FilterIcon}, {Icon: InfosIcon}]
+const newIcons = [
+  {Icon: DoctorIcon},
+  {Icon: ResetIcon},
+  {Icon: DropdownArrowIcon},
+  {Icon: FilterIcon},
+  {Icon: InfosIcon}
+]
 const updatedIcons = []
 
 storiesOf('Assets|Icons', module)
