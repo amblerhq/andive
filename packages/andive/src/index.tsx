@@ -194,7 +194,6 @@ export {default as SleepingBellIllustration} from './components/illustrations/sl
 
 export {default as RingingBellIllustration} from './components/illustrations/ringing-bell'
 
-
 /**
  * Components
  */
