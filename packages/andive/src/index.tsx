@@ -192,6 +192,9 @@ export {default as TooLateIllustration} from './components/illustrations/too-lat
 
 export {default as SleepingBellIllustration} from './components/illustrations/sleeping-bell'
 
+export {default as RingingBellIllustration} from './components/illustrations/ringing-bell'
+
+
 /**
  * Components
  */
