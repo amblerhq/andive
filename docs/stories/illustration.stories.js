@@ -25,7 +25,6 @@ import {
   HeadphonesIllustration,
   WatchIllustration,
   NurseIllustration,
-  StretcherIllustration,
   MaintenanceIllustration
 } from '@ambler/andive'
 
@@ -52,9 +51,6 @@ storiesOf('Assets|Illustrations', module)
   .add('Library', () => {
     return (
       <Story>
-        <Showcase variant="squared" size={400} style={{background: 'white'}} legend="<StretcherIllustration />">
-          <StretcherIllustration />
-        </Showcase>
         <Showcase variant="squared" size={400} style={{background: 'white'}} legend="<NurseIllustration />">
           <NurseIllustration />
         </Showcase>
