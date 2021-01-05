@@ -13,7 +13,20 @@ import {
   TooLateIllustration,
   EmptyIllustration,
   SleepingBellIllustration,
-  RingingBellIllustration
+  RingingBellIllustration,
+  CFacilityIllustration,
+  GhtFacilityIllustration,
+  ChFacilityIllustration,
+  GpFacilityIllustration,
+  CancelIllustration,
+  TaxiIllustration,
+  DirectorIllustration,
+  EmptyStretcherIllustration,
+  HeadphonesIllustration,
+  WatchIllustration,
+  NurseIllustration,
+  StretcherIllustration,
+  MaintenanceIllustration
 } from '@ambler/andive'
 
 import Showcase from './showcase'
@@ -33,28 +46,61 @@ storiesOf('Assets|Illustrations', module)
         <Showcase variant="squared" size={400} style={{background: 'white'}} legend="<SleepingBellIllustration />">
           <SleepingBellIllustration />
         </Showcase>
-        <Showcase variant="squared" size={400} legend="<TooLateIllustration />">
-          <TooLateIllustration />
-        </Showcase>
-        <Showcase variant="squared" size={400} legend="<EmptyIllustration />">
-          <EmptyIllustration />
-        </Showcase>
       </Story>
     )
   })
   .add('Library', () => {
     return (
       <Story>
+        <Showcase variant="squared" size={400} style={{background: 'white'}} legend="<StretcherIllustration />">
+          <StretcherIllustration />
+        </Showcase>
+        <Showcase variant="squared" size={400} style={{background: 'white'}} legend="<NurseIllustration />">
+          <NurseIllustration />
+        </Showcase>
+        <Showcase variant="squared" size={400} style={{background: 'white'}} legend="<MaintenanceIllustration />">
+          <MaintenanceIllustration />
+        </Showcase>
+        <Showcase variant="squared" size={400} style={{background: 'white'}} legend="<DirectorIllustration />">
+          <DirectorIllustration />
+        </Showcase>
+        <Showcase variant="squared" size={400} style={{background: 'white'}} legend="<WatchIllustration />">
+          <WatchIllustration />
+        </Showcase>
+        <Showcase variant="squared" size={400} style={{background: 'white'}} legend="<HeadphonesIllustration />">
+          <HeadphonesIllustration />
+        </Showcase>
+        <Showcase variant="squared" size={400} style={{background: 'white'}} legend="<EmptyStretcherIllustration />">
+          <EmptyStretcherIllustration />
+        </Showcase>
+        <Showcase variant="squared" size={400} style={{background: 'white'}} legend="<TaxiIllustration />">
+          <TaxiIllustration />
+        </Showcase>
+        <Showcase variant="squared" size={400} style={{background: 'white'}} legend="<CancelIllustration />">
+          <CancelIllustration />
+        </Showcase>
+        <Showcase variant="squared" size={400} style={{background: 'white'}} legend="<GpFacilityIllustration />">
+          <GpFacilityIllustration />
+        </Showcase>
+        <Showcase variant="squared" size={400} style={{background: 'white'}} legend="<ChFacilityIllustration />">
+          <ChFacilityIllustration />
+        </Showcase>
+        <Showcase variant="squared" size={400} style={{background: 'white'}} legend="<CFacilityIllustration />">
+          <CFacilityIllustration />
+        </Showcase>
+        <Showcase variant="squared" size={400} style={{background: 'white'}} legend="<GhtFacilityIllustration />">
+          <GhtFacilityIllustration />
+        </Showcase>
         <Showcase variant="squared" size={400} style={{background: 'white'}} legend="<RingingBellIllustration />">
           <RingingBellIllustration />
         </Showcase>
         <Showcase variant="squared" size={400} style={{background: 'white'}} legend="<SleepingBellIllustration />">
           <SleepingBellIllustration />
         </Showcase>
-        <Showcase variant="squared" size={400} legend="<TooLateIllustration />">
+        <Showcase variant="squared" size={400} style={{background: 'white'}} legend="<TooLateIllustration />">
           <TooLateIllustration />
         </Showcase>
-        <Showcase variant="squared" size={400} legend="<EmptyIllustration />">
+        <Showcase variant="squared" size={400} style={{background: 'white'}} legend="<EmptyIllustration />">
           <EmptyIllustration />
         </Showcase>
         <Showcase variant="squared" size={400} invert legend="<SuccessIllustration />">
