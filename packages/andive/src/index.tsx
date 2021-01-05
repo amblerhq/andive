@@ -218,10 +218,6 @@ export {default as MaintenanceIllustration} from './components/illustrations/mai
 
 export {default as NurseIllustration} from './components/illustrations/nurse'
 
-export {default as StretcherIllustration} from './components/illustrations/stretcher'
-
-export {default as Art80SecuIllustration} from './components/illustrations/art80-secu'
-
 /**
  * Components
  */
