@@ -194,6 +194,30 @@ export {default as SleepingBellIllustration} from './components/illustrations/sl
 
 export {default as RingingBellIllustration} from './components/illustrations/ringing-bell'
 
+export {default as CancelIllustration} from './components/illustrations/cancel'
+
+export {default as TaxiIllustration} from './components/illustrations/taxi'
+
+export {default as DirectorIllustration} from './components/illustrations/director'
+
+export {default as CFacilityIllustration} from './components/illustrations/c-facility'
+
+export {default as ChFacilityIllustration} from './components/illustrations/ch-facility'
+
+export {default as GhtFacilityIllustration} from './components/illustrations/ght-facillty'
+
+export {default as GpFacilityIllustration} from './components/illustrations/gp-facility'
+
+export {default as EmptyStretcherIllustration} from './components/illustrations/empty-stretcher'
+
+export {default as HeadphonesIllustration} from './components/illustrations/headphones'
+
+export {default as WatchIllustration} from './components/illustrations/watch'
+
+export {default as MaintenanceIllustration} from './components/illustrations/maintenance'
+
+export {default as NurseIllustration} from './components/illustrations/nurse'
+
 /**
  * Components
  */
