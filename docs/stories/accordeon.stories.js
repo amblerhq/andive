@@ -1,6 +1,16 @@
 import React from 'react'
 import {storiesOf} from '@storybook/react'
-import {Accordeon, Info, Art80Icon, PatientIcon, QuestionIcon, palette} from '@ambler/andive'
+import {
+  Accordeon,
+  Info,
+  Art80Icon,
+  PatientIcon,
+  QuestionIcon,
+  palette,
+  Icon,
+  Typography,
+  AlertIcon
+} from '@ambler/andive'
 
 import Showcase from './showcase'
 
@@ -78,6 +88,29 @@ storiesOf('API|Accordeon', module)
     return (
       <Showcase>
         <Accordeon icon={icon} label="Toujours fan" href="https://fr.wikipedia.org/wiki/Phil_Collins" />
+      </Showcase>
+    )
+  })
+  .add('With Icon component (icon + subtext)', () => {
+    const label = 'Gênes ou douleurs, Patient agité, Surpoids (< 130kg), Fauteuil Roulant pliable, Isolement septique'
+    return (
+      <Showcase>
+        <div style={{background: 'white', width: 500}}>
+          <Accordeon
+            header={
+              <>
+                <Typography.Body1>Mme Jeanne</Typography.Body1>
+                <Icon icon={<AlertIcon />}>
+                  <Typography.Body2 color={palette.secondaryText}>{label}</Typography.Body2>
+                </Icon>
+              </>
+            }
+          >
+            <Info>
+              <Info.Label label="de Phil Colins !" />
+            </Info>
+          </Accordeon>
+        </div>
       </Showcase>
     )
   })

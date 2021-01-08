@@ -38,6 +38,8 @@ export interface Props {
   href?: string
   overflow?: number
   children?: any
+  // New prop that replaces the label prop.
+  header?: React.ReactNode
 }
 
 function OptionalLink({href, children}) {
@@ -52,21 +54,32 @@ function OptionalLink({href, children}) {
   return children
 }
 
-function AccordeonComponent({className, label, openByDefault, open, onToggle, icon, href, children}: Props) {
+const Flex = styled.div`
+  flex: 1;
+`
+
+function AccordeonComponent({className, label, header, openByDefault, open, onToggle, icon, href, children}: Props) {
   const [localOpen, setLocalOpen] = React.useState(openByDefault || false)
   return (
     <>
       <Accordeon className={className}>
         <OptionalLink href={href}>
           <AccordeonButton onClick={href ? undefined : onToggle || (() => setLocalOpen(prev => !prev))}>
-            {/* `min-width: 0` is required if the `label` wants to truncate with ellipsis its content. */}
-            {icon ? (
-              <Icon icon={icon}>
-                <Typography.Body1>{label}</Typography.Body1>
-              </Icon>
+            {header ? (
+              <Flex>{icon ? <Icon icon={icon}>{header}</Icon> : header}</Flex>
             ) : (
-              <Typography.Body1 style={{minWidth: 0}}>{label}</Typography.Body1>
+              <>
+                {/* `min-width: 0` is required if the `label` wants to truncate with ellipsis its content. */}
+                {icon ? (
+                  <Icon icon={icon}>
+                    <Typography.Body1>{label}</Typography.Body1>
+                  </Icon>
+                ) : (
+                  <Typography.Body1 style={{minWidth: 0}}>{label}</Typography.Body1>
+                )}
+              </>
             )}
+
             <HSpace px={8} />
             {href ? (
               <ArrowRightIcon color={palette.mediumPrimary} />
