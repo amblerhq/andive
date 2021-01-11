@@ -263,7 +263,6 @@ storiesOf('Assets|Icons', module)
           {color => (
             <Icons>
               {icons.map((Icon, index) => {
-                console.log(Icon.name)
                 return (
                   <Showcase key={index} variant="squared" size={160} legend={Icon.name}>
                     <Icon color={color} />

@@ -1,5 +1,6 @@
 import React from 'react'
 import {storiesOf} from '@storybook/react'
+import styled from 'styled-components'
 import {
   Accordeon,
   Info,
@@ -7,45 +8,34 @@ import {
   PatientIcon,
   QuestionIcon,
   palette,
-  Icon,
   Typography,
-  AlertIcon
+  AlertIcon,
+  HSpace,
+  Box,
+  Icon
 } from '@ambler/andive'
 
 import Showcase from './showcase'
 
-function ControlledStory() {
-  const icon = <Art80Icon circle circleColor={palette.mediumBeetrootPurple} />
-  const [open, setToggle] = React.useState(false)
+const FlexBox = styled(Box)`
+  display: flex;
+`
 
-  return (
-    <Showcase>
-      <div style={{background: 'white'}}>
-        <Accordeon
-          open={open}
-          onToggle={() => setToggle(prev => !prev)}
-          icon={icon}
-          iconSize={32}
-          label="CERFA n° 11574*04 à fournir au transporteur"
-        >
-          <Info>
-            <Info.Label label="de Phil Colins !" />
-          </Info>
-        </Accordeon>
-      </div>
-      <div style={{padding: 8}}>{open ? 'Is open 👍' : 'Is closed 👎'}</div>
-    </Showcase>
-  )
-}
 storiesOf('API|Accordeon', module)
   .add('Default', () => {
     return (
       <Showcase>
         <div style={{background: 'white'}}>
-          <Accordeon label="CERFA n° 11574*04 à fournir au transporteur">
-            <Info>
-              <Info.Label label="de Phil Colins !" />
-            </Info>
+          <Accordeon
+            header={
+              <Box>
+                <Typography.Body1>CERFA n° 11574*04 à fournir au transporteur</Typography.Body1>
+              </Box>
+            }
+          >
+            <Box>
+              <Typography.Body1>de Phil Colins !</Typography.Body1>
+            </Box>
           </Accordeon>
         </div>
       </Showcase>
@@ -57,26 +47,65 @@ storiesOf('API|Accordeon', module)
     return (
       <Showcase>
         <div style={{background: 'white'}}>
-          <Accordeon icon={icon} label="CERFA n° 11574*04 à fournir au transporteur">
-            <Info>
-              <Info.Label label="de Phil Colins !" />
-            </Info>
+          <Accordeon
+            header={
+              <Icon icon={icon}>
+                <Typography.Body1>CERFA n° 11574*04 à fournir au transporteur</Typography.Body1>
+              </Icon>
+            }
+          >
+            <Box>
+              <Typography.Body1>de Phil Colins !</Typography.Body1>
+            </Box>
           </Accordeon>
         </div>
       </Showcase>
     )
   })
-  .add('Controlled', () => <ControlledStory />)
+  .add('Controlled', () => {
+    const icon = <Art80Icon circle circleColor={palette.mediumBeetrootPurple} />
+    const [open, setToggle] = React.useState(false)
+
+    return (
+      <>
+        <Showcase>
+          <div style={{background: 'white'}}>
+            <Accordeon
+              open={open}
+              onToggle={() => setToggle(prev => !prev)}
+              header={
+                <Icon icon={icon}>
+                  <Typography.Body1>CERFA n° 11574*04 à fournir au transporteur</Typography.Body1>
+                </Icon>
+              }
+            >
+              <Box>
+                <Typography.Body1>de Phil Colins !</Typography.Body1>
+              </Box>
+            </Accordeon>
+          </div>
+        </Showcase>
+        <div style={{padding: 8}}>{open ? 'Is open 👍' : 'Is closed 👎'}</div>
+      </>
+    )
+  })
   .add('Open by default', () => {
     const icon = <PatientIcon circle circleColor={palette.mediumBeetrootPurple} color="white" />
 
     return (
       <Showcase>
         <div style={{background: 'white'}}>
-          <Accordeon icon={icon} openByDefault label="T'es fan">
-            <Info>
-              <Info.Label label="de Phil Colins !" />
-            </Info>
+          <Accordeon
+            openByDefault
+            header={
+              <Icon icon={icon}>
+                <Typography.Body1>T&apos;es un fan</Typography.Body1>
+              </Icon>
+            }
+          >
+            <Box>
+              <Typography.Body1>de Phil Colins !</Typography.Body1>
+            </Box>
           </Accordeon>
         </div>
       </Showcase>
@@ -92,23 +121,27 @@ storiesOf('API|Accordeon', module)
     )
   })
   .add('With Icon component (icon + subtext)', () => {
-    const label = 'Gênes ou douleurs, Patient agité, Surpoids (< 130kg), Fauteuil Roulant pliable, Isolement septique'
+    const label = 'Atchoum, Dormeur, Grincheux, Joyeux, Prof, Simplet, Timide'
     return (
       <Showcase>
         <div style={{background: 'white', width: 500}}>
           <Accordeon
             header={
               <>
-                <Typography.Body1>Mme Jeanne</Typography.Body1>
-                <Icon icon={<AlertIcon />}>
+                <Box>
+                  <Typography.Body1>Mme Blanche NEIGE</Typography.Body1>
+                </Box>
+                <FlexBox>
+                  <AlertIcon />
+                  <HSpace px={8} />
                   <Typography.Body2 color={palette.secondaryText}>{label}</Typography.Body2>
-                </Icon>
+                </FlexBox>
               </>
             }
           >
-            <Info>
-              <Info.Label label="de Phil Colins !" />
-            </Info>
+            <Box>
+              <Typography.Body1>et les septs nains</Typography.Body1>
+            </Box>
           </Accordeon>
         </div>
       </Showcase>

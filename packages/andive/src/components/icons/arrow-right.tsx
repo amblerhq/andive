@@ -12,7 +12,7 @@ const ArrowRightIcon = ({color = palette.mediumBerryBlue, ...rest}) => {
   )
 }
 
-ArrowRightIcon.size = 16
+ArrowRightIcon.size = 24
 
 export default ArrowRightIcon
 export const ArrowRightSvg = ArrowRight

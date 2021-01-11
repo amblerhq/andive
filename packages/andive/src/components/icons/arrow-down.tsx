@@ -12,7 +12,7 @@ const ArrowDownIcon = ({color = palette.mediumBerryBlue, ...rest}) => {
   )
 }
 
-ArrowDownIcon.size = 16
+ArrowDownIcon.size = 24
 
 export default ArrowDownIcon
 export const ArrowDownSvg = ArrowDown

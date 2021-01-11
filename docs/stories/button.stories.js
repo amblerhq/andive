@@ -12,7 +12,9 @@ import {
   MoreIcon,
   EditIcon,
   Typography,
-  palette
+  palette,
+  ArrowDownIcon,
+  ArrowUpIcon
 } from '@ambler/andive'
 
 import Showcase from './showcase'
@@ -254,5 +256,13 @@ storiesOf('API|Button', module)
           <Typography.Body2 color={palette.mediumBerryBlue}>Modifier</Typography.Body2>
         </FlatButton>
       </>
+    )
+  })
+  .add('Action button', () => {
+    return (
+      <Showcase legend="Use-case: action button">
+        <Button variant="primary" label="action" rightIcon={<ArrowDownIcon />} small mobile />
+        <Button variant="primary" label="action" rightIcon={<ArrowUpIcon />} small mobile />
+      </Showcase>
     )
   })

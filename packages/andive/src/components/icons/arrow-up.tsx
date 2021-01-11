@@ -12,7 +12,7 @@ const ArrowUpIcon = ({color = palette.mediumPrimary, ...rest}) => {
   )
 }
 
-ArrowUpIcon.size = 16
+ArrowUpIcon.size = 24
 
 export default ArrowUpIcon
 export const ArrowDownSvg = ArrowUp
