@@ -1,7 +1,6 @@
 import * as React from 'react'
 import styled from 'styled-components'
 
-import Icon from './icon'
 import ArrowDownIcon from './icons/arrow-down'
 import ArrowUpIcon from './icons/arrow-up'
 import * as palette from '../constants/palette'
