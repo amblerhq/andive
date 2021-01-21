@@ -28,33 +28,34 @@ interface ButtonProps {
   wrap?: boolean
   fill?: boolean
   width?: number
+  active?: boolean
 }
 
-const ButtonWrapper = styled(({loading, invert, fill, ...props}) => <div {...props} />).attrs({
+const ButtonWrapper = styled.div.attrs({
   'data-andive-type': 'button'
 })<{
-  fill?: boolean
-  disabled?: boolean
-  loading?: boolean
-  variant: 'primary' | 'flat'
-  invert?: boolean
-  mobile?: boolean
+  $fill?: boolean
+  $disabled?: boolean
+  $loading?: boolean
+  $variant?: 'primary' | 'flat'
+  $invert?: boolean
+  $mobile?: boolean
 }>`
   min-width: 40px;
   min-height: 40px;
 
-  display: ${props => (props.fill ? 'block' : 'inline-block')};
+  display: ${props => (props.$fill ? 'block' : 'inline-block')};
 
-  padding: ${props => (props.variant !== 'flat' ? `${props.theme.padding}px` : 0)};
-  cursor: ${props => (props.disabled ? 'not-allowed' : props.loading ? 'progress' : 'pointer')};
+  padding: ${props => (props.$variant !== 'flat' ? `${props.theme.padding}px` : 0)};
+  cursor: ${props => (props.$disabled ? 'not-allowed' : props.$loading ? 'progress' : 'pointer')};
 
   ${props =>
-    props.variant === 'flat' &&
-    !props.disabled &&
-    !props.loading &&
+    props.$variant === 'flat' &&
+    !props.$disabled &&
+    !props.$loading &&
     css`
       &:hover {
-        background-color: ${props.invert
+        background-color: ${props.$invert
           ? palette.hexToRGBA(palette.darkGrey, 0.2)
           : props.theme.hover.backgroundColor};
         border-radius: ${props.theme.hover.borderRadius}px;
@@ -63,7 +64,7 @@ const ButtonWrapper = styled(({loading, invert, fill, ...props}) => <div {...pro
 
   & *[data-andive-type="typography"] {
     text-transform: uppercase;
-    font-size: ${props => (props.mobile ? 14 : 16)}px;
+    font-size: ${props => (props.$mobile ? 14 : 16)}px;
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
@@ -73,11 +74,11 @@ const ButtonWrapper = styled(({loading, invert, fill, ...props}) => <div {...pro
 const ResetButton = styled(
   React.forwardRef<
     HTMLButtonElement,
-    Pick<ButtonProps, 'loading' | 'invert' | 'backgroundColor' | 'small' | 'mobile' | 'wrap'> & {
+    Pick<ButtonProps, 'loading' | 'invert' | 'backgroundColor' | 'small' | 'mobile' | 'wrap' | 'active'> & {
       minWidth?: number
       primary: boolean
     }
-  >(({loading, invert, backgroundColor, small, mobile, wrap, primary, minWidth, ...props}, ref) => (
+  >(({loading, invert, backgroundColor, small, mobile, wrap, primary, minWidth, active, ...props}, ref) => (
     <button ref={ref} {...props} />
   ))
 )<{wrap?: boolean}>`
@@ -313,12 +314,12 @@ const Button = React.forwardRef(function Button(
   return (
     <ButtonWrapper
       className={className}
-      disabled={disabled}
-      loading={loading}
-      invert={invert}
-      variant={variant}
-      mobile={mobile}
-      fill={fill}
+      $disabled={disabled}
+      $loading={loading}
+      $invert={invert}
+      $variant={variant}
+      $mobile={mobile}
+      $fill={fill}
     >
       <ButtonComponent
         ref={ref}
