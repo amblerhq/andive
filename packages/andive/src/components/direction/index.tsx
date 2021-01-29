@@ -13,7 +13,7 @@ const DirectionRoot = styled(({fullWidth, nopadding, ...props}) => <div {...prop
 `
 
 interface DirectionProps {
-  label?: string
+  label?:  any
   fullWidth?: number
   nopadding?: boolean
   children?: any /* FixType */
@@ -23,7 +23,12 @@ export function Direction({children, label, fullWidth, nopadding, ...props}: Dir
     <DirectionRoot fullWidth={fullWidth} nopadding={nopadding} {...props}>
       {label && (
         <Box>
-          <Typography.Body1>{label}</Typography.Body1>
+          {
+            typeof label === 'string'
+            ? <Typography.Body1>{label}</Typography.Body1>
+            : label
+          }
+          
         </Box>
       )}
       {React.Children.map(children, child => {
