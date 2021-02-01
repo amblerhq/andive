@@ -13,7 +13,7 @@ const DirectionRoot = styled(({fullWidth, nopadding, ...props}) => <div {...prop
 `
 
 interface DirectionProps {
-  label?:  any
+  label?:  React.ReactNode
   fullWidth?: number
   nopadding?: boolean
   children?: any /* FixType */
