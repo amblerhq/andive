@@ -5,7 +5,8 @@ import {ZIndexes} from '../constants/enum'
 
 const HorizontalVariant = {
   RIGHT: 'RIGHT',
-  LEFT: 'LEFT'
+  LEFT: 'LEFT',
+  CENTER: 'CENTER'
 }
 
 const VerticalVariant = {
@@ -47,6 +48,13 @@ const DropdownAnchor = styled.div<{
     props.horizontal === 'RIGHT' &&
     css`
       left: 0;
+    `}
+
+  ${props =>
+    props.horizontal === 'CENTER' &&
+    css`
+      left: 50%;
+      transform: translateX(-50%);
     `}
 
   ${props =>

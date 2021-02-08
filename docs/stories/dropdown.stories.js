@@ -195,6 +195,12 @@ storiesOf('API|Dropdown', module)
             vertical={DropdownComposer.VerticalVariant.UP}
           />
           <DropdownComposer
+            button={<FilterButton label="Open and spread top-center" />}
+            dropdown={AmbulanceInfo}
+            horizontal={DropdownComposer.HorizontalVariant.CENTER}
+            vertical={DropdownComposer.VerticalVariant.UP}
+          />
+          <DropdownComposer
             button={<FilterButton label="Open and spread bottom-left" />}
             dropdown={AmbulanceInfo}
             horizontal={DropdownComposer.HorizontalVariant.LEFT}
@@ -204,6 +210,12 @@ storiesOf('API|Dropdown', module)
             button={<FilterButton label="Open and spread bottom-right" />}
             dropdown={AmbulanceInfo}
             horizontal={DropdownComposer.HorizontalVariant.RIGHT}
+            vertical={DropdownComposer.VerticalVariant.DOWN}
+          />
+          <DropdownComposer
+            button={<FilterButton label="Open and spread bottom-center" />}
+            dropdown={AmbulanceInfo}
+            horizontal={DropdownComposer.HorizontalVariant.CENTER}
             vertical={DropdownComposer.VerticalVariant.DOWN}
           />
         </Showcase>
