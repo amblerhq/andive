@@ -113,6 +113,7 @@ export const FlatButton = ({
   onClick,
   className,
   icon,
+  rightIcon,
   label,
   active,
   disabled,
@@ -145,7 +146,8 @@ export const FlatButton = ({
             <Body2 color={color}>{label}</Body2>
           </LabelWrapper>
         )}
-        <HSpace px={8} />
+        {!rightIcon && <HSpace px={8} />}
+        {rightIcon && <IconWrapper>{React.cloneElement(rightIcon, {color})}</IconWrapper>}
       </button>
     </FlatButtonWrapper>
   )

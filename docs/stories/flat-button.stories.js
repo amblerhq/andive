@@ -62,6 +62,22 @@ storiesOf('Next|FlatButton', module)
       </Showcase>
     )
   })
+  .add('Icon + Label + RightIcon', () => {
+    return (
+      <Showcase>
+        <div style={{width: 300, background: 'white'}}>
+          <FlatButton
+            icon={<MapIcon />}
+            rightIcon={<MapIcon />}
+            label="Carte"
+            onClick={() => {
+              alert('On click triggered')
+            }}
+          />
+        </div>
+      </Showcase>
+    )
+  })
   .add('Active', () => {
     return (
       <Showcase>
@@ -116,6 +132,23 @@ storiesOf('Next|FlatButton', module)
         <div style={{width: 300, background: 'white'}}>
           <FlatButton
             icon={<MapIcon />}
+            label="Carte"
+            loading
+            onClick={() => {
+              alert('On click triggered')
+            }}
+          />
+        </div>
+      </Showcase>
+    )
+  })
+  .add('Loading + Right icon', () => {
+    return (
+      <Showcase>
+        <div style={{width: 300, background: 'white'}}>
+          <FlatButton
+            icon={<MapIcon />}
+            rightIcon={<MapIcon />}
             label="Carte"
             loading
             onClick={() => {
