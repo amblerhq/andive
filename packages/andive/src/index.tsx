@@ -166,6 +166,8 @@ export {default as VerifiedIcon} from './components/icons/verified'
 
 export {default as DoctorIcon} from './components/icons/doctor'
 
+export {default as AmblerIcon} from './components/icons/ambler'
+
 /**
  * Illustrations
  */
