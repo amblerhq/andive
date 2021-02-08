@@ -53,7 +53,6 @@ const DropdownAnchor = styled.div<{
   ${props =>
     props.horizontal === 'CENTER' &&
     css`
-      left: 50%;
       transform: translateX(-50%);
     `}
 
