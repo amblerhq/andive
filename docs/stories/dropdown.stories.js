@@ -73,7 +73,7 @@ storiesOf('Next|Dropdown', module)
       <Showcase>
         <div style={{width: 300, background: 'white'}}>
           <DropdownComposer
-            button={<FlatButton icon={<MoreIcon />} />}
+            render={({setOpen}) => <FlatButton icon={<MoreIcon />} onClick={() => setOpen(open => !open)} />}
             horizontal={DropdownComposer.HorizontalVariant.LEFT}
             dropdown={({onClick}) => (
               <DropdownBase>
@@ -183,37 +183,50 @@ storiesOf('API|Dropdown', module)
       <>
         <Showcase invert legend="DropdownBase controlled">
           <DropdownComposer
-            button={<FilterButton label="Open and spread top-left" />}
+            render={({setOpen}) => (
+              <FlatButton label="Open and spread top-left" onClick={() => setOpen(open => !open)} />
+            )}
+            button={<FilterButton />}
             dropdown={AmbulanceInfo}
             horizontal={DropdownComposer.HorizontalVariant.LEFT}
             vertical={DropdownComposer.VerticalVariant.UP}
           />
           <DropdownComposer
-            button={<FilterButton label="Open and spread top-right" />}
+            render={({setOpen}) => (
+              <FlatButton label="Open and spread top-right" onClick={() => setOpen(open => !open)} />
+            )}
             dropdown={AmbulanceInfo}
             horizontal={DropdownComposer.HorizontalVariant.RIGHT}
             vertical={DropdownComposer.VerticalVariant.UP}
           />
           <DropdownComposer
-            button={<FilterButton label="Open and spread top-center" />}
+            render={({setOpen}) => (
+              <FlatButton label="Open and spread top-center" onClick={() => setOpen(open => !open)} />
+            )}
             dropdown={AmbulanceInfo}
             horizontal={DropdownComposer.HorizontalVariant.CENTER}
             vertical={DropdownComposer.VerticalVariant.UP}
           />
           <DropdownComposer
-            button={<FilterButton label="Open and spread bottom-left" />}
+            render={({setOpen}) => (
+              <FlatButton label="Open and spread bottom-left" onClick={() => setOpen(open => !open)} />
+            )}
             dropdown={AmbulanceInfo}
             horizontal={DropdownComposer.HorizontalVariant.LEFT}
             vertical={DropdownComposer.VerticalVariant.DOWN}
           />
           <DropdownComposer
-            button={<FilterButton label="Open and spread bottom-right" />}
+            render={({setOpen}) => (
+              <FlatButton label="Open and spread bottom-right" onClick={() => setOpen(open => !open)} />
+            )}
             dropdown={AmbulanceInfo}
             horizontal={DropdownComposer.HorizontalVariant.RIGHT}
             vertical={DropdownComposer.VerticalVariant.DOWN}
           />
           <DropdownComposer
-            button={<FilterButton label="Open and spread bottom-center" />}
+            render={({setOpen}) => (
+              <FlatButton label="Open and spread bottom-center" onClick={() => setOpen(open => !open)} />
+            )}
             dropdown={AmbulanceInfo}
             horizontal={DropdownComposer.HorizontalVariant.CENTER}
             vertical={DropdownComposer.VerticalVariant.DOWN}
