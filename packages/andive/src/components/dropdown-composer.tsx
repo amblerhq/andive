@@ -28,6 +28,7 @@ const Overlay = styled.div`
 
 const DropdownComposeRoot = styled.div`
   position: relative;
+  width: 100%;
 `
 
 const DropdownAnchor = styled.div<{
