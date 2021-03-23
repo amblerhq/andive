@@ -27,25 +27,34 @@ const Overlay = styled.div`
 `
 
 const DropdownComposeRoot = styled.div`
-  display: inline-block;
   position: relative;
 `
 
 const DropdownAnchor = styled.div<{
   vertical: keyof typeof VerticalVariant
   horizontal: keyof typeof HorizontalVariant
+  theme: {padding: number}
 }>`
-  display: inline-block;
   position: absolute;
+  padding: 0 ${props => props.theme.padding}px;
+
+  ${props => {
+    return (
+      !props.horizontal &&
+      css`
+        width: 100%;
+      `
+    )
+  }}
 
   ${props =>
-    props.horizontal === 'LEFT' &&
+    props.horizontal === 'RIGHT' &&
     css`
       right: 0;
     `}
 
   ${props =>
-    props.horizontal === 'RIGHT' &&
+    (props.horizontal === 'LEFT' || !props.horizontal) &&
     css`
       left: 0;
     `}
@@ -72,19 +81,14 @@ const DropdownAnchor = styled.div<{
   z-index: ${ZIndexes.MODALS + 1};
 `
 
-export function DropdownComposer({className, button, dropdown, vertical = 'DOWN', horizontal = 'RIGHT'}: any) {
+export function DropdownComposer({className, render, dropdown, horizontal, vertical = 'DOWN'}: any) {
   const [open, setOpen] = React.useState(false)
   const Dropdown = dropdown
   return (
     <>
       {open && <Overlay onClick={() => setOpen(false)} />}
       <DropdownComposeRoot className={className}>
-        {React.cloneElement(button, {
-          onClick() {
-            setOpen(p => !p)
-          },
-          active: open
-        })}
+        {render({open, setOpen})}
         {open && (
           <DropdownAnchor vertical={vertical} horizontal={horizontal}>
             <Dropdown onClick={() => setOpen(false)} />

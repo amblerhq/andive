@@ -230,6 +230,8 @@ export {default as AppBar} from './components/app-bar'
 
 export {Autocomplete} from './components/autocomplete'
 
+export {AutocompleteComposer} from './components/autocomplete-composer'
+
 export {default as Baseline} from './components/baseline'
 
 export {default as Button} from './components/button'

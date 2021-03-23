@@ -11,7 +11,8 @@ import {
   ZIndexes,
   Typography,
   Box,
-  FlatButton
+  FlatButton,
+  AutocompleteComposer
 } from '@ambler/andive'
 
 import Showcase from './showcase'
@@ -545,6 +546,53 @@ storiesOf('API|Autocomplete', module)
                 inputRef.current.focus()
               }
             }}
+          />
+          <FakeList />
+        </div>
+      </Showcase>
+    )
+  })
+  .add('Autocomplete Composer', () => {
+    const [item, setItem] = React.useState('')
+    const onChange = React.useCallback(value => {
+      setItem(value)
+    })
+    const [suggestions, onSearch] = useSuggestions(item, true)
+
+    return (
+      <Showcase style={{background: 'white'}}>
+        <div style={{width: 600}}>
+          <pre style={{padding: '4px 24px', overflow: 'auto'}}>{item ? JSON.stringify(item) : 'No selection'}</pre>
+          <AutocompleteComposer
+            placeholder="Choisir"
+            value={item}
+            onChange={onChange}
+            onSearch={onSearch}
+            suggestions={suggestions}
+          />
+          <FakeList />
+        </div>
+      </Showcase>
+    )
+  })
+  .add('Autocomplete Composer | with noHintResult', () => {
+    const [item, setItem] = React.useState('')
+    const onChange = React.useCallback(value => {
+      setItem(value)
+    })
+    const [suggestions, onSearch] = useSuggestions(item, true)
+
+    return (
+      <Showcase style={{background: 'white'}}>
+        <div style={{width: 600}}>
+          <pre style={{padding: '4px 24px', overflow: 'auto'}}>{item ? JSON.stringify(item) : 'No selection'}</pre>
+          <AutocompleteComposer
+            placeholder="Choisir"
+            value={item}
+            onChange={onChange}
+            onSearch={onSearch}
+            suggestions={suggestions}
+            noHintError={<NoResultHint />}
           />
           <FakeList />
         </div>
