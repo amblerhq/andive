@@ -186,7 +186,6 @@ storiesOf('API|Dropdown', module)
             render={({setOpen}) => (
               <FlatButton label="Open and spread top-left" onClick={() => setOpen(open => !open)} />
             )}
-            button={<FilterButton />}
             dropdown={AmbulanceInfo}
             horizontal={DropdownComposer.HorizontalVariant.LEFT}
             vertical={DropdownComposer.VerticalVariant.UP}
