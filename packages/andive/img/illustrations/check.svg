@@ -1,23 +1,15 @@
 <svg width="260" height="200" viewBox="0 0 260 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-<g id="Illustration/Check">
-<mask id="Illustration/Check/mask0" mask-type="alpha" maskUnits="userSpaceOnUse" x="30" y="0" width="200" height="200">
-<path id="Mask" d="M130 200C185.228 200 230 155.228 230 100C230 44.7715 185.228 0 130 0C74.7715 0 30 44.7715 30 100C30 155.228 74.7715 200 130 200Z" fill="white"/>
+<mask id="illustration-check-mask0" mask-type="alpha" maskUnits="userSpaceOnUse" x="30" y="0" width="200" height="200">
+<path d="M130 200C185.228 200 230 155.228 230 100C230 44.7715 185.228 0 130 0C74.7715 0 30 44.7715 30 100C30 155.228 74.7715 200 130 200Z" fill="white"/>
 </mask>
-<g mask="url(#Illustration/Check/mask0)">
-<g id="Group 656">
-<mask id="Illustration/Check/mask1" mask-type="alpha" maskUnits="userSpaceOnUse" x="30" y="0" width="200" height="200">
-<path id="Mask_2" d="M130 200C185.228 200 230 155.228 230 100C230 44.7715 185.228 0 130 0C74.7715 0 30 44.7715 30 100C30 155.228 74.7715 200 130 200Z" fill="white"/>
+<g mask="url(#illustration-check-mask0)">
+<mask id="illustration-check-mask1" mask-type="alpha" maskUnits="userSpaceOnUse" x="30" y="0" width="200" height="200">
+<path d="M130 200C185.228 200 230 155.228 230 100C230 44.7715 185.228 0 130 0C74.7715 0 30 44.7715 30 100C30 155.228 74.7715 200 130 200Z" fill="white"/>
 </mask>
-<g mask="url(#Illustration/Check/mask1)">
-<g id="Group">
-<path id="Oval" d="M130 200C185.228 200 230 155.228 230 100C230 44.7715 185.228 0 130 0C74.7715 0 30 44.7715 30 100C30 155.228 74.7715 200 130 200Z" fill="#5E48AF"/>
+<g mask="url(#illustration-check-mask1)">
+<path d="M130 200C185.228 200 230 155.228 230 100C230 44.7715 185.228 0 130 0C74.7715 0 30 44.7715 30 100C30 155.228 74.7715 200 130 200Z" fill="#5E48AF"/>
 </g>
-</g>
-</g>
-<g id="Group 673">
-<circle id="Ellipse 140" cx="130" cy="100" r="57" fill="#5DD167"/>
-<path id="Vector 41" d="M105.885 97.886L123.423 115.346L154.116 84.6538" stroke="white" stroke-width="7"/>
-</g>
-</g>
+<circle cx="130" cy="100" r="57" fill="#5DD167"/>
+<path d="M105.885 97.886L123.423 115.346L154.116 84.6538" stroke="white" stroke-width="7"/>
 </g>
 </svg>
