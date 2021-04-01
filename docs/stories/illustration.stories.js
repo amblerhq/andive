@@ -25,7 +25,8 @@ import {
   HeadphonesIllustration,
   WatchIllustration,
   NurseIllustration,
-  MaintenanceIllustration
+  MaintenanceIllustration,
+  CheckIllustration
 } from '@ambler/andive'
 
 import Showcase from './showcase'
@@ -109,6 +110,9 @@ storiesOf('Assets|Illustrations', module).add('Library', () => {
       </Showcase>
       <Showcase variant="squared" size={400} style={{background: 'white'}} legend="<StandardIllustration />">
         <StandardIllustration />
+      </Showcase>
+      <Showcase variant="squared" size={400} style={{background: 'white'}} legend="<CheckIllustration />">
+        <CheckIllustration />
       </Showcase>
     </Story>
   )
