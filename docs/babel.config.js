@@ -28,20 +28,6 @@ module.exports = {
         transformFunctions: ['require', 'require.context'],
         resolvePath
       }
-    ],
-    [
-      'inline-react-svg',
-      {
-        svgo: {
-          plugins: [
-            {
-              cleanupIDs: {
-                minify: false
-              }
-            }
-          ]
-        }
-      }
     ]
   ]
 }
