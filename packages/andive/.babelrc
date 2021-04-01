@@ -8,7 +8,9 @@
       "inline-react-svg",
       {
         "svgo": {
-          "plugins": [{"cleanupIDs": {"minify": false}}]
+          // cleanupIDs minify and can create inline ids conflict
+          // See https://github.com/svg/svgo/issues/674 for more informations
+          "plugins": [{"cleanupIDs": false}]
         }
       }
     ]
