@@ -1,13 +1,18 @@
 {
-    "presets": [
-        "@babel/preset-typescript",
-        "@babel/preset-react",
-        "@babel/preset-env"
-    ],
-    "plugins": [
-        "@babel/proposal-class-properties",
-        "@babel/proposal-object-rest-spread",
-        "@babel/plugin-proposal-export-default-from",
-        "inline-react-svg"
+  "presets": ["@babel/preset-typescript", "@babel/preset-react", "@babel/preset-env"],
+  "plugins": [
+    "@babel/proposal-class-properties",
+    "@babel/proposal-object-rest-spread",
+    "@babel/plugin-proposal-export-default-from",
+    [
+      "inline-react-svg",
+      {
+        "svgo": {
+          // cleanupIDs minify and can create inline ids conflict
+          // See https://github.com/svg/svgo/issues/674 for more informations
+          "plugins": [{"cleanupIDs": false}]
+        }
+      }
     ]
+  ]
 }

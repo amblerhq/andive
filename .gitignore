@@ -9,3 +9,4 @@ build
 docs/public
 
 .vercel
+.DS_Store
