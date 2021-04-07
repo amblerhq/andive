@@ -88,7 +88,8 @@ import {
   BellIcon,
   VerifiedIcon,
   DoctorIcon,
-  AmblerIcon
+  AmblerIcon,
+  SendIcon
 } from '@ambler/andive'
 
 import Showcase from './showcase'
@@ -179,7 +180,8 @@ const icons = [
   BellIcon,
   VerifiedIcon,
   DoctorIcon,
-  AmblerIcon
+  AmblerIcon,
+  SendIcon
 ]
 
 function TimedColor({interval, colors, children}) {
@@ -203,6 +205,7 @@ function TimedColor({interval, colors, children}) {
 }
 
 const newIcons = [
+  {Icon: SendIcon},
   {Icon: AmblerIcon},
   {Icon: DoctorIcon},
   {Icon: ResetIcon},
