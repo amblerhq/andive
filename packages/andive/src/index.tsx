@@ -168,6 +168,8 @@ export {default as DoctorIcon} from './components/icons/doctor'
 
 export {default as AmblerIcon} from './components/icons/ambler'
 
+export {default as SendIcon} from './components/icons/send'
+
 /**
  * Illustrations
  */
