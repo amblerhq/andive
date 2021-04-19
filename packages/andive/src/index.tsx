@@ -170,6 +170,10 @@ export {default as AmblerIcon} from './components/icons/ambler'
 
 export {default as SendIcon} from './components/icons/send'
 
+export {default as PlusIcon} from './components/icons/plus'
+
+export {default as ReorderIcon} from './components/icons/reorder'
+
 /**
  * Illustrations
  */
