@@ -68,10 +68,6 @@ export interface AutocompleteProps<T> {
    */
   suggestions: T[]
   /**
-   * The list of favorites to display when the user click on the autocomplete and the input is empty.
-   */
-  favorites?: T[]
-  /**
    * When true, any input value is a valid value. Therefore the "onChange" is called as if the user selected an item in
    * the suggestion list.
    */
@@ -111,7 +107,6 @@ export function AutocompleteComposer<T>({
   ),
   renderInputValue = item => String(item),
   suggestions = [],
-  favorites = [],
   freeInput,
   canShowSuggestions = (_suggestions, input) => input.length >= 3,
   bottomFootprint,
@@ -170,13 +165,11 @@ export function AutocompleteComposer<T>({
 
   return (
     <DropdownComposer
+      initialState={suggestions.length > 0}
       render={({setOpen}) => (
         <Input
           inputRef={inputRef}
-          onChange={ev => {
-            onUpdate(ev.target.value)
-            setOpen(suggestions.length > 0 || Boolean(noHintError))
-          }}
+          onChange={ev => onUpdate(ev.target.value)}
           onClear={() => {
             onUpdate('')
             onChange(null)

@@ -82,8 +82,15 @@ const DropdownAnchor = styled.div<{
   z-index: ${ZIndexes.MODALS + 1};
 `
 
-export function DropdownComposer({className, render, dropdown, horizontal, vertical = 'DOWN'}: any) {
-  const [open, setOpen] = React.useState(false)
+export function DropdownComposer({
+  className,
+  render,
+  dropdown,
+  horizontal,
+  initialState = false,
+  vertical = 'DOWN'
+}: any) {
+  const [open, setOpen] = React.useState(initialState)
   const Dropdown = dropdown
   return (
     <>
