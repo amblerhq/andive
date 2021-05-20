@@ -115,8 +115,8 @@ const Field = styled.input<FieldProps>`
   border-radius: 16px;
   outline: none;
 
-  ${getColor}
   ${getSizes}
+  ${getColor}
   ${getSpaces}
 
   ::placeholder {
