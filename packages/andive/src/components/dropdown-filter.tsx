@@ -3,6 +3,7 @@ import styled, {css} from 'styled-components'
 
 import * as palette from '../constants/palette'
 import Button from './button'
+import {H2} from './typography'
 import {ZIndexes} from '../constants/enum'
 import {CloseIcon} from '..'
 import {FilterButton} from './filter-button'
@@ -42,7 +43,6 @@ const Menu = styled.div<{openLeft?: boolean; mobile?: boolean}>`
       left: 0;
       width: 100%;
       height: 100%;
-
       padding: 0;
       box-shadow: none;
       border-radius: 0;
@@ -105,6 +105,7 @@ const StickyFooter = styled.div`
 interface MenuFilterProps {
   className?: string
   label?: string
+  title?: string
   button?: JSX.Element
   selected?: boolean
   mobile?: boolean
@@ -117,6 +118,7 @@ interface MenuFilterProps {
 export function DropdownFilter({
   className,
   label,
+  title,
   button,
   selected,
   onSave,
@@ -159,8 +161,9 @@ export function DropdownFilter({
           <Menu className={className} openLeft={openLeft} mobile={mobile}>
             {mobile && (
               <MobileHeader>
-                <CloseIcon onClick={onCloseOnly} />
                 {onClear && <Button variant="flat" label="Effacer" onClick={onClear} />}
+                {title && <H2>{title}</H2>}
+                <CloseIcon onClick={onCloseOnly} color={palette.darkBerryBlue} />
               </MobileHeader>
             )}
             {typeof children === 'function' ? children({close: onCloseOnly}) : children}

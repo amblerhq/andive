@@ -69,7 +69,7 @@ function RideStatusStory() {
   return (
     <>
       <ShowcaseFilter>
-        <DropdownFilter label={label} selected={selected} onClear={() => setValues({})}>
+        <DropdownFilter mobile label={label} selected={selected} onClear={() => setValues({})}>
           <DropdownContent>
             <CheckboxGroup
               value={values}
@@ -96,7 +96,7 @@ function MobileFilterStory() {
   return (
     <>
       <ShowcaseFilter invert>
-        <DropdownFilter label="23 juin - 4 juil." mobile>
+        <DropdownFilter label="23 juin - 4 juil." title="Choix de la période" mobile>
           <Info>
             <Info.Label label="A l'Olympiade" />
           </Info>
