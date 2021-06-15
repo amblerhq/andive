@@ -69,7 +69,7 @@ function RideStatusStory() {
   return (
     <>
       <ShowcaseFilter>
-        <DropdownFilter mobile label={label} selected={selected} onClear={() => setValues({})}>
+        <DropdownFilter label={label} selected={selected} onClear={() => setValues({})}>
           <DropdownContent>
             <CheckboxGroup
               value={values}
