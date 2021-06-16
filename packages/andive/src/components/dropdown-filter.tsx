@@ -55,7 +55,7 @@ const Actions = styled.div`
   flex-flow: row nowrap;
   justify-content: space-between;
 
-  padding: 24px 16px;
+  padding: 24px 8px;
 `
 
 export const PageOverlay = styled.div`
@@ -73,13 +73,26 @@ export const PageOverlay = styled.div`
 const MobileHeader = styled.div`
   display: flex;
   flex-flow: row nowrap;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
 
   box-shadow: 0 2px 5px 0 ${palette.hexToRGBA(palette.darkPrimary, 0.2)};
-
+  position: relative;
   padding: 8px 16px;
   height: 56px;
+`
+
+const MobileHeaderIconRight = styled.div`
+  position: absolute;
+  right: 16px;
+`
+
+const MobileActions = styled.div`
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 16px 8px;
 `
 
 const StickyFooter = styled.div`
@@ -161,12 +174,19 @@ export function DropdownFilter({
           <Menu className={className} openLeft={openLeft} mobile={mobile}>
             {mobile && (
               <MobileHeader>
-                {onClear && <Button variant="flat" label="Effacer" onClick={onClear} />}
                 {title && <H2>{title}</H2>}
-                <CloseIcon onClick={onCloseOnly} color={palette.darkBerryBlue} />
+                <MobileHeaderIconRight>
+                  <CloseIcon onClick={onCloseOnly} color={palette.darkBerryBlue} />
+                </MobileHeaderIconRight>
               </MobileHeader>
             )}
+            {mobile && onClear && (
+              <MobileActions>
+                <Button variant="flat" label="Tout effacer" onClick={onClear} />
+              </MobileActions>
+            )}
             {typeof children === 'function' ? children({close: onCloseOnly}) : children}
+
             {mobile
               ? onSave && (
                   <StickyFooter>
@@ -176,7 +196,7 @@ export function DropdownFilter({
               : (onClear || onSave) && (
                   <Actions>
                     {onClear && (
-                      <Button variant="flat" textColor={palette.darkPrimary} label="Effacer" onClick={onClear} />
+                      <Button variant="flat" textColor={palette.darkPrimary} label="Tout effacer" onClick={onClear} />
                     )}
                     {onSave && <Button variant="flat" label="Enregistrer" onClick={onCloseAndSave} />}
                   </Actions>

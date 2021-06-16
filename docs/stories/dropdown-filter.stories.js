@@ -9,9 +9,10 @@ import {
   DropdownFilter,
   Typography,
   palette,
-  RideStatus,
+  Box,
   Info,
-  FlatButton
+  FlatButton,
+  Status
 } from '@ambler/andive'
 
 import Showcase from './showcase'
@@ -28,24 +29,28 @@ function RandomPageContent() {
   )
 }
 
-const RideStatusCheckboxLayout = styled.div`
+const StatusCheckboxLayout = styled(Box)`
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-between;
+  padding: 8px 8px 8px 16px;
 `
 
-function RideStatusCheckbox({label, color, ...props}) {
+function StatusCheckbox({label, color, backgroundColor, ...props}) {
   return (
-    <RideStatusCheckboxLayout>
-      <RideStatus primary={label} color={color} />
-      <Checkbox {...props} />
-    </RideStatusCheckboxLayout>
+    <>
+      <StatusCheckboxLayout>
+        <Status primary={label} color={color} backgroundColor={backgroundColor} />
+        <Checkbox {...props} />
+      </StatusCheckboxLayout>
+    </>
   )
 }
 
-RideStatusCheckbox.propTypes = {
+StatusCheckbox.propTypes = {
   label: PropTypes.string,
-  color: PropTypes.string
+  color: PropTypes.string,
+  backgroundColor: PropTypes.string
 }
 
 const ShowcaseFilter = styled(Showcase)`
@@ -55,8 +60,11 @@ const ShowcaseFilter = styled(Showcase)`
 const DropdownContent = styled.div`
   width: 320px;
 `
+const DropdownSmallContent = styled.div`
+  width: 220px;
+`
 
-function RideStatusStory() {
+function StatusFilterStory() {
   const [values, setValues] = React.useState({CONFIRMED: true})
   const selectedValues = Object.keys(values).filter(key => values[key])
   const selected = selectedValues.length > 0
@@ -68,8 +76,14 @@ function RideStatusStory() {
 
   return (
     <>
-      <ShowcaseFilter>
-        <DropdownFilter label={label} selected={selected} onClear={() => setValues({})}>
+      <ShowcaseFilter legend="Status Filter Desktop">
+        <DropdownFilter
+          label={label}
+          selected={selected}
+          title="Filtrer par statut"
+          onClear={() => setValues({})}
+          onSave={() => null}
+        >
           <DropdownContent>
             <CheckboxGroup
               value={values}
@@ -77,47 +91,132 @@ function RideStatusStory() {
                 setValues(values_)
               }}
             >
-              <RideStatusCheckbox name="CONFIRMED" label="Réalisé" color={palette.success} />
-              <RideStatusCheckbox name="BOOKED" label="Confirmé" color={palette.success} />
-              <RideStatusCheckbox name="SUPPORT" label="Incident signalé" color={palette.warning} />
-              <RideStatusCheckbox name="WAIT_TPTR_APPROVAL" label="En attente" color={palette.warning} />
-              <RideStatusCheckbox name="CANCELED" label="Annulé" color={palette.error} />
-              <RideStatusCheckbox name="NORIDE" label="Non réalisé" color={palette.error} />
+              <StatusCheckbox
+                name="CONFIRMED"
+                label="Réalisé"
+                color={palette.darkLettuceGreen}
+                backgroundColor={palette.lightLettuceGreen}
+              />
+              <StatusCheckbox
+                name="WAIT_TPTR_APPROVAL"
+                label="En attente"
+                color={palette.darkPotatoYellow}
+                backgroundColor={palette.lightPotatoYellow}
+              />
+              <StatusCheckbox
+                name="BOOKED"
+                label="Confirmé"
+                color={palette.darkLettuceGreen}
+                backgroundColor={palette.lightLettuceGreen}
+              />
+              <StatusCheckbox
+                name="SUPPORT"
+                label="Incident signalé"
+                color={palette.darkPotatoYellow}
+                backgroundColor={palette.lightPotatoYellow}
+              />
+              <StatusCheckbox
+                name="NORIDE"
+                label="Non réalisé"
+                color={palette.darkRadishRed}
+                backgroundColor={palette.lightRadishRed}
+              />
             </CheckboxGroup>
           </DropdownContent>
         </DropdownFilter>
       </ShowcaseFilter>
-      <RandomPageContent />
+      <ShowcaseFilter legend="Status Filter Mobile">
+        <DropdownFilter
+          label={label}
+          selected={selected}
+          onClear={() => setValues({})}
+          title="Filtrer par statut"
+          onSave={() => null}
+          mobile
+        >
+          <CheckboxGroup
+            value={values}
+            onChange={values_ => {
+              setValues(values_)
+            }}
+          >
+            <StatusCheckbox
+              name="CONFIRMED"
+              label="Réalisé"
+              color={palette.darkLettuceGreen}
+              backgroundColor={palette.lightLettuceGreen}
+            />
+            <StatusCheckbox
+              name="WAIT_TPTR_APPROVAL"
+              label="En attente"
+              color={palette.darkPotatoYellow}
+              backgroundColor={palette.lightPotatoYellow}
+            />
+            <StatusCheckbox
+              name="BOOKED"
+              label="Confirmé"
+              color={palette.darkLettuceGreen}
+              backgroundColor={palette.lightLettuceGreen}
+            />
+            <StatusCheckbox
+              name="SUPPORT"
+              label="Incident signalé"
+              color={palette.darkPotatoYellow}
+              backgroundColor={palette.lightPotatoYellow}
+            />
+            <StatusCheckbox
+              name="NORIDE"
+              label="Non réalisé"
+              color={palette.darkRadishRed}
+              backgroundColor={palette.lightRadishRed}
+            />
+          </CheckboxGroup>
+        </DropdownFilter>
+      </ShowcaseFilter>
     </>
   )
 }
 
-function MobileFilterStory() {
+function BasicFilterStory() {
   return (
     <>
-      <ShowcaseFilter invert>
-        <DropdownFilter label="23 juin - 4 juil." title="Choix de la période" mobile>
+      <ShowcaseFilter legend="Basic Filter Desktop" invert>
+        <DropdownFilter label="23 juin - 4 juil." title="Title">
+          <DropdownSmallContent>
+            <Info>
+              <Info.Label label="A l'Olympiade" />
+            </Info>
+          </DropdownSmallContent>
+        </DropdownFilter>
+      </ShowcaseFilter>
+      <ShowcaseFilter legend="Basic Filter Mobile" invert>
+        <DropdownFilter label="23 juin - 4 juil." title="Title" mobile>
           <Info>
             <Info.Label label="A l'Olympiade" />
           </Info>
         </DropdownFilter>
       </ShowcaseFilter>
-      <RandomPageContent />
     </>
   )
 }
 
-function RideSideFilterStory() {
+function SideFilterStory() {
   return (
     <>
-      <ShowcaseFilter invert style={{justifyContent: 'flex-end'}}>
-        <DropdownFilter label="23 juin - 4 juil." openLeft>
+      <ShowcaseFilter legend="Open Right (default)" invert>
+        <DropdownFilter label="23 juin - 4 juil." openRight onClear={() => null} onSave={() => null}>
           <Info>
             <Info.Label label="A l'Olympiade" />
           </Info>
         </DropdownFilter>
       </ShowcaseFilter>
-      <RandomPageContent />
+      <ShowcaseFilter legend="Open Left" invert style={{justifyContent: 'flex-end'}}>
+        <DropdownFilter label="23 juin - 4 juil." openLeft onClear={() => null} onSave={() => null}>
+          <Info>
+            <Info.Label label="A l'Olympiade" />
+          </Info>
+        </DropdownFilter>
+      </ShowcaseFilter>
     </>
   )
 }
@@ -130,13 +229,68 @@ function RenderPropsWithCloseStory() {
           {({close}) => <FlatButton label={'Fermer'} onClick={() => close()} />}
         </DropdownFilter>
       </ShowcaseFilter>
-      <RandomPageContent />
+    </>
+  )
+}
+
+function ActionsFilterStory() {
+  return (
+    <>
+      <ShowcaseFilter legend="Clear Filter Desktop" invert>
+        <DropdownFilter label="23 juin - 4 juil." title="Title" onClear={() => null}>
+          <DropdownSmallContent>
+            <Info>
+              <Info.Label label="A l'Olympiade" />
+            </Info>
+          </DropdownSmallContent>
+        </DropdownFilter>
+      </ShowcaseFilter>
+      <ShowcaseFilter legend="Clear Filter Mobile" invert>
+        <DropdownFilter label="23 juin - 4 juil." title="Title" onClear={() => null} mobile>
+          <Info>
+            <Info.Label label="A l'Olympiade" />
+          </Info>
+        </DropdownFilter>
+      </ShowcaseFilter>
+      <ShowcaseFilter legend="Save Filter Desktop" invert>
+        <DropdownFilter label="23 juin - 4 juil." title="Title" onSave={() => null}>
+          <DropdownSmallContent>
+            <Info>
+              <Info.Label label="A l'Olympiade" />
+            </Info>
+          </DropdownSmallContent>
+        </DropdownFilter>
+      </ShowcaseFilter>
+      <ShowcaseFilter legend="Save Filter Mobile" invert>
+        <DropdownFilter label="23 juin - 4 juil." title="Title" onSave={() => null} mobile>
+          <Info>
+            <Info.Label label="A l'Olympiade" />
+          </Info>
+        </DropdownFilter>
+      </ShowcaseFilter>
+      <ShowcaseFilter legend="Clear and Save Filter Desktop" invert>
+        <DropdownFilter label="23 juin - 4 juil." title="Title" onSave={() => null} onClear={() => null}>
+          <DropdownSmallContent>
+            <Info>
+              <Info.Label label="A l'Olympiade" />
+            </Info>
+          </DropdownSmallContent>
+        </DropdownFilter>
+      </ShowcaseFilter>
+      <ShowcaseFilter legend="Clear and Save Filter Mobile" invert>
+        <DropdownFilter label="23 juin - 4 juil." title="Title" onSave={() => null} onClear={() => null} mobile>
+          <Info>
+            <Info.Label label="A l'Olympiade" />
+          </Info>
+        </DropdownFilter>
+      </ShowcaseFilter>
     </>
   )
 }
 
 storiesOf('API|DropdownFilter', module)
-  .add('Ride Status Filter', () => <RideStatusStory />)
-  .add('Mobile Filter', () => <MobileFilterStory />)
-  .add('Right-side filter', () => <RideSideFilterStory />)
+  .add('Basic Filter', () => <BasicFilterStory />)
+  .add('Status Filter', () => <StatusFilterStory />)
+  .add('Side Filter', () => <SideFilterStory />)
+  .add('Actions Filter', () => <ActionsFilterStory />)
   .add('Render-props with close fn', () => <RenderPropsWithCloseStory />)
