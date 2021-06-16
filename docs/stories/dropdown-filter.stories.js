@@ -3,17 +3,7 @@ import PropTypes from 'prop-types'
 import {storiesOf} from '@storybook/react'
 import styled from 'styled-components'
 import range from 'lodash.range'
-import {
-  Checkbox,
-  CheckboxGroup,
-  DropdownFilter,
-  Typography,
-  palette,
-  Box,
-  Info,
-  FlatButton,
-  Status
-} from '@ambler/andive'
+import {Checkbox, CheckboxGroup, DropdownFilter, Typography, palette, Info, FlatButton, Status} from '@ambler/andive'
 
 import Showcase from './showcase'
 
@@ -29,7 +19,7 @@ function RandomPageContent() {
   )
 }
 
-const StatusCheckboxLayout = styled(Box)`
+const StatusCheckboxLayout = styled.div`
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-between;
@@ -173,6 +163,7 @@ function StatusFilterStory() {
           </CheckboxGroup>
         </DropdownFilter>
       </ShowcaseFilter>
+      <RandomPageContent />
     </>
   )
 }
@@ -196,6 +187,7 @@ function BasicFilterStory() {
           </Info>
         </DropdownFilter>
       </ShowcaseFilter>
+      <RandomPageContent />
     </>
   )
 }
@@ -217,6 +209,7 @@ function SideFilterStory() {
           </Info>
         </DropdownFilter>
       </ShowcaseFilter>
+      <RandomPageContent />
     </>
   )
 }
@@ -229,6 +222,7 @@ function RenderPropsWithCloseStory() {
           {({close}) => <FlatButton label={'Fermer'} onClick={() => close()} />}
         </DropdownFilter>
       </ShowcaseFilter>
+      <RandomPageContent />
     </>
   )
 }
@@ -236,6 +230,15 @@ function RenderPropsWithCloseStory() {
 function ActionsFilterStory() {
   return (
     <>
+      <ShowcaseFilter legend="Close Desktop" invert>
+        <DropdownFilter label="23 juin - 4 juil.">
+          {({close}) => <FlatButton label={'Fermer'} onClick={() => close()} />}
+        </DropdownFilter>
+      </ShowcaseFilter>
+      <ShowcaseFilter legend="Close Mobile" invert>
+        <DropdownFilter label="23 juin - 4 juil." mobile />
+      </ShowcaseFilter>
+      <RandomPageContent />
       <ShowcaseFilter legend="Clear Filter Desktop" invert>
         <DropdownFilter label="23 juin - 4 juil." title="Title" onClear={() => null}>
           <DropdownSmallContent>
@@ -284,6 +287,7 @@ function ActionsFilterStory() {
           </Info>
         </DropdownFilter>
       </ShowcaseFilter>
+      <RandomPageContent />
     </>
   )
 }
@@ -293,4 +297,3 @@ storiesOf('API|DropdownFilter', module)
   .add('Status Filter', () => <StatusFilterStory />)
   .add('Side Filter', () => <SideFilterStory />)
   .add('Actions Filter', () => <ActionsFilterStory />)
-  .add('Render-props with close fn', () => <RenderPropsWithCloseStory />)
