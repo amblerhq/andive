@@ -80,6 +80,7 @@ const MobileHeader = styled.div`
   position: relative;
   padding: 8px 16px;
   height: 56px;
+  min-height: 56px;
 `
 
 const MobileHeaderIconRight = styled.div`
