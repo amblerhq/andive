@@ -174,8 +174,6 @@ export {default as PlusIcon} from './components/icons/plus'
 
 export {default as ReorderIcon} from './components/icons/reorder'
 
-export {default as StampIcon} from './components/icons/stamp'
-
 /**
  * Illustrations
  */

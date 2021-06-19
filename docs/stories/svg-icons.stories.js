@@ -91,8 +91,7 @@ import {
   AmblerIcon,
   SendIcon,
   PlusIcon,
-  ReorderIcon,
-  StampIcon
+  ReorderIcon
 } from '@ambler/andive'
 
 import Showcase from './showcase'
@@ -186,8 +185,7 @@ const icons = [
   AmblerIcon,
   SendIcon,
   PlusIcon,
-  ReorderIcon,
-  StampIcon
+  ReorderIcon
 ]
 
 function TimedColor({interval, colors, children}) {
