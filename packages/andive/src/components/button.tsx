@@ -106,7 +106,6 @@ const ResetButton = styled(
     props.wrap
       ? css`
           text-align: left;
-          background: yellow;
         `
       : css`
           text-overflow: ellipsis;
