@@ -40,6 +40,8 @@ const ButtonWrapper = styled.div.attrs({
   $variant?: 'primary' | 'flat'
   $invert?: boolean
   $mobile?: boolean
+  $width?: number
+  $minWidth?: number
 }>`
   min-width: 40px;
   min-height: 40px;
@@ -60,6 +62,12 @@ const ButtonWrapper = styled.div.attrs({
           : props.theme.hover.backgroundColor};
         border-radius: ${props.theme.hover.borderRadius}px;
       }
+    `}
+  ${props =>
+    !props.$width &&
+    !props.$minWidth &&
+    css`
+      max-width: 100%;
     `}
 
   & *[data-andive-type="typography"] {
@@ -98,6 +106,7 @@ const ResetButton = styled(
     props.wrap
       ? css`
           text-align: left;
+          background: yellow;
         `
       : css`
           text-overflow: ellipsis;
@@ -146,6 +155,12 @@ const DefaultButton = styled(ResetButton)<{
       width: ${props.width}px;
     `}
   ${props =>
+    !props.width &&
+    !props.minWidth &&
+    css`
+      max-width: 100%;
+    `}
+  ${props =>
     props.disabled &&
     css`
       background-color: ${palette.lightGrey};
@@ -189,6 +204,11 @@ const PrimaryButton = styled(DefaultButton)<{
       border: 1px solid ${props.invert ? lightGreyAlpha : 'transparent'};
       box-shadow: none;
     `}
+  ${props =>
+    !props.minWidth &&
+    css`
+      max-width: 100%;
+    `}
 `
 
 // * Flat variant
@@ -203,6 +223,11 @@ function flatColor({disabled, invert}: {disabled?: boolean; invert?: boolean}) {
 
 const FlatButton = styled(ResetButton)<{color?: string}>`
   color: ${props => props.color};
+  ${props =>
+    !props.minWidth &&
+    css`
+      max-width: 100%;
+    `}
 `
 
 const FlatText = styled.div<{mobile?: boolean; color: string}>`
@@ -238,6 +263,7 @@ const Button = React.forwardRef(function Button(
     mobile,
     wrap,
     fill,
+    width,
     ...props
   }: ButtonProps,
   ref
@@ -320,6 +346,8 @@ const Button = React.forwardRef(function Button(
       $variant={variant}
       $mobile={mobile}
       $fill={fill}
+      $width={width}
+      $minWidth={buttonGroupContext ? buttonGroupContext.minWidth : undefined}
     >
       <ButtonComponent
         ref={ref}
