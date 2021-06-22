@@ -203,6 +203,11 @@ const PrimaryButton = styled(DefaultButton)<{
       border: 1px solid ${props.invert ? lightGreyAlpha : 'transparent'};
       box-shadow: none;
     `}
+  ${props =>
+    !props.minWidth &&
+    css`
+      max-width: 100%;
+    `}
 `
 
 // * Flat variant
