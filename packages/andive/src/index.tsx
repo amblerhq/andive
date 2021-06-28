@@ -228,6 +228,8 @@ export {default as NurseIllustration} from './components/illustrations/nurse'
 
 export {default as CheckIllustration} from './components/illustrations/check'
 
+export {default as WarningIllustration} from './components/illustrations/warning'
+
 /**
  * Components
  */
