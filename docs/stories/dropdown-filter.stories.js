@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import {storiesOf} from '@storybook/react'
 import styled from 'styled-components'
 import range from 'lodash.range'
-import {Checkbox, CheckboxGroup, DropdownFilter, Typography, palette, Info, FlatButton, Status} from '@ambler/andive'
+import {Checkbox, CheckboxGroup, DropdownFilter, Typography, palette, Box, FlatButton, Status} from '@ambler/andive'
 
 import Showcase from './showcase'
 
@@ -52,6 +52,7 @@ const DropdownContent = styled.div`
 `
 const DropdownSmallContent = styled.div`
   width: 220px;
+  padding-bottom: 16px;
 `
 
 function StatusFilterStory() {
@@ -174,17 +175,17 @@ function BasicFilterStory() {
       <ShowcaseFilter legend="Basic Filter Desktop" invert>
         <DropdownFilter label="23 juin - 4 juil." title="Title">
           <DropdownSmallContent>
-            <Info>
-              <Info.Label label="A l'Olympiade" />
-            </Info>
+            <Box>
+              <Typography.Body1>Chez Phil</Typography.Body1>
+            </Box>
           </DropdownSmallContent>
         </DropdownFilter>
       </ShowcaseFilter>
       <ShowcaseFilter legend="Basic Filter Mobile" invert>
         <DropdownFilter label="23 juin - 4 juil." title="Title" mobile>
-          <Info>
-            <Info.Label label="A l'Olympiade" />
-          </Info>
+          <Box>
+            <Typography.Body1>Chez Phil</Typography.Body1>
+          </Box>
         </DropdownFilter>
       </ShowcaseFilter>
       <RandomPageContent />
@@ -197,16 +198,16 @@ function SideFilterStory() {
     <>
       <ShowcaseFilter legend="Open Right (default)" invert>
         <DropdownFilter label="23 juin - 4 juil." openRight onClear={() => null} onSave={() => null}>
-          <Info>
-            <Info.Label label="A l'Olympiade" />
-          </Info>
+          <Box>
+            <Typography.Body1>Chez Phil</Typography.Body1>
+          </Box>
         </DropdownFilter>
       </ShowcaseFilter>
       <ShowcaseFilter legend="Open Left" invert style={{justifyContent: 'flex-end'}}>
         <DropdownFilter label="23 juin - 4 juil." openLeft onClear={() => null} onSave={() => null}>
-          <Info>
-            <Info.Label label="A l'Olympiade" />
-          </Info>
+          <Box>
+            <Typography.Body1>Chez Phil</Typography.Body1>
+          </Box>
         </DropdownFilter>
       </ShowcaseFilter>
       <RandomPageContent />
@@ -242,49 +243,49 @@ function ActionsFilterStory() {
       <ShowcaseFilter legend="Clear Filter Desktop" invert>
         <DropdownFilter label="23 juin - 4 juil." title="Title" onClear={() => null}>
           <DropdownSmallContent>
-            <Info>
-              <Info.Label label="A l'Olympiade" />
-            </Info>
+            <Box>
+              <Typography.Body1>Chez Phil</Typography.Body1>
+            </Box>
           </DropdownSmallContent>
         </DropdownFilter>
       </ShowcaseFilter>
       <ShowcaseFilter legend="Clear Filter Mobile" invert>
         <DropdownFilter label="23 juin - 4 juil." title="Title" onClear={() => null} mobile>
-          <Info>
-            <Info.Label label="A l'Olympiade" />
-          </Info>
+          <Box>
+            <Typography.Body1>Chez Phil</Typography.Body1>
+          </Box>
         </DropdownFilter>
       </ShowcaseFilter>
       <ShowcaseFilter legend="Save Filter Desktop" invert>
         <DropdownFilter label="23 juin - 4 juil." title="Title" onSave={() => null}>
           <DropdownSmallContent>
-            <Info>
-              <Info.Label label="A l'Olympiade" />
-            </Info>
+            <Box>
+              <Typography.Body1>Chez Phil</Typography.Body1>
+            </Box>
           </DropdownSmallContent>
         </DropdownFilter>
       </ShowcaseFilter>
       <ShowcaseFilter legend="Save Filter Mobile" invert>
         <DropdownFilter label="23 juin - 4 juil." title="Title" onSave={() => null} mobile>
-          <Info>
-            <Info.Label label="A l'Olympiade" />
-          </Info>
+          <Box>
+            <Typography.Body1>Chez Phil</Typography.Body1>
+          </Box>
         </DropdownFilter>
       </ShowcaseFilter>
       <ShowcaseFilter legend="Clear and Save Filter Desktop" invert>
         <DropdownFilter label="23 juin - 4 juil." title="Title" onSave={() => null} onClear={() => null}>
           <DropdownSmallContent>
-            <Info>
-              <Info.Label label="A l'Olympiade" />
-            </Info>
+            <Box>
+              <Typography.Body1>Chez Phil</Typography.Body1>
+            </Box>
           </DropdownSmallContent>
         </DropdownFilter>
       </ShowcaseFilter>
       <ShowcaseFilter legend="Clear and Save Filter Mobile" invert>
         <DropdownFilter label="23 juin - 4 juil." title="Title" onSave={() => null} onClear={() => null} mobile>
-          <Info>
-            <Info.Label label="A l'Olympiade" />
-          </Info>
+          <Box>
+            <Typography.Body1>Chez Phil</Typography.Body1>
+          </Box>
         </DropdownFilter>
       </ShowcaseFilter>
       <RandomPageContent />
@@ -297,3 +298,16 @@ storiesOf('API|DropdownFilter', module)
   .add('Status Filter', () => <StatusFilterStory />)
   .add('Side Filter', () => <SideFilterStory />)
   .add('Actions Filter', () => <ActionsFilterStory />)
+  .add('Transparent prop', () => (
+    <>
+      <ShowcaseFilter legend="Transparent props" invert>
+        <DropdownFilter label="23 juin - 4 juil." title="Title" transparent>
+          <DropdownSmallContent>
+            <Box>
+              <Typography.Body1>Chez Phil</Typography.Body1>
+            </Box>
+          </DropdownSmallContent>
+        </DropdownFilter>
+      </ShowcaseFilter>
+    </>
+  ))

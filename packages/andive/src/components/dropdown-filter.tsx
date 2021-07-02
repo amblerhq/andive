@@ -24,7 +24,7 @@ const Menu = styled.div<{openLeft?: boolean; mobile?: boolean}>`
       : undefined}
 
   display: flex;
-  flex-flow column nowrap;
+  flex-flow: column nowrap;
 
   margin-top: 8px;
   padding: 16px 16px 0 16px;
@@ -58,7 +58,7 @@ const Actions = styled.div`
   padding: 24px 8px;
 `
 
-export const PageOverlay = styled.div`
+export const PageOverlay = styled.div<{$transparent?: boolean}>`
   position: fixed;
 
   top: 0;
@@ -66,7 +66,7 @@ export const PageOverlay = styled.div`
   width: 100%;
   height: 100%;
 
-  background: rgba(255, 255, 255, 0.8);
+  background: ${props => (props.$transparent ? 'transparent' : 'rgba(255, 255, 255, 0.8)')};
   z-index: ${ZIndexes.MODALS};
 `
 
@@ -128,6 +128,7 @@ interface MenuFilterProps {
   onClose?: () => void
   children: React.ReactNode
   openLeft?: boolean
+  transparent?: boolean
 }
 export function DropdownFilter({
   className,
@@ -140,7 +141,8 @@ export function DropdownFilter({
   onClose,
   mobile,
   children,
-  openLeft = false
+  openLeft = false,
+  transparent = false
 }: MenuFilterProps) {
   const [open, setOpen] = React.useState(false)
   const onClick = React.useCallback(() => {
@@ -161,7 +163,7 @@ export function DropdownFilter({
 
   return (
     <>
-      {open && <PageOverlay onClick={onCloseAndSave} />}
+      {open && <PageOverlay onClick={onCloseAndSave} $transparent={transparent} />}
       <MenuFilterRoot open={open}>
         {button &&
           React.cloneElement(button, {
