@@ -174,6 +174,8 @@ export {default as PlusIcon} from './components/icons/plus'
 
 export {default as ReorderIcon} from './components/icons/reorder'
 
+export {default as EyeIcon} from './components/icons/eye'
+
 /**
  * Illustrations
  */
