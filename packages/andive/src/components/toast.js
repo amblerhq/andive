@@ -61,7 +61,7 @@ const ToastContainerRoot = styled.div`
   pointer-events: none;
   position: fixed;
 
-  z-index: ${ZIndexes.MODALS};
+  z-index: ${ZIndexes.TOASTS};
 
   bottom: -${toastHeight}px;
   left: 0;
