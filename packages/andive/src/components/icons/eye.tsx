@@ -4,15 +4,17 @@ import Eye from '../../../img/icons/eye.svg'
 import SvgIcon from '../svg-icon'
 import {palette} from '../..'
 
-const EyeIcon = ({color = palette.mediumBerryBlue, ...rest}) => {
+const DEFAULT_SIZE = 24
+
+const EyeIcon = ({color = palette.mediumBerryBlue, size = DEFAULT_SIZE, ...rest}) => {
   return (
-    <SvgIcon color={color} {...rest}>
+    <SvgIcon color={color} size={size} {...rest}>
       <Eye />
     </SvgIcon>
   )
 }
 
-EyeIcon.size = 24
+EyeIcon.size = DEFAULT_SIZE
 
 export default EyeIcon
 export const EyeSvg = Eye

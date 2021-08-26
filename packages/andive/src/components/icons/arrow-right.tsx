@@ -4,15 +4,17 @@ import ArrowRight from '../../../img/icons/arrow-right.svg'
 import SvgIcon from '../svg-icon'
 import {palette} from '../..'
 
-const ArrowRightIcon = ({color = palette.mediumBerryBlue, ...rest}) => {
+const DEFAULT_SIZE = 16
+
+const ArrowRightIcon = ({color = palette.mediumBerryBlue, size = DEFAULT_SIZE, ...rest}) => {
   return (
-    <SvgIcon color={color} {...rest}>
+    <SvgIcon color={color} size={size} {...rest}>
       <ArrowRight />
     </SvgIcon>
   )
 }
 
-ArrowRightIcon.size = 24
+ArrowRightIcon.size = DEFAULT_SIZE
 
 export default ArrowRightIcon
 export const ArrowRightSvg = ArrowRight

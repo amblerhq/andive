@@ -4,15 +4,17 @@ import Delegate from '../../../img/icons/delegate.svg'
 import SvgIcon from '../svg-icon'
 import {palette} from '../..'
 
-const DelegateIcon = ({color = palette.mediumBerryBlue, ...rest}) => {
+const DEFAULT_SIZE = 24
+
+const DelegateIcon = ({color = palette.mediumBerryBlue, size = DEFAULT_SIZE, ...rest}) => {
   return (
-    <SvgIcon color={color} {...rest}>
+    <SvgIcon color={color} size={size} {...rest}>
       <Delegate />
     </SvgIcon>
   )
 }
 
-DelegateIcon.size = 24
+DelegateIcon.size = DEFAULT_SIZE
 
 export default DelegateIcon
 export const DelegateSvg = Delegate

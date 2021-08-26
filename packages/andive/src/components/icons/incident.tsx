@@ -4,15 +4,17 @@ import Incident from '../../../img/icons/incident.svg'
 import SvgIcon from '../svg-icon'
 import {palette} from '../..'
 
-const IncidentIcon = ({color = palette.darkPotatoYellow, ...rest}) => {
+const DEFAULT_SIZE = 24
+
+const IncidentIcon = ({color = palette.darkPotatoYellow, size = DEFAULT_SIZE, ...rest}) => {
   return (
-    <SvgIcon color={color} {...rest}>
+    <SvgIcon color={color} size={size} {...rest}>
       <Incident />
     </SvgIcon>
   )
 }
 
-IncidentIcon.size = 24
+IncidentIcon.size = DEFAULT_SIZE
 
 export default IncidentIcon
 export const IncidentSvg = Incident

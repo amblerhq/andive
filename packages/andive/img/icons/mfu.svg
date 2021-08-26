@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40">
     <g fill="none" fill-rule="evenodd" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" transform="translate(4 4)">
         <path d="M21 15V7c0-.552.448-1 1-1 0 0 0 0 0 0h9c.552 0 1 .448 1 1v8c0 .552-.448 1-1 1h-9c-.552 0-1-.448-1-1zM2 20.5v-4.728C2 13.136 4.136 11 6.772 11h1.57c1.925 0 3.647 1.196 4.32 3 .672 1.804 2.394 3 4.319 3h.269M0 32v-8c0-1.657 1.343-3 3-3 0 0 0 0 0 0h26c1.657 0 3 1.344 3 3v8h0"/>
         <circle cx="9" cy="4" r="4"/>

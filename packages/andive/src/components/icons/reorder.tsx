@@ -1,18 +1,19 @@
 import React from 'react'
-
 import Reorder from '../../../img/icons/reorder.svg'
 import SvgIcon from '../svg-icon'
 import {palette} from '../..'
 
-const ReorderIcon = ({color = palette.darkPotatoYellow, ...rest}) => {
+const DEFAULT_SIZE = 24
+
+const ReorderIcon = ({color = palette.darkPotatoYellow, size = DEFAULT_SIZE, ...rest}) => {
   return (
-    <SvgIcon color={color} {...rest}>
+    <SvgIcon color={color} size={size} {...rest}>
       <Reorder />
     </SvgIcon>
   )
 }
 
-ReorderIcon.size = 24
+ReorderIcon.size = DEFAULT_SIZE
 
 export default ReorderIcon
 export const ReorderSvg = Reorder

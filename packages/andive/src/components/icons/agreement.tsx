@@ -4,15 +4,17 @@ import Agreement from '../../../img/icons/agreement.svg'
 import SvgIcon from '../svg-icon'
 import {palette} from '../..'
 
-const AgreementIcon = ({color = palette.white, ...rest}) => {
+const DEFAULT_SIZE = 24
+
+const AgreementIcon = ({color = palette.white, size = DEFAULT_SIZE, ...rest}) => {
   return (
-    <SvgIcon color={color} {...rest}>
+    <SvgIcon color={color} size={size} {...rest}>
       <Agreement />
     </SvgIcon>
   )
 }
 
-AgreementIcon.size = 24
+AgreementIcon.size = DEFAULT_SIZE
 
 export default AgreementIcon
 export const AgreementSvg = Agreement
