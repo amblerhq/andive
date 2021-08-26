@@ -1,18 +1,19 @@
 import React from 'react'
-
 import RadioOn from '../../../img/icons/on-round.svg'
 import SvgIcon from '../svg-icon'
 import {palette} from '../..'
 
-const RadioOnIcon = ({color = palette.mediumBerryBlue, ...rest}) => {
+const DEFAULT_SIZE = 24
+
+const RadioOnIcon = ({color = palette.mediumBerryBlue, size = DEFAULT_SIZE, ...rest}) => {
   return (
-    <SvgIcon color={color} {...rest}>
+    <SvgIcon color={color} size={size} {...rest}>
       <RadioOn />
     </SvgIcon>
   )
 }
 
-RadioOnIcon.size = 24
+RadioOnIcon.size = DEFAULT_SIZE
 
 export default RadioOnIcon
 export const RadioOnSvg = RadioOn

@@ -4,15 +4,17 @@ import Forbidden from '../../../img/icons/forbidden.svg'
 import SvgIcon from '../svg-icon'
 import {palette} from '../..'
 
-const ForbiddenIcon = ({color = palette.darkRadishRed, ...rest}) => {
+const DEFAULT_SIZE = 24
+
+const ForbiddenIcon = ({color = palette.darkRadishRed, size = DEFAULT_SIZE, ...rest}) => {
   return (
-    <SvgIcon color={color} {...rest}>
+    <SvgIcon color={color} size={size} {...rest}>
       <Forbidden />
     </SvgIcon>
   )
 }
 
-ForbiddenIcon.size = 24
+ForbiddenIcon.size = DEFAULT_SIZE
 
 export default ForbiddenIcon
 export const ForbiddenSvg = Forbidden

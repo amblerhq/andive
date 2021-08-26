@@ -4,15 +4,17 @@ import Book from '../../../img/icons/book.svg'
 import SvgIcon from '../svg-icon'
 import {palette} from '../..'
 
-const BookIcon = ({color = palette.darkPrimary, ...rest}) => {
+const DEFAULT_SIZE = 24
+
+const BookIcon = ({color = palette.darkPrimary, size = DEFAULT_SIZE, ...rest}) => {
   return (
-    <SvgIcon color={color} {...rest}>
+    <SvgIcon color={color} size={size} {...rest}>
       <Book />
     </SvgIcon>
   )
 }
 
-BookIcon.size = 24
+BookIcon.size = DEFAULT_SIZE
 
 export default BookIcon
 export const BookSvg = Book

@@ -4,15 +4,17 @@ import Filter from '../../../img/icons/filter.svg'
 import SvgIcon from '../svg-icon'
 import {palette} from '../..'
 
-const FilterIcon = ({color = palette.mediumPrimary, ...rest}) => {
+const DEFAULT_SIZE = 24
+
+const FilterIcon = ({color = palette.mediumPrimary, size = DEFAULT_SIZE, ...rest}) => {
   return (
-    <SvgIcon color={color} {...rest}>
+    <SvgIcon color={color} size={size} {...rest}>
       <Filter />
     </SvgIcon>
   )
 }
 
-FilterIcon.size = 24
+FilterIcon.size = DEFAULT_SIZE
 
 export default FilterIcon
 export const FilterSvg = Filter

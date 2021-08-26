@@ -4,15 +4,17 @@ import DropdownArrow from '../../../img/icons/dropdown-arrow.svg'
 import SvgIcon from '../svg-icon'
 import {palette} from '../..'
 
-const DropdownArrowIcon = ({color = palette.mediumBerryBlue, ...rest}) => {
+const DEFAULT_SIZE = 10
+
+const DropdownArrowIcon = ({color = palette.mediumBerryBlue, size = DEFAULT_SIZE, ...rest}) => {
   return (
-    <SvgIcon color={color} {...rest}>
+    <SvgIcon color={color} size={size} {...rest}>
       <DropdownArrow />
     </SvgIcon>
   )
 }
 
-DropdownArrowIcon.size = 16
+DropdownArrowIcon.size = DEFAULT_SIZE
 
 export default DropdownArrowIcon
 export const DropdownArrowSvg = DropdownArrow

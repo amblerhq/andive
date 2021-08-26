@@ -4,15 +4,17 @@ import Edit from '../../../img/icons/edit.svg'
 import SvgIcon from '../svg-icon'
 import {palette} from '../..'
 
-const EditIcon = ({color = palette.mediumBerryBlue, ...rest}) => {
+const DEFAULT_SIZE = 24
+
+const EditIcon = ({color = palette.mediumBerryBlue, size = DEFAULT_SIZE, ...rest}) => {
   return (
-    <SvgIcon color={color} {...rest}>
+    <SvgIcon color={color} size={size} {...rest}>
       <Edit />
     </SvgIcon>
   )
 }
 
-EditIcon.size = 24
+EditIcon.size = DEFAULT_SIZE
 
 export default EditIcon
 export const EditSvg = Edit

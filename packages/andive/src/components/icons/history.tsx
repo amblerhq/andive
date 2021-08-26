@@ -4,15 +4,17 @@ import History from '../../../img/icons/history.svg'
 import SvgIcon from '../svg-icon'
 import {palette} from '../..'
 
-const HistoryIcon = ({color = palette.darkPrimary, ...rest}) => {
+const DEFAULT_SIZE = 24
+
+const HistoryIcon = ({color = palette.darkPrimary, size = DEFAULT_SIZE, ...rest}) => {
   return (
-    <SvgIcon color={color} {...rest}>
+    <SvgIcon color={color} size={size} {...rest}>
       <History />
     </SvgIcon>
   )
 }
 
-HistoryIcon.size = 24
+HistoryIcon.size = DEFAULT_SIZE
 
 export default HistoryIcon
 export const HistorySvg = History

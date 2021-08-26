@@ -4,15 +4,17 @@ import Bariatric from '../../../img/icons/bariatric.svg'
 import SvgIcon from '../svg-icon'
 import {palette} from '../..'
 
-const BariatricIcon = ({color = palette.darkPrimary, ...rest}) => {
+const DEFAULT_SIZE = 22
+
+const BariatricIcon = ({color = palette.darkPrimary, size = DEFAULT_SIZE, ...rest}) => {
   return (
-    <SvgIcon color={color} {...rest}>
+    <SvgIcon color={color} size={size} {...rest}>
       <Bariatric />
     </SvgIcon>
   )
 }
 
-BariatricIcon.size = 24
+BariatricIcon.size = DEFAULT_SIZE
 
 export default BariatricIcon
 export const BariatricSvg = Bariatric

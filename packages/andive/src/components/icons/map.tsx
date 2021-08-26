@@ -1,18 +1,19 @@
 import React from 'react'
-
 import Map from '../../../img/icons/map.svg'
 import SvgIcon from '../svg-icon'
 import {palette} from '../..'
 
-const MapIcon = ({color = palette.mediumBerryBlue, ...rest}) => {
+const DEFAULT_SIZE = 24
+
+const MapIcon = ({color = palette.mediumBerryBlue, size = DEFAULT_SIZE, ...rest}) => {
   return (
-    <SvgIcon color={color} {...rest}>
+    <SvgIcon color={color} size={size} {...rest}>
       <Map />
     </SvgIcon>
   )
 }
 
-MapIcon.size = 24
+MapIcon.size = DEFAULT_SIZE
 
 export default MapIcon
 export const MapSvg = Map

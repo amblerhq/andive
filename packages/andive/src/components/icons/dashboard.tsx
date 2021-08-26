@@ -4,15 +4,17 @@ import Dashboard from '../../../img/icons/dashboard.svg'
 import SvgIcon from '../svg-icon'
 import {palette} from '../..'
 
-const DashboardIcon = ({color = palette.white, ...rest}) => {
+const DEFAULT_SIZE = 40
+
+const DashboardIcon = ({color = palette.white, size = DEFAULT_SIZE, ...rest}) => {
   return (
-    <SvgIcon color={color} {...rest}>
+    <SvgIcon color={color} size={size} {...rest}>
       <Dashboard />
     </SvgIcon>
   )
 }
 
-DashboardIcon.size = 40
+DashboardIcon.size = DEFAULT_SIZE
 
 export default DashboardIcon
 export const DashboardSvg = Dashboard
