@@ -2,16 +2,16 @@ import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 
-const SvgRoot = styled.div`
-  color: ${props => props.color};
-`
-
 const getWidth = props => (props.circle ? 32 : props.size || 32)
 
-const IconRoot = styled(({size, circleColor, circle, ...props}) => <SvgRoot {...props} />)`
-  position: relative;
+const SvgRoot = styled.div`
+  color: ${props => props.color};
   width: ${getWidth}px;
   height: ${getWidth}px;
+`
+
+const IconRoot = styled(({size, circleColor, circle, ...props}) => <SvgRoot size={size} {...props} />)`
+  position: relative;
   flex: 0 0 ${getWidth}px;
 
   border-radius: ${props => (props.circle ? '50%' : 0)};
@@ -23,11 +23,13 @@ const IconRoot = styled(({size, circleColor, circle, ...props}) => <SvgRoot {...
   }
 `
 
-const Icon = ({circle, circleColor, color, children, iconProps, inline, ...props}) => {
-  const size = children.props.width || children.type.size || 24
-
+const Icon = ({circle, circleColor, color, children, iconProps, inline, size, ...props}) => {
   if (inline) {
-    return <SvgRoot color={color}>{React.cloneElement(children, {...(iconProps || props || {})})}</SvgRoot>
+    return (
+      <SvgRoot color={color} size={size}>
+        {React.cloneElement(children, {...(iconProps || props || {})})}
+      </SvgRoot>
+    )
   }
 
   return (
