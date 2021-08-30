@@ -2,17 +2,17 @@ import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 
+const getWidth = props => (props.circle ? 32 : props.size || 32)
+
 const SvgRoot = styled.div`
   color: ${props => props.color};
-  width: ${props => getWidth(props)}px;
-  height: ${props => getWidth(props)}px;
+  width: ${getWidth}px;
+  height: ${getWidth}px;
 `
-
-const getWidth = props => (props.circle ? 32 : props.size || 32)
 
 const IconRoot = styled(({size, circleColor, circle, ...props}) => <SvgRoot size={size} {...props} />)`
   position: relative;
-  flex: 0 0 ${props => getWidth(props)}px;
+  flex: 0 0 ${getWidth}px;
 
   border-radius: ${props => (props.circle ? '50%' : 0)};
   background: ${props => (props.circle ? props.circleColor || '#ededed' : 'transparent')};
