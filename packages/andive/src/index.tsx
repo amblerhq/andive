@@ -176,6 +176,8 @@ export {default as ReorderIcon} from './components/icons/reorder'
 
 export {default as EyeIcon} from './components/icons/eye'
 
+export {default as PdfIcon} from './components/icons/pdf'
+
 /**
  * Illustrations
  */
