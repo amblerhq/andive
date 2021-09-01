@@ -188,7 +188,8 @@ const icons = [
   SendIcon,
   PlusIcon,
   ReorderIcon,
-  EyeIcon
+  EyeIcon,
+  PdfIcon
 ]
 
 function TimedColor({interval, colors, children}) {
