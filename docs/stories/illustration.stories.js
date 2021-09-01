@@ -27,95 +27,99 @@ import {
   NurseIllustration,
   MaintenanceIllustration,
   CheckIllustration,
-  WarningIllustration
+  WarningIllustration,
+  PdfIllustration
 } from '@ambler/andive'
 
 import Showcase from './showcase'
 
 const Story = styled.div`
-    display: flex;
-    flex-flow row wrap;
+  display: flex;
+  flex-flow: row wrap;
 `
 
 storiesOf('Assets|Illustrations', module).add('Library', () => {
   return (
     <Story>
-      <Showcase variant="squared" size={400} style={{background: 'white'}} legend="<NurseIllustration />">
+      <Showcase variant="squared" size={300} style={{background: 'white'}} legend="<PdfIllustration />">
+        <PdfIllustration />
+      </Showcase>
+      <Showcase variant="squared" size={300} style={{background: 'white'}} legend="<NurseIllustration />">
         <NurseIllustration />
       </Showcase>
-      <Showcase variant="squared" size={400} style={{background: 'white'}} legend="<MaintenanceIllustration />">
+      <Showcase variant="squared" size={300} style={{background: 'white'}} legend="<MaintenanceIllustration />">
         <MaintenanceIllustration />
       </Showcase>
-      <Showcase variant="squared" size={400} style={{background: 'white'}} legend="<DirectorIllustration />">
+      <Showcase variant="squared" size={300} style={{background: 'white'}} legend="<DirectorIllustration />">
         <DirectorIllustration />
       </Showcase>
-      <Showcase variant="squared" size={400} style={{background: 'white'}} legend="<WatchIllustration />">
+      <Showcase variant="squared" size={300} style={{background: 'white'}} legend="<WatchIllustration />">
         <WatchIllustration />
       </Showcase>
-      <Showcase variant="squared" size={400} style={{background: 'white'}} legend="<HeadphonesIllustration />">
+      <Showcase variant="squared" size={300} style={{background: 'white'}} legend="<HeadphonesIllustration />">
         <HeadphonesIllustration />
       </Showcase>
-      <Showcase variant="squared" size={400} style={{background: 'white'}} legend="<EmptyStretcherIllustration />">
+      <Showcase variant="squared" size={300} style={{background: 'white'}} legend="<EmptyStretcherIllustration />">
         <EmptyStretcherIllustration />
       </Showcase>
-      <Showcase variant="squared" size={400} style={{background: 'white'}} legend="<TaxiIllustration />">
+      <Showcase variant="squared" size={300} style={{background: 'white'}} legend="<TaxiIllustration />">
         <TaxiIllustration />
       </Showcase>
-      <Showcase variant="squared" size={400} style={{background: 'white'}} legend="<CancelIllustration />">
+      <Showcase variant="squared" size={300} style={{background: 'white'}} legend="<CancelIllustration />">
         <CancelIllustration />
       </Showcase>
-      <Showcase variant="squared" size={400} style={{background: 'white'}} legend="<GpFacilityIllustration />">
+      <Showcase variant="squared" size={300} style={{background: 'white'}} legend="<GpFacilityIllustration />">
         <GpFacilityIllustration />
       </Showcase>
-      <Showcase variant="squared" size={400} style={{background: 'white'}} legend="<ChFacilityIllustration />">
+      <Showcase variant="squared" size={300} style={{background: 'white'}} legend="<ChFacilityIllustration />">
         <ChFacilityIllustration />
       </Showcase>
-      <Showcase variant="squared" size={400} style={{background: 'white'}} legend="<CFacilityIllustration />">
+      <Showcase variant="squared" size={300} style={{background: 'white'}} legend="<CFacilityIllustration />">
         <CFacilityIllustration />
       </Showcase>
-      <Showcase variant="squared" size={400} style={{background: 'white'}} legend="<GhtFacilityIllustration />">
+      <Showcase variant="squared" size={300} style={{background: 'white'}} legend="<GhtFacilityIllustration />">
         <GhtFacilityIllustration />
       </Showcase>
-      <Showcase variant="squared" size={400} style={{background: 'white'}} legend="<RingingBellIllustration />">
+      <Showcase variant="squared" size={300} style={{background: 'white'}} legend="<RingingBellIllustration />">
         <RingingBellIllustration />
       </Showcase>
-      <Showcase variant="squared" size={400} style={{background: 'white'}} legend="<SleepingBellIllustration />">
+      <Showcase variant="squared" size={300} style={{background: 'white'}} legend="<SleepingBellIllustration />">
         <SleepingBellIllustration />
       </Showcase>
-      <Showcase variant="squared" size={400} style={{background: 'white'}} legend="<TooLateIllustration />">
+      <Showcase variant="squared" size={300} style={{background: 'white'}} legend="<TooLateIllustration />">
         <TooLateIllustration />
       </Showcase>
-      <Showcase variant="squared" size={400} style={{background: 'white'}} legend="<EmptyIllustration />">
+      <Showcase variant="squared" size={300} style={{background: 'white'}} legend="<EmptyIllustration />">
         <EmptyIllustration />
       </Showcase>
-      <Showcase variant="squared" size={400} invert legend="<SuccessIllustration />">
+      <Showcase variant="squared" size={300} invert legend="<SuccessIllustration />">
         <SuccessIllustration />
       </Showcase>
-      <Showcase variant="squared" size={400} style={{background: 'white'}} legend="<ErrorIllustration />">
+      <Showcase variant="squared" size={300} style={{background: 'white'}} legend="<ErrorIllustration />">
         <ErrorIllustration />
       </Showcase>
-      <Showcase variant="squared" size={400} style={{background: 'white'}} legend="<DirectionIllustration />">
+      <Showcase variant="squared" size={300} style={{background: 'white'}} legend="<DirectionIllustration />">
         <DirectionIllustration />
       </Showcase>
-      <Showcase variant="squared" size={400} style={{background: 'white'}} legend="<DoctorIllustration />">
+      <Showcase variant="squared" size={300} style={{background: 'white'}} legend="<DoctorIllustration />">
         <DoctorIllustration />
       </Showcase>
-      <Showcase variant="squared" size={400} style={{background: 'white'}} legend="<HospitalIllustration />">
+      <Showcase variant="squared" size={300} style={{background: 'white'}} legend="<HospitalIllustration />">
         <HospitalIllustration />
       </Showcase>
-      <Showcase variant="squared" size={400} style={{background: 'white'}} legend="<OrderOnlineIllustration />">
+      <Showcase variant="squared" size={300} style={{background: 'white'}} legend="<OrderOnlineIllustration />">
         <OrderOnlineIllustration />
       </Showcase>
-      <Showcase variant="squared" size={400} style={{background: 'white'}} legend="<PatientIllustration />">
+      <Showcase variant="squared" size={300} style={{background: 'white'}} legend="<PatientIllustration />">
         <PatientIllustration />
       </Showcase>
-      <Showcase variant="squared" size={400} style={{background: 'white'}} legend="<StandardIllustration />">
+      <Showcase variant="squared" size={300} style={{background: 'white'}} legend="<StandardIllustration />">
         <StandardIllustration />
       </Showcase>
-      <Showcase variant="squared" size={400} style={{background: 'white'}} legend="<CheckIllustration />">
+      <Showcase variant="squared" size={300} style={{background: 'white'}} legend="<CheckIllustration />">
         <CheckIllustration />
       </Showcase>
-      <Showcase variant="squared" size={400} style={{background: 'white'}} legend="<WarningIllustration />">
+      <Showcase variant="squared" size={300} style={{background: 'white'}} legend="<WarningIllustration />">
         <WarningIllustration />
       </Showcase>
     </Story>

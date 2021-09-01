@@ -232,6 +232,8 @@ export {default as CheckIllustration} from './components/illustrations/check'
 
 export {default as WarningIllustration} from './components/illustrations/warning'
 
+export {default as PdfIllustration} from './components/illustrations/pdf'
+
 /**
  * Components
  */
