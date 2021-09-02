@@ -10,7 +10,7 @@ const SvgRoot = styled.div`
   height: ${getWidth}px;
 `
 
-const IconRoot = styled(({size, circleColor, circle, ...props}) => <SvgRoot size={size} {...props} />)`
+const IconRoot = styled(({size, circleColor, circle, ...props}) => <SvgRoot size={size} circle={circle} {...props} />)`
   position: relative;
   flex: 0 0 ${getWidth}px;
 
@@ -20,6 +20,8 @@ const IconRoot = styled(({size, circleColor, circle, ...props}) => <SvgRoot size
     position: absolute;
     top: calc(50% - ${props => props.size / 2}px);
     left: calc(50% - ${props => props.size / 2}px);
+    width: ${props => props.size}px;
+    height: ${props => props.size}px;
   }
 `
 
