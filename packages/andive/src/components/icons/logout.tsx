@@ -4,7 +4,7 @@ import Logout from '../../../img/icons/log-out.svg'
 import SvgIcon from '../svg-icon'
 import {palette} from '../..'
 
-const DEFAULT_SIZE = 20
+const DEFAULT_SIZE = 24
 
 const LogoutIcon = ({color = palette.mediumPrimary, size = DEFAULT_SIZE, ...rest}) => {
   return (
