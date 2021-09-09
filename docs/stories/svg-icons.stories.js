@@ -93,7 +93,8 @@ import {
   PlusIcon,
   ReorderIcon,
   EyeIcon,
-  PdfIcon
+  PdfIcon,
+  UploadInvoiceIcon
 } from '@ambler/andive'
 
 import Showcase from './showcase'
@@ -189,7 +190,8 @@ const icons = [
   PlusIcon,
   ReorderIcon,
   EyeIcon,
-  PdfIcon
+  PdfIcon,
+  UploadInvoiceIcon
 ]
 
 function TimedColor({interval, colors, children}) {
@@ -212,7 +214,14 @@ function TimedColor({interval, colors, children}) {
   return children(color)
 }
 
-const newIcons = [{Icon: PdfIcon}, {Icon: EyeIcon}, {Icon: PlusIcon}, {Icon: ReorderIcon}, {Icon: SendIcon}]
+const newIcons = [
+  {Icon: UploadInvoiceIcon},
+  {Icon: PdfIcon},
+  {Icon: EyeIcon},
+  {Icon: PlusIcon},
+  {Icon: ReorderIcon},
+  {Icon: SendIcon}
+]
 const updatedIcons = []
 
 storiesOf('Assets|Icons', module)
