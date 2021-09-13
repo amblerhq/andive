@@ -1,6 +1,6 @@
 import React from 'react'
 import {storiesOf} from '@storybook/react'
-import {Direction, Input, Typography, Box, palette} from '@ambler/andive'
+import {Direction, DirectionVariant, Input, Typography, palette, VSpace} from '@ambler/andive'
 
 import Showcase from './showcase'
 
@@ -70,6 +70,7 @@ storiesOf('API|Direction', module)
               <Typography.Body1>Ambler</Typography.Body1>
             </Direction.Origin.Point>
             <Typography.Body2 color={palette.mediumPrimary}>24 Quai charles pasqua, Levalois-Perret</Typography.Body2>
+            <VSpace px={16} />
           </Direction.Origin>
           <Direction.Destination>
             <Direction.Destination.Point>
@@ -90,6 +91,7 @@ storiesOf('API|Direction', module)
               <Typography.Body1>Ambler</Typography.Body1>
             </Direction.Origin.Point>
             <Typography.Body2 color={palette.mediumPrimary}>24 Quai charles pasqua, Levalois-Perret</Typography.Body2>
+            <VSpace px={16} />
           </Direction.Origin>
           <Direction.Destination label={<Typography.Body1>~14:10</Typography.Body1>}>
             <Direction.Destination.Point>
@@ -109,6 +111,7 @@ storiesOf('API|Direction', module)
             <Typography.Body1>Ambler</Typography.Body1>
           </Direction.Origin.Point>
           <Typography.Body2 color={palette.mediumPrimary}>24 Quai charles pasqua, Levalois-Perret</Typography.Body2>
+          <VSpace px={16} />
         </Direction.Origin>
         <Direction.Destination>
           <Direction.Destination.Point>
@@ -155,7 +158,7 @@ storiesOf('API|Direction', module)
         </Direction>
       </Showcase>
       <Showcase>
-        <Direction style={{background: 'white'}} nopadding>
+        <Direction style={{background: 'white'}} nopadding variant={DirectionVariant.Centered}>
           <Direction.Origin>
             <Direction.Origin.Point>
               <div>
