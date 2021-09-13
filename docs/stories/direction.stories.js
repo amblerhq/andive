@@ -159,21 +159,21 @@ storiesOf('API|Direction', module)
           <Direction.Origin>
             <Direction.Origin.Point>
               <div>
-                <Input label="Adresse" placeholder="Adresse d'origine" value="" onChange={() => null} />
+                <Input placeholder="Adresse d'origine" value="" onChange={() => null} />
               </div>
             </Direction.Origin.Point>
             <div style={{paddingLeft: 32}}>
-              <Input label="Origin" placeholder="Service" value="" onChange={() => null} />
+              <Input placeholder="Service" value="" onChange={() => null} />
             </div>
           </Direction.Origin>
           <Direction.Destination>
             <Direction.Destination.Point>
               <div>
-                <Input label="Adresse" placeholder="Adresse d'origine" value="" onChange={() => null} />
+                <Input placeholder="Adresse d'origine" value="" onChange={() => null} />
               </div>
             </Direction.Destination.Point>
             <div style={{paddingLeft: 32}}>
-              <Input label="Origin" placeholder="Service" value="" onChange={() => null} />
+              <Input placeholder="Service" value="" onChange={() => null} />
             </div>
           </Direction.Destination>
         </Direction>
