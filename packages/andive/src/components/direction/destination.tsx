@@ -34,13 +34,11 @@ const DestinationPoint = styled(({offsetY, centered, ...props}) => <div {...prop
   left: calc(50% - 4px);
   ${props => {
     if (props.centered) {
-      return css`
+      return `
         top: ${props.offsetY || 4}px;
       `
     }
-    return css`
-      top: 8px;
-    `
+    return 'top: 8px;'
   }}
 
   border-radius: 50%;
@@ -72,7 +70,7 @@ const DestinationRoad = styled(({offsetY, centered, ...props}) => <div {...props
   background: ${palette.darkPrimary};
 `
 
-const AsideLabel = styled(({...props}) => <div {...props} />)`
+const AsideLabel = styled.div`
   position: absolute;
   top: 0px;
   left: -8px;
@@ -171,7 +169,7 @@ export function Destination<PointRefElementType>({
     offsetY = topToPointRef + pointRect.height / 2 - 4 - compensate
   }
 
-  const centered = variant === DirectionVariant.Centered
+  const centered = variant === 'centered'
 
   return (
     <DestinationRoot label={label} {...props}>

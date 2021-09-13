@@ -1,6 +1,6 @@
 import React from 'react'
 import {storiesOf} from '@storybook/react'
-import {Direction, DirectionVariant, Input, Typography, palette, VSpace} from '@ambler/andive'
+import {Direction, Input, Typography, palette, VSpace} from '@ambler/andive'
 
 import Showcase from './showcase'
 
@@ -124,7 +124,7 @@ storiesOf('API|Direction', module)
   ))
   .add('Multiline', () => (
     <>
-      <Showcase>
+      <Showcase style={{maxWidth: '500px'}}>
         <Direction style={{background: 'white'}}>
           <Direction.Origin label={<Typography.Body1>~14:10</Typography.Body1>}>
             <Direction.Origin.Point>
@@ -152,13 +152,14 @@ storiesOf('API|Direction', module)
   .add('Direction with any children', () => (
     <>
       <Showcase>
-        <Direction label={'Heure inconnue'} style={{background: 'white'}}>
+        <Direction label={'Heure inconnue'} style={{background: 'white'}} variant={'centered'}>
           <Direction.Origin>Salut !</Direction.Origin>
+
           <Direction.Destination>Au revoir !</Direction.Destination>
         </Direction>
       </Showcase>
       <Showcase>
-        <Direction style={{background: 'white'}} nopadding variant={DirectionVariant.Centered}>
+        <Direction style={{background: 'white'}} nopadding variant={'centered'}>
           <Direction.Origin>
             <Direction.Origin.Point>
               <div>

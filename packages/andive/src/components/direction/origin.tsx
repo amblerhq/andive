@@ -33,13 +33,11 @@ const OriginPoint = styled(({offsetY, centered, ...props}) => <div {...props} />
   left: calc(50% - 4px);
   ${props => {
     if (props.centered) {
-      return css`
+      return `
         top: ${props.offsetY ? props.offsetY - 4 : 4}px;
       `
     }
-    return css`
-      top: 8px;
-    `
+    return 'top: 8px;'
   }}
 
   border-radius: 50%;
@@ -71,7 +69,7 @@ const OriginRoad = styled(({offsetY, centered, height, ...props}) => <div {...pr
   background: ${palette.darkPrimary};
 `
 
-const AsideLabel = styled(({...props}) => <div {...props} />)`
+const AsideLabel = styled.div`
   position: absolute;
 
   left: -8px;
@@ -158,7 +156,7 @@ export function Origin({className, label, children, variant}: OriginProps) {
   // Basic math: To get the center of the pointRef element we just:
   const offsetY = (pointRect && rect && pointRect.top - rect.top + pointRect.height / 2) || 0
 
-  const centered = variant === DirectionVariant.Centered
+  const centered = variant === 'centered'
 
   return (
     <OriginRoot className={className} label={label}>
