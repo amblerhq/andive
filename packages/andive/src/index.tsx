@@ -178,6 +178,8 @@ export {default as EyeIcon} from './components/icons/eye'
 
 export {default as PdfIcon} from './components/icons/pdf'
 
+export {default as UploadInvoiceIcon} from './components/icons/upload-invoice'
+
 /**
  * Illustrations
  */
