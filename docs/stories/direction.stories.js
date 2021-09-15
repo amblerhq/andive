@@ -139,8 +139,8 @@ storiesOf('API|Direction', module)
           <Direction.Destination label={<Typography.Body1>~14:10</Typography.Body1>}>
             <Direction.Destination.Point>
               <Typography.Body1>
-                La destination aussi est super longue, on teste un edge case mais c'est important. A voir si ça marche
-                du premier coup
+                La destination aussi est super longue, on teste un edge case mais c&apos;est important. A voir si ça
+                marche du premier coup
               </Typography.Body1>
             </Direction.Destination.Point>
             <Typography.Body2 color={palette.mediumPrimary}>Appart de Phil, Dives-sur-mer</Typography.Body2>
