@@ -100,7 +100,7 @@ interface DestinationProps<PointRefElementType> {
   className?: string
   label?: React.ReactNode
   children: React.ReactNode
-  variant: DirectionVariant
+  variant?: DirectionVariant
 }
 export function Destination<PointRefElementType>({
   label,
