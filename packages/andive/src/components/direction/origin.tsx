@@ -1,5 +1,6 @@
 import React from 'react'
 import styled, {css} from 'styled-components'
+import {DirectionVariant} from '.'
 
 import * as palette from '../../constants/palette'
 
@@ -23,35 +24,42 @@ const OriginIconContent = styled.div`
   height: 100%;
 `
 
-const OriginPoint = styled(({offsetY, ...props}) => <div {...props} />)`
+const OriginPoint = styled(({offsetY, centered, ...props}) => <div {...props} />)`
   position: absolute;
 
   width: 8px;
   height: 8px;
 
   left: calc(50% - 4px);
-  top: ${props => (props.offsetY ? props.offsetY - 4 : 4)}px;
+  ${props => {
+    if (props.centered) {
+      return `
+        top: ${props.offsetY ? props.offsetY - 4 : 4}px;
+      `
+    }
+    return 'top: 8px;'
+  }}
 
   border-radius: 50%;
 
   border: 2px solid ${palette.darkPrimary};
   background: white;
 `
-const OriginRoad = styled(({offsetY, height, ...props}) => <div {...props} />)`
+
+const OriginRoad = styled(({offsetY, centered, height, ...props}) => <div {...props} />)`
   position: absolute;
 
   left: calc(50% - 2px);
   width: 4px;
 
   ${props => {
-    if (props.offsetY) {
+    if (props.centered && props.offsetY) {
       return css`
         top: ${props.offsetY}px;
         height: ${props.height - props.offsetY}px;
       `
     }
 
-    // Old use-case. Should be removed.
     return css`
       top: 8px;
       height: ${props.height - 8}px;
@@ -61,15 +69,14 @@ const OriginRoad = styled(({offsetY, height, ...props}) => <div {...props} />)`
   background: ${palette.darkPrimary};
 `
 
-const AsideLabel = styled(({offsetY, ...props}) => <div {...props} />)`
+const AsideLabel = styled.div`
   position: absolute;
-  top: ${props => (props.offsetY ? props.offsetY - 20 : -8)}px;
-  left: 0;
+
+  left: -8px;
+  top: 0px;
 
   width: 69px;
   min-height: 38px;
-
-  padding: 8px;
 
   text-align: right;
 `
@@ -93,9 +100,10 @@ type OriginProps = {
   className?: string
   label?: React.ReactNode
   children: React.ReactNode
+  variant: DirectionVariant
 }
 
-export function Origin({className, label, children}: OriginProps) {
+export function Origin({className, label, children, variant}: OriginProps) {
   const [rect, setRect] = React.useState<DOMRect | ClientRect>()
   const [pointRect, setPointRect] = React.useState<DOMRect | ClientRect>()
   const ref = React.useRef<HTMLDivElement>(null)
@@ -148,15 +156,17 @@ export function Origin({className, label, children}: OriginProps) {
   // Basic math: To get the center of the pointRef element we just:
   const offsetY = (pointRect && rect && pointRect.top - rect.top + pointRect.height / 2) || 0
 
+  const centered = variant === 'centered'
+
   return (
     <OriginRoot className={className} label={label}>
       <OriginIcon label={label} size={rect ? rect.height : 46}>
         <OriginIconContent>
-          <OriginRoad height={rect ? rect.height : 46} offsetY={offsetY} />
-          <OriginPoint offsetY={offsetY} />
+          <OriginRoad height={rect ? rect.height : 46} offsetY={offsetY} centered={centered} />
+          <OriginPoint offsetY={offsetY} centered={centered} />
         </OriginIconContent>
       </OriginIcon>
-      {label && <AsideLabel offsetY={offsetY}>{label}</AsideLabel>}
+      {label && <AsideLabel>{label}</AsideLabel>}
       <div ref={ref}>
         <OriginContext.Provider value={{ref: pointRef}}>{children}</OriginContext.Provider>
       </div>
