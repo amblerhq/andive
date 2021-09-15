@@ -1,6 +1,6 @@
 import {useState, useCallback, useEffect} from 'react'
 
-export default function useElementRect(ref) {
+export default function useElementRect(ref: any) {
   const [rect, setRect] = useState(null)
 
   const onResize = useCallback(() => {
