@@ -45,15 +45,3 @@ storiesOf('API|Upload', module).add('Library', () => {
     </>
   )
 })
-// .add('Style API', () => {
-//   const demoText = 'Le dernier arrivé est fan de Phil Collins'
-//   return (
-//     <>
-//       <Showcase compact legend={'Body2 in radishRed'}>
-//         <Body2 color={palette.radishRed} style={{background: 'white'}}>
-//           {demoText}
-//         </Body2>
-//       </Showcase>
-//     </>
-//   )
-// })
