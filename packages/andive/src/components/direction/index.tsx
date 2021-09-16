@@ -26,7 +26,7 @@ export function Direction({children, label, fullWidth, nopadding, variant = 'tex
     <DirectionRoot fullWidth={fullWidth} nopadding={nopadding} {...props}>
       {label && <Box>{typeof label === 'string' ? <Typography.Body1>{label}</Typography.Body1> : label}</Box>}
       {React.Children.map(children, child => {
-        const childProps: {label?: string; variant: DirectionVariant} = {variant}
+        const childProps: {label?: string; variant?: DirectionVariant} = {variant}
         if (label) {
           childProps.label = ' '
         }

@@ -100,7 +100,7 @@ type OriginProps = {
   className?: string
   label?: React.ReactNode
   children: React.ReactNode
-  variant: DirectionVariant
+  variant?: DirectionVariant
 }
 
 export function Origin({className, label, children, variant}: OriginProps) {
