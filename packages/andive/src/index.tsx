@@ -314,6 +314,8 @@ export {default as Box} from './components/box'
 
 export {Status} from './components/status'
 
+export {Upload} from './components/upload'
+
 export {defaultTheme, default as ThemeProvider} from './components/theme-provider'
 
 import * as TypographyComponents from './components/typography'
