@@ -203,46 +203,13 @@ storiesOf('API|Button', module)
       </Showcase>
     </>
   ))
-  .add('Rules', () => {
+  .add('Button prop : width', () => {
     return (
-      <>
-        {/* Min-width === 200px */}
-        <Info>
-          <Info.Block variant="info">
-            <Info.Item item="Minimum width is 200px" />
-          </Info.Block>
-          <VSpace px={16} />
-          <div style={{width: 200, border: '2px solid black', borderBottom: 'none', height: 4}} />
-        </Info>
-        <Button label="action" variant="primary" />
-        <VSpace px={32} />
-
-        {/* If used together, both button have the same (biggest of two) size */}
-        <Info>
-          <Info.Block variant="info">
-            <Info.Item item="Main and Secondary button have the same size if used together (largest button size)" />
-          </Info.Block>
-          <VSpace px={16} />
-        </Info>
-        <ButtonGroup minWidth={276}>
-          <Button label="nop" />
-          <Button label="fantastic, incredible, magic" variant="primary" />
-        </ButtonGroup>
-        <VSpace px={32} />
-
-        {/* If used together, both button have the same (biggest of two) size */}
-        <Info>
-          <Info.Block variant="info">
-            <Info.Item item="Horizontal spacing between buttons is 32px excluding the 8px standard margins (until the screen size or use case doesn’t allow it)" />
-          </Info.Block>
-          <VSpace px={16} />
-        </Info>
-        <ButtonGroup>
-          <Button label="action" />
-          <Button label="action" variant="primary" />
-        </ButtonGroup>
-        <VSpace px={32} />
-      </>
+      <Showcase legend="custom width" style={{display: 'block'}}>
+        <Button width={200} label="200px" />
+        <Button width={300} label="300px" />
+        <Button width={128} label="128px" />
+      </Showcase>
     )
   })
   .add('Customize style', () => {

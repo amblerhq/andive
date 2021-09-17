@@ -354,6 +354,7 @@ const Button = React.forwardRef(function Button(
         mobile={mobile}
         backgroundColor={backgroundColor}
         color={color}
+        width={width}
         minWidth={buttonGroupContext ? buttonGroupContext.minWidth : undefined}
         small={buttonGroupContext ? buttonGroupContext.small : undefined}
         wrap={wrap}
