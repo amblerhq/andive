@@ -62,7 +62,7 @@ const DestinationRoad = styled(({offsetY, centered, ...props}) => <div {...props
 
     return css`
       top: 0;
-      height: 8px;
+      height: 12px;
     `
   }}
  

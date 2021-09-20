@@ -61,7 +61,7 @@ const OriginRoad = styled(({offsetY, centered, height, ...props}) => <div {...pr
     }
 
     return css`
-      top: 8px;
+      top: 12px;
       height: ${props.height - 8}px;
     `
   }}
