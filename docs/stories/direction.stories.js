@@ -152,10 +152,17 @@ storiesOf('API|Direction', module)
   .add('Direction with any children', () => (
     <>
       <Showcase>
-        <Direction label={'Heure inconnue'} style={{background: 'white'}} variant={'centered'}>
-          <Direction.Origin>Salut !</Direction.Origin>
-
-          <Direction.Destination>Au revoir !</Direction.Destination>
+        <Direction label={'Heure inconnue'} style={{background: 'white'}}>
+          <Direction.Origin>
+            <Direction.Origin.Point>
+              <Typography.Body1>Salut !</Typography.Body1>
+            </Direction.Origin.Point>
+          </Direction.Origin>
+          <Direction.Destination>
+            <Direction.Destination.Point>
+              <Typography.Body1>Au revoir !</Typography.Body1>
+            </Direction.Destination.Point>
+          </Direction.Destination>
         </Direction>
       </Showcase>
       <Showcase>
