@@ -206,6 +206,8 @@ export {default as TooLateIllustration} from './components/illustrations/too-lat
 
 export {default as SleepingBellIllustration} from './components/illustrations/sleeping-bell'
 
+export {default as SleepingInvoiceIllustration} from './components/illustrations/sleeping-invoice'
+
 export {default as RingingBellIllustration} from './components/illustrations/ringing-bell'
 
 export {default as CancelIllustration} from './components/illustrations/cancel'
