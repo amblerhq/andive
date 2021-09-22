@@ -154,7 +154,10 @@ storiesOf('API|Button', module)
       </Showcase>
     </>
   ))
-  .add('Primary/Main', () => <ButtonStory variant="primary" />)
+  .add('Primary/Main', () => <>
+    Salut !
+    <ButtonStory variant="primary" />
+    </>)
   .add('Default/Secondary', () => <ButtonStory />)
   .add('Flat/Third', () => <ButtonStory variant="flat" />)
   .add('With icon', () => (
