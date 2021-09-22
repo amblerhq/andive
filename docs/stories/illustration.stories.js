@@ -13,6 +13,7 @@ import {
   TooLateIllustration,
   EmptyIllustration,
   SleepingBellIllustration,
+  SleepingInvoiceIllustration,
   RingingBellIllustration,
   CFacilityIllustration,
   GhtFacilityIllustration,
@@ -121,6 +122,9 @@ storiesOf('Assets|Illustrations', module).add('Library', () => {
       </Showcase>
       <Showcase variant="squared" size={300} style={{background: 'white'}} legend="<WarningIllustration />">
         <WarningIllustration />
+      </Showcase>
+      <Showcase variant="squared" size={300} style={{background: 'white'}} legend="<SleepingInvoiceIllustration />">
+        <SleepingInvoiceIllustration />
       </Showcase>
     </Story>
   )
