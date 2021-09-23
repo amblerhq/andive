@@ -47,7 +47,8 @@ const iconStyle = {
   pointerEvents: 'none',
   position: 'absolute',
   top: 'calc(50% - 8px)',
-  right: 0
+  right: 0,
+  width: 16
 }
 
 function SelectComponent({
