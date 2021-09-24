@@ -122,6 +122,25 @@ storiesOf('API|Direction', module)
       </Direction>
     </Showcase>
   ))
+  .add('Trip without address', () => (
+    <>
+      <Showcase>
+        <Direction style={{background: 'white'}}>
+          <Direction.Origin label={<Typography.Body3>~14:10</Typography.Body3>}>
+            <Direction.Origin.Point>
+              <Typography.Body3>Ambler</Typography.Body3>
+            </Direction.Origin.Point>
+            <VSpace px={8} />
+          </Direction.Origin>
+          <Direction.Destination label={<Typography.Body3>~14:10</Typography.Body3>}>
+            <Direction.Destination.Point>
+              <Typography.Body3>Phil</Typography.Body3>
+            </Direction.Destination.Point>
+          </Direction.Destination>
+        </Direction>
+      </Showcase>
+    </>
+  ))
   .add('Multiline', () => (
     <>
       <Showcase style={{maxWidth: '500px'}}>
