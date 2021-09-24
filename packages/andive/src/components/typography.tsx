@@ -116,8 +116,8 @@ export const body3Css = css`
   font-family: ${fontFamily};
   font-weight: ${fontWeights.regular};
   font-size: ${props => props.theme.typography.body3.fontSize}px;
-  line-height: 20px;
-  min-height: 20px;
+  line-height: 22px;
+  min-height: 22px;
   color: ${palette.mainText};
 `
 
