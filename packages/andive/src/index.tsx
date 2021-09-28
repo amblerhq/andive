@@ -180,6 +180,8 @@ export {default as PdfIcon} from './components/icons/pdf'
 
 export {default as UploadInvoiceIcon} from './components/icons/upload-invoice'
 
+export {default as UnprebookIcon} from './components/icons/unprebook'
+
 /**
  * Illustrations
  */

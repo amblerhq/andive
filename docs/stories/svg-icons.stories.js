@@ -94,7 +94,8 @@ import {
   ReorderIcon,
   EyeIcon,
   PdfIcon,
-  UploadInvoiceIcon
+  UploadInvoiceIcon,
+  UnprebookIcon
 } from '@ambler/andive'
 
 import Showcase from './showcase'
@@ -191,7 +192,8 @@ const icons = [
   ReorderIcon,
   EyeIcon,
   PdfIcon,
-  UploadInvoiceIcon
+  UploadInvoiceIcon,
+  UnprebookIcon
 ]
 
 function TimedColor({interval, colors, children}) {
@@ -220,7 +222,8 @@ const newIcons = [
   {Icon: EyeIcon},
   {Icon: PlusIcon},
   {Icon: ReorderIcon},
-  {Icon: SendIcon}
+  {Icon: SendIcon},
+  {Icon: UnprebookIcon}
 ]
 const updatedIcons = []
 
