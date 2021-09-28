@@ -6,6 +6,7 @@ import Box from '../box'
 
 import {Origin} from './origin'
 import {Destination} from './destination'
+import {VSpace} from '../v-space'
 
 export type DirectionVariant = 'text' | 'centered'
 
@@ -24,7 +25,11 @@ interface DirectionProps {
 export function Direction({children, label, fullWidth, nopadding, variant = 'text', ...props}: DirectionProps) {
   return (
     <DirectionRoot fullWidth={fullWidth} nopadding={nopadding} {...props}>
-      {label && <Box>{typeof label === 'string' ? <Typography.Body1>{label}</Typography.Body1> : label}</Box>}
+      {label ? (
+        <Box>{typeof label === 'string' ? <Typography.Body1>{label}</Typography.Body1> : label}</Box>
+      ) : (
+        <VSpace px={8} />
+      )}
       {React.Children.map(children, child => {
         const childProps: {label?: string; variant?: DirectionVariant} = {variant}
         if (label) {
