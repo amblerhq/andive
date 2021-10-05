@@ -6,7 +6,6 @@ import Box from '../box'
 
 import {Origin} from './origin'
 import {Destination} from './destination'
-import {VSpace} from '../v-space'
 
 export type DirectionVariant = 'text' | 'centered'
 
