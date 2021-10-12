@@ -103,7 +103,7 @@ storiesOf('API|Dropdown', module)
       <Dropdown label="Téléphone" placeholder="Aucun" options={['Mobile', 'Fixe', '']} style={{background: 'white'}} />
     </Showcase>
   ))
-  .add('Disabled', () => (
+  .add('Fully disabled', () => (
     <>
       <Showcase>
         <Dropdown
@@ -125,6 +125,18 @@ storiesOf('API|Dropdown', module)
         />
       </Showcase>
     </>
+  ))
+  .add('Partially disabled', () => (
+    <Showcase>
+      <Dropdown
+        label="Aller"
+        placeholder="Choisir le type de demande..."
+        options={['Choix actif', 'Choix innactif']}
+        optionDisable={o => o === 'Choix innactif'}
+        value="Désactivé, mais visible"
+        style={{background: 'white'}}
+      />
+    </Showcase>
   ))
   .add('With icon', () => (
     <Showcase>
