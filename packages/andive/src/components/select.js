@@ -56,6 +56,7 @@ function SelectComponent({
   placeholder,
   options,
   optionFormat,
+  optionDisable,
   value,
   onChange,
   icon,
@@ -75,7 +76,12 @@ function SelectComponent({
           </option>
           {options.includes('') ? <option value="">{placeholder}</option> : null}
           {options.filter(Boolean).map((option, index) => (
-            <option key={option} name={option} value={option}>
+            <option
+              disabled={optionDisable ? optionDisable(option, index) : false}
+              key={option}
+              name={option}
+              value={option}
+            >
               {optionFormat ? optionFormat(option, index) : option}
             </option>
           ))}
@@ -91,6 +97,7 @@ SelectComponent.propTypes = {
   label: PropTypes.string,
   options: PropTypes.arrayOf(PropTypes.string),
   optionFormat: PropTypes.func,
+  optionDisable: PropTypes.func,
   icon: PropTypes.node,
   value: PropTypes.string,
   onChange: PropTypes.func,
