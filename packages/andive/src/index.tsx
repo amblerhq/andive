@@ -331,6 +331,8 @@ export const toastWarning = toastActions.toastWarning
 export const toastError = toastActions.toastError
 export const toastInfo = toastActions.toastInfo
 
+export {AutoLayout} from './components/auto-layout'
+
 /**
  * Constants
  */
