@@ -115,6 +115,7 @@ export interface AutocompleteProps<T> {
   noHintError?: React.ReactNode
   onBlur?: (ev: React.FocusEvent<HTMLInputElement>) => void
   onFocus?: (ev: React.FocusEvent<HTMLInputElement>) => void
+  disabled?: boolean
 }
 export function Autocomplete<T>({
   value,
