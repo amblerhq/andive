@@ -240,6 +240,8 @@ export {default as WarningIllustration} from './components/illustrations/warning
 
 export {default as PdfIllustration} from './components/illustrations/pdf'
 
+export {default as InvoiceValidatedIllustration} from './components/illustrations/invoice-validated'
+
 /**
  * Components
  */
