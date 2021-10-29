@@ -57,9 +57,9 @@ const TransparentModal = () => {
         <Info>
           <Typography.H1>Retirer Phil Collins de ...</Typography.H1>
         </Info>
-        <VSpace px={16} />
+        <VSpace $px={16} />
         <Button label="Aller et 1er Retour" variant="primary" onClick={() => setShow(false)} />
-        <VSpace px={8} />
+        <VSpace $px={8} />
         <Button label="1er Retour" variant="primary" onClick={() => setShow(false)} />
       </Modal>
     </>

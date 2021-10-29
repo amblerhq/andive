@@ -205,7 +205,7 @@ storiesOf('Next|FlatButton', module)
                 </Typography.Body1>
               </Box>
             </Card>
-            <VSpace px={8} />
+            <VSpace $px={8} />
             <div style={{width: 300, background: 'white'}}>
               <div style={{display: 'flex', flexFlow: 'row nowrap', justifyContent: 'space-between'}}>
                 <div>
