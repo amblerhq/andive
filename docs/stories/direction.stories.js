@@ -70,7 +70,7 @@ storiesOf('API|Direction', module)
               <Typography.Body1>Ambler</Typography.Body1>
             </Direction.Origin.Point>
             <Typography.Body2 color={palette.mediumPrimary}>24 Quai charles pasqua, Levalois-Perret</Typography.Body2>
-            <VSpace px={16} />
+            <VSpace $px={16} />
           </Direction.Origin>
           <Direction.Destination>
             <Direction.Destination.Point>
@@ -91,7 +91,7 @@ storiesOf('API|Direction', module)
               <Typography.Body1>Ambler</Typography.Body1>
             </Direction.Origin.Point>
             <Typography.Body2 color={palette.mediumPrimary}>24 Quai charles pasqua, Levalois-Perret</Typography.Body2>
-            <VSpace px={16} />
+            <VSpace $px={16} />
           </Direction.Origin>
           <Direction.Destination label={<Typography.Body1>~14:10</Typography.Body1>}>
             <Direction.Destination.Point>
@@ -111,7 +111,7 @@ storiesOf('API|Direction', module)
             <Typography.Body1>Ambler</Typography.Body1>
           </Direction.Origin.Point>
           <Typography.Body2 color={palette.mediumPrimary}>24 Quai charles pasqua, Levalois-Perret</Typography.Body2>
-          <VSpace px={16} />
+          <VSpace $px={16} />
         </Direction.Origin>
         <Direction.Destination>
           <Direction.Destination.Point>
@@ -130,7 +130,7 @@ storiesOf('API|Direction', module)
             <Direction.Origin.Point>
               <Typography.Body3>Ambler</Typography.Body3>
             </Direction.Origin.Point>
-            <VSpace px={8} />
+            <VSpace $px={8} />
           </Direction.Origin>
           <Direction.Destination label={<Typography.Body3>~14:10</Typography.Body3>}>
             <Direction.Destination.Point>
@@ -153,7 +153,7 @@ storiesOf('API|Direction', module)
               Et une adresse encore plus longue qui risque de prendre deux ou lignes sur un petit écran pour le besoin
               de la demonstration
             </Typography.Body2>
-            <VSpace px={16} />
+            <VSpace $px={16} />
           </Direction.Origin>
           <Direction.Destination label={<Typography.Body1>~14:10</Typography.Body1>}>
             <Direction.Destination.Point>

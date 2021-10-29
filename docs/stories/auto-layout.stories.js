@@ -82,7 +82,7 @@ props.map(({key, values, desc, extra}) => {
               <Typography.Body2>
                 {key}={value}
               </Typography.Body2>
-              <VSpace px={8} />
+              <VSpace $px={8} />
               <AutoLayout $bgColor={palette.lightGrey} {...{[key]: value, ...extra}}>
                 <AutoLayout $bgColor={palette.lightGrey} $column $p="8px">
                   <Typography.Body2 color={palette.secondaryText}>Prénom</Typography.Body2>

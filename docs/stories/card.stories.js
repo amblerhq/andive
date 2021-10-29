@@ -21,7 +21,7 @@ function DefaultCard() {
         <Card title="Default card">
           <Info>
             <Info.Label label={labelText} />
-            <VSpace px={16} />
+            <VSpace $px={16} />
             <Info.Item item={itemText} />
           </Info>
         </Card>

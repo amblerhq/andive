@@ -149,7 +149,7 @@ function ReactStory() {
           <Info.Block variant="info">
             <Info.Label label="Form submit values" />
           </Info.Block>
-          <VSpace px={8} />
+          <VSpace $px={8} />
           <pre style={{padding: 8, background: '#fafafa', borderRadius: 4}}>
             {JSON.stringify(variable || {}, null, 2)}
           </pre>

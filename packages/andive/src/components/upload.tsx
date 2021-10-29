@@ -165,7 +165,7 @@ export const Upload = ({onChange, onDrag, error, loading, mobile, ...props}: Upl
       </div>
       {showError ? (
         <>
-          <VSpace px={8} />
+          <VSpace $px={8} />
           <FlexBox>
             <Error>{error}</Error>
           </FlexBox>

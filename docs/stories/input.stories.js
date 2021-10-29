@@ -250,19 +250,19 @@ function WithExposedRef() {
       <HorizontalLayout>
         <Box>
           <CustomInput name="native" placeholder="Native" inputRef={el => (nativeInputRef.current = el)} />
-          <VSpace px={8} />
+          <VSpace $px={8} />
           <button onClick={() => nativeInputRef.current.focus()}>Focus</button>
         </Box>
 
         <Box>
           <CustomInput name="native2" placeholder="Native2" textarea inputRef={el => (textAreaRef.current = el)} />
-          <VSpace px={8} />
+          <VSpace $px={8} />
           <button onClick={() => textAreaRef.current.focus()}>Focus</button>
         </Box>
 
         <Box>
           <Input name="andive" placeholder="Andive" inputRef={customInputRef} />
-          <VSpace px={8} />
+          <VSpace $px={8} />
           <button onClick={() => customInputRef.current.focus()}>Focus</button>
         </Box>
       </HorizontalLayout>
