@@ -17,6 +17,8 @@ const close = keyframes({
 const StyledCollapsible = styled(CollapsiblePrimitive.Root)``
 const StyledCollapsibleTrigger = styled(CollapsiblePrimitive.Trigger)`
   all: unset;
+
+  box-sizing: border-box;
   width: 100%;
 
   &:hover {
