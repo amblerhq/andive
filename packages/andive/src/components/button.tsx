@@ -76,6 +76,7 @@ const ButtonWrapper = styled.div.attrs({
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
+    min-height: inherit;
   }
 `
 
