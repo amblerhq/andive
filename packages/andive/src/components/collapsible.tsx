@@ -17,7 +17,6 @@ const close = keyframes({
 const StyledCollapsible = styled(CollapsiblePrimitive.Root)``
 const StyledCollapsibleTrigger = styled(CollapsiblePrimitive.Trigger)`
   all: unset;
-
   box-sizing: border-box;
   width: 100%;
   cursor: pointer;
@@ -35,7 +34,6 @@ const StyledCollapsibleContent = styled(CollapsiblePrimitive.Content)`
   &[data-state='open'] {
     animation: ${open} 300ms ease-out;
   }
-
   &[data-state='closed'] {
     animation: ${close} 300ms ease-out;
   }
