@@ -4,7 +4,7 @@ import ArrowUp from '../../../img/icons/arrow-up.svg'
 import SvgIcon from '../svg-icon'
 import {palette} from '../..'
 
-const DEFAULT_SIZE = 16
+const DEFAULT_SIZE = 24
 
 const ArrowUpIcon = ({color = palette.mediumPrimary, size = DEFAULT_SIZE, ...rest}) => {
   return (

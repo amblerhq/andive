@@ -335,6 +335,8 @@ export const toastInfo = toastActions.toastInfo
 
 export {AutoLayout} from './components/auto-layout'
 
+export {default as Collapsible} from './components/collapsible'
+
 /**
  * Constants
  */
