@@ -18,6 +18,13 @@ const StyledCollapsible = styled(CollapsiblePrimitive.Root)``
 const StyledCollapsibleTrigger = styled(CollapsiblePrimitive.Trigger)`
   all: unset;
   width: 100%;
+
+  &:hover {
+    background: ${props => props.theme.hover.backgroundColor};
+  }
+  &:focus-visible {
+    box-shadow: ${props => props.theme.focus.outlineColor} 0px 0px 0px 2px;
+  }
 `
 const StyledCollapsibleContent = styled(CollapsiblePrimitive.Content)`
   overflow: hidden;
