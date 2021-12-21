@@ -4,7 +4,7 @@ import ArrowDown from '../../../img/icons/arrow-down.svg'
 import SvgIcon from '../svg-icon'
 import {palette} from '../..'
 
-const DEFAULT_SIZE = 16
+const DEFAULT_SIZE = 24
 
 const ArrowDownIcon = ({color = palette.mediumBerryBlue, size = DEFAULT_SIZE, ...rest}) => {
   return (

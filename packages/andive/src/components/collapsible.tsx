@@ -20,6 +20,7 @@ const StyledCollapsibleTrigger = styled(CollapsiblePrimitive.Trigger)`
 
   box-sizing: border-box;
   width: 100%;
+  cursor: pointer;
 
   &:hover {
     background: ${props => props.theme.hover.backgroundColor};
@@ -34,6 +35,7 @@ const StyledCollapsibleContent = styled(CollapsiblePrimitive.Content)`
   &[data-state='open'] {
     animation: ${open} 300ms ease-out;
   }
+
   &[data-state='closed'] {
     animation: ${close} 300ms ease-out;
   }
@@ -60,12 +62,8 @@ const StyledIconWrapper = styled.div`
 const StyledArrowUpIcon = styled(ArrowUpIcon)`
   transition: transform 300ms ease-out;
 
-  [data-state='close'] & {
-    transform: rotate(0deg);
-  }
-
-  [data-state='open'] & {
-    transform: rotate(180deg);
+  [data-state='closed'] & {
+    transform: rotate(-180deg);
   }
 `
 
