@@ -17,6 +17,9 @@ export const defaultTheme = {
     }
   },
   padding: 8,
+  focus: {
+    outlineColor: '#005fcd'
+  },
   hover: {
     backgroundColor: palette.lightGrey,
     borderRadius: 4
