@@ -17,7 +17,8 @@ storiesOf('API|Collapsible', module).add('Default', () => {
     <Showcase>
       <Card>
         <Collapsible
-          openByDefault
+          defaultOpen
+          onOpenChange={open => console.log('open change', open)}
           trigger={
             <Icon icon={<PatientIcon circle />}>
               <Typography.Body1>{shortLabel}</Typography.Body1>

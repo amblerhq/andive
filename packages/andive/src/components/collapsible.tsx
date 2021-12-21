@@ -71,7 +71,7 @@ type AndiveCollapsibleProps = {
   trigger: React.ReactNode
   children: React.ReactNode
   open?: boolean
-  openByDefault?: boolean
+  defaultOpen?: boolean
   onOpenChange?: (open: boolean) => void
   disabled?: boolean
 }
