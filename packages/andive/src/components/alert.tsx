@@ -46,7 +46,7 @@ interface AlertProps {
   className?: string
   children: ReactChild
   variant: AlertVariant
-  rounded: boolean
+  rounded?: boolean
 }
 
 /**
