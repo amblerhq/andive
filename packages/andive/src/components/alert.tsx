@@ -8,7 +8,7 @@ const textColors = {
   success: palette.successText,
   error: palette.errorText,
   warning: palette.warningText,
-  info: palette.darkBeetrootPurple,
+  info: palette.white,
   disabled: palette.darkPrimary
 }
 
@@ -16,7 +16,7 @@ const backgroundColors = {
   success: palette.lightLettuceGreen,
   error: palette.lightRadishRed,
   warning: palette.lightPotatoYellow,
-  info: palette.hexToRGBA(palette.lightBeetrootPurple, 0.6),
+  info: palette.lightBeetrootPurple,
   disabled: palette.border
 }
 
