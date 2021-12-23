@@ -3,5 +3,6 @@ export const ZIndexes = {
   ABSOLUTE: 50,
   FIXED: 100,
   MODALS: 150,
-  ERRORS: 300
+  ERRORS: 300,
+  TOASTS: 400
 }
