@@ -1,6 +1,18 @@
 import React from 'react'
 import {storiesOf} from '@storybook/react'
-import {Icon, VslIcon, CheckIcon, WarningIcon, ForbiddenIcon, QuestionIcon, Typography, Alert} from '@ambler/andive'
+import {
+  Icon,
+  TaskIcon,
+  VslIcon,
+  CheckIcon,
+  WarningIcon,
+  ForbiddenIcon,
+  QuestionIcon,
+  Typography,
+  Alert,
+  Button,
+  palette
+} from '@ambler/andive'
 
 import Showcase from './showcase'
 
@@ -120,6 +132,71 @@ storiesOf('NEXT|Alert', module)
         <Showcase legend="disabled">
           <Alert rounded variant="disabled">
             <Typography.Body3>Disabled</Typography.Body3>
+          </Alert>
+        </Showcase>
+      </>
+    )
+  })
+  .add('Avanced', () => {
+    return (
+      <>
+        <Showcase legend="Info with Icon and Button">
+          <Alert variant="info">
+            <Icon icon={<TaskIcon inline />}>
+              <Typography.Body1 color={'white'}>
+                Incident signalé par AMBULANCE RIVIERE (123) : Demande d'ajout d'un transport
+              </Typography.Body1>
+            </Icon>
+            <Button small inverted mobile label="Résoudre" onClick={() => null} />
+          </Alert>
+        </Showcase>
+        <Showcase legend="Info with Icon and Button disabled">
+          <Alert variant="info">
+            <Icon icon={<TaskIcon inline />}>
+              <Typography.Body1 color={'white'}>
+                Incident signalé par AMBULANCE RIVIERE (123) : Demande d'ajout d'un transport
+              </Typography.Body1>
+            </Icon>
+            <Button small inverted mobile disabled label="Résoudre" onClick={() => null} />
+          </Alert>
+        </Showcase>
+        <Showcase legend="Info with Icon">
+          <Alert variant="info">
+            <Icon icon={<TaskIcon inline />}>
+              <Typography.Body1>
+                Pour un trajet de plus de 150km, il est nécessaire que NOM Prénom dispose de l'accord préalable de la
+                sécurité sociale
+              </Typography.Body1>
+            </Icon>
+          </Alert>
+        </Showcase>
+        <Showcase legend="Warning with Icon and Button">
+          <Alert variant="warning">
+            <Icon icon={<WarningIcon inline />}>
+              <Typography.Body1 color={'white'}>
+                Advanced Warning Alert with super long text text text text text text text text text text text text
+              </Typography.Body1>
+            </Icon>
+            <Button
+              variant="primary"
+              invert
+              backgroundColor="white"
+              textColor={palette.darkPotatoYellow}
+              mobile
+              small
+              label="Vérifier"
+              onClick={() => null}
+            />
+          </Alert>
+        </Showcase>
+        <Showcase legend="Warning with Icon">
+          <Alert variant="warning">
+            <Icon icon={<WarningIcon inline />}>
+              <Typography.Body1>
+                Pour un trajet de plus de 150km, il est nécessaire que NOM Prénom dispose de l'accord préalable de la
+                sécurité sociale
+              </Typography.Body1>
+            </Icon>
           </Alert>
         </Showcase>
       </>
