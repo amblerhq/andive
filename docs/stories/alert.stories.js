@@ -140,6 +140,19 @@ storiesOf('NEXT|Alert', module)
   .add('Avanced', () => {
     return (
       <>
+        <Showcase legend="Info with Icon">
+          <Alert variant="info">
+            <Icon icon={<TaskIcon inline />}>
+              <Typography.Body1>A dispatcher</Typography.Body1>
+            </Icon>
+          </Alert>
+        </Showcase>
+        <Showcase legend="Info with Button">
+          <Alert variant="info">
+            <Typography.Body1 color={'white'}>2 nouvelles demandes</Typography.Body1>
+            <Button small inverted mobile label="Voir la demande" onClick={() => null} />
+          </Alert>
+        </Showcase>
         <Showcase legend="Info with Icon and Button">
           <Alert variant="info">
             <Icon icon={<TaskIcon inline />}>
@@ -158,16 +171,6 @@ storiesOf('NEXT|Alert', module)
               </Typography.Body1>
             </Icon>
             <Button small inverted mobile disabled label="Résoudre" onClick={() => null} />
-          </Alert>
-        </Showcase>
-        <Showcase legend="Info with Icon">
-          <Alert variant="info">
-            <Icon icon={<TaskIcon inline />}>
-              <Typography.Body1>
-                Pour un trajet de plus de 150km, il est nécessaire que NOM Prénom dispose de l'accord préalable de la
-                sécurité sociale
-              </Typography.Body1>
-            </Icon>
           </Alert>
         </Showcase>
         <Showcase legend="Warning with Icon and Button">
