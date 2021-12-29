@@ -178,3 +178,27 @@ storiesOf('API|Checkbox', module)
       <CheckboxGroupStory radio />
     </Showcase>
   ))
+  .add('Multiple choices grid', () => (
+    <Showcase>
+      <div style={{width: 700, display: 'flex', flexWrap: 'wrap'}}>
+        {[
+          'option 1',
+          'option 2',
+          'option 3',
+          'option 4',
+          'option 5',
+          'option 6',
+          'option 7',
+          'super longue option utile 8',
+          'super mega longue option super mega utile 9',
+          'option 10',
+          'option 11',
+          'option 12'
+        ].map(label => (
+          <div key={label} style={{width: 700 / 3}}>
+            <Checkbox name="a1" label={label} onChange={() => null} />
+          </div>
+        ))}
+      </div>
+    </Showcase>
+  ))

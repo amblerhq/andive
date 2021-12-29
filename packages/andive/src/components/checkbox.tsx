@@ -14,7 +14,7 @@ const CheckboxRoot = styled.div<{fullWidth?: boolean; disabled?: boolean}>`
   padding: 8px;
 
   display: flex;
-  align-items: center;
+  align-items: flex-start;
 
   cursor: ${props => (props.disabled ? 'not-allowed' : 'pointer')};
 `
