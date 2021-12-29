@@ -31,6 +31,11 @@ const Dropdown = styled(
 )`
   position: absolute;
 
+  ${({minWidth}) =>
+    minWidth &&
+    css`
+      min-width: ${minWidth};
+    `}
   ${({openVariant}) => {
     if (openVariant === OpenVariant.LEFT) {
       return css`
@@ -93,9 +98,11 @@ function DropdownMenu({
   buttonComponent = defaultButton,
   openVariant = OpenVariant.RIGHT,
   loading = false,
-  noScroll = false
+  noScroll = false,
+  isOpen = false,
+  minWidth = 0
 }) {
-  const [open, setOpen] = React.useState(false)
+  const [open, setOpen] = React.useState(isOpen)
   const [fullWidth, setFullWidth] = React.useState(false)
 
   const dropdownRef = React.useRef(null)
@@ -176,6 +183,7 @@ function DropdownMenu({
               ref={dropdownRef}
               buttonLeft={buttonLeft}
               fullWidth={fullWidth}
+              minWidth={minWidth}
               openVariant={openVariant}
             >
               <Menu
