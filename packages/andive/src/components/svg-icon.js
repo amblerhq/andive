@@ -8,6 +8,8 @@ const SvgRoot = styled.div`
   color: ${props => props.color};
   width: ${getWidth}px;
   height: ${getWidth}px;
+  min-width: 24px;
+  min-height: 24px;
 `
 
 const IconRoot = styled(({size, circleColor, circle, ...props}) => <SvgRoot size={size} circle={circle} {...props} />)`

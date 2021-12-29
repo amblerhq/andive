@@ -17,10 +17,6 @@ const CheckboxRoot = styled.div<{fullWidth?: boolean; disabled?: boolean}>`
   align-items: flex-start;
 
   cursor: ${props => (props.disabled ? 'not-allowed' : 'pointer')};
-  svg {
-    width: 24px;
-    height: 24px;
-  }
 `
 
 const Label = styled(Body1)<{disabled?: boolean}>`
