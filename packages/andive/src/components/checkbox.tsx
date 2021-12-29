@@ -6,7 +6,7 @@ import CheckboxOffIcon from './icons/checkbox-off'
 import RadioOnIcon from './icons/radio-on'
 import RadioOffIcon from './icons/radio-off'
 import {CheckboxGroupContext} from './checkbox-group'
-import {Body1} from './typography'
+import {Body2} from './typography'
 import * as palette from '../constants/palette'
 
 const CheckboxRoot = styled.div<{fullWidth?: boolean; disabled?: boolean}>`
@@ -19,7 +19,7 @@ const CheckboxRoot = styled.div<{fullWidth?: boolean; disabled?: boolean}>`
   cursor: ${props => (props.disabled ? 'not-allowed' : 'pointer')};
 `
 
-const Label = styled(Body1)<{disabled?: boolean}>`
+const Label = styled(Body2)<{disabled?: boolean}>`
   padding-left: 12px;
 
   ${props =>
