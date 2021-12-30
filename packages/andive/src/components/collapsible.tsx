@@ -1,21 +1,20 @@
 import React from 'react'
 import styled, {keyframes} from 'styled-components'
-import * as CollapsiblePrimitive from '@radix-ui/react-collapsible'
 import ArrowUpIcon from './icons/arrow-up'
 import {mediumPrimary} from '../constants/palette'
 
 const open = keyframes({
   from: {height: 0},
-  to: {height: 'var(--radix-collapsible-content-height)'}
+  to: {height: 'var(--andive-collapsible-content-height)'}
 })
 
 const close = keyframes({
-  from: {height: 'var(--radix-collapsible-content-height)'},
+  from: {height: 'var(--andive-collapsible-content-height)'},
   to: {height: 0}
 })
 
-const StyledCollapsible = styled(CollapsiblePrimitive.Root)``
-const StyledCollapsibleTrigger = styled(CollapsiblePrimitive.Trigger)`
+const StyledCollapsible = styled.div``
+const StyledCollapsibleTrigger = styled.button`
   all: unset;
   box-sizing: border-box;
   width: 100%;
@@ -28,15 +27,16 @@ const StyledCollapsibleTrigger = styled(CollapsiblePrimitive.Trigger)`
     box-shadow: ${props => props.theme.focus.outlineColor} 0px 0px 0px 2px;
   }
 `
-const StyledCollapsibleContent = styled(CollapsiblePrimitive.Content)`
+const StyledCollapsibleContent = styled.div`
   overflow: hidden;
+  transition: height 0.3s ease-in-out;
 
-  &[data-state='open'] {
-    animation: ${open} 300ms ease-out;
-  }
-  &[data-state='closed'] {
-    animation: ${close} 300ms ease-out;
-  }
+  // &[data-state='open'] {
+  //   animation: ${open} 300ms ease-out;
+  // }
+  // &[data-state='closed'] {
+  //   animation: ${close} 300ms ease-out;
+  // }
 `
 
 // Exports
@@ -74,18 +74,24 @@ type AndiveCollapsibleProps = {
   disabled?: boolean
 }
 
-const AndiveCollapsible: React.FC<AndiveCollapsibleProps> = ({trigger, children, ...props}) => (
-  <Collapsible {...props}>
-    <CollapsibleTrigger>
-      <StyledTriggerWrapper>
-        {trigger}
-        <StyledIconWrapper>
-          <StyledArrowUpIcon color={mediumPrimary} />
-        </StyledIconWrapper>
-      </StyledTriggerWrapper>
-    </CollapsibleTrigger>
-    <CollapsibleContent>{children}</CollapsibleContent>
-  </Collapsible>
+const AndiveCollapsible = React.forwardRef<HTMLInputElement, AndiveCollapsibleProps>(
+  ({trigger, children, ...props}, forwardedRef) => {
+    const [open, setOpen] = React.useState(props.defaultOpen || false)
+
+    return (
+      <Collapsible {...props} ref={forwardedRef} data-state={open ? 'open' : 'closed'}>
+        <CollapsibleTrigger onClick={() => setOpen(open => !open)}>
+          <StyledTriggerWrapper>
+            {trigger}
+            <StyledIconWrapper>
+              <StyledArrowUpIcon color={mediumPrimary} />
+            </StyledIconWrapper>
+          </StyledTriggerWrapper>
+        </CollapsibleTrigger>
+        <CollapsibleContent>{open && children}</CollapsibleContent>
+      </Collapsible>
+    )
+  }
 )
 
 export default AndiveCollapsible
