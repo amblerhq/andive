@@ -41,7 +41,6 @@
     "styled-components": "5.1.1"
   },
   "dependencies": {
-    "@radix-ui/react-collapsible": "0.1.5",
     "lodash.throttle": "4.1.1",
     "prop-types": "15.7.2",
     "react-outside-click-handler": "1.2.3",
