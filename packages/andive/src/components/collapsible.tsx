@@ -1,17 +1,7 @@
 import React from 'react'
-import styled, {keyframes} from 'styled-components'
+import styled from 'styled-components'
 import ArrowUpIcon from './icons/arrow-up'
 import {mediumPrimary} from '../constants/palette'
-
-const open = keyframes({
-  from: {height: 0},
-  to: {height: 'var(--andive-collapsible-content-height)'}
-})
-
-const close = keyframes({
-  from: {height: 'var(--andive-collapsible-content-height)'},
-  to: {height: 0}
-})
 
 const StyledCollapsible = styled.div``
 const StyledCollapsibleTrigger = styled.button`
@@ -30,13 +20,6 @@ const StyledCollapsibleTrigger = styled.button`
 const StyledCollapsibleContent = styled.div`
   overflow: hidden;
   transition: height 0.3s ease-in-out;
-
-  // &[data-state='open'] {
-  //   animation: ${open} 300ms ease-out;
-  // }
-  // &[data-state='closed'] {
-  //   animation: ${close} 300ms ease-out;
-  // }
 `
 
 // Exports
