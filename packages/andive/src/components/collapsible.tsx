@@ -62,7 +62,7 @@ const AndiveCollapsible = React.forwardRef<HTMLInputElement, AndiveCollapsiblePr
     const [open, setOpen] = React.useState(props.defaultOpen || false)
 
     return (
-      <Collapsible {...props} ref={forwardedRef} data-state={open ? 'open' : 'closed'}>
+      <Collapsible {...props} data-state={open ? 'open' : 'closed'} ref={forwardedRef}>
         <CollapsibleTrigger onClick={() => setOpen(open => !open)}>
           <StyledTriggerWrapper>
             {trigger}
