@@ -31,11 +31,6 @@ const Dropdown = styled(
 )`
   position: absolute;
 
-  ${({defaultDropDownWidth}) =>
-    defaultDropDownWidth &&
-    css`
-      width: ${defaultDropDownWidth};
-    `}
   ${({openVariant}) => {
     if (openVariant === OpenVariant.LEFT) {
       return css`
