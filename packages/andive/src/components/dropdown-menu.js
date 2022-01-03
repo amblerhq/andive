@@ -99,8 +99,7 @@ function DropdownMenu({
   openVariant = OpenVariant.RIGHT,
   loading = false,
   noScroll = false,
-  defaultOpen = false,
-  defaultDropDownWidth = 'auto'
+  defaultOpen = false
 }) {
   const [open, setOpen] = React.useState(defaultOpen)
   const [fullWidth, setFullWidth] = React.useState(false)
@@ -179,11 +178,11 @@ function DropdownMenu({
         <OutsideClickHandler onOutsideClick={onClose}>
           <PoseGroup>
             <Dropdown
+              className="dropdown"
               key="dropdown"
               ref={dropdownRef}
               buttonLeft={buttonLeft}
               fullWidth={fullWidth}
-              defaultDropDownWidth={defaultDropDownWidth}
               openVariant={openVariant}
             >
               <Menu
