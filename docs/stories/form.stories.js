@@ -1,6 +1,18 @@
 import React from 'react'
 import {storiesOf} from '@storybook/react'
-import {Card, Dropdown, Select, Input, NativeCheckbox, Button, Autocomplete, HSpace, VSpace, Info} from '@ambler/andive'
+import {
+  Card,
+  Dropdown,
+  Select,
+  Input,
+  NativeCheckbox,
+  Checkbox,
+  Button,
+  Autocomplete,
+  HSpace,
+  VSpace,
+  Info
+} from '@ambler/andive'
 
 import Showcase from './showcase'
 
@@ -72,7 +84,7 @@ function ReactStory() {
     dispatch({
       type: 'onChange',
       name: ev.target.name,
-      value: ev.target.type === 'checkbox' ? ev.target.checked : ev.target.value
+      value: ev.target.value
     })
   }
 
@@ -133,13 +145,31 @@ function ReactStory() {
               options={['Mobile', 'Home Line']}
             />
           </div>
-          <NativeCheckbox
+          <Checkbox
             label="Is Accompanied ?"
             name="isAccompanied"
             checked={values.isAccompanied}
-            onChange={handleChange}
+            onChange={() =>
+              dispatch({
+                type: 'onChange',
+                name: 'isAccompanied',
+                value: !values.isAccompanied
+              })
+            }
           />
-          <NativeCheckbox radio label="Is cold ?" name="isCold" checked={values.isCold} onChange={handleChange} />
+          <Checkbox
+            radio
+            label="Is cold ?"
+            name="isCold"
+            checked={values.isCold}
+            onChange={() =>
+              dispatch({
+                type: 'onChange',
+                name: 'isCold',
+                value: !values.isCold
+              })
+            }
+          />
           <Button type="submit" label="Test" mobile small />
         </form>
       </Card>

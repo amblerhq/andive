@@ -2,7 +2,6 @@ import React from 'react'
 import {storiesOf} from '@storybook/react'
 import {
   Box,
-  Button,
   FlatButton,
   ArrowDownIcon,
   Dropdown,
@@ -11,9 +10,7 @@ import {
   Typography,
   MoreIcon,
   TrashIcon,
-  EditIcon,
-  FilterButton,
-  palette
+  EditIcon
 } from '@ambler/andive'
 import styled from 'styled-components'
 
