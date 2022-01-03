@@ -31,10 +31,10 @@ const Dropdown = styled(
 )`
   position: absolute;
 
-  ${({minWidth}) =>
-    minWidth &&
+  ${({defaultDropDownWidth}) =>
+    defaultDropDownWidth &&
     css`
-      min-width: ${minWidth};
+      width: ${defaultDropDownWidth};
     `}
   ${({openVariant}) => {
     if (openVariant === OpenVariant.LEFT) {
@@ -99,10 +99,10 @@ function DropdownMenu({
   openVariant = OpenVariant.RIGHT,
   loading = false,
   noScroll = false,
-  isOpen = false,
-  minWidth = 0
+  defaultOpen = false,
+  defaultDropDownWidth = 'auto'
 }) {
-  const [open, setOpen] = React.useState(isOpen)
+  const [open, setOpen] = React.useState(defaultOpen)
   const [fullWidth, setFullWidth] = React.useState(false)
 
   const dropdownRef = React.useRef(null)
@@ -183,7 +183,7 @@ function DropdownMenu({
               ref={dropdownRef}
               buttonLeft={buttonLeft}
               fullWidth={fullWidth}
-              minWidth={minWidth}
+              defaultDropDownWidth={defaultDropDownWidth}
               openVariant={openVariant}
             >
               <Menu
