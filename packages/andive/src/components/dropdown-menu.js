@@ -173,7 +173,6 @@ function DropdownMenu({
         <OutsideClickHandler onOutsideClick={onClose}>
           <PoseGroup>
             <Dropdown
-              className="dropdown"
               key="dropdown"
               ref={dropdownRef}
               buttonLeft={buttonLeft}
@@ -200,6 +199,7 @@ function DropdownMenu({
 DropdownMenu.Option = Menu.Option
 DropdownMenu.OptionGroup = Menu.OptionGroup
 DropdownMenu.OpenVariant = OpenVariant
+DropdownMenu.DropDown = Dropdown
 
 DropdownMenu.propTypes = {
   className: PropTypes.string,
