@@ -93,9 +93,10 @@ function DropdownMenu({
   buttonComponent = defaultButton,
   openVariant = OpenVariant.RIGHT,
   loading = false,
-  noScroll = false
+  noScroll = false,
+  defaultOpen = false
 }) {
-  const [open, setOpen] = React.useState(false)
+  const [open, setOpen] = React.useState(defaultOpen)
   const [fullWidth, setFullWidth] = React.useState(false)
 
   const dropdownRef = React.useRef(null)
@@ -198,6 +199,7 @@ function DropdownMenu({
 DropdownMenu.Option = Menu.Option
 DropdownMenu.OptionGroup = Menu.OptionGroup
 DropdownMenu.OpenVariant = OpenVariant
+DropdownMenu.DropDown = Dropdown
 
 DropdownMenu.propTypes = {
   className: PropTypes.string,
