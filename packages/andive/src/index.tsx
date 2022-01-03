@@ -310,8 +310,6 @@ export {default as Modal} from './components/modal'
 
 export {default as Loader} from './components/loader'
 
-export {NativeCheckbox} from './components/native/checkbox'
-
 export {default as Accordeon} from './components/accordeon'
 
 export {default as Box} from './components/box'
