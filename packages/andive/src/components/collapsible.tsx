@@ -17,10 +17,7 @@ const StyledCollapsibleTrigger = styled.button`
     box-shadow: ${props => props.theme.focus.outlineColor} 0px 0px 0px 2px;
   }
 `
-const StyledCollapsibleContent = styled.div`
-  overflow: hidden;
-  transition: height 0.3s ease-in-out;
-`
+const StyledCollapsibleContent = styled.div``
 
 // Exports
 export const Collapsible = StyledCollapsible
