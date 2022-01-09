@@ -96,7 +96,7 @@ function DropdownMenu({
   noScroll = false,
   defaultOpen = false
 }) {
-  const [open, setOpen] = React.useState(defaultOpen)
+  const [open, setOpen] = React.useState(value ? false : defaultOpen)
   const [fullWidth, setFullWidth] = React.useState(false)
 
   const dropdownRef = React.useRef(null)
