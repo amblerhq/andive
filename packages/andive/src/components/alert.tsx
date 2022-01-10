@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import Box from './box'
 import * as palette from '../constants/palette'
 
-export const textColors = {
+const textColors = {
   success: palette.successText,
   error: palette.errorText,
   warning: palette.warningText,
@@ -12,7 +12,7 @@ export const textColors = {
   disabled: palette.darkPrimary
 }
 
-export const backgroundColors = {
+const backgroundColors = {
   success: palette.lightLettuceGreen,
   error: palette.lightRadishRed,
   warning: palette.lightPotatoYellow,
@@ -35,7 +35,6 @@ const AlertRoot = styled(Box)<{variant: string; rounded: boolean}>`
   & [data-andive-type='typography'] {
     color: ${props => textColors[props.variant]};
   }
-
   & svg [stroke='currentcolor'],
   & svg [fill='currentcolor'] {
     color: ${props => textColors[props.variant]};
