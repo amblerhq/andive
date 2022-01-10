@@ -96,6 +96,7 @@ function DropdownMenu({
   noScroll = false,
   defaultOpen = false
 }) {
+  // Don't allow to open the dropdownMenu by default when component mount if value is defined
   const [open, setOpen] = React.useState(value ? false : defaultOpen)
   const [fullWidth, setFullWidth] = React.useState(false)
 
