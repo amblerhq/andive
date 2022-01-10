@@ -1,18 +1,6 @@
 import React from 'react'
 import {storiesOf} from '@storybook/react'
-import {
-  Icon,
-  TaskIcon,
-  VslIcon,
-  CheckIcon,
-  WarningIcon,
-  ForbiddenIcon,
-  QuestionIcon,
-  Typography,
-  Alert,
-  Button,
-  palette
-} from '@ambler/andive'
+import {Icon, VslIcon, CheckIcon, WarningIcon, ForbiddenIcon, QuestionIcon, Typography, Alert} from '@ambler/andive'
 
 import Showcase from './showcase'
 
