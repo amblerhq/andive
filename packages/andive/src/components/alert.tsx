@@ -32,9 +32,13 @@ const AlertRoot = styled(Box)<{variant: string; rounded: boolean}>`
   border-bottom-right-radius: ${props => (props.rounded ? 0 : 4)}px;
   border-bottom-left-radius: ${props => (props.rounded ? 0 : 4)}px;
 
-  & [data-andive-type='typography'] {
+  & :not(button) > [data-andive-type='typography'],
+  & > [data-andive-type='typography'] {
     color: ${props => textColors[props.variant]};
     width: 100%;
+  }
+  & [data-andive-type='button'] {
+    min-width: inherit;
   }
 
   & svg [stroke='currentcolor'],
