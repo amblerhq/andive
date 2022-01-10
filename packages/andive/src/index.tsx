@@ -4,6 +4,8 @@
 
 export {default as Alert} from './components/alert'
 
+export {default as Task} from './components/task'
+
 export {default as AccountIcon} from './components/icons/account'
 
 export {default as AgreementIcon} from './components/icons/agreement'

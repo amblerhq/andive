@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import Box from './box'
 import * as palette from '../constants/palette'
 
-const textColors = {
+export const textColors = {
   success: palette.successText,
   error: palette.errorText,
   warning: palette.warningText,
@@ -12,7 +12,7 @@ const textColors = {
   disabled: palette.darkPrimary
 }
 
-const backgroundColors = {
+export const backgroundColors = {
   success: palette.lightLettuceGreen,
   error: palette.lightRadishRed,
   warning: palette.lightPotatoYellow,
