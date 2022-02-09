@@ -63,6 +63,19 @@ function WithClearStory() {
   )
 }
 
+function WithChromeAutocomplete() {
+  return (
+    <>
+      <Showcase>
+        The following input should NOT have a browser autocomplete :
+        <div style={{width: 300, background: 'white'}}>
+          <Input name="name" />
+        </div>
+      </Showcase>
+    </>
+  )
+}
+
 function WithErrorStory() {
   const [value, setValue] = React.useState('0142424242')
   const [error, setError] = React.useState("Le numéro n'est pas celui d'un téléphone mobile")
@@ -365,6 +378,7 @@ storiesOf('API|Input', module)
   })
   .add('Default', () => <DefaultStory />)
   .add('With clear', () => <WithClearStory />)
+  .add('With Chrome Autocomplete', () => <WithChromeAutocomplete />)
   .add('With error', () => <WithErrorStory />)
   .add('With ReactNode error', () => <WithReactNodeAsErrorMessage />)
   .add('With disabled', () => <WithDisabledStory />)

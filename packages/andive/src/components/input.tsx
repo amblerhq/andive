@@ -206,9 +206,7 @@ export function Input({
   textarea = false,
   small = false,
   mandatory = false,
-  autoComplete = `off-${Math.random()
-    .toString(36)
-    .slice(2, 11)}`,
+  autoComplete = 'off',
   inputRef,
   ...props
 }: InputProps) {
