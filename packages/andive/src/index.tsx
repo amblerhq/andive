@@ -14,6 +14,8 @@ export {default as AddressRemoveIcon} from './components/icons/address-remove'
 
 export {default as AlertIcon} from './components/icons/alert'
 
+export {default as AlgoIcon} from './components/icons/algo'
+
 export {default as AmbulanceIcon} from './components/icons/ambulance'
 
 export {default as ArrowDownIcon} from './components/icons/arrow-down'

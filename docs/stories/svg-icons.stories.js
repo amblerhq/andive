@@ -95,7 +95,8 @@ import {
   EyeIcon,
   PdfIcon,
   UploadInvoiceIcon,
-  UploadIcon
+  UploadIcon,
+  AlgoIcon
 } from '@ambler/andive'
 
 import Showcase from './showcase'
@@ -193,7 +194,8 @@ const icons = [
   EyeIcon,
   PdfIcon,
   UploadInvoiceIcon,
-  UploadIcon
+  UploadIcon,
+  AlgoIcon
 ]
 
 function TimedColor({interval, colors, children}) {
@@ -217,6 +219,7 @@ function TimedColor({interval, colors, children}) {
 }
 
 const newIcons = [
+  {Icon: AlgoIcon},
   {Icon: UploadInvoiceIcon},
   {Icon: PdfIcon},
   {Icon: EyeIcon},
