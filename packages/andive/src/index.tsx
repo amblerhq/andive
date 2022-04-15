@@ -184,6 +184,10 @@ export {default as UploadInvoiceIcon} from './components/icons/upload-invoice'
 
 export {default as UploadIcon} from './components/icons/upload'
 
+export {default as ThumbUpIcon} from './components/icons/thumb-up'
+
+export {default as ThumbDownIcon} from './components/icons/thumb-down'
+
 /**
  * Illustrations
  */
