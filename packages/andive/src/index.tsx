@@ -250,6 +250,8 @@ export {default as PdfIllustration} from './components/illustrations/pdf'
 
 export {default as InvoiceValidatedIllustration} from './components/illustrations/invoice-validated'
 
+export {default as TcFourStars} from './components/illustrations/tc-four-stars'
+
 /**
  * Components
  */
