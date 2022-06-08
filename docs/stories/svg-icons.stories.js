@@ -99,7 +99,8 @@ import {
   UploadIcon,
   AlgoIcon,
   ThumbUpIcon,
-  ThumbDownIcon
+  ThumbDownIcon,
+  PrintIcon
 } from '@ambler/andive'
 
 import Showcase from './showcase'
@@ -201,7 +202,8 @@ const icons = [
   UploadIcon,
   AlgoIcon,
   ThumbUpIcon,
-  ThumbDownIcon
+  ThumbDownIcon,
+  PrintIcon
 ]
 
 function TimedColor({interval, colors, children}) {
@@ -233,7 +235,8 @@ const newIcons = [
   {Icon: EyeIcon},
   {Icon: PlusIcon},
   {Icon: ReorderIcon},
-  {Icon: SendIcon}
+  {Icon: SendIcon},
+  {Icon: PrintIcon}
 ]
 const updatedIcons = []
 

@@ -190,6 +190,8 @@ export {default as ThumbUpIcon} from './components/icons/thumb-up'
 
 export {default as ThumbDownIcon} from './components/icons/thumb-down'
 
+export {default as PrintIcon} from './components/icons/print'
+
 /**
  * Illustrations
  */
