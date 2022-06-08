@@ -4,9 +4,9 @@ import Print from '../../../img/icons/print.svg'
 import SvgIcon from '../svg-icon'
 import {palette} from '../..'
 
-const DEFAULT_SIZE = 40
+const DEFAULT_SIZE = 24
 
-const PrintIcon = ({color = palette.white, size = DEFAULT_SIZE, ...rest}) => {
+const PrintIcon = ({color = palette.mediumBerryBlue, size = DEFAULT_SIZE, ...rest}) => {
   return (
     <SvgIcon color={color} size={size} {...rest}>
       <Print />
