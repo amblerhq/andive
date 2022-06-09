@@ -256,6 +256,8 @@ export {default as InvoiceValidatedIllustration} from './components/illustration
 
 export {default as TcFourStars} from './components/illustrations/tc-four-stars'
 
+export {default as TcEmpty} from './components/illustrations/tc-empty'
+
 /**
  * Components
  */
