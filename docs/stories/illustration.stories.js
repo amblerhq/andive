@@ -12,6 +12,7 @@ import {
   StandardIllustration,
   TooLateIllustration,
   EmptyIllustration,
+  ComputerIllustration,
   SleepingBellIllustration,
   SleepingInvoiceIllustration,
   RingingBellIllustration,
@@ -133,6 +134,9 @@ storiesOf('Assets|Illustrations', module).add('Library', () => {
       </Showcase>
       <Showcase variant="squared" size={300} style={{background: 'white'}} legend="<TcFourStars />">
         <TcFourStars />
+      </Showcase>
+      <Showcase variant="squared" size={300} style={{background: 'white'}} legend="<ComputerIllustration />">
+        <ComputerIllustration />
       </Showcase>
     </Story>
   )

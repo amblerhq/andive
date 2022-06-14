@@ -216,6 +216,8 @@ export {default as EmptyIllustration} from './components/illustrations/empty'
 
 export {default as TooLateIllustration} from './components/illustrations/too-late'
 
+export {default as ComputerIllustration} from './components/illustrations/computer'
+
 export {default as SleepingBellIllustration} from './components/illustrations/sleeping-bell'
 
 export {default as SleepingInvoiceIllustration} from './components/illustrations/sleeping-invoice'
