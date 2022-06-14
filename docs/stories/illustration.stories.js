@@ -32,7 +32,8 @@ import {
   WarningIllustration,
   PdfIllustration,
   InvoiceValidatedIllustration,
-  TcFourStars
+  TcFourStars,
+  TcEmpty
 } from '@ambler/andive'
 
 import Showcase from './showcase'
@@ -137,6 +138,9 @@ storiesOf('Assets|Illustrations', module).add('Library', () => {
       </Showcase>
       <Showcase variant="squared" size={300} style={{background: 'white'}} legend="<ComputerIllustration />">
         <ComputerIllustration />
+      </Showcase>
+      <Showcase variant="squared" size={300} style={{background: 'white'}} legend="<TcEmpty />">
+        <TcEmpty />
       </Showcase>
     </Story>
   )
