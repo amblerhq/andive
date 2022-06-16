@@ -1,4 +1,4 @@
-import React, {InputHTMLAttributes} from 'react'
+import React, {InputHTMLAttributes, useImperativeHandle} from 'react'
 import styled, {css} from 'styled-components'
 
 import {body1Css, body2Css, Body3, Body2} from './typography'
@@ -16,6 +16,7 @@ type InputState = 'EMPTY' | 'DISABLED' | 'ERRORED' | 'FILLED' | 'ACTIVE'
 type GetColorProps = {
   state: InputState
 }
+
 const getColor = ({state}: GetColorProps) => {
   switch (state) {
     case 'ACTIVE':
@@ -55,6 +56,7 @@ const getColor = ({state}: GetColorProps) => {
 type GetPlaceholderCssProps = {
   small: boolean
 }
+
 function getPlaceholderCss({small}: GetPlaceholderCssProps) {
   if (small) {
     return css`
@@ -72,6 +74,7 @@ function getPlaceholderCss({small}: GetPlaceholderCssProps) {
 type GetSizesProps = {
   small: boolean
 }
+
 function getSizes({small}: GetSizesProps) {
   if (small) {
     return css`
@@ -95,6 +98,7 @@ type GetSpacesProps = {
   hasRightIcon: boolean
   hasLeftIcon: boolean
 }
+
 function getSpaces({small, hasRightIcon, hasLeftIcon}: GetSpacesProps) {
   if (small) {
     return css`
@@ -107,8 +111,65 @@ function getSpaces({small, hasRightIcon, hasLeftIcon}: GetSpacesProps) {
   `
 }
 
-type FieldProps = GetColorProps & GetSizesProps & GetSpacesProps & GetPlaceholderCssProps & {as: 'textarea' | 'input'}
-const Field = styled.input<FieldProps>`
+type FieldProps = GetColorProps & GetSizesProps & GetSpacesProps & GetPlaceholderCssProps & {tag: 'textarea' | 'input'}
+
+type CustomInputElementHandle = {
+  focus: HTMLInputElement['focus']
+  blur: HTMLInputElement['blur']
+}
+
+const CustomInputElement = React.forwardRef<
+  CustomInputElementHandle,
+  Omit<InputHTMLAttributes<HTMLInputElement>, 'onBlur' | 'onFocus'> & {
+    onFocus: (ev: any) => any
+    onBlur: (ev: any) => any
+  }
+>(({onFocus, onBlur, ...props}, ref) => {
+  const inputRef = React.useRef<HTMLInputElement>(null)
+  const onFocusRef = React.useRef(onFocus)
+  const onBlurRef = React.useRef(onBlur)
+
+  useImperativeHandle(ref, () => {
+    return {
+      focus: (options?: FocusOptions) => inputRef.current && inputRef.current.focus(options),
+      blur: () => inputRef.current && inputRef.current.blur()
+    }
+  })
+
+  React.useEffect(() => {
+    onFocusRef.current = onFocus
+    onBlurRef.current = onBlur
+  }, [onBlur, onFocus])
+
+  React.useEffect(() => {
+    if (inputRef.current) {
+      const input = inputRef.current
+
+      const onBlur = (ev: FocusEvent) => {
+        onBlurRef.current && onBlurRef.current(ev)
+      }
+
+      const onFocus = (ev: FocusEvent) => {
+        onFocusRef.current && onFocusRef.current(ev)
+      }
+
+      input.addEventListener('focus', onFocus, true)
+      input.addEventListener('blur', onBlur, true)
+
+      return () => {
+        input.removeEventListener('focus', onFocus, true)
+        input.removeEventListener('blur', onBlur, true)
+      }
+    }
+
+    return
+  }, [])
+
+  return <input ref={inputRef} {...props} />
+})
+
+const Field = styled.div<FieldProps>`
+ > input {
   /* Base */
   box-sizing: border-box;
   border: 1px solid transparent;
@@ -124,11 +185,13 @@ const Field = styled.input<FieldProps>`
   }
 
   ${props =>
-    props.as === 'textarea' &&
+    props.tag === 'textarea' &&
     css`
       resize: none;
     `}
+ }
 `
+
 const FieldLabel = styled.label`
   display: block;
   padding-bottom: 8px;
@@ -138,6 +201,7 @@ type GetCloseIconPositionProps = {
   small: boolean
   hasLabel: boolean
 }
+
 function getCloseIconPosition({small, hasLabel}: GetCloseIconPositionProps) {
   let top = 24
   if (small) {
@@ -186,7 +250,7 @@ const FlexBox = styled(Box)`
 `
 
 // InputHTMLAttributes defines value, onChange, name, autoComplete, placeholder, and more.
-interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
+interface InputProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 'onBlur' | 'onFocus'> {
   onClear?: () => void
   error?: React.ReactNode
   icon?: React.ReactNode
@@ -195,124 +259,132 @@ interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   mandatory?: boolean
   label?: string
   inputRef?: React.MutableRefObject<HTMLInputElement | null>
+  onBlur?: (ev: any) => any
+  onFocus?: (ev: any) => any
 }
-export function Input({
-  value,
-  onChange,
-  onClear,
-  error,
-  icon,
-  label,
-  textarea = false,
-  small = false,
-  mandatory = false,
-  autoComplete = 'off',
-  inputRef,
-  ...props
-}: InputProps) {
-  const [focus, setFocus] = React.useState(false)
 
-  const innerInputRef = React.useRef<HTMLInputElement | null>(null)
-  const callbackRef = React.useCallback(
-    el => {
-      innerInputRef.current = el
-      if (inputRef) {
-        inputRef.current = el
-      }
+export const Input = React.forwardRef<CustomInputElementHandle, InputProps>(
+  (
+    {
+      value,
+      onChange,
+      onClear,
+      error,
+      icon,
+      label,
+      textarea = false,
+      small = false,
+      mandatory = false,
+      autoComplete = 'off',
+      inputRef,
+      ...props
     },
-    [innerInputRef.current, inputRef]
-  )
+    ref
+  ) => {
+    const [focus, setFocus] = React.useState(false)
 
-  let state: InputState = !value ? 'EMPTY' : 'FILLED'
-  if (error) {
-    state = 'ERRORED'
-  }
-  if (focus) {
-    state = 'ACTIVE'
-  }
-  if (props.disabled) {
-    state = 'DISABLED'
-  }
+    const innerInputRef = React.useRef<CustomInputElementHandle>(null)
 
-  const handleClear = () => {
-    if (state === 'DISABLED') {
-      return
+    useImperativeHandle(ref, () => {
+      return {
+        focus: (options?: FocusOptions) => innerInputRef.current && innerInputRef.current.focus(options),
+        blur: () => innerInputRef.current && innerInputRef.current.blur()
+      }
+    })
+
+    let state: InputState = !value ? 'EMPTY' : 'FILLED'
+    if (error) {
+      state = 'ERRORED'
+    }
+    if (focus) {
+      state = 'ACTIVE'
+    }
+    if (props.disabled) {
+      state = 'DISABLED'
     }
 
-    if (onClear) {
-      onClear()
+    const handleClear = () => {
+      if (state === 'DISABLED') {
+        return
+      }
+
+      if (onClear) {
+        onClear()
+      }
+
+      if (innerInputRef.current) {
+        innerInputRef.current.focus()
+      }
     }
 
-    if (innerInputRef.current) {
-      innerInputRef.current.focus()
+    const handleFocus = (ev: React.FocusEvent<HTMLInputElement>) => {
+      setFocus(true)
+      if (props.onFocus) {
+        props.onFocus(ev)
+      }
     }
-  }
 
-  const handleFocus = (ev: React.FocusEvent<HTMLInputElement>) => {
-    setFocus(true)
-    if (props.onFocus) {
-      props.onFocus(ev)
+    const handleBlur = (ev: React.FocusEvent<HTMLInputElement>) => {
+      setFocus(false)
+
+      if (props.onBlur) {
+        props.onBlur(ev)
+      }
     }
-  }
 
-  const handleBlur = (ev: React.FocusEvent<HTMLInputElement>) => {
-    setFocus(false)
+    const hasIcon = Boolean(icon)
+    const hasClear = Boolean(onClear && value)
 
-    if (props.onBlur) {
-      props.onBlur(ev)
-    }
-  }
+    const id = label ? label.toLowerCase().replace(/ /g, '-') : undefined
 
-  const hasIcon = Boolean(icon)
-  const hasClear = Boolean(onClear && value)
-
-  const id = label ? label.toLowerCase().replace(/ /g, '-') : undefined
-
-  return (
-    <>
-      <InputRoot>
-        <Box>
-          {label && (
-            <FieldLabel htmlFor={id}>
-              <Body2 color={palette.secondaryText}>
-                {label}
-                {mandatory && (
-                  <Body2 as="span" color={palette.error}>
-                    *
-                  </Body2>
-                )}
-              </Body2>
-            </FieldLabel>
+    return (
+      <>
+        <InputRoot>
+          <Box>
+            {label && (
+              <FieldLabel htmlFor={id}>
+                <Body2 color={palette.secondaryText}>
+                  {label}
+                  {mandatory && (
+                    <Body2 as="span" color={palette.error}>
+                      *
+                    </Body2>
+                  )}
+                </Body2>
+              </FieldLabel>
+            )}
+            <Field
+              tag={textarea ? 'textarea' : 'input'}
+              hasLeftIcon={hasIcon}
+              hasRightIcon={hasClear}
+              state={state}
+              small={small}
+            >
+              <CustomInputElement
+                ref={innerInputRef}
+                {...props}
+                id={id}
+                value={value}
+                onChange={onChange}
+                onBlur={handleBlur}
+                onFocus={handleFocus}
+                autoComplete={autoComplete}
+              />
+            </Field>
+            {hasIcon && <Icon small={small}>{icon}</Icon>}
+            {hasClear && !props.disabled && (
+              <Close small={small} hasLabel={Boolean(label)} onClick={handleClear}>
+                <CloseIcon inline />
+              </Close>
+            )}
+          </Box>
+          {error && (
+            <FlexBox>
+              <Error>{error}</Error>
+            </FlexBox>
           )}
-          <Field
-            ref={callbackRef}
-            {...props}
-            id={id}
-            value={value}
-            onChange={onChange}
-            onBlur={handleBlur}
-            onFocus={handleFocus}
-            /* Extra props for styling */
-            as={textarea ? 'textarea' : 'input'}
-            state={state}
-            small={small}
-            hasLeftIcon={hasIcon}
-            hasRightIcon={hasClear}
-            autoComplete={autoComplete}
-          />
-          {hasIcon && <Icon small={small}>{icon}</Icon>}
-          {hasClear && !props.disabled && (
-            <Close small={small} hasLabel={Boolean(label)} onClick={handleClear}>
-              <CloseIcon inline />
-            </Close>
-          )}
-        </Box>
-        {error && (
-          <FlexBox>
-            <Error>{error}</Error>
-          </FlexBox>
-        )}
-      </InputRoot>
-    </>
-  )
-}
+        </InputRoot>
+      </>
+    )
+  }
+)

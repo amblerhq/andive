@@ -117,6 +117,7 @@ export interface AutocompleteProps<T> {
   onFocus?: (ev: React.FocusEvent<HTMLInputElement>) => void
   disabled?: boolean
 }
+
 export function Autocomplete<T>({
   value,
   onChange,
@@ -200,7 +201,7 @@ export function Autocomplete<T>({
   return (
     <AutocompleteRoot>
       <Input
-        inputRef={inputRef}
+        ref={inputRef}
         onChange={ev => {
           onUpdate(ev.target.value)
         }}
