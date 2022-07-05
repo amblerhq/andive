@@ -17,4 +17,3 @@ const ThumbDownIcon = ({color = palette.mediumBerryBlue, size = DEFAULT_SIZE, ..
 ThumbDownIcon.size = DEFAULT_SIZE
 
 export default ThumbDownIcon
-export const ExportSvg = ThumbDown

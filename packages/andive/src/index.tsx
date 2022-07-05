@@ -192,6 +192,8 @@ export {default as ThumbDownIcon} from './components/icons/thumb-down'
 
 export {default as PrintIcon} from './components/icons/print'
 
+export {default as PhoneOffIcon} from './components/icons/phone-off'
+
 /**
  * Illustrations
  */

@@ -17,4 +17,3 @@ const ThumbUpIcon = ({color = palette.mediumBerryBlue, size = DEFAULT_SIZE, ...r
 ThumbUpIcon.size = DEFAULT_SIZE
 
 export default ThumbUpIcon
-export const ExportSvg = ThumbUp
