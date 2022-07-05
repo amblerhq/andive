@@ -17,4 +17,3 @@ const UploadIcon = ({color = palette.mediumBerryBlue, size = DEFAULT_SIZE, ...re
 UploadIcon.size = DEFAULT_SIZE
 
 export default UploadIcon
-export const ExportSvg = Upload
