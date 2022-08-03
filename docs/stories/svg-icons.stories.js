@@ -101,7 +101,8 @@ import {
   ThumbUpIcon,
   ThumbDownIcon,
   PrintIcon,
-  PhoneOffIcon
+  PhoneOffIcon,
+  InfiniteCalendarIcon
 } from '@ambler/andive'
 
 import Showcase from './showcase'
@@ -205,7 +206,8 @@ const icons = [
   ThumbUpIcon,
   ThumbDownIcon,
   PrintIcon,
-  PhoneOffIcon
+  PhoneOffIcon,
+  InfiniteCalendarIcon
 ]
 
 function TimedColor({interval, colors, children}) {
