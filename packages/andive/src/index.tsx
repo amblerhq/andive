@@ -194,6 +194,8 @@ export {default as PrintIcon} from './components/icons/print'
 
 export {default as PhoneOffIcon} from './components/icons/phone-off'
 
+export {default as InfiniteCalendarIcon} from './components/icons/infinite-calendar'
+
 /**
  * Illustrations
  */
