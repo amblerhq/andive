@@ -196,6 +196,8 @@ export {default as PhoneOffIcon} from './components/icons/phone-off'
 
 export {default as InfiniteCalendarIcon} from './components/icons/infinite-calendar'
 
+export {default as ClickIcon} from './components/icons/click'
+
 /**
  * Illustrations
  */
