@@ -129,6 +129,7 @@ interface MenuFilterProps {
   children: React.ReactNode
   openLeft?: boolean
   transparent?: boolean
+  openByDefault?: boolean
 }
 export function DropdownFilter({
   className,
@@ -142,9 +143,10 @@ export function DropdownFilter({
   mobile,
   children,
   openLeft = false,
-  transparent = false
+  transparent = false,
+  openByDefault = false
 }: MenuFilterProps) {
-  const [open, setOpen] = React.useState(false)
+  const [open, setOpen] = React.useState(openByDefault)
   const onClick = React.useCallback(() => {
     setOpen(prev => !prev)
   }, [setOpen])
