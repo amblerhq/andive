@@ -150,7 +150,9 @@ export {default as FilterIcon} from './components/icons/filter'
 
 export {default as ResetIcon} from './components/icons/reset'
 
-export {default as InfosIcon} from './components/icons/infos'
+export {default as PatientInfoIcon} from './components/icons/patient-info'
+
+export {default as InfoIcon} from './components/icons/info'
 
 export {default as PostponeIcon} from './components/icons/postpone'
 

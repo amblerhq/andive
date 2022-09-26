@@ -79,7 +79,7 @@ import {
   ResetIcon,
   Typography,
   Info,
-  InfosIcon,
+  PatientInfoIcon,
   PostponeIcon,
   UnlockIcon,
   RegulatorIcon,
@@ -103,7 +103,8 @@ import {
   PrintIcon,
   PhoneOffIcon,
   InfiniteCalendarIcon,
-  ClickIcon
+  ClickIcon,
+  InfoIcon
 } from '@ambler/andive'
 
 import Showcase from './showcase'
@@ -185,7 +186,7 @@ const icons = [
   DropdownArrowIcon,
   FilterIcon,
   ResetIcon,
-  InfosIcon,
+  PatientInfoIcon,
   PostponeIcon,
   UnlockIcon,
   RegulatorIcon,
@@ -209,7 +210,8 @@ const icons = [
   PrintIcon,
   PhoneOffIcon,
   InfiniteCalendarIcon,
-  ClickIcon
+  ClickIcon,
+  InfoIcon
 ]
 
 function TimedColor({interval, colors, children}) {
