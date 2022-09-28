@@ -89,7 +89,18 @@ export function DropdownComposer({
   horizontal,
   initialState = false,
   vertical = 'DOWN'
-}: any) {
+}: {
+  className: string,
+  render: ({ setOpen }: {
+    setOpen: (handler: (open: boolean) => boolean) => void;
+  }) => JSX.Element,
+  dropdown: ({ onClick }: {
+    onClick?: React.MouseEventHandler<HTMLButtonElement>;
+  }) => JSX.Element,
+  horizontal: HorizontalVariant,
+  vertical?: VerticalVariant,
+  initialState?: boolean
+}) {
   const [open, setOpen] = React.useState(initialState)
   const Dropdown = dropdown
   return (
