@@ -99,7 +99,7 @@ export function DropdownComposer({
   }) => JSX.Element,
   horizontal: HorizontalVariant,
   vertical?: VerticalVariant,
-  initialState?:boolean
+  initialState?: boolean
 }) {
   const [open, setOpen] = React.useState(initialState)
   const Dropdown = dropdown
