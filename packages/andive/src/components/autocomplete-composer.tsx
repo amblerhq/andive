@@ -165,7 +165,8 @@ export function AutocompleteComposer<T>({
   )
 
   return (
-    <DropdownComposer
+    <DropdownComposer<T>
+      horizontal="CENTER"
       initialState={suggestions.length > 0}
       render={({setOpen}) => (
         <Input
@@ -206,7 +207,7 @@ export function AutocompleteComposer<T>({
                   <Suggestion
                     key={index}
                     onMouseDown={() => {
-                      onClick(item)
+                      onClick && onClick(item)
                       onSelectItem(item)
                     }}
                   >
@@ -217,7 +218,9 @@ export function AutocompleteComposer<T>({
               })}
             {noHintError && <Suggestion>{noHintError}</Suggestion>}
           </CustomDropdownBase>
-        ) : null
+        ) : (
+          <></>
+        )
       }}
     />
   )
