@@ -82,7 +82,7 @@ const DropdownAnchor = styled.div<{
   z-index: ${ZIndexes.MODALS + 1};
 `
 
-export function DropdownComposer({
+export function DropdownComposer<T>({
   className,
   render,
   dropdown,
@@ -90,15 +90,11 @@ export function DropdownComposer({
   initialState = false,
   vertical = 'DOWN'
 }: {
-  className: string,
-  render: ({ setOpen }: {
-    setOpen: (handler: (open: boolean) => boolean) => void;
-  }) => JSX.Element,
-  dropdown: ({ onClick }: {
-    onClick?: React.MouseEventHandler<HTMLButtonElement>;
-  }) => JSX.Element,
-  horizontal: HorizontalVariant,
-  vertical?: VerticalVariant,
+  className?: string
+  render: ({open, setOpen}: {open?: boolean; setOpen: React.Dispatch<React.SetStateAction<boolean>>}) => JSX.Element
+  dropdown: ({onClick}: {onClick?: (item: T) => void}) => JSX.Element
+  horizontal: keyof typeof HorizontalVariant
+  vertical?: keyof typeof VerticalVariant
   initialState?: boolean
 }) {
   const [open, setOpen] = React.useState(initialState)
