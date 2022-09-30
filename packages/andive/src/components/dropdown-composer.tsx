@@ -33,7 +33,7 @@ const DropdownComposeRoot = styled.div`
 
 const DropdownAnchor = styled.div<{
   vertical: keyof typeof VerticalVariant
-  horizontal: keyof typeof HorizontalVariant
+  horizontal?: keyof typeof HorizontalVariant
   theme: {padding: number}
 }>`
   position: absolute;
@@ -93,7 +93,7 @@ export function DropdownComposer<T>({
   className?: string
   render: ({open, setOpen}: {open?: boolean; setOpen: React.Dispatch<React.SetStateAction<boolean>>}) => JSX.Element
   dropdown: ({onClick}: {onClick?: (item: T) => void}) => JSX.Element
-  horizontal: keyof typeof HorizontalVariant
+  horizontal?: keyof typeof HorizontalVariant
   vertical?: keyof typeof VerticalVariant
   initialState?: boolean
 }) {
