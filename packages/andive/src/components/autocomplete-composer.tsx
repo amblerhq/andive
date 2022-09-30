@@ -166,7 +166,6 @@ export function AutocompleteComposer<T>({
 
   return (
     <DropdownComposer<T>
-      horizontal="CENTER"
       initialState={suggestions.length > 0}
       render={({setOpen}) => (
         <Input
@@ -207,7 +206,9 @@ export function AutocompleteComposer<T>({
                   <Suggestion
                     key={index}
                     onMouseDown={() => {
-                      onClick && onClick(item)
+                      if (onClick) {
+                        onClick(item)
+                      }
                       onSelectItem(item)
                     }}
                   >
