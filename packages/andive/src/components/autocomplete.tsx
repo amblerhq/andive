@@ -29,9 +29,11 @@ const AutocompleteRoot = styled.div`
   position: relative;
 `
 
-const SuggestionsUl = styled.ul`
+const SuggestionsUl = styled(({maxHeight, ...props}) => <ul {...props} />)`
   box-sizing: border-box;
   list-style: none;
+
+  max-height: ${props => props.maxHeight || 'none'};
 
   padding: 8px;
   margin: 0;
@@ -42,7 +44,7 @@ const SuggestionsUl = styled.ul`
   box-shadow: 0 1px 4px 0 ${palette.darkPrimary}44;
 
   /* To crop the child suggestion :hover effect */
-  overflow: hidden;
+  overflow: ${props => (props.maxHeight ? 'auto' : 'hidden')};
 `
 
 const Suggestions = styled(({bottomFootprint, ...props}) => <div {...props} />)`
@@ -115,6 +117,7 @@ export interface AutocompleteProps<T> {
   noHintError?: React.ReactNode
   onBlur?: (ev: React.FocusEvent<HTMLInputElement>) => void
   onFocus?: (ev: React.FocusEvent<HTMLInputElement>) => void
+  maxHeight?: string
   disabled?: boolean
 }
 export function Autocomplete<T>({
@@ -145,6 +148,7 @@ export function Autocomplete<T>({
   noHintError,
   onBlur,
   onFocus,
+  maxHeight,
   ...props
 }: AutocompleteProps<T>) {
   const [input, setInput] = React.useState('')
@@ -230,7 +234,7 @@ export function Autocomplete<T>({
 
       {(showFavorites || showSuggestions || noHintError) && (
         <Suggestions bottomFootprint={bottomFootprint}>
-          <SuggestionsUl>
+          <SuggestionsUl maxHeight={maxHeight}>
             {showSuggestions &&
               suggestions.map((item, index) => {
                 return (
