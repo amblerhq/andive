@@ -34,6 +34,8 @@ export {default as CancelIcon} from './components/icons/cancel'
 
 export {default as CloseIcon} from './components/icons/close'
 
+export {default as CopyIcon} from './components/icons/copy'
+
 export {default as EditIcon} from './components/icons/edit'
 
 export {default as FlagIcon} from './components/icons/flag'

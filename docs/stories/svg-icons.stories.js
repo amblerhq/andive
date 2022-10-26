@@ -15,6 +15,7 @@ import {
   SeatedIcon,
   LyingIcon,
   EditIcon,
+  CopyIcon,
   BackIcon,
   CloseIcon,
   ArrowRightIcon,
@@ -235,6 +236,7 @@ function TimedColor({interval, colors, children}) {
 }
 
 const newIcons = [
+  {Icon: CopyIcon},
   {Icon: ThumbUpIcon},
   {Icon: ThumbDownIcon},
   {Icon: AlgoIcon},
