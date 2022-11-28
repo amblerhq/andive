@@ -59,6 +59,33 @@ function WithClearStory() {
           <Input small placeholder={'Date de naissance'} value={value} onChange={onChange} onClear={onClear} />
         </div>
       </Showcase>
+      <Showcase>
+        <div style={{width: 300, background: 'white'}}>
+          <Input
+            label="alwaysShowOnClear"
+            small
+            placeholder={'Date de naissance'}
+            value={value}
+            onChange={onChange}
+            onClear={onClear}
+            alwaysShowOnClear
+          />
+        </div>
+      </Showcase>
+      <Showcase>
+        <div style={{width: 300, background: 'white'}}>
+          <Input
+            label="alwaysShowOnClear & disabled"
+            small
+            placeholder={'Date de naissance'}
+            value={value}
+            onChange={onChange}
+            onClear={onClear}
+            alwaysShowOnClear
+            disabled
+          />
+        </div>
+      </Showcase>
     </>
   )
 }

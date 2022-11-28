@@ -266,7 +266,7 @@ export function Input({
   }
 
   const hasIcon = Boolean(icon)
-  const hasClear = Boolean(onClear ? value && !props.disabled : alwaysShowOnClear)
+  const hasClear = Boolean(onClear && (alwaysShowOnClear || (value && !props.disabled)))
 
   const id = label ? label.toLowerCase().replace(/ /g, '-') : undefined
 
