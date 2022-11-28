@@ -195,6 +195,7 @@ interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   mandatory?: boolean
   label?: string
   inputRef?: React.MutableRefObject<HTMLInputElement | null>
+  alwaysShowOnClear?: boolean
 }
 export function Input({
   value,
@@ -208,6 +209,7 @@ export function Input({
   mandatory = false,
   autoComplete = 'off',
   inputRef,
+  alwaysShowOnClear = false,
   ...props
 }: InputProps) {
   const [focus, setFocus] = React.useState(false)
@@ -235,7 +237,7 @@ export function Input({
   }
 
   const handleClear = () => {
-    if (state === 'DISABLED') {
+    if (!alwaysShowOnClear && state === 'DISABLED') {
       return
     }
 
@@ -264,7 +266,7 @@ export function Input({
   }
 
   const hasIcon = Boolean(icon)
-  const hasClear = Boolean(onClear && value)
+  const hasClear = Boolean(onClear ? value && !props.disabled : alwaysShowOnClear)
 
   const id = label ? label.toLowerCase().replace(/ /g, '-') : undefined
 
@@ -301,7 +303,7 @@ export function Input({
             autoComplete={autoComplete}
           />
           {hasIcon && <Icon small={small}>{icon}</Icon>}
-          {hasClear && !props.disabled && (
+          {hasClear && (
             <Close small={small} hasLabel={Boolean(label)} onClick={handleClear}>
               <CloseIcon inline />
             </Close>
