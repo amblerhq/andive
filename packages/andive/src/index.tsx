@@ -202,6 +202,8 @@ export {default as InfiniteCalendarIcon} from './components/icons/infinite-calen
 
 export {default as ClickIcon} from './components/icons/click'
 
+export {default as LightningIcon} from './components/icons/lightning'
+
 /**
  * Illustrations
  */
