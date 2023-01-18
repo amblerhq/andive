@@ -106,7 +106,9 @@ import {
   InfiniteCalendarIcon,
   ClickIcon,
   InfoIcon,
-  LightningIcon
+  LightningIcon,
+  SkipIcon,
+  CounterOfferIcon
 } from '@ambler/andive'
 
 import Showcase from './showcase'
@@ -214,7 +216,9 @@ const icons = [
   InfiniteCalendarIcon,
   ClickIcon,
   InfoIcon,
-  LightningIcon
+  LightningIcon,
+  SkipIcon,
+  CounterOfferIcon
 ]
 
 function TimedColor({interval, colors, children}) {
@@ -249,7 +253,10 @@ const newIcons = [
   {Icon: ReorderIcon},
   {Icon: SendIcon},
   {Icon: PrintIcon},
-  {Icon: PhoneOffIcon}
+  {Icon: PhoneOffIcon},
+  {Icon: LightningIcon},
+  {Icon: SkipIcon},
+  {Icon: CounterOfferIcon}
 ]
 const updatedIcons = []
 

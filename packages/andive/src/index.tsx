@@ -204,6 +204,10 @@ export {default as ClickIcon} from './components/icons/click'
 
 export {default as LightningIcon} from './components/icons/lightning'
 
+export {default as SkipIcon} from './components/icons/skip'
+
+export {default as CounterOfferIcon} from './components/icons/counter-offer'
+
 /**
  * Illustrations
  */
