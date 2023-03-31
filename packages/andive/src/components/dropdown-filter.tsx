@@ -69,8 +69,6 @@ export const PageOverlay = styled.div`
 
   background: rgba(255, 255, 255, 0.8);
   z-index: ${ZIndexes.MODALS};
-
-  border: 1px solid tomato;
 `
 
 const MobileHeader = styled.div`
