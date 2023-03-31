@@ -165,7 +165,7 @@ export function DropdownFilter({
     }
   }, [])
 
-  const menu = (
+  const menuJsx = (
     <Menu className={className} openLeft={openLeft} mobile={mobile}>
       {mobile && (
         <MobileHeader>
@@ -212,7 +212,11 @@ export function DropdownFilter({
           })}
         {!button && <FilterButton active={selected || open} label={label} onClick={onClick} />}
         {open &&
-          (transparent ? <OutsideClickHandler onOutsideClick={onCloseAndSave}>{menu}</OutsideClickHandler> : menu)}
+          (transparent ? (
+            <OutsideClickHandler onOutsideClick={onCloseAndSave}>{menuJsx}</OutsideClickHandler>
+          ) : (
+            menuJsx
+          ))}
       </MenuFilterRoot>
     </>
   )
