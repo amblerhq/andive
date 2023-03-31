@@ -1,5 +1,6 @@
 import React from 'react'
 import styled, {css} from 'styled-components'
+import OutsideClickHandler from 'react-outside-click-handler'
 
 import * as palette from '../constants/palette'
 import Button from './button'
@@ -58,7 +59,7 @@ const Actions = styled.div`
   padding: 24px 8px;
 `
 
-export const PageOverlay = styled.div<{$transparent?: boolean}>`
+export const PageOverlay = styled.div`
   position: fixed;
 
   top: 0;
@@ -66,8 +67,10 @@ export const PageOverlay = styled.div<{$transparent?: boolean}>`
   width: 100%;
   height: 100%;
 
-  background: ${props => (props.$transparent ? 'transparent' : 'rgba(255, 255, 255, 0.8)')};
+  background: rgba(255, 255, 255, 0.8);
   z-index: ${ZIndexes.MODALS};
+
+  border: 1px solid tomato;
 `
 
 const MobileHeader = styled.div`
@@ -131,6 +134,7 @@ interface MenuFilterProps {
   transparent?: boolean
   openByDefault?: boolean
 }
+
 export function DropdownFilter({
   className,
   label,
@@ -163,9 +167,43 @@ export function DropdownFilter({
     }
   }, [])
 
+  const menu = (
+    <Menu className={className} openLeft={openLeft} mobile={mobile}>
+      {mobile && (
+        <MobileHeader>
+          {title && <H2>{title}</H2>}
+          <MobileHeaderIconRight>
+            <CloseIcon onClick={onCloseOnly} color={palette.darkBerryBlue} />
+          </MobileHeaderIconRight>
+        </MobileHeader>
+      )}
+      {mobile && onClear && (
+        <MobileActions>
+          <Button variant="flat" label="Tout effacer" onClick={onClear} />
+        </MobileActions>
+      )}
+      {typeof children === 'function' ? children({close: onCloseOnly}) : children}
+
+      {mobile
+        ? onSave && (
+            <StickyFooter>
+              <Button variant="primary" label="Enregistrer" onClick={onCloseAndSave} />
+            </StickyFooter>
+          )
+        : (onClear || onSave) && (
+            <Actions>
+              {onClear && (
+                <Button variant="flat" textColor={palette.darkPrimary} label="Tout effacer" onClick={onClear} />
+              )}
+              {onSave && <Button variant="flat" label="Enregistrer" onClick={onCloseAndSave} />}
+            </Actions>
+          )}
+    </Menu>
+  )
+
   return (
     <>
-      {open && <PageOverlay onClick={onCloseAndSave} $transparent={transparent} />}
+      {open && !transparent && <PageOverlay onClick={onCloseAndSave} />}
       <MenuFilterRoot open={open}>
         {button &&
           React.cloneElement(button, {
@@ -175,39 +213,8 @@ export function DropdownFilter({
             active: open || selected
           })}
         {!button && <FilterButton active={selected || open} label={label} onClick={onClick} />}
-        {open && (
-          <Menu className={className} openLeft={openLeft} mobile={mobile}>
-            {mobile && (
-              <MobileHeader>
-                {title && <H2>{title}</H2>}
-                <MobileHeaderIconRight>
-                  <CloseIcon onClick={onCloseOnly} color={palette.darkBerryBlue} />
-                </MobileHeaderIconRight>
-              </MobileHeader>
-            )}
-            {mobile && onClear && (
-              <MobileActions>
-                <Button variant="flat" label="Tout effacer" onClick={onClear} />
-              </MobileActions>
-            )}
-            {typeof children === 'function' ? children({close: onCloseOnly}) : children}
-
-            {mobile
-              ? onSave && (
-                  <StickyFooter>
-                    <Button variant="primary" label="Enregistrer" onClick={onCloseAndSave} />
-                  </StickyFooter>
-                )
-              : (onClear || onSave) && (
-                  <Actions>
-                    {onClear && (
-                      <Button variant="flat" textColor={palette.darkPrimary} label="Tout effacer" onClick={onClear} />
-                    )}
-                    {onSave && <Button variant="flat" label="Enregistrer" onClick={onCloseAndSave} />}
-                  </Actions>
-                )}
-          </Menu>
-        )}
+        {open &&
+          (transparent ? <OutsideClickHandler onOutsideClick={onCloseAndSave}>{menu}</OutsideClickHandler> : menu)}
       </MenuFilterRoot>
     </>
   )
