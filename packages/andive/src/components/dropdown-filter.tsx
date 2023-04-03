@@ -165,43 +165,9 @@ export function DropdownFilter({
     }
   }, [])
 
-  const menuJsx = (
-    <Menu className={className} openLeft={openLeft} mobile={mobile}>
-      {mobile && (
-        <MobileHeader>
-          {title && <H2>{title}</H2>}
-          <MobileHeaderIconRight>
-            <CloseIcon onClick={onCloseOnly} color={palette.darkBerryBlue} />
-          </MobileHeaderIconRight>
-        </MobileHeader>
-      )}
-      {mobile && onClear && (
-        <MobileActions>
-          <Button variant="flat" label="Tout effacer" onClick={onClear} />
-        </MobileActions>
-      )}
-      {typeof children === 'function' ? children({close: onCloseOnly}) : children}
-
-      {mobile
-        ? onSave && (
-            <StickyFooter>
-              <Button variant="primary" label="Enregistrer" onClick={onCloseAndSave} />
-            </StickyFooter>
-          )
-        : (onClear || onSave) && (
-            <Actions>
-              {onClear && (
-                <Button variant="flat" textColor={palette.darkPrimary} label="Tout effacer" onClick={onClear} />
-              )}
-              {onSave && <Button variant="flat" label="Enregistrer" onClick={onCloseAndSave} />}
-            </Actions>
-          )}
-    </Menu>
-  )
-
   return (
     <>
-      {open && !transparent && <PageOverlay onClick={onCloseAndSave} />}
+      {open && !transparent && <PageOverlay />}
       <MenuFilterRoot open={open}>
         {button &&
           React.cloneElement(button, {
@@ -211,12 +177,41 @@ export function DropdownFilter({
             active: open || selected
           })}
         {!button && <FilterButton active={selected || open} label={label} onClick={onClick} />}
-        {open &&
-          (transparent ? (
-            <OutsideClickHandler onOutsideClick={onCloseAndSave}>{menuJsx}</OutsideClickHandler>
-          ) : (
-            menuJsx
-          ))}
+        {open && (
+          <OutsideClickHandler onOutsideClick={onCloseAndSave}>
+            <Menu className={className} openLeft={openLeft} mobile={mobile}>
+              {mobile && (
+                <MobileHeader>
+                  {title && <H2>{title}</H2>}
+                  <MobileHeaderIconRight>
+                    <CloseIcon onClick={onCloseOnly} color={palette.darkBerryBlue} />
+                  </MobileHeaderIconRight>
+                </MobileHeader>
+              )}
+              {mobile && onClear && (
+                <MobileActions>
+                  <Button variant="flat" label="Tout effacer" onClick={onClear} />
+                </MobileActions>
+              )}
+              {typeof children === 'function' ? children({close: onCloseOnly}) : children}
+
+              {mobile
+                ? onSave && (
+                    <StickyFooter>
+                      <Button variant="primary" label="Enregistrer" onClick={onCloseAndSave} />
+                    </StickyFooter>
+                  )
+                : (onClear || onSave) && (
+                    <Actions>
+                      {onClear && (
+                        <Button variant="flat" textColor={palette.darkPrimary} label="Tout effacer" onClick={onClear} />
+                      )}
+                      {onSave && <Button variant="flat" label="Enregistrer" onClick={onCloseAndSave} />}
+                    </Actions>
+                  )}
+            </Menu>
+          </OutsideClickHandler>
+        )}
       </MenuFilterRoot>
     </>
   )
