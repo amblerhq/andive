@@ -132,7 +132,6 @@ interface MenuFilterProps {
   transparent?: boolean
   openByDefault?: boolean
 }
-
 export function DropdownFilter({
   className,
   label,
