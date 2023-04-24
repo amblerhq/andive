@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import * as palette from '../constants/palette'
+import React from 'react'
 
 const horizontalMargins = 32
 const columnGutter = 8
@@ -227,6 +228,10 @@ const getMaxWidth = (props: AutoLayoutMaxWidth) => {
   return undefined
 }
 
+type AutoLayoutNoShadow = {
+  $renderWithAtLeastOneChild?: boolean
+}
+
 type AutoLayoutProps = AutoLayoutDir &
   AutoLayoutGap &
   AutoLayoutCard &
@@ -240,9 +245,10 @@ type AutoLayoutProps = AutoLayoutDir &
   AutoLayoutBorderRadius &
   AutoLayoutDisplay &
   AutoLayoutOverflow &
-  AutoLayoutMaxWidth
+  AutoLayoutMaxWidth &
+  AutoLayoutNoShadow
 
-export const AutoLayout = styled.div<AutoLayoutProps>`
+const AutoLayout_ = styled.div<AutoLayoutProps>`
   display: flex;
 
   ${getFlexDirection};
@@ -260,3 +266,16 @@ export const AutoLayout = styled.div<AutoLayoutProps>`
   ${getOverflow};
   ${getMaxWidth};
 `
+
+export const AutoLayout: React.FC<AutoLayoutProps> = ({children, $renderWithAtLeastOneChild, ...forwardedProps}) => {
+  if ($renderWithAtLeastOneChild) {
+    if (
+      React.Children.count(children) === 0 ||
+      React.Children.toArray(children).every(child => Boolean(child) === false)
+    ) {
+      return null
+    }
+  }
+
+  return <AutoLayout_ {...forwardedProps}>{children}</AutoLayout_>
+}
