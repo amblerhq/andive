@@ -228,7 +228,7 @@ const getMaxWidth = (props: AutoLayoutMaxWidth) => {
   return undefined
 }
 
-type AutoLayoutNoShadow = {
+type AutoLayoutRenderWithAtLeastOneChild = {
   $renderWithAtLeastOneChild?: boolean
 }
 
@@ -246,7 +246,7 @@ type AutoLayoutProps = AutoLayoutDir &
   AutoLayoutDisplay &
   AutoLayoutOverflow &
   AutoLayoutMaxWidth &
-  AutoLayoutNoShadow
+  AutoLayoutRenderWithAtLeastOneChild
 
 const AutoLayout_ = styled.div<AutoLayoutProps>`
   display: flex;
