@@ -77,7 +77,7 @@ const MobileHeader = styled.div`
   justify-content: center;
   align-items: center;
 
-  box-shadow: 0 2px 5px 0 ${palette.hexToRGBA(palette.darkPrimary, 0.2)};
+  box-shadow: 0 1px 0 0 #ddd;
   position: relative;
   padding: 8px 16px;
   height: 56px;
