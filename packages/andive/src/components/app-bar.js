@@ -2,10 +2,9 @@ import React, {useEffect, useState} from 'react'
 import PropTypes from 'prop-types'
 import styled, {css} from 'styled-components'
 
-import * as palette from '../constants/palette'
 import {ZIndexes} from '../constants/enum'
 
-function stickyAppBar({sticky, scrollable, stickyHeight, fade}) {
+function stickyAppBar({sticky, scrollable, stickyHeight}) {
   if (sticky || scrollable) {
     return css`
       position: fixed;
@@ -15,7 +14,7 @@ function stickyAppBar({sticky, scrollable, stickyHeight, fade}) {
 
       z-index: ${ZIndexes.FIXED};
 
-      box-shadow: 0 1px 0 0 #ddd, 0 ${2}px ${5}px 0 ${palette.hexToRGBA(palette.darkGrey, fade * 0.4)};
+      border-bottom: 1px solid #ddd;
     `
   }
 }
@@ -26,7 +25,7 @@ const AppBar = styled.div`
 
   background-color: #fff;
 
-  box-shadow: 0 1px 0 0 #ddd;
+  border-bottom: 1px solid #ddd;
 
   ${stickyAppBar}
 `
@@ -57,7 +56,6 @@ Sticky.propTypes = {
 
 export function AppBarComponent({children, fadeOffset = 1, height = 64, scrollable = false, ...props}) {
   const [sticky, setSticky] = useState(false)
-  const [fade, setFade] = useState(0)
 
   const childArray = React.Children.toArray(children)
   const baseChild = childArray.find(child => child.type !== Sticky)
@@ -69,27 +67,12 @@ export function AppBarComponent({children, fadeOffset = 1, height = 64, scrollab
     if (stickyChild) {
       setSticky(window.scrollY > height)
     }
-
-    if (stickyChild && !stickyChild.props.fadeOffset) {
-      setFade(fadeOffset)
-    } else {
-      const fadeOffsetReference = (stickyChild && stickyChild.props.fadeOffset) || fadeOffset
-      const origin = scrollable ? 0 : height
-      setFade(sticky || scrollable ? Math.min((window.scrollY - origin) / fadeOffsetReference, 1) : 0)
-    }
   })
 
   return (
     <>
       {(scrollable || sticky) && <AppBarFootprint baseHeight={height} stickyHeight={stickyHeight || 0} />}
-      <AppBar
-        sticky={sticky}
-        scrollable={scrollable}
-        fade={fade}
-        baseHeight={height}
-        stickyHeight={stickyHeight}
-        {...props}
-      >
+      <AppBar sticky={sticky} scrollable={scrollable} baseHeight={height} stickyHeight={stickyHeight} {...props}>
         {!sticky && baseChild}
         {stickyChild}
       </AppBar>
