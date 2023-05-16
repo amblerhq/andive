@@ -26,7 +26,7 @@ const AppBar = styled.div`
 
   background-color: #fff;
 
-  border-bottom: 1px solid #eee;
+  box-shadow: 0 1px 0 0 #ddd;
 
   ${stickyAppBar}
 `
