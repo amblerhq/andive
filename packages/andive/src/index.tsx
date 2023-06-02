@@ -206,6 +206,8 @@ export {default as LightningIcon} from './components/icons/lightning'
 
 export {default as EditAgreementIcon} from './components/icons/edit-agreement'
 
+export {default as NewTabIcon} from './components/icons/new-tab'
+
 export {default as SkipIcon} from './components/icons/skip'
 
 export {default as CounterOfferIcon} from './components/icons/counter-offer'

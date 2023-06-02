@@ -109,7 +109,8 @@ import {
   LightningIcon,
   SkipIcon,
   CounterOfferIcon,
-  EditAgreementIcon
+  EditAgreementIcon,
+  NewTabIcon
 } from '@ambler/andive'
 
 import Showcase from './showcase'
@@ -220,7 +221,8 @@ const icons = [
   LightningIcon,
   SkipIcon,
   CounterOfferIcon,
-  EditAgreementIcon
+  EditAgreementIcon,
+  NewTabIcon
 ]
 
 function TimedColor({interval, colors, children}) {
@@ -259,7 +261,8 @@ const newIcons = [
   {Icon: LightningIcon},
   {Icon: SkipIcon},
   {Icon: CounterOfferIcon},
-  {Icon: EditAgreementIcon}
+  {Icon: EditAgreementIcon},
+  {Icon: NewTabIcon}
 ]
 const updatedIcons = []
 
