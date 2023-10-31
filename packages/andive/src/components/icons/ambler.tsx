@@ -6,7 +6,7 @@ import {palette} from '../..'
 
 const DEFAULT_SIZE = 24
 
-const AmblerIcon = ({color = palette.lightBeetrootPurple, size = DEFAULT_SIZE, ...rest}) => {
+const AmblerIcon = ({color = palette.mediumBeetrootPurple, size = DEFAULT_SIZE, ...rest}) => {
   return (
     <SvgIcon color={color} size={size} {...rest}>
       <Ambler />

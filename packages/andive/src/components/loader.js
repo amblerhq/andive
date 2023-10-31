@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled, {keyframes} from 'styled-components'
 
-import {lightBeetrootPurple} from '../constants/palette'
+import {mediumBeetrootPurple} from '../constants/palette'
 import {ZIndexes} from '../constants/enum'
 
 const LoaderModal = styled.div`
@@ -63,7 +63,7 @@ const Circle = styled.circle`
   animation: ${dash} ${duration} ease-in-out infinite;
 `
 
-function Loader({size = 32, color = lightBeetrootPurple, ...props}) {
+function Loader({size = 32, color = mediumBeetrootPurple, ...props}) {
   return (
     <Svg viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg" width={size} height={size} {...props}>
       <Circle cx="33" cy="33" r="30" fill="none" stroke={color} />

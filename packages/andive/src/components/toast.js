@@ -5,7 +5,7 @@ import useInterval from 'use-interval'
 import moment from 'moment'
 
 import {ZIndexes} from '../constants/enum'
-import {success, error, warning, lightBeetrootPurple} from '../constants/palette'
+import {success, error, warning, mediumBeetrootPurple} from '../constants/palette'
 
 let queue = []
 
@@ -49,9 +49,9 @@ function typeToColor(type) {
     case ToastType.WARNING:
       return warning
     case ToastType.INFO:
-      return lightBeetrootPurple
+      return mediumBeetrootPurple
     default:
-      return lightBeetrootPurple
+      return mediumBeetrootPurple
   }
 }
 

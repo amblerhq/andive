@@ -26,7 +26,7 @@ const MenuLayout = styled.ul`
   padding: 8px;
 
   background: white;
-  border: 1px solid ${palette.mediumGrey};
+  border: 1px solid ${palette.darkGrey};
   border-radius: 8px;
   box-shadow: 0 1px 4px 0 ${palette.darkPrimary}44;
 

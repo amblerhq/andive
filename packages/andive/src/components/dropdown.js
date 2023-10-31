@@ -44,7 +44,7 @@ function DropdownComponent({
   return (
     <Dropdown fullWidth={fullWidth} {...props}>
       <Body2 color={palette.mediumPrimary}>{label}</Body2>
-      {disabled ? <Body1 color={palette.darkGrey}>{value || '—'}</Body1> : <Select {...selectProps} />}
+      {disabled ? <Body1 color={palette.lightPrimary}>{value || '—'}</Body1> : <Select {...selectProps} />}
     </Dropdown>
   )
 }

@@ -14,7 +14,7 @@ const UploadRow = styled.div<{$showError?: boolean; $isHighlighted?: boolean}>`
 
   padding: 16px;
 
-  border: 1px dashed ${({$isHighlighted}) => ($isHighlighted ? palette.lightBeetrootPurple : palette.lightPrimary)};
+  border: 1px dashed ${({$isHighlighted}) => ($isHighlighted ? palette.mediumBeetrootPurple : palette.lightPrimary)};
   ${({$showError}) => ($showError ? `border: 1px dashed ${palette.lightRadishRed}` : ``)};
   box-sizing: border-box;
   border-radius: 4px;
@@ -153,7 +153,7 @@ export const Upload = ({onChange, onDrag, error, loading, mobile, ...props}: Upl
                 <HiddenInput id="file" name="file" type="file" onChange={onChange} {...props} />
                 <PaddingBox>
                   <InputLabel htmlFor="file">
-                    <Body2 color={palette.lightBerryBlue}>Parcourir mes fichiers</Body2>
+                    <Body2 color={palette.mediumBerryBlue}>Parcourir mes fichiers</Body2>
                   </InputLabel>
                 </PaddingBox>
               </>

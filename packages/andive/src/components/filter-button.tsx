@@ -12,7 +12,7 @@ const FilterButtonRoot = styled(({active, backgroundColor, ...props}) => <button
   outline: none;
   border: none;
   background: ${({active, backgroundColor}) =>
-    backgroundColor || (active ? palette.mediumBerryBlue : palette.mediumGrey)};
+    backgroundColor || (active ? palette.mediumBerryBlue : palette.darkGrey)};
   border-radius: 16px;
   cursor: pointer;
   height: 40px;
@@ -31,7 +31,7 @@ const FilterButtonRoot = styled(({active, backgroundColor, ...props}) => <button
     `}
 
   &:hover {
-    background-color: ${({active}) => (active ? palette.darkBerryBlue : palette.darkGrey)};
+    background-color: ${({active}) => (active ? palette.darkBerryBlue : palette.lightPrimary)};
   }
 `
 

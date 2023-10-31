@@ -57,7 +57,7 @@ function Block({icon, variant, colors, className, children}: Props) {
     : variant === 'warning'
     ? palette.lightPotatoYellow
     : variant === 'info'
-    ? palette.hexToRGBA(palette.lightBeetrootPurple, 0.6)
+    ? palette.lightBeetrootPurple
     : variant === 'disabled'
     ? palette.border
     : palette.white
