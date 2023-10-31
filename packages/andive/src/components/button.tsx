@@ -8,7 +8,7 @@ import {ButtonGroupContext} from './button-group'
 import Box from './box'
 
 const lightGreyAlpha = palette.hexToRGBA(palette.mediumPrimary, 0.5)
-const lightBeetrootPurpleAlpha = palette.hexToRGBA(palette.mediumBeetrootPurple, 0.5)
+const lightBeetrootPurpleAlpha = palette.hexToRGBA(palette.darkBeetrootPurple, 0.5)
 
 interface ButtonProps {
   className?: string
@@ -58,7 +58,7 @@ const ButtonWrapper = styled.div.attrs({
     css`
       &:hover {
         background-color: ${props.$invert
-          ? palette.hexToRGBA(palette.darkGrey, 0.2)
+          ? palette.hexToRGBA(palette.lightPrimary, 0.2)
           : props.theme.hover.backgroundColor};
         border-radius: ${props.theme.hover.borderRadius}px;
       }
@@ -121,7 +121,7 @@ function defaultColor({disabled}) {
     return lightBeetrootPurpleAlpha
   }
 
-  return palette.mediumBeetrootPurple
+  return palette.darkBeetrootPurple
 }
 
 const DefaultButton = styled(ResetButton)<{
@@ -134,7 +134,7 @@ const DefaultButton = styled(ResetButton)<{
   disabled?: boolean
   loading?: boolean
 }>`
-  border: 1px solid ${palette.mediumBeetrootPurple};
+  border: 1px solid ${palette.darkBeetrootPurple};
   background-color: ${props => props.backgroundColor || palette.white};
   color: ${props => props.color};
   height: ${props => (props.mobile ? 40 : 56)}px;
@@ -191,8 +191,8 @@ const PrimaryButton = styled(DefaultButton)<{
   backgroundColor?: string
   disabled?: boolean
 }>`
-  border: 1px solid ${props => (props.invert ? palette.white : palette.mediumBeetrootPurple)};
-  background-color: ${props => props.backgroundColor || palette.mediumBeetrootPurple};
+  border: 1px solid ${props => (props.invert ? palette.white : palette.darkBeetrootPurple)};
+  background-color: ${props => props.backgroundColor || palette.darkBeetrootPurple};
   color: ${props => props.color};
   border-radius: 28px;
   box-shadow: 0 2px 5px 0 ${palette.hexToRGBA(palette.darkPrimary, 0.2)};
@@ -317,7 +317,7 @@ const Button = React.forwardRef(function Button(
       return invert ? palette.white : palette.mediumBerryBlue
     }
 
-    return palette.mediumBeetrootPurple
+    return palette.darkBeetrootPurple
   }, [variant, loading, invert])
 
   const contentJsx = (

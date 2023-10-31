@@ -44,7 +44,7 @@ const getColor = ({state}: GetColorProps) => {
       `
     case 'EMPTY':
       return css`
-        background-color: ${palette.mediumGrey};
+        background-color: ${palette.darkGrey};
         ::placeholder {
           color: ${palette.secondaryText};
         }

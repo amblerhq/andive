@@ -16,7 +16,7 @@ const backgroundColors = {
   success: palette.lightLettuceGreen,
   error: palette.lightRadishRed,
   warning: palette.lightPotatoYellow,
-  info: palette.lightBeetrootPurple,
+  info: palette.mediumBeetrootPurple,
   disabled: palette.border
 }
 

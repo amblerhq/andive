@@ -5,7 +5,7 @@ import {palette} from '../..'
 
 const DEFAULT_SIZE = 24
 
-const PatientAddIcon = ({color = palette.mediumBeetrootPurple, size = DEFAULT_SIZE, ...rest}) => {
+const PatientAddIcon = ({color = palette.darkBeetrootPurple, size = DEFAULT_SIZE, ...rest}) => {
   return (
     <SvgIcon color={color} size={size} {...rest}>
       <PatientAdd />

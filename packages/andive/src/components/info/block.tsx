@@ -57,9 +57,9 @@ function Block({icon, variant, colors, className, children}: Props) {
     : variant === 'warning'
     ? palette.lightPotatoYellow
     : variant === 'info'
-    ? palette.hexToRGBA(palette.lightBeetrootPurple, 0.6)
+    ? palette.lightBeetrootPurple
     : variant === 'disabled'
-    ? palette.border
+    ? palette.darkGrey
     : palette.white
 
   // TODO: Fix the icon's React.cloneElement issue (remove the 'as any' cast to see).

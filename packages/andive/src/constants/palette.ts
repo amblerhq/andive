@@ -8,8 +8,8 @@ export const mediumPrimary = '#708c91'
 export const darkPrimary = '#054752'
 
 export const lightGrey = '#fafafa'
-export const mediumGrey = '#ededed'
-export const darkGrey = '#dddddd'
+export const mediumGrey = '#f4f4f4'
+export const darkGrey = '#ededed'
 
 export const darkLettuceGreen = '#0c7615'
 export const mediumLettuceGreen = '#5dd167'
@@ -23,13 +23,13 @@ export const darkPotatoYellow = '#625d11'
 export const mediumPotatoYellow = '#e9e163'
 export const lightPotatoYellow = '#f2eda1'
 
-export const darkBeetrootPurple = '#55468c'
-export const mediumBeetrootPurple = '#5e48af'
-export const lightBeetrootPurple = '#7056ce'
+export const darkBeetrootPurple = '#5e48af'
+export const mediumBeetrootPurple = '#7056ce'
+export const lightBeetrootPurple = '#ece7ff'
 
 export const darkBerryBlue = '#00a3e4'
 export const mediumBerryBlue = '#00aff5'
-export const lightBerryBlue = '#1dbeff'
+export const lightBerryBlue = '#d3f2ff'
 
 // Semantic color palette
 
@@ -41,7 +41,7 @@ export const error = mediumRadishRed
 export const errorText = darkRadishRed
 export const success = mediumLettuceGreen
 export const successText = darkLettuceGreen
-export const border = mediumGrey
+export const border = lightPrimary
 
 export function hexToRGBA(hex: string, alpha: number) {
   const r = parseInt(hex.slice(1, 3), 16),

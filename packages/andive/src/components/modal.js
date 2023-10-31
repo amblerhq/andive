@@ -9,7 +9,7 @@ import {ZIndexes} from '../constants/enum'
 
 const Modal = posed(styled.div`
   position: fixed;
-  background: ${props => (props.transparent ? palette.hexToRGBA(palette.white, 0.8) : palette.lightBeetrootPurple)};
+  background: ${props => (props.transparent ? palette.hexToRGBA(palette.white, 0.8) : palette.mediumBeetrootPurple)};
 
   top: 0;
   left: 0;
