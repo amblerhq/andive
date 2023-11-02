@@ -30,7 +30,7 @@ const Menu = styled.div<{openLeft?: boolean; mobile?: boolean}>`
   margin-top: 8px;
   padding: 16px 16px 0 16px;
   border-radius: 8px;
-  box-shadow: 0 1px 4px 0 ${palette.lightPrimary};
+  box-shadow: 0 1px 4px 0 ${palette.hexToRGBA(palette.darkPrimary, 0.3)};
   background: white;
 
   z-index: ${ZIndexes.MODALS + 1};
