@@ -60,7 +60,7 @@ const AndiveCollapsible = React.forwardRef<HTMLInputElement, AndiveCollapsiblePr
 
     return (
       <Collapsible {...props} data-state={open ? 'open' : 'closed'} ref={forwardedRef}>
-        <CollapsibleTrigger onClick={() => setOpen(open => !open)}>
+        <CollapsibleTrigger type="button" onClick={() => setOpen(open => !open)}>
           <StyledTriggerWrapper>
             {trigger}
             <StyledIconWrapper>
