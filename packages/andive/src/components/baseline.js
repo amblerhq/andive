@@ -137,15 +137,21 @@ const meyerResetCss = css`
 
 const andiveResetCss = css`
   * {
-    box-sizing: border-box;
-    font-family: ${fontFamily};
+    /*
+      ! Handled by @ambler/andive-next
+      box-sizing: border-box;
+      font-family: Asap;
+    */
 
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
   }
 
   a {
-    text-decoration: none;
+    /*
+      ! Handled by @ambler/andive-next
+      text-decoration: none;
+    */
   }
 
   button {
