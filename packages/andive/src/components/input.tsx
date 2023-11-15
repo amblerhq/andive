@@ -137,23 +137,26 @@ const FieldLabel = styled.label`
 type GetCloseIconPositionProps = {
   small: boolean
   hasLabel: boolean
+  $textarea: boolean
 }
-function getCloseIconPosition({small, hasLabel}: GetCloseIconPositionProps) {
+function getCloseIconPosition({small, hasLabel, $textarea}: GetCloseIconPositionProps) {
   let top = 24
   if (small) {
     top = 16
   }
 
-  if (hasLabel) {
-    const body2Height = 24
-    const verticalSpacing = 8
-    top += body2Height + verticalSpacing
+  if ($textarea) {
+    return css`
+      position: absolute;
+      right: ${top}px;
+      top: ${top}px;
+    `
   }
 
   return css`
     position: absolute;
-    left: calc(100% - 40px);
-    top: ${top}px;
+    right: ${top}px;
+    bottom: ${top}px;
   `
 }
 
@@ -304,7 +307,7 @@ export function Input({
           />
           {hasIcon && <Icon small={small}>{icon}</Icon>}
           {hasClear && (
-            <Close small={small} hasLabel={Boolean(label)} onClick={handleClear}>
+            <Close small={small} hasLabel={Boolean(label)} $textarea={textarea} onClick={handleClear}>
               <CloseIcon inline />
             </Close>
           )}

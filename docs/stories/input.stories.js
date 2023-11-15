@@ -86,6 +86,19 @@ function WithClearStory() {
           />
         </div>
       </Showcase>
+      <Showcase>
+        <div style={{width: 150, background: 'white'}}>
+          <Input
+            label="Avec un label plus long que les autres"
+            small
+            placeholder={'Date de naissance'}
+            value={value}
+            onChange={onChange}
+            onClear={onClear}
+            alwaysShowOnClear
+          />
+        </div>
+      </Showcase>
     </>
   )
 }

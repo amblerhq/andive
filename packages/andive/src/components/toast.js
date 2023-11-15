@@ -71,14 +71,21 @@ const ToastContainerRoot = styled.div`
 `
 
 const ToastComponent = styled.div`
+  --font-size: 24px;
+  @media (max-width: 992px) {
+    --font-size: 18px;
+  }
+
   pointer-events: none;
 
-  font-size: 24px;
+  font-size: var(--font-size);
   color: white;
   height: ${toastHeight}px;
 
+  padding: 8px 16px;
+
   display: flex;
-  flex-flow: row nowrap;
+  flex-flow: row wrap;
   justify-content: center;
   align-items: center;
 
