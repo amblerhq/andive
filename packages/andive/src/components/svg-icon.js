@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
+import {palette} from '..'
 
 const getWidth = props => (props.circle ? 32 : props.size || 32)
 
@@ -17,7 +18,7 @@ const IconRoot = styled(({size, circleColor, circle, ...props}) => <SvgRoot size
   flex: 0 0 ${getWidth}px;
 
   border-radius: ${props => (props.circle ? '50%' : 0)};
-  background: ${props => (props.circle ? props.circleColor || '#ededed' : 'transparent')};
+  background: ${props => (props.circle ? props.circleColor || palette.darkGrey : 'transparent')};
   & > * {
     position: absolute;
     top: calc(50% - ${props => props.size / 2}px);

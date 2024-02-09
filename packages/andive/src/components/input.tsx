@@ -28,7 +28,7 @@ const getColor = ({state}: GetColorProps) => {
     case 'FILLED':
       return css`
         background-color: white;
-        border: 1px solid #dddddd;
+        border: 1px solid ${palette.lightPrimary};
         color: ${palette.mainText};
       `
     case 'ERRORED':
@@ -39,7 +39,7 @@ const getColor = ({state}: GetColorProps) => {
       `
     case 'DISABLED':
       return css`
-        background-color: #dddddd;
+        background-color: ${palette.lightPrimary};
         color: ${palette.secondaryText};
       `
     case 'EMPTY':
