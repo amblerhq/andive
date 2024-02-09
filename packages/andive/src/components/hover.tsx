@@ -1,4 +1,4 @@
-import {palette} from 'index'
+import {palette} from '..'
 import React from 'react'
 import styled from 'styled-components'
 
