@@ -1,4 +1,4 @@
-import {palette} from '..'
+import * as palette from '../constants/palette'
 import React from 'react'
 import styled from 'styled-components'
 
