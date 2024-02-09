@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
-import {palette} from '..'
+import * as palette from '../constants/palette'
 
 const getWidth = props => (props.circle ? 32 : props.size || 32)
 
