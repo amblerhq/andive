@@ -41,7 +41,7 @@ const MenuLayout = styled.ul`
 const OptionLayout = styled.div`
   cursor: pointer;
   :hover {
-    ${props => !props.disabled && `background: #fafafa;`}
+    ${props => !props.disabled && `background: ${palette.lightGrey};`}
   }
 
   ${props =>
@@ -87,7 +87,7 @@ const OptionGroupLayout = styled.div`
   cursor: pointer;
 
   :hover {
-    background: #fafafa;
+    background: ${palette.lightGrey};
   }
 `
 
@@ -156,7 +156,7 @@ const BackButton = styled(BackIcon)`
 
   background: white;
   :hover {
-    background: #fafafa;
+    background: ${palette.lightGrey};
   }
 `
 
