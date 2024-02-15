@@ -9,7 +9,7 @@ export const fontWeights = {
   semiBold: 600
 }
 
-export const fontFamily = 'Asap'
+export const fontFamily = 'Urbanist'
 
 interface StyleAPI {
   color?: string
