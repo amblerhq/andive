@@ -3,10 +3,9 @@ import PropTypes from 'prop-types'
 
 import * as palette from '../constants/palette'
 
-export const fontWeights = {
-  regular: 400,
-  medium: 500,
-  semiBold: 600
+const fontWeights = {
+  regular: 500,
+  semiBold: 700
 }
 
 export const fontFamily = 'Urbanist'
