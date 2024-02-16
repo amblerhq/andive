@@ -31,7 +31,7 @@ const FilterButtonRoot = styled(({active, backgroundColor, ...props}) => <button
     `}
 
   &:hover {
-    background-color: ${({active}) => (active ? palette.darkBerryBlue : palette.lightPrimary)};
+    background-color: ${({active}) => (active ? palette.darkBerryBlue : palette.lightBerryBlue)};
   }
 `
 

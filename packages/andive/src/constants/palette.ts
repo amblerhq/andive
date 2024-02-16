@@ -81,7 +81,7 @@ export const mediumLettuceGreen = amblea.green[500] // '#5dd167'
 export const lightLettuceGreen = amblea.green[200] // '#9ee3a4'
 
 export const darkRadishRed = amblea.red[700] // '#a61b30'
-export const mediumRadishRed = amblea.red[500] // '#f53f5b'
+export const mediumRadishRed = amblea.red[700] // '#a61b30'
 export const lightRadishRed = amblea.red[200] // '#f98c9d'
 
 export const darkPotatoYellow = amblea.orange[700] // '#625d11'
