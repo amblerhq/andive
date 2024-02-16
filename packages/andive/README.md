@@ -26,11 +26,11 @@ function HelloWorld() {
 }
 ```
 
-2. Import the Asap Google font (default Andive's font).
+2. Import the Urbanist Google font (default Andive's font).
 
 ```
 <head>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Asap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Urbanist" />
 </head>
 ```
 
