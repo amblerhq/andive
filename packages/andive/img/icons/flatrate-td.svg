@@ -1,5 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-    <text fill="currentcolor" fill-rule="evenodd" font-family="Asap-Regular, Asap" font-size="17">
+    <text fill="currentcolor" fill-rule="evenodd" font-family="Urbanist-Regular, Urbanist"
+        font-size="17">
         <tspan x="1.426" y="18">TD</tspan>
     </text>
 </svg>
