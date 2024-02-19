@@ -1,7 +1,7 @@
 // Raw color palette
 
 // ? copied from andive next for compatibility during migration
-const amblea = {
+export const amblea = {
   blue: {
     800: '#0c2344',
     700: '#1a4b92',

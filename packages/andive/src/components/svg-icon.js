@@ -18,7 +18,7 @@ const IconRoot = styled(({size, circleColor, circle, ...props}) => <SvgRoot size
   flex: 0 0 ${getWidth}px;
 
   border-radius: ${props => (props.circle ? '50%' : 0)};
-  background: ${props => (props.circle ? props.circleColor || palette.darkGrey : 'transparent')};
+  background: ${props => (props.circle ? props.circleColor || palette.amblea.grey[300] : 'transparent')};
   & > * {
     position: absolute;
     top: calc(50% - ${props => props.size / 2}px);
