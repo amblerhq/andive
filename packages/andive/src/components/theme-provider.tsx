@@ -23,7 +23,8 @@ export const defaultTheme = {
   hover: {
     backgroundColor: palette.lightGrey,
     borderRadius: 4
-  }
+  },
+  letterSpacing: '0.3px'
 }
 
 export default function AmblerThemeProvider({theme = defaultTheme, children}) {
