@@ -11,14 +11,14 @@ import Box from './box'
 export const Divider = styled.div`
   width: calc(100% - 16px);
   height: 1px;
-  background: #eee;
+  background: ${palette.border};
   margin: 8px;
 `
 
 export const FullWidthDivider = styled.div`
   width: calc(100% + 16px);
   height: 1px;
-  background: #eee;
+  background: ${palette.border};
   margin: 8px 0;
 
   position: relative;

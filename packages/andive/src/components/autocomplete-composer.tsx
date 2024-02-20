@@ -7,18 +7,19 @@ import {Body1} from './typography'
 import Box from './box'
 import {DropdownComposer} from './dropdown-composer'
 import {DropdownBase} from './dropdown-base'
+import {palette} from 'index'
 
 export const Divider = styled.div`
   width: calc(100% - 16px);
   height: 1px;
-  background: #eee;
+  background: ${palette.border};
   margin: 8px;
 `
 
 export const FullWidthDivider = styled.div`
   width: calc(100% + 16px);
   height: 1px;
-  background: #eee;
+  background: ${palette.border};
   margin: 8px 0;
 
   position: relative;
