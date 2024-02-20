@@ -5,7 +5,7 @@ import useInterval from 'use-interval'
 import moment from 'moment'
 
 import {ZIndexes} from '../constants/enum'
-import {success, error, warning, mediumBeetrootPurple} from '../constants/palette'
+import * as palette from '../constants/palette'
 
 let queue = []
 
@@ -43,15 +43,15 @@ export const toastWarning = (message, icon) => {
 function typeToColor(type) {
   switch (type) {
     case ToastType.SUCCESS:
-      return success
+      return palette.amblea.green[700]
     case ToastType.ERROR:
-      return error
+      return palette.amblea.red[700]
     case ToastType.WARNING:
-      return warning
+      return palette.amblea.orange[700]
     case ToastType.INFO:
-      return mediumBeetrootPurple
+      return palette.amblea.blue[600]
     default:
-      return mediumBeetrootPurple
+      return palette.amblea.blue[600]
   }
 }
 
