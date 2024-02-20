@@ -7,7 +7,7 @@ import {Body1} from './typography'
 import Box from './box'
 import {DropdownComposer} from './dropdown-composer'
 import {DropdownBase} from './dropdown-base'
-import {palette} from 'index'
+import * as palette from '../constants/palette'
 
 export const Divider = styled.div`
   width: calc(100% - 16px);
