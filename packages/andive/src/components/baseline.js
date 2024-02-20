@@ -163,6 +163,7 @@ const andiveResetCss = css`
 const BaselineCss = createGlobalStyle`
   ${meyerResetCss}
   ${andiveResetCss}
+  letter-spacing: 0.3px;
 `
 
 export default function AndiveProvider({theme, children}) {
