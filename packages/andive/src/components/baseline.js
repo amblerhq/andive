@@ -139,6 +139,7 @@ const andiveResetCss = css`
   * {
     box-sizing: border-box;
     font-family: ${fontFamily};
+    letter-spacing: 0.3px;
 
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
@@ -163,7 +164,6 @@ const andiveResetCss = css`
 const BaselineCss = createGlobalStyle`
   ${meyerResetCss}
   ${andiveResetCss}
-  letter-spacing: 0.3px;
 `
 
 export default function AndiveProvider({theme, children}) {
