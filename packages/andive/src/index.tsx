@@ -1,6 +1,6 @@
 /**
  * Icons
- */
+
 
 export {default as Alert} from './components/alert'
 
@@ -212,9 +212,11 @@ export {default as SkipIcon} from './components/icons/skip'
 
 export {default as CounterOfferIcon} from './components/icons/counter-offer'
 
+ */
+
 /**
  * Illustrations
- */
+
 
 export {default as DirectionIllustration} from './components/illustrations/direction'
 
@@ -279,6 +281,8 @@ export {default as InvoiceValidatedIllustration} from './components/illustration
 export {default as TcFourStars} from './components/illustrations/tc-four-stars'
 
 export {default as TcEmpty} from './components/illustrations/tc-empty'
+
+ */
 
 /**
  * Components
@@ -379,6 +383,6 @@ export {default as Collapsible} from './components/collapsible'
  * Constants
  */
 
-import * as paletteObject from './constants/palette'
-export const palette = paletteObject
+// import * as paletteObject from './constants/palette'
+// export const palette = paletteObject
 export {ZIndexes} from './constants/enum'
