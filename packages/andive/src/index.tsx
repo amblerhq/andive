@@ -383,6 +383,6 @@ export {default as Collapsible} from './components/collapsible'
  * Constants
  */
 
-// import * as paletteObject from './constants/palette'
-// export const palette = paletteObject
+import * as paletteObject from './constants/palette'
+export const palette = paletteObject
 export {ZIndexes} from './constants/enum'

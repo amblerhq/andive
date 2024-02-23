@@ -6,7 +6,7 @@ import * as palette from '../constants/palette'
 import Button from './button'
 import {H2} from './typography'
 import {ZIndexes} from '../constants/enum'
-import {CloseIcon} from '..'
+import CloseIcon from '../components/icons/close'
 import {FilterButton} from './filter-button'
 
 const MenuFilterRoot = styled.div<{open?: boolean}>`
