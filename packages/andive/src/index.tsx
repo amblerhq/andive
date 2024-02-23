@@ -2,7 +2,6 @@
  * Icons
 
 
-export {default as Alert} from './components/alert'
 
 export {default as AccountIcon} from './components/icons/account'
 
@@ -287,6 +286,8 @@ export {default as TcEmpty} from './components/illustrations/tc-empty'
 /**
  * Components
  */
+
+export {default as Alert} from './components/alert'
 
 export {default as Info} from './components/info'
 
